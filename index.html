@@ -1,19 +1,115 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Industry Partner Database</title>
-    <link href="index.css" rel="stylesheet" type="text/css">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
 
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  
   </head>
-  <body> 
-    
-    <script src="index.js"></script>
 
-    <center> <h1 style="margin-top: 25%">Industry Partner Database</h1> </center>
+  <body>
+    
+    <script src="script.js"></script>
+
+    <div id="formDiv">
+    <form action="submit.php" method="post">
+
+      <div class="formSetion">
+
+      <label>Prefix</label>
+      <div class="custom-select">
+      <select>
+        <option value="" ></option>
+        <option value="" >Mr</option>
+        <option value="" >Ms</option>
+        <option value="" >Mrs</option>
+      </select>
+      <!-- </div> -->
+
+      <div class="sideByside">
+
+      <div class="normalBlock" >  
+      <label for="fname">First Name:</label>
+      <input type="text" id="fname" name="fname">
+      </div>
+
+      <div class="normalBlock" >
+      <label for="lname">Last Name:</label>
+      <input type="text" id="lname" name="lname">
+      </div>
+
+      </div>
+      </div>
+      </div>
+
+      <div class="formSetion">
+      <div class="sideByside">
+      <div class="normalBlock" > 
+      <label for="email">Email:</label>
+      <input type="Email" id="email" name="email" placeholder="eg.john@gmail.com">
+      </div>
+
+     <div class="normalBlock" > 
+      <label for="phoneno">Phone No:</label>
+      <input type="Phone" id="phoneno" name="phoneno" placeholder="eg. 316-999-9999" height="200">
+     </div>
+
+      </div>
+      </div>
+
+      <div class="formSetion">
+        <div class="sideByside">
+      <div class="normalBlock" > 
+      <label for="college">College:</label>
+      <input type="text" id="college" name="college" placeholder="eg. SouthWest College">
+      </div>
+        </div>
+      </div>
+
+      <div class="formSetion">
+
+        <div class="sideByside">
+        <div class="normalBlock" >
+      <label for="currsts">Current Status:</label>
+      <input type="text" id="currsts" name="currsts" placeholder="eg. Employed">
+      </div>
+
+      <div class="normalBlock" >
+      <label for="linkedin">LinkedIn:</label>
+      <input type="text" id="linkedin" name="linkedin" placeholder="eg. jeffweiner08">
+      </div>
+        </div>
+      <div class="sideByside">
+      <div class="normalBlock" >
+      <label for="workplace">Workplace:</label>
+      <input type="text" id="workplace" name="workplace" placeholder="eg. Google">
+      </div>
+
+      <div class="normalBlock" >            
+      <label for="position">Position Title:</label>
+      <input type="text" id="position" name="position" placeholder="eg. Manager">
+      </div>
+      </div>
+
+      </div>
+
+      <div class="formSetion">
+
+      <label for="notes">Notes:</label>
+      <textarea type="text" id="notes" name="notes" placeholder="" rows="4" cols="45"></textarea>
+
+      </div>
+     
+      <input type="submit" src="submitArrow.jpg" id="submit" name="submit" alt="submit">
+    </form>
+    </div>
+
+    <!-- beta -->
 
   </body>
-</html>
 
+</html>
