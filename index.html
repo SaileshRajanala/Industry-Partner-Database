@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <title>Industry Partner Database</title>
     <link href="style.css" rel="stylesheet" type="text/css">
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
   
   </head>
 
@@ -15,20 +16,21 @@
     
     <script src="script.js"></script>
 
-    <div id="formDiv">
+    <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1>
+
+    <div class="formDiv">
     <form action="submit.php" method="post">
 
       <div class="formSetion">
 
       <label>Prefix</label>
-      <div class="custom-select">
+    
       <select>
         <option value="" ></option>
         <option value="" >Mr</option>
         <option value="" >Ms</option>
         <option value="" >Mrs</option>
       </select>
-      <!-- </div> -->
 
       <div class="sideByside">
 
@@ -42,7 +44,6 @@
       <input type="text" id="lname" name="lname">
       </div>
 
-      </div>
       </div>
       </div>
 
@@ -100,11 +101,12 @@
       <div class="formSetion">
 
       <label for="notes">Notes:</label>
-      <textarea type="text" id="notes" name="notes" placeholder="" rows="4" cols="45"></textarea>
+      <textarea type="text" id="notes" name="notes" placeholder="" rows="5"></textarea>
 
       </div>
      
       <input type="submit" src="submitArrow.jpg" id="submit" name="submit" alt="submit">
+      
     </form>
     </div>
 
