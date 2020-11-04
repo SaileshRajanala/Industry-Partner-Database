@@ -11,6 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 
+  <!-- JavaScript (EXTERNAL) -->
+  <script type="script.js"></script>
+
 </head>
 
 <body>
