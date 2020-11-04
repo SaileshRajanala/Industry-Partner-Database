@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Industry Partner Database</title>
@@ -24,25 +24,25 @@
 
       <div class="formSetion">
 
-      <label>Prefix</label>
+      <label for="prefix">Prefix</label>
     
-      <select>
-        <option value="" ></option>
-        <option value="" >Mr</option>
-        <option value="" >Ms</option>
-        <option value="" >Mrs</option>
+      <select id="prefix" name="prefix" required>
+        <option value=""></option>
+        <option value="Mr">Mr</option>
+        <option value="Ms">Ms</option>
+        <option value="Mrs">Mrs</option>
       </select>
 
       <div class="sideByside">
 
       <div class="normalBlock" >  
       <label for="fname">First Name:</label>
-      <input type="text" id="fname" name="fname">
+      <input type="text" id="fname" name="fname" required>
       </div>
 
       <div class="normalBlock" >
       <label for="lname">Last Name:</label>
-      <input type="text" id="lname" name="lname">
+      <input type="text" id="lname" name="lname" required>
       </div>
 
       </div>
@@ -52,12 +52,12 @@
       <div class="sideByside">
       <div class="normalBlock" > 
       <label for="email">Email:</label>
-      <input type="Email" id="email" name="email" placeholder="eg. name@email.com">
+      <input type="Email" id="email" name="email" placeholder="eg. name@email.com" required>
       </div>
 
      <div class="normalBlock" > 
       <label for="phoneno">Phone No:</label>
-      <input type="Phone" id="phoneno" name="phoneno" placeholder="eg. 123-456-7890" height="200">
+      <input type="Phone" id="phoneno" name="phoneno" placeholder="eg. 123-456-7890" height="200" required>
      </div>
 
       </div>
