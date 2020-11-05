@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 
   <!-- JavaScript (EXTERNAL) -->
-  <script type="script.js"></script>
+  <script src="script.js"></script>
 
 </head>
 
@@ -24,20 +24,26 @@
 
 include "connect.php";
 
-$prefix    = $_POST["prefix"];
-$fname     = $_POST["fname"];
-$lname     = $_POST["lname"];
-$email     = $_POST["email"];
-$phoneno   = $_POST["phoneno"];
-$college   = $_POST["college"];
-$currsts   = $_POST["currsts"];
-$linkedin  = $_POST["linkedin"];
-$workplace = $_POST["workplace"];
-$position  = $_POST["position"];
-$notes     = $_POST["notes"];
+$prefix         = $_POST["prefix"];
+$first_name     = $_POST["first_name"];
+$last_name      = $_POST["last_name"];
+$email          = $_POST["email"];
+$phone_no       = $_POST["phone_no"];
+$college        = $_POST["college"];
+$current_status = $_POST["current_status"];
+$linkedin       = $_POST["linkedin"];
+$workplace      = $_POST["workplace"];
+$position       = $_POST["position"];
+$notes          = $_POST["notes"];
 
-$sql = "INSERT INTO Contacts (Prefix,First_Name, Last_Name, Email, Phone_Number, College, Current_Status, LinkedIn, Workplace, Title, Notes)
-VALUES('$prefix','$fname','$lname','adshisd@asd.com','$phoneno','$college','$currsts','$linkedin','$workplace','$position','$notes');";
+$sql = "
+
+INSERT INTO 
+Contacts (Prefix, First_Name, Last_Name, Email, Phone_Number, College, Current_Status, LinkedIn, Workplace, Title, Notes)
+
+VALUES ('$prefix','$first_name','$last_name','$email','$phone_no','$college','$current_status','$linkedin','$workplace','$position','$notes');
+
+";
 
 if (mysqli_query($conn, $sql)) 
 {
