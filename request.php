@@ -11,12 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
   </head>
-  <body>
-  </body>
+  <body></body>
+
 <?php
-include "connect.php" ;
+include "connect.php";
 
 $sql = "SELECT First_Name, Last_Name, phoneNo,college,currentStatus,linkedin,workplace,position,notes FROM Contacts";
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) 
