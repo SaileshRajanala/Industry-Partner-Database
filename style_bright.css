@@ -149,6 +149,7 @@ input:focus
 {
   background-color: black;
   color: white; 
+  box-shadow: none;
 }
 
 input[type="submit"]
