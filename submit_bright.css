@@ -7,12 +7,21 @@ body
   font-size: x-large;
 }
 
-@-webkit-keyframes launch
+@-webkit-keyframes leftlaunch
 {
   0%
   {
-    color: black;
-    transform: scale(2);
+    opacity: 0;
+    transform: translateX(-74px);
+  }
+}
+
+@-webkit-keyframes rightlaunch
+{
+  0%
+  {
+    opacity: 0;
+    transform: translateX(74px);
   }
 }
 
@@ -20,6 +29,11 @@ body
 {
 	font-size: 225%;
 	font-family: "Comfortaa";
+
+	animation-name: leftlaunch;
+  	animation-delay: 0.5s;
+  	animation-fill-mode: both;
+  	animation-duration: 0.5s;
 }
 
 .summary
@@ -35,6 +49,11 @@ body
 
 	box-shadow: 0px 0px 25px rgb(200,200,200);
 	background-color: transparent;
+
+	animation-name: rightlaunch;
+  	animation-delay: 1s;
+  	animation-fill-mode: both;
+  	animation-duration: 0.5s;
 }
 
 .summaryTable
@@ -68,11 +87,13 @@ td
 tr
 {
 	transition: all 0.1s;
+	display: block;
+	border-radius: 47px;
 }
 
 tr:hover
 {
-	background-color: rgb(240,240,240);
+	box-shadow: 0px 0px 13px rgb(200,200,200);
 }
 
 
