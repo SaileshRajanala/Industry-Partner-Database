@@ -5,6 +5,26 @@ body
   padding: 10%;
   color: white;
   font-size: x-large;
+  background-image: url('form_wall_dark.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+	
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+
+  animation-name: blurOut;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes blurOut
+{
+  0%
+  {
+  -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+  }
 }
 
 @-webkit-keyframes leftlaunch
