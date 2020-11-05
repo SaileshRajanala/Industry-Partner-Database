@@ -29,7 +29,7 @@ body
 	
 	padding: 2%;
 	margin: 2%;
-	margin-top: 7%;
+	margin-top: 4%;
 	padding-left: 5%;
 	padding-right: 5%;
 
@@ -41,9 +41,8 @@ body
 {
 	width: 96%;
 	margin: 2%;
-	margin-bottom: 4.7%;
 	padding: 4%;
-	border-radius: 47px;
+	border-radius: 50px;
 	background-color: rgb(25,25,25);
 	box-shadow: 0px 0px 25px black;
 	border: 1px solid black;
@@ -53,9 +52,10 @@ body
 
 .summaryTable:hover
 {
-	border: 1px solid white;
-	transform: scale(1.04);
+	/*border: 1px solid white;*/
+	transform: scale(1.07);
 	box-shadow: none;
+	border: none;
 }
 
 td
@@ -70,7 +70,7 @@ td
 
 tr
 {
-	transition: all 0.1s;
+	transition: all 0.25s;
 }
 
 tr:hover
