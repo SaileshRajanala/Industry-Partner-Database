@@ -23,6 +23,8 @@
 
   <?php
 
+  include "connect.php";
+
   // // Array to store all field ids from HTML
 
 $htmlFields = ["prefix"];
@@ -53,54 +55,8 @@ array_push($tableColumns, "Workplace");
 array_push($tableColumns, "Title");
 array_push($tableColumns, "Notes");
 
-
-  ?>
-    
-  <div id="thankYou">
-    Thank you for your submission.
-  </div>
-
-  <div class="summary">
-
-    <h2>Here's the Summary.</h2>
-
-    <table class="summaryTable">
-      
-      <tr><td>First Name</td><td>Sailesh</td></tr>
-
-      <?php
-
-      for ($i = 0; $i < count($tableColumns); $i++)
-        echo "<tr><td>" . $tableColumns[$i] . "
-              </td><td>'{$_POST["" . $htmlFields[$i] . ""]}'</td></tr>";
-
-      ?>
-
-    </table>
-
-  </div>
-
-  </body>
-
-<?php
-
-include "connect.php";
-
-// // Variables below store html form data 
-
-// $prefix         = $_POST["prefix"];
-// $first_name     = $_POST["first_name"];
-// $last_name      = $_POST["last_name"];
-// $email          = $_POST["email"];
-// $phone_number   = $_POST["phone_number"];
-// $college        = $_POST["college"];
-// $current_status = $_POST["current_status"];
-// $linkedin       = $_POST["linkedin"];
-// $workplace      = $_POST["workplace"];
-// $position       = $_POST["position"];
-// $notes          = $_POST["notes"];
-
-// Variables below store MySQL Syntax 
+// Submission variable
+$submission = FALSE;
 
 $insertSchema = "Prefix";
 
@@ -123,11 +79,74 @@ VALUES (" . $valueSchema . ");
 
 if (mysqli_query($conn, $sql)) 
 {
-  echo "<center><h1 class=\"submitMessage\"> Thank you for <br> your entry.</h1>";
+  $submission = TRUE;
 } 
 else 
 {
   echo "Error updating record: " . mysqli_error($conn);
 }
+
+  ?>
+    
+  <div id="thankYou">
+    <?php
+
+    if ($submission)
+      echo "Thank you for your submission.";
+
+    ?>
+
+  </div>
+
+  <div class="summary">
+
+    <h2>Here's your Summary.</h2>
+
+    <table class="summaryTable">
+      
+      <?php
+
+      if ($submission)
+        for ($i = 0; $i < count($tableColumns); $i++)
+          echo "<tr><td>" . $tableColumns[$i] . "
+              </td><td>{$_POST["" . $htmlFields[$i] . ""]}</td></tr>";
+
+      ?>
+
+    </table>
+
+  </div>
+
+  </body>
+
+<?php
+
+// include "connect.php";
+
+// // Variables below store html form data 
+
+// $prefix         = $_POST["prefix"];
+// $first_name     = $_POST["first_name"];
+// $last_name      = $_POST["last_name"];
+// $email          = $_POST["email"];
+// $phone_number   = $_POST["phone_number"];
+// $college        = $_POST["college"];
+// $current_status = $_POST["current_status"];
+// $linkedin       = $_POST["linkedin"];
+// $workplace      = $_POST["workplace"];
+// $position       = $_POST["position"];
+// $notes          = $_POST["notes"];
+
+// Variables below store MySQL Syntax 
+
+
+// if (mysqli_query($conn, $sql)) 
+// {
+//   echo "<center><h1 class=\"submitMessage\"> Thank you for <br> your entry.</h1>";
+// } 
+// else 
+// {
+//   echo "Error updating record: " . mysqli_error($conn);
+// }
 
 ?>
