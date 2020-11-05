@@ -11,53 +11,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 
-  </head>
-  <body>
+</head>
+
+<body>
       
-  </body>
+</body>
 
 <?php
 
 include "connect.php";
 
-$prefix = $_POST["prefix"];
-$fname = $_POST["fname"];
-$lname = $_POST["lname"];
-$email = $_POST["email"];
-$phoneno = $_POST["phoneno"];
-$college = $_POST["college"];
-$currsts = $_POST["currsts"];
-$linkedin = $_POST["linkedin"];
+$prefix    = $_POST["prefix"];
+$fname     = $_POST["fname"];
+$lname     = $_POST["lname"];
+$email     = $_POST["email"];
+$phoneno   = $_POST["phoneno"];
+$college   = $_POST["college"];
+$currsts   = $_POST["currsts"];
+$linkedin  = $_POST["linkedin"];
 $workplace = $_POST["workplace"];
-$position = $_POST["position"];
-$notes = $_POST["notes"];
+$position  = $_POST["position"];
+$notes     = $_POST["notes"];
 
 $sql = "INSERT INTO Contacts (Prefix,First_Name, Last_Name, Email, Phone_Number, College, Current_Status, LinkedIn, Workplace, Title, Notes)
 VALUES('$prefix','$fname','$lname','adshisd@asd.com','$phoneno','$college','$currsts','$linkedin','$workplace','$position','$notes');";
-//SET First_Name='Alfred Schmidt', Last_Name='Frankfurt'";
-if (mysqli_query($conn, $sql)) {
+
+if (mysqli_query($conn, $sql)) 
+{
   echo "<center><h1 class=\"mainTitle\"> Thank you for <br> your entry.</h1>";
-  echo "<link href=\"style_dark.css\" id=\"fS\" rel=\"stylesheet\" type=\"text/css\">";
-} else {
+} 
+else 
+{
   echo "Error updating record: " . mysqli_error($conn);
 }
 
- ?>
-
-<script>
-        var d = new Date();
-
-function swapStylesheet(sheet, name) {
-   document.getElementById(name).setAttribute('href', sheet);
-}
-    if (d.getHours() >= 6 && d.getHours() < 18)
-    {
-        document.body.style.backgroundColor = "white";
-        document.getElementsByClassName("mainTitle")[0].style.textShadow = "0px 0px 13px rgb(200,200,200)";
-    }
-    else
-    {
-        swapStylesheet("style_dark.css", "fS");
-    }
-    </script>
-
+?>
