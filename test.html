@@ -20,51 +20,10 @@
 </head>
 
 <body>
-    
-  <div id="thankYou">
-    Thank you for your submission.
-  </div>
 
-  <div class="summary">
+  <?php
 
-    <h2>Here's the Summary.</h2>
-
-    <table class="summaryTable">
-      
-      <tr><td>First Name</td><td>Sailesh</td></tr>
-
-      <?php
-
-      for ($i = 0; $i < count($tableColumns); $i++)
-        echo "<tr><td>" . $tableColumns[$i] . "</td><td>Sailesh</td></tr>"
-
-      ?>
-
-    </table>
-
-  </div>
-
-  </body>
-
-<?php
-
-include "connect.php";
-
-// Variables below store html form data 
-
-$prefix         = $_POST["prefix"];
-$first_name     = $_POST["first_name"];
-$last_name      = $_POST["last_name"];
-$email          = $_POST["email"];
-$phone_number   = $_POST["phone_number"];
-$college        = $_POST["college"];
-$current_status = $_POST["current_status"];
-$linkedin       = $_POST["linkedin"];
-$workplace      = $_POST["workplace"];
-$position       = $_POST["position"];
-$notes          = $_POST["notes"];
-
-// Array to store all field ids from HTML
+  // // Array to store all field ids from HTML
 
 $htmlFields = ["prefix"];
 
@@ -94,6 +53,53 @@ array_push($tableColumns, "Workplace");
 array_push($tableColumns, "Title");
 array_push($tableColumns, "Notes");
 
+
+  ?>
+    
+  <div id="thankYou">
+    Thank you for your submission.
+  </div>
+
+  <div class="summary">
+
+    <h2>Here's the Summary.</h2>
+
+    <table class="summaryTable">
+      
+      <tr><td>First Name</td><td>Sailesh</td></tr>
+
+      <?php
+
+      for ($i = 0; $i < count($tableColumns); $i++)
+        echo "<tr><td>" . $tableColumns[$i] . "
+              </td><td>'{$_POST["" . $htmlFields[$i] . ""]}'</td></tr>";
+
+      ?>
+
+    </table>
+
+  </div>
+
+  </body>
+
+<?php
+
+include "connect.php";
+
+// // Variables below store html form data 
+
+// $prefix         = $_POST["prefix"];
+// $first_name     = $_POST["first_name"];
+// $last_name      = $_POST["last_name"];
+// $email          = $_POST["email"];
+// $phone_number   = $_POST["phone_number"];
+// $college        = $_POST["college"];
+// $current_status = $_POST["current_status"];
+// $linkedin       = $_POST["linkedin"];
+// $workplace      = $_POST["workplace"];
+// $position       = $_POST["position"];
+// $notes          = $_POST["notes"];
+
 // Variables below store MySQL Syntax 
 
 $insertSchema = "Prefix";
@@ -101,15 +107,14 @@ $insertSchema = "Prefix";
 for ($i = 1; $i < count($tableColumns); $i++)
   $insertSchema .= ", " . $tableColumns[$i];
 
-$valueSchema = "'\$_POST[\"prefix\"]'";
+$valueSchema = "'{$_POST["prefix"]}'";
 
 for ($i = 1; $i < count($htmlFields); $i++)
-  $valueSchema .= ", " . "'\$_POST[\"" . $htmlFields[$i] . "\"]'";
+  $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
 
 $sql = "
 
 INSERT INTO 
-
 Contacts (" . $insertSchema . ")
 
 VALUES (" . $valueSchema . ");
