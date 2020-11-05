@@ -17,7 +17,9 @@
   </body>
 
 <?php
-include "connect.php" ;
+
+include "connect.php";
+
 $prefix = $_POST["prefix"];
 $fname = $_POST["fname"];
 $lname = $_POST["lname"];
@@ -40,9 +42,9 @@ if (mysqli_query($conn, $sql)) {
   echo "Error updating record: " . mysqli_error($conn);
 }
 
-
  ?>
-    <script>
+
+<script>
         var d = new Date();
 
 function swapStylesheet(sheet, name) {
