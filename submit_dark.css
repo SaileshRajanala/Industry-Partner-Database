@@ -41,8 +41,9 @@ body
 {
 	width: 96%;
 	margin: 2%;
+	margin-bottom: 4.7%;
 	padding: 4%;
-	border-radius: 50px;
+	border-radius: 47px;
 	background-color: rgb(25,25,25);
 	box-shadow: 0px 0px 25px black;
 	border: 1px solid black;
@@ -53,7 +54,7 @@ body
 .summaryTable:hover
 {
 	border: 1px solid white;
-	transform: scale(1.07);
+	transform: scale(1.04);
 	box-shadow: none;
 }
 
@@ -69,7 +70,7 @@ td
 
 tr
 {
-	transition: all 0.25s;
+	transition: all 0.1s;
 }
 
 tr:hover
