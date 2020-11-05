@@ -6,16 +6,24 @@
   <title>Industry Partner Database</title>
 
   <!-- CSS 3 (EXTERNAL) -->
-  <link href="style_dark.css" id="fS" rel="stylesheet" type="text/css">
-
   <link href="submit_dark.css" id="sS" rel="stylesheet" type="text/css">
 
   <!-- Font (Google Fonts) -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 
-  <!-- JavaScript (EXTERNAL) -->
-  <script src="script.js"></script>
+  <!-- JavaScript (INTERNAL) -->
+  <script>
+    var d = new Date();
+
+function swapStylesheet(sheet, name) {
+   document.getElementById(name).setAttribute('href', sheet);
+}
+    if (d.getHours() >= 6 && d.getHours() < 18)
+        swapStylesheet("submit_bright.css", "sS");
+    else
+        swapStylesheet("submit_dark.css", "sS");
+  </script>
 
 </head>
 
@@ -32,6 +40,7 @@ $submission = FALSE;
 $sql = "
 
 INSERT INTO 
+
 Contacts (" . $insertSchema . ")
 
 VALUES (" . $valueSchema . ");
