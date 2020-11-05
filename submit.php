@@ -40,10 +40,8 @@ $submission = FALSE;
 $sql = "
 
 INSERT INTO 
-
 Contacts (" . $insertSchema . ")
-
-VALUES (" . $valueSchema . ");
+VALUES   (" . $valueSchema  . ");
 
 ";
 
