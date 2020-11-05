@@ -8,7 +8,7 @@ body
   background-repeat: no-repeat;
   background-size: cover;
 
--webkit-backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   backdrop-filter: none;
 
   animation-name: blurOut;
