@@ -1,5 +1,6 @@
 <?php
-// // Array to store all field ids from HTML
+
+// Array to store all field ids from HTML
 
 $htmlFields = ["prefix"];
 
