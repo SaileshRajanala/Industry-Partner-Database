@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-  <head>
-       <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Industry Partner Database</title>
-    <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+<head>
 
-    <link href="style_dark.css" id="fS" rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Industry Partner Database</title>
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
-  
+  <link href="style_dark.css" id="fS" rel="stylesheet" type="text/css">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 
   </head>
   <body>
+      
   </body>
 
 <?php
@@ -42,5 +42,20 @@ if (mysqli_query($conn, $sql)) {
 
 
  ?>
+    <script>
+        var d = new Date();
 
+function swapStylesheet(sheet, name) {
+   document.getElementById(name).setAttribute('href', sheet);
+}
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {
+        document.body.style.backgroundColor = "white";
+        document.getElementsByClassName("mainTitle")[0].style.textShadow = "0px 0px 13px rgb(200,200,200)";
+    }
+    else
+    {
+        swapStylesheet("style_dark.css", "fS");
+    }
+    </script>
 
