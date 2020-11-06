@@ -5,7 +5,7 @@ body
   padding: 10%;
   color: black;
   font-size: x-large;
-  background-image: url('form_wall.png');
+  background-image: url('planets.png');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -68,7 +68,7 @@ body
 	padding-right: 5%;
 
 	box-shadow: 0px 0px 25px rgb(200,200,200);
-	background-color: transparent;
+	background-color: white;
 
 	animation-name: rightlaunch;
   	animation-delay: 1s;
