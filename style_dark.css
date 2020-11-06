@@ -4,9 +4,9 @@ body
   margin: 0px;
   padding: 10%;
   font-size: x-large;
-  background-image: url('form_wall_dark.png');
+  background-image: url('stars.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
