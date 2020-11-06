@@ -220,3 +220,7 @@ textarea
   transition: all 0.25s;
 }
 
+textarea:hover
+{
+    border: 1px solid white;
+}
