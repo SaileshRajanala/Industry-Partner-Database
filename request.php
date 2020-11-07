@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Industry Partner Database</title>
-    <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
 
-    <link href="request_dark.css" id="sS" rel="stylesheet" type="text/css">
+    <!-- CSS 3 EXTERNAL -->
+    <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -30,11 +30,11 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) 
 {
-    echo "<div class=\"summary\"><table class=\"summaryTable\">";
-    echo "<tr>";
+    echo "<div><table><tr>";
     
+    // Print Head Row
     for ($i=0; $i < count($tableColumns); $i++) 
-      echo "<td>" . $tableColumns[$i] . "</td>";
+      echo "<th>" . $tableColumns[$i] . "</th>";
     
     echo "</tr>";
 
@@ -45,13 +45,16 @@ if ($result->num_rows > 0)
 
         for ($i=0; $i < count($tableColumns); $i++) 
           echo "<td>" . $row[$tableColumns[$i]] . "</td>";
-         // echo "<td>". $row["First_Name"]. " </td><td> " . $row["Last_Name"] . "</td><td>" . $row["phoneNo"]. "</td><td>" . $row["college"]. "</td><td>" . $row["currentStatus"]. "</td><td>" . $row["linkedin"]. "</td><td>" .  $row["workplace"] . "</td><td>" . $row["position"] . "</td><td>" . $row["notes"]. "</td>";
+         
         echo "</tr>";
       }
 
     echo "</table></div>";
 
-} else {
+} 
+else 
+{
     echo "0 results";
 }
+
 ?>

@@ -31,6 +31,7 @@ array_push($tableColumns, "Workplace");
 array_push($tableColumns, "Title");
 array_push($tableColumns, "Notes");
 
+// Insert Schema Automation below
 $insertSchema = "Prefix";
 
 for ($i = 1; $i < count($tableColumns); $i++)
