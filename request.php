@@ -19,11 +19,10 @@
 function swapStylesheet(sheet, name) {
    document.getElementById(name).setAttribute('href', sheet);
 }
-
-    // // if (d.getHours() >= 6 && d.getHours() < 18)
-    // //     swapStylesheet("request_bright.css", "rS");
-    // // else
-    // //     swapStylesheet("request_dark.css", "rS");
+    if (d.getHours() >= 6 && d.getHours() < 18)
+        swapStylesheet("request_bright.css", "rS");
+    else
+        swapStylesheet("request_dark.css", "rS");
 
       function previewDiv(i)
       { 
@@ -98,23 +97,8 @@ function swapStylesheet(sheet, name) {
         if ($result->num_rows > 0) 
           while($row = $result->fetch_assoc()) 
           {
-            // $timestamp = strtotime($row["Timestamp"]);
-            
-            // $day = date('d', $timestamp);
-            // $month = date('m', $timestamp); 
-
-            // $this_month = date('m', time()); 
-            // $today = date('d', time());
-
-            // if($row["Prefix"] != ""     &&
-            //    $this_month    == $month &&
-            //    $today         == $day    )
 
             {
-
-              // echo "<tr onclick=previewDiv(\"id{$o}\")>";
-             
-
               echo "<td>" . $row["First_Name"] . " " . $row["Last_Name"]  . "</td>";
 
               echo "<td>" . $row["Workplace"] . "</td>";
@@ -122,8 +106,6 @@ function swapStylesheet(sheet, name) {
               echo "<td>" . $row["Title"] . "</td>";
               echo "<td><button class=\"uiButton\"  onclick=previewDiv({$o})>Details ></button></td>";
                $o++;
-
-              // echo "<td>" . $row["Timestamp"] . "</td>";
      
               echo "</tr>";
             }
@@ -159,8 +141,6 @@ function swapStylesheet(sheet, name) {
               echo "<td>" . $row["Title"] . "</td>";
               echo "<td><button class=\"uiButton\"  onclick=previewDiv({$o})>Details ></button></td>";
                $o++;
-
-              // echo "<td>" . $row["Timestamp"] . "</td>";
     
               echo "</tr>";
             }
