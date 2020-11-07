@@ -16,13 +16,17 @@
   <script>
     var d = new Date();
 
-function swapStylesheet(sheet, name) {
-   document.getElementById(name).setAttribute('href', sheet);
-}
+    function swapStylesheet(sheet, name) 
+    {
+        document.getElementById(name).setAttribute('href', sheet);
+    }
+
     if (d.getHours() >= 6 && d.getHours() < 18)
         swapStylesheet("request_bright.css", "rS");
     else
         swapStylesheet("request_dark.css", "rS");
+
+      var scroll_Y = 0;
 
       function previewDiv(i)
       { 
@@ -30,19 +34,18 @@ function swapStylesheet(sheet, name) {
 
         for (var k = 0; k < targets.length; k++) 
           if (i == k)
+          {
+            scroll_Y = window.scrollY;
+
+            document.getElementsByClassName('widget')[0].style.opacity = "0";
+            document.getElementsByClassName('dashboard')[0].style.position = "fixed";
+            document.getElementsByClassName('dashboard')[0].style.width = "84%";
+
             targets[i].classList.add('preview');
 
-          document.getElementById('topBar').classList.add('stretch');
-
-          document.getElementById('topBar').classList.remove('shrink');
-
-          document.getElementsByClassName('dashboard')[0].classList.add('disslove');
-
-          document.getElementsByClassName('dashboard')[0].classList.remove('appear');
-
-          document.getElementById('close').classList.add('uiButtonOn');
-
-          document.getElementById('close').classList.remove('uiButtonOff');
+            document.getElementById('close').classList.add('uiButtonOn');
+            document.getElementById('close').classList.remove('uiButtonOff');
+          }
       }
 
       function closePreview()
@@ -52,18 +55,14 @@ function swapStylesheet(sheet, name) {
         for (var k = 0; k < targets.length; k++) 
             targets[k].classList.remove('preview');
 
-          document.getElementById('topBar').classList.add('shrink');
+          document.getElementsByClassName('widget')[0].style.opacity = "1";
+          document.getElementsByClassName('dashboard')[0].style.position = "relative";
+          document.getElementsByClassName('dashboard')[0].style.width = "92%";
 
-          document.getElementById('topBar').classList.remove('stretch');
-
-          document.getElementsByClassName('dashboard')[0].classList.add('appear');
-
-          document.getElementsByClassName('dashboard')[0].classList.remove('disslove');
+          window.scrollTo(0, scroll_Y);
 
           document.getElementById('close').classList.add('uiButtonOff');
-
           document.getElementById('close').classList.remove('uiButtonOn');
-
       }
 
   </script>
@@ -182,7 +181,7 @@ function swapStylesheet(sheet, name) {
 
         echo '<div class="previewSection">Email : ' . $row["Email"] . '<br><br>';
         echo 'Phone : ' . $row["Phone_Number"] . '<br><br>';
-        echo 'Timestamp : ' . $row["Timestamp"] . '<br><br>';
+        echo 'Timestamp : ' . $row["Timestamp"];
 
         echo '</div></div>';
       }
@@ -217,7 +216,7 @@ function swapStylesheet(sheet, name) {
 
         echo '<div class="previewSection">Email : ' . $row["Email"] . '<br><br>';
         echo 'Phone : ' . $row["Phone_Number"] . '<br><br>';
-        echo 'Timestamp : ' . $row["Timestamp"] . '<br><br>';
+        echo 'Timestamp : ' . $row["Timestamp"];
 
         echo '</div></div>';
       }
