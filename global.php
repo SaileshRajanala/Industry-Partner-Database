@@ -1,5 +1,6 @@
 <?php
 
+include "connect.php";
 // Array to store all field ids from HTML
 
 $htmlFields = ["prefix"];
@@ -35,9 +36,9 @@ $insertSchema = "Prefix";
 for ($i = 1; $i < count($tableColumns); $i++)
   $insertSchema .= ", " . $tableColumns[$i];
 
-$valueSchema = "'{$_POST["prefix"]}'";
+// $valueSchema = "'{$_REQUEST["prefix"]}'";
 
-for ($i = 1; $i < count($htmlFields); $i++)
-  $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
+// for ($i = 1; $i < count($htmlFields); $i++)
+//   $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
 
 ?>

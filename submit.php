@@ -37,6 +37,12 @@ function swapStylesheet(sheet, name) {
 // Submission variable
 $submission = FALSE;
 
+// Value Schema
+$valueSchema = "'{$_POST["prefix"]}'";
+
+for ($i = 1; $i < count($htmlFields); $i++)
+  $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
+
 $sql = "
 
 INSERT INTO 
