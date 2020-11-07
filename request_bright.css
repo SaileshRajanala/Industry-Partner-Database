@@ -218,7 +218,7 @@ td
 
 .uiButton:active,#close:active,.uiButtonOn:active
 {
-	transform: scale(0.93);
+	transform: scale(0.74);
 }
 
 .uiButtonOff
