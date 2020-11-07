@@ -33,7 +33,17 @@ function swapStylesheet(sheet, name) {
           if (i == k)
             targets[i].classList.add('preview');
 
-          document.getElementsByClassName('dashboard')[0].classList.add('blurDiv');
+          document.getElementById('topBar').classList.add('stretch');
+
+          document.getElementById('topBar').classList.remove('shrink');
+
+          document.getElementsByClassName('dashboard')[0].classList.add('disslove');
+
+          document.getElementsByClassName('dashboard')[0].classList.remove('appear');
+
+          document.getElementById('close').classList.add('uiButtonOn');
+
+          document.getElementById('close').classList.remove('uiButtonOff');
       }
 
       function closePreview()
@@ -43,25 +53,19 @@ function swapStylesheet(sheet, name) {
         for (var k = 0; k < targets.length; k++) 
             targets[k].classList.remove('preview');
 
-          document.getElementsByClassName('dashboard')[0].classList.add('blurDivOff');
-          document.getElementsByClassName('dashboard')[0].classList.remove('blurDiv');
+          document.getElementById('topBar').classList.add('shrink');
+
+          document.getElementById('topBar').classList.remove('stretch');
+
+          document.getElementsByClassName('dashboard')[0].classList.add('appear');
+
+          document.getElementsByClassName('dashboard')[0].classList.remove('disslove');
+
+          document.getElementById('close').classList.add('uiButtonOff');
+
+          document.getElementById('close').classList.remove('uiButtonOn');
 
       }
-
-    //   rows = document.getElementsByTagName('tr');
-
-    //   document.getElementsByClassName('widgetTitle')[0].onmousedown = function() {
-    //       previewDetails(0)};
-    //     };
-
-    //   for (var i = rows.length - 1; i >= 0; i--) 
-    //   {
-    //     rows[i].onmousedown = function() {
-    //       previewDetails(i)};
-
-    //       rows[i].style.backgroundColor = "white";
-        // document.body.onmousedown = function(i) {closePreview(i)};
-      //}
 
   </script>
 
@@ -120,8 +124,7 @@ function swapStylesheet(sheet, name) {
                $o++;
 
               // echo "<td>" . $row["Timestamp"] . "</td>";
-
-              // echo "<td>" . "Learn More >" . "</td>";            
+     
               echo "</tr>";
             }
           }
@@ -158,8 +161,7 @@ function swapStylesheet(sheet, name) {
                $o++;
 
               // echo "<td>" . $row["Timestamp"] . "</td>";
-
-              // echo "<td>" . "Learn More >" . "</td>";            
+    
               echo "</tr>";
             }
           }
