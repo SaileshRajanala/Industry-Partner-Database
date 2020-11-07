@@ -31,8 +31,8 @@ function swapStylesheet(sheet, name) {
 
   <?php
 
-  include "connect.php";
-  include "global.php";
+require "./connect.php";
+require_once "./global.php";
 
 // Submission variable
 $submission = FALSE;

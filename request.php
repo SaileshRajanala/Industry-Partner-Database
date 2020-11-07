@@ -21,8 +21,8 @@
 
 <?php
 
-include "connect.php";
-include "global.php";
+require "./connect.php";
+require_once "./global.php";
 
 $sql = "SELECT " . $insertSchema . " FROM Contacts";
 
