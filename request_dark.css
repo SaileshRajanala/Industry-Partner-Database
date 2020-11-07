@@ -1,0 +1,178 @@
+body
+{
+	margin: 0;
+	padding: 4%;
+	color: white; 
+	background-color: black;
+	font-size: x-large;
+	font-family: 'QuickSand';
+
+	background-image: url('stars.png');
+	background-attachment: fixed;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#topBar
+{
+	position: fixed;
+	margin: 0;
+	padding: 1%;
+
+	text-align: center;
+	top: 0%;
+	left: 0%;
+	z-index: 1;
+
+	width: 100%;
+	background-color: rgb(13,13,13,0.4);
+	-webkit-backdrop-filter: blur(13px);
+}
+
+.dashboard
+{
+	padding: 2%;
+	margin: 2%;
+}
+
+.widget
+{
+	padding: 2%;
+/*	-webkit-backdrop-filter: blur(13px);
+*/
+	background-color: rgb(25,25,25);
+	border-radius: 47px;
+	margin-bottom: 4%;
+	margin-top: 4%;
+}
+
+.widgetTitle
+{
+	padding-left: 2%;
+}
+
+.dataTable
+{
+	width: 100%;
+	padding: 1%;
+	margin: 0;
+	background-color: transparent;
+}
+
+tr
+{
+	width: 98%;
+	margin: 0%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+
+	border-radius: 47px;
+	background-color: rgb(25,25,25);
+	display: block;
+	padding: 1%;
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
+	border: 1px solid transparent;
+	box-shadow: 0px 0px 13px black;
+
+	transition: all 0.25s;
+}
+
+tr:hover
+{
+	transform: scale(1.01);
+	border: 1px solid white;
+	cursor: pointer;
+}
+
+td
+{
+	width: 22.5%;
+	background-color: transparent;
+	padding: 1%;
+
+	border-radius: 47px;
+
+	display: inline-block;
+	margin: 0%;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	white-space: nowrap;
+}
+
+.noPreview
+{
+	display: none;
+
+	animation-name: showPreview;
+	animation-fill-mode: backwards;
+	animation-duration: 0.25s;
+}
+
+.preview
+{
+	position: fixed;
+	width: 66%;
+	left: 8%;
+	top: 0%;
+	background-color: rgb(25,25,25);
+	margin: 7%; 
+	padding: 2%;
+	z-index: 2;
+	color: white;
+	height: 60%;
+	overflow-y: scroll;
+
+	animation-name: showPreview;
+	animation-fill-mode: both;
+	animation-duration: 0.25s;
+
+	border-radius: 47px;
+	font-family: 'Comfortaa';
+	box-shadow: 0px 0px 13px black;
+}
+
+.previewTitle
+{
+	padding-left: 4%;
+}
+
+.previewSection
+{
+	border-radius: 50px;
+	width: 92%;
+	padding: 4%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	box-shadow: 0px 0px 13px black;
+}
+
+@keyframes blur
+{
+	100%
+	{
+		filter: blur(25px);
+	}
+}
+
+@keyframes showPreview
+{
+	0%
+	{
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+
+.blurDiv
+{
+	animation-name: blur;
+	animation-fill-mode: both;
+	animation-duration: 0.25s;
+}
+
+
+
+
+
+
