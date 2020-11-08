@@ -72,7 +72,7 @@
 
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
 
-              echo "<td>" . date('m-d g:Ga', strtotime($row["Timestamp"])-21600) . "</td>";
+              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
                $o++;
      
               echo "</tr>";
