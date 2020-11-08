@@ -47,6 +47,7 @@
         <table class="dataTable">
 
           <?php
+          
           global $o;
           require "./connect.php";
           require_once "./global.php";
@@ -275,6 +276,5 @@
       
   }
     </script>
-
 
   </body>
