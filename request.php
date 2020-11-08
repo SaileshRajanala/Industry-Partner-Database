@@ -71,7 +71,8 @@
               echo "<td>" . $row["Title"] . "</td>";
 
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
-              echo "<td>" . $row["Timestamp"] . "</td>";
+
+              echo "<td>" . date('m-d g:Ga', strtotime($row["Timestamp"])-21600) . "</td>";
                $o++;
      
               echo "</tr>";
@@ -109,7 +110,7 @@
 
               echo "<td>" . $row["Title"] . "</td>";
 
-              echo "<td>" . $row["Timestamp"] . "</td>";
+              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
                $o++;
     
@@ -155,7 +156,7 @@
 
         echo '<div class="previewSection">Email : ' . $row["Email"] . '<br><br>';
         echo 'Phone : ' . $row["Phone_Number"] . '<br><br>';
-        echo 'Timestamp : ' . $row["Timestamp"];
+        echo 'Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
 
         echo '</div></div>';
 
@@ -191,7 +192,7 @@
 
         echo '<div class="previewSection">Email : ' . $row["Email"] . '<br><br>';
         echo 'Phone : ' . $row["Phone_Number"] . '<br><br>';
-        echo 'Timestamp : ' . $row["Timestamp"];
+        echo 'Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
 
         echo '</div></div>';
         $o++;
