@@ -11,6 +11,21 @@ body
 	background-attachment: fixed;
 	background-size: contain;
 	background-repeat: no-repeat;
+
+	animation-name: blurOut;
+  	animation-delay: 1s;
+  	animation-fill-mode: both;
+  	animation-duration: 0.5s;
+}
+
+@-webkit-keyframes blurOut
+{
+  0%
+  {
+  -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+  }
+}
 }
 
 #topBar
