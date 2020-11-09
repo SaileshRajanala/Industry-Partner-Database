@@ -388,6 +388,18 @@ body
 	}
 }
 
+/* FIREFOX SUPPORT */
+@-moz-document url-prefix() 
+{
+  #topBar 
+  {
+    background-color: white;
+  }
 
+  #layer
+  {
+  	background-color: white;
+  }
+}
 
 

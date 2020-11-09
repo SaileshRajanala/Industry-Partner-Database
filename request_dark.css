@@ -380,6 +380,18 @@ body
 	}
 }
 
+/* FIREFOX SUPPORT */
+@-moz-document url-prefix() 
+{
+  #topBar 
+  {
+    background-color: black;
+  }
 
+  #layer
+  {
+  	background-color: rgb(25,25,25);
+  }
+}
 
 
