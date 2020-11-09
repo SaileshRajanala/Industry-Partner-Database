@@ -47,6 +47,7 @@ body
 	top: 0%;
 	background-color: rgb(25,25,25,0.4);
 	-webkit-backdrop-filter: blur(13px);
+	backdrop-filter: blur(13px);
 }
 
 #topBar
@@ -63,6 +64,7 @@ body
 	width: 100%;
 	background-color: rgb(13,13,13,0.4);
 	-webkit-backdrop-filter: blur(13px);
+	backdrop-filter: blur(13px);
 
 	animation-name: toplaunch;
   	animation-delay: 0.5s;
@@ -329,6 +331,7 @@ body
 	{
 		height: 100%;
 		-webkit-backdrop-filter: blur(47px);
+		backdrop-filter: blur(47px);
 	}
 }
 
