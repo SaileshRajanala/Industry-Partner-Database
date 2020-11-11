@@ -52,8 +52,8 @@
           require "./connect.php";
           require_once "./global.php";
 
-          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(`Timestamp`) = CURDATE() ORDER BY Timestamp DESC";
-
+          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(TIMESTAMP(CURDATE()),'+00:00','-06:00')) ORDER BY Timestamp DESC";
+          
           $result = $conn->query($sql);
           $o = 0;
 
@@ -93,7 +93,7 @@
 
           <?php
 
-          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(`Timestamp`) != CURDATE() ORDER BY Timestamp DESC";
+          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) != DATE(CONVERT_TZ(TIMESTAMP(CURDATE()),'+00:00','-06:00')) ORDER BY Timestamp DESC";
 
           $result = $conn->query($sql);
 
@@ -130,7 +130,7 @@
 
     <?php
 
-      $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(`Timestamp`) = CURDATE() ORDER BY Timestamp DESC";
+      $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(TIMESTAMP(CURDATE()),'+00:00','-06:00')) ORDER BY Timestamp DESC";
 
         $result = $conn->query($sql);
 
@@ -168,7 +168,7 @@
 
     <?php
 
-      $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(`Timestamp`) != CURDATE() ORDER BY Timestamp DESC";
+      $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) != DATE(CONVERT_TZ(TIMESTAMP(CURDATE()),'+00:00','-06:00')) ORDER BY Timestamp DESC";
 
         $result = $conn->query($sql);
 
