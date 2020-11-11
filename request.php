@@ -215,7 +215,7 @@
           {
             scroll_Y = window.scrollY;
 
-            document.getElementsByClassName('widget')[0].style.opacity = "0";
+            //document.getElementsByClassName('widget')[0].style.opacity = "0";
             document.getElementsByClassName('dashboard')[0].style.position = "fixed";
             document.getElementsByClassName('dashboard')[0].style.width = "84%";
 
@@ -235,7 +235,7 @@
         for (var k = 0; k < targets.length; k++) 
             targets[k].classList.remove('preview');
 
-          document.getElementsByClassName('widget')[0].style.opacity = "1";
+          //document.getElementsByClassName('widget')[0].style.opacity = "1";
           document.getElementsByClassName('dashboard')[0].style.position = "relative";
           document.getElementsByClassName('dashboard')[0].style.width = "92%";
 
