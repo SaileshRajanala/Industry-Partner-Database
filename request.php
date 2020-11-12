@@ -154,7 +154,7 @@
     
         echo '<div class="previewSection"> Notes <br><br>' . $row["Notes"] . '</div>';
 
-        echo '<div class="previewSection">Email : ' . $row["Email"] . '<br><br>';
+        echo '<div class="previewSection">Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
         echo 'Phone : ' . $row["Phone_Number"] . '<br><br>';
         echo 'Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
 
@@ -190,7 +190,7 @@
     
         echo '<div class="previewSection"> Notes <br><br>' . $row["Notes"] . '</div>';
 
-        echo '<div class="previewSection">Email : ' . $row["Email"] . '<br><br>';
+        echo '<div class="previewSection">Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
         echo 'Phone : ' . $row["Phone_Number"] . '<br><br>';
         echo 'Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
 

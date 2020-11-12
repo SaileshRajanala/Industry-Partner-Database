@@ -1,3 +1,16 @@
+.emailLink
+{
+	color: white;
+	background-color: transparent;
+	transition: all 0.25s;
+}
+
+.emailLink:hover
+{
+	color: aqua;
+	text-decoration: none;
+}
+
 body
 {
 	margin: 0;
