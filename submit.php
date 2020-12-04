@@ -181,12 +181,20 @@ $checkValidity = true ;
         echo "Sorry, your Prefix cannot be a number " ;
         $checkValidity = false ;
     }
-    if(is_numeric($first_name)){
+    // if(is_numeric($first_name)){
+    //     echo "Sorry, your First Name cannot be a number </br>" ;
+    //       $checkValidity = false ;
+    // }
+    if(ctype_alnum($first_name)){
         echo "Sorry, your First Name cannot be a number </br>" ;
           $checkValidity = false ;
     }
-    if(is_numeric($last_name)) {
-        echo "Sorry, your Last Name cannot be a number </br>" ;
+    // if(is_numeric($last_name)) {
+    //     echo "Sorry, your Last Name cannot be a number </br>" ;
+    //       $checkValidity = false ;
+    // }
+    if(ctype_alnum($last_name)){
+        echo "Sorry, your First Name cannot be a number </br>" ;
           $checkValidity = false ;
     }
     if(is_numeric($email)){
