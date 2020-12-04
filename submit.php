@@ -27,7 +27,7 @@ function swapStylesheet(sheet, name) {
 
 </head>
 
-<body>
+<body style="font-family: 'Quicksand'">
 
   <?php
 
@@ -178,54 +178,54 @@ for ($i = 1; $i < count($htmlFields1); $i++){
 $checkValidity = true ;
 
  if(is_numeric($prefix)){
-        echo "Sorry, your Prefix cannot be a number " ;
+        echo "Sorry, your Prefix cannot be a number <br>" ;
         $checkValidity = false ;
     }
     // if(is_numeric($first_name)){
-    //     echo "Sorry, your First Name cannot be a number </br>" ;
+    //     echo "Sorry, your First Name cannot be a number <br>" ;
     //       $checkValidity = false ;
     // }
-    if(ctype_alnum($first_name)){
-        echo "Sorry, your First Name cannot be a number </br>" ;
+    if(!ctype_alpha($first_name)){
+        echo "Sorry, your First Name cannot be alphanumeric. <br>" ;
           $checkValidity = false ;
     }
     // if(is_numeric($last_name)) {
-    //     echo "Sorry, your Last Name cannot be a number </br>" ;
+    //     echo "Sorry, your Last Name cannot be a number <br>" ;
     //       $checkValidity = false ;
     // }
-    if(ctype_alnum($last_name)){
-        echo "Sorry, your First Name cannot be a number </br>" ;
+    if(!ctype_alpha($last_name)){
+        echo "Sorry, your Last Name cannot be alphanumeric. <br>" ;
           $checkValidity = false ;
     }
     if(is_numeric($email)){
-        echo "Sorry, your Email cannot be a number </br>" ;
+        echo "Sorry, your Email cannot be a number <br>" ;
           $checkValidity = false ;
     }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
      echo  "Invalid email format </br>";
      $checkValidity = false ;
     }
     if(!is_int((int)$phone_number) || strlen($phone_number) != 10){
-        echo "Please enter valid phone number </br>" ;
+        echo "Please enter valid phone number <br>" ;
           $checkValidity = false ;
     }
     if(is_numeric($college)){
-        echo "Sorry, your College cannot be a number </br>" ;
+        echo "Sorry, your College cannot be a number <br>" ;
           $checkValidity = false ;
     } 
     if(is_numeric($current_status)){
-        echo "Sorry, your Current Status cannot be a number </br>" ;
+        echo "Sorry, your Current Status cannot be a number <br>" ;
           $checkValidity = false ;
     } 
     if(is_numeric($linkedin)){
-        echo "Sorry, your Linkedin cannot be a number </br>" ;
+        echo "Sorry, your Linkedin cannot be a number <br>" ;
           $checkValidity = false ;
     }
     if(is_numeric($workplace)){
-        echo "Sorry, your Workplace cannot be a number </br>" ;
+        echo "Sorry, your Workplace cannot be a number <br>" ;
           $checkValidity = false ;
     } 
     if(is_numeric($position)){
-        echo "Sorry, your Position cannot be a number </br>" ;
+        echo "Sorry, your Position cannot be a number <br>" ;
           $checkValidity = false ;
     }
    
