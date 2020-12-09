@@ -16,6 +16,22 @@
 	}
 }
 
+@keyframes hideDown
+{
+  100%
+  {
+    opacity: 0;
+    transform: translateY(-74px);
+  }
+}
+
+.hideBelow
+{
+	animation-name: hideDown;
+	animation-fill-mode: both;
+	animation-duration: 0.5s;
+}
+
 .bubblegumOn
 {
 	animation-name: bubblegum;
@@ -82,9 +98,15 @@
 	border: 1px solid transparent;
 }
 
-.icon:hover,.iconActive:hover
+.icon:hover
 {
 	background-color: rgb(47,47,47);
+	cursor: pointer;
+}
+
+.iconActive:hover
+{
+	background-color: red;
 	cursor: pointer;
 }
 
@@ -95,7 +117,8 @@
 
 .iconActive
 {
-	background-color: rgb(47,47,47);
+	background-color: green;
+
 }
 
 /*----------------------------------------------------------------*/

@@ -157,6 +157,8 @@
     <script type="text/javascript">
       
       var searchIcon = document.getElementById('searchIcon');
+      var dashBoard = document.getElementsByClassName('dashboard')[0];
+
 
       searchBar.style.display = "none";
 
@@ -175,9 +177,16 @@
             searchIcon.classList.remove("iconActive");
             searchIcon.classList.add("icon");
           }
+
+            dashBoard.style.display = "block";
+            dashBoard.style.animationDelay = "0s";
+            dashBoard.classList.remove("hideBelow");
         }
-        else
+        else 
         {
+          dashBoard.style.animationDelay = "0s";
+          dashBoard.classList.add("hideBelow");
+
           searchIcon.classList.add("iconActive");
           searchIcon.classList.remove("icon");
 
@@ -187,7 +196,6 @@
           
           if (searchBar.classList.contains("bubblegumOff"))
             searchBar.classList.remove("bubblegumOff");
-
         }
 
         searchBar.addEventListener("animationend", 
@@ -195,10 +203,26 @@
           function() 
           {
             if (searchBar.classList.contains("bubblegumOff"))
+            {
                 searchBar.style.display = 'none';
+            }
           }
 
         );
+
+        dashBoard.addEventListener("animationend", 
+
+          function() 
+          {
+            if (dashBoard.classList.contains("hideBelow"))
+            {
+                dashBoard.style.display = 'none';
+            }
+          }
+
+        );
+
+
 
       };
 
