@@ -7,6 +7,8 @@
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="sS" rel="stylesheet" type="text/css">
+    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
+
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -18,15 +20,22 @@
   </head>
 
   <body>
+
+      
+          
+          <input type="text" name="searchBar" id="searchBar" placeholder="Search..."> 
+
       
       <div id="layer"></div>
 
       <!-- Top Bar Arc Structure -->
       <div id="topBar">
 
+      <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+
       Industry Partner Database
 
-      <img class="icon" src="search_dark.png">
+      <img class="icon" id="searchIcon" src="search_dark.png">
 
       </div>
 
@@ -144,6 +153,56 @@
         </div>
 
     </div> -->
+
+    <script type="text/javascript">
+      
+      var searchIcon = document.getElementById('searchIcon');
+
+      searchBar.style.display = "none";
+
+      searchIcon.onclick = function () 
+      {
+
+        var searchBar = document.getElementById("searchBar");
+
+        if (searchBar.classList.contains("bubblegumOn"))
+        {
+          searchBar.classList.add("bubblegumOff");
+          searchBar.classList.remove("bubblegumOn");
+
+          if (searchIcon.classList.contains("iconActive"))
+          {
+            searchIcon.classList.remove("iconActive");
+            searchIcon.classList.add("icon");
+          }
+        }
+        else
+        {
+          searchIcon.classList.add("iconActive");
+          searchIcon.classList.remove("icon");
+
+          searchBar.style.display = 'block';
+
+          searchBar.classList.add("bubblegumOn");
+          
+          if (searchBar.classList.contains("bubblegumOff"))
+            searchBar.classList.remove("bubblegumOff");
+
+        }
+
+        searchBar.addEventListener("animationend", 
+
+          function() 
+          {
+            if (searchBar.classList.contains("bubblegumOff"))
+                searchBar.style.display = 'none';
+          }
+
+        );
+
+      };
+
+    </script>
 
   </body>
 
