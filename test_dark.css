@@ -53,8 +53,8 @@
 	max-height: 4%;
 	left: 25%;
 	color: white;
-	font-size: x-large;
-	font-family: 'Comfortaa';
+	font-size: xx-large;
+	font-family: 'Quicksand';
 
 	position: fixed;
 	z-index: 4;
@@ -118,7 +118,20 @@
 .iconActive
 {
 	background-color: darkred;
+}
 
+.searchResultsDiv
+{
+	background-color: transparent;
+	border-radius: 47px;
+	overflow-y: scroll;
+	padding: 2%;
+	position: fixed;
+	height: 64%;
+	left: 8%;
+	bottom: 4%;
+	width: 80%;
+	margin: 0;
 }
 
 /*----------------------------------------------------------------*/
