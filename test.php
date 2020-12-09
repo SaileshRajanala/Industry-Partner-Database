@@ -205,6 +205,93 @@
 
     ?>
 
+    <!-- SEARCH SECTION -->
+
+     <div class="searchResultsDiv">
+        
+        <div class="widget">
+
+        <h1 class="widgetTitle">Older</h1>
+
+        <table class="dataTable">
+
+          <?php
+
+          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
+
+          $result = $conn->query($sql);
+
+          if ($result->num_rows > 0) 
+          while($row = $result->fetch_assoc()) 
+          {
+            if($row["Prefix"] != "")
+            {
+              echo "<tr previewPair={$o}>";
+
+              echo "<td>" . $row["First_Name"] . " " . $row["Last_Name"]  . "</td>";
+
+              echo "<td>" . $row["Workplace"] . "</td>";
+
+              echo "<td>" . $row["Title"] . "</td>";
+
+              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
+              // echo "<td><button class=\"uiButton\">Details ></button></td>";
+               $o++;
+    
+              echo "</tr>";
+            }
+          }
+
+          ?>
+
+        </table>
+        
+      </div>
+
+       </div>
+
+      <!-- RESULTS PREVIEW -->
+
+      <?php
+
+      $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
+
+        $result = $conn->query($sql);
+
+        $o = 0;
+
+  if ($result->num_rows > 0) 
+    while($row = $result->fetch_assoc()) 
+    {
+      if($row["Prefix"] != "")
+      {
+        echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
+
+        echo "<h2 class=\"previewTitle\">";
+        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . '</h2>';
+
+        echo '<div class="previewSection">';
+        echo $row["Title"] . '<br><br>';
+        echo $row["Workplace"] . '<br><br>';
+        echo 'LinkedIn : ' . $row["LinkedIn"] . '<br><br>';
+        echo 'Current Status : ' . $row["Current_Status"] . '</div>';
+    
+        echo '<div class="previewSection"> Notes <br><br>' . $row["Notes"] . '</div>';
+
+        echo '<div class="previewSection">Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
+        echo 'Phone : ' . $row["Phone_Number"] . '<br><br>';
+        echo 'Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
+
+        echo '</div></div>';
+
+        $o++;
+      }
+   }
+
+    ?>
+
+
+
     <script type="text/javascript">
 
 
