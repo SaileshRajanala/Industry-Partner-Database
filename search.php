@@ -10,6 +10,8 @@
 
     <!-- TEST CSS -->
     <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
+    <!-- CSS FOR ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <!-- Font -->
@@ -51,21 +53,27 @@
 
       </div>
 
-     <form name="searchForm" action="" method="POST">
-         <input type="text" name="searchBar" id="searchBar" placeholder="Search..."> 
-         <button type="submit" id="searchButton">-></button>
+     <form name="searchForm" action="" method="post">
+
+          <div id="searchBarDiv">
+             
+            <button id="searchButtonIcon" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+            
+            <input type="text" name="searchBar" id="searchBar" placeholder="Search..."
+            value="<?php if (isset($_POST["searchBar"])) echo $_POST['searchBar'] ?>">
+          
+          </div>
+
      </form>
 
-
+     <!-- <div class="dashboard"></div> -->
     <!-- SEARCH SECTION -->
 
-     <div class="searchResultsDiv">
+     <div class="dashboard" id="searchResultsDiv">
         
         <div class="widget">
-
-        <h1 class="widgetTitle">Search Results for " <?php echo $_POST["searchBar"]; ?> "</h1>
-
-        <table class="dataTable">
 
           <?php
            global $o;
@@ -94,6 +102,18 @@
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) 
+          {
+            if ($result->num_rows == 1) 
+              echo '<h2 class="widgetTitle"> 1 Search Result for "' . $_POST["searchBar"] . '"</h2>';
+            else
+              echo '<h2 class="widgetTitle">' . $result->num_rows . ' Search Results for "' . $_POST["searchBar"] . '"</h2>';
+
+            echo '<table class="dataTable">';
+          }
+          else
+            echo '<h2 class="widgetTitle">Sorry, no results found for "' . $_POST["searchBar"] . '"</h2>';
+
+          if ($result->num_rows > 0) 
           while($row = $result->fetch_assoc()) 
           {
             if($row["Prefix"] != "")
@@ -113,8 +133,8 @@
               echo "</tr>";
             }
           }
-          else
-            echo "No results found";
+          // else
+          //   echo "No results found";
 
           }
 
@@ -262,8 +282,12 @@
     </script>   
 
  <!-- SEARCH BAR GRAPHIC SCRIPT -->
- <script type="text/javascript">
-    
+ <script type="text/javascript">  
+
+    document.body.style.animation = "none";
+    document.getElementById('topBar').style.animation = "none";
+    document.getElementById('searchResultsDiv').style.animationDelay = "0s"; 
+
     document.getElementById('searchBar').onfocus = function() 
     {
       document.getElementById("searchBarDiv").style.backgroundColor = 'white';

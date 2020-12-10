@@ -7,7 +7,9 @@
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
-    <link href="search_dark.css" id="sS" rel="stylesheet" type="text/css">
+    <link href="test_dark.css" id="sS" rel="stylesheet" type="text/css">
+    <!-- CSS FOR ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -37,7 +39,6 @@
     <button class="uiButtonOff" id="close" onclick="closePreview()">(X)</button>
     <div id="layer"></div>
     
-    <!-- <div id="topBar">Industry Partner Database</div> -->
     <!-- Top Bar Arc Structure -->
       <div id="topBar">
 
@@ -48,12 +49,21 @@
       <img class="icon" id="searchIcon" src="search_dark.png">
 
       </div>
-
       
       <!-- SEARCH BAR -->
       <form name="searchForm" action="search.php" method="POST">
-            <input type="text" name="searchBar" id="searchBar" placeholder="Search..."> 
-        </form>
+
+          <div id="searchBarDiv">
+             
+            <button id="searchButtonIcon" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+            
+            <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
+          
+          </div>
+
+     </form>
 
 
     <div class="dashboard">
@@ -302,14 +312,14 @@
       
       var searchIcon = document.getElementById('searchIcon');
       var dashBoard = document.getElementsByClassName('dashboard')[0];
-
+      var searchBar = document.getElementById("searchBarDiv");
 
       searchBar.style.display = "none";
 
       searchIcon.onclick = function () 
       {
 
-        var searchBar = document.getElementById("searchBar");
+        
 
         if (searchBar.classList.contains("bubblegumOn"))
         {
@@ -338,7 +348,8 @@
 
           document.getElementById("searchIcon").src = "close_dark.png";
 
-          searchBar.style.display = 'block';
+          // searchBar.style.display = 'block';
+          searchBar.style.display = 'flex'; //necessary for button on input field
 
           searchBar.classList.add("bubblegumOn");
           
@@ -373,5 +384,26 @@
       };
 
     </script>
+
+ <!-- SEARCH BAR GRAPHIC SCRIPT -->
+ <script type="text/javascript">
+    
+    document.getElementById('searchBar').onfocus = function() 
+    {
+      document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+      document.getElementById("searchBarDiv").style.padding = '0.7%';
+      document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
+      document.getElementById("searchBarDiv").style.margin = '-0.7%';
+      document.getElementById("searchBarDiv").style.marginRight = '1.3%';
+    };
+
+    document.getElementById('searchBar').onfocusout = function() 
+    {
+      document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
+      document.getElementById("searchBarDiv").style.padding = '0%';
+      document.getElementById("searchBarDiv").style.margin = '-0%';
+    };
+
+ </script>
 
   </body>
