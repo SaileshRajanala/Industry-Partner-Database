@@ -51,8 +51,6 @@
 
       </div>
 
-    <div class="dashboard"></div>
-
      <form name="searchForm" action="" method="POST">
          <input type="text" name="searchBar" id="searchBar" placeholder="Search..."> 
          <button type="submit" id="searchButton">-></button>
@@ -65,7 +63,7 @@
         
         <div class="widget">
 
-        <h1 class="widgetTitle">Search Results</h1>
+        <h1 class="widgetTitle">Search Results for " <?php echo $_POST["searchBar"]; ?> "</h1>
 
         <table class="dataTable">
 
