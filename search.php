@@ -261,4 +261,25 @@
   }
     </script>   
 
+ <!-- SEARCH BAR GRAPHIC SCRIPT -->
+ <script type="text/javascript">
+    
+    document.getElementById('searchBar').onfocus = function() 
+    {
+      document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+      document.getElementById("searchBarDiv").style.padding = '0.7%';
+      document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
+      document.getElementById("searchBarDiv").style.margin = '-0.7%';
+      document.getElementById("searchBarDiv").style.marginRight = '1.3%';
+    };
+
+    document.getElementById('searchBar').onfocusout = function() 
+    {
+      document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
+      document.getElementById("searchBarDiv").style.padding = '0%';
+      document.getElementById("searchBarDiv").style.margin = '-0%';
+    };
+
+ </script>
+
   </body>

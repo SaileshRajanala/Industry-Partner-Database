@@ -1,3 +1,59 @@
+#searchBarDiv
+{
+	background-color: rgb(25,25,25);
+	position: fixed;
+	display: flex;
+	color: white;
+	top: 10%;
+	width: 50%;
+	left: 25%;
+	
+	border-radius: 47px;
+	box-shadow: 0px 13px 13px black;
+	transition: all 0.25s;
+	border: 1.5px solid transparent;
+}
+
+#searchBarDiv:hover
+{
+	border-color: white;
+}
+
+#searchBarDiv:active
+{
+	padding: 0%;
+	margin: -0%;
+}
+
+#searchButtonIcon
+{
+	background-color: rgb(44,44,44);
+	color: white;
+	font-size: xx-large;
+	border-radius: 50%;
+	padding-right: 2%;
+	padding-left: 2%;
+	border: none;
+	
+	box-shadow: 0px 0px 13px black;
+	
+	transition: all 0.25s;
+	
+}
+
+#searchButtonIcon:hover
+{
+	background-color: white;
+	cursor: pointer;
+
+	color: black;
+}
+
+#searchButtonIcon:active
+{
+	transform: scale(0.7);
+}
+
 @keyframes bubblegum
 {
 	0%
@@ -48,39 +104,36 @@
 
 #searchBar
 {
-	width: 44%;
-	top: 13%;
-	left: 25%;
-	color: white;
 	font-size: xx-large;
 	font-family: 'Quicksand';
-
-	position: fixed;
+	/*float: left;*/
+	color: white;
+	padding: 1%;
 	z-index: 1;
+
+	width: 100%;
 
 	border: 1px solid transparent;
 	border-radius: 47px;
-	padding-top: 0.5%;
-	padding-bottom: 0.8%;
-	background-color: rgb(25,25,25);
+	
+	background-color: transparent;
 	padding-left: 2%;
 	padding-right: 2%;
 
-	box-shadow: 0px 13px 13px black;
 	transition: all 0.25s;
 }
 
-#searchBar:hover
+/*#searchBar:hover
 {
 	border-color: white;
-}
+}*/
 
 #searchBar:focus
 {
 	outline: none;
 	color: black;
-	background-color: white;
-}
+/*	background-color: white;
+*/}
 
 .icon, .iconActive
 {
