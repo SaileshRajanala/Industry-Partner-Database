@@ -291,6 +291,7 @@ body
 	color: white;
 	background-color: black;
 	box-shadow: none;
+	cursor: pointer;
 }
 
 .uiButton:active,#close:active,.uiButtonOn:active

@@ -283,6 +283,7 @@ body
 {
 	color: black;
 	background-color: white;
+	cursor: pointer;
 }
 
 .uiButton:active,#close:active,.uiButtonOn:active

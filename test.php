@@ -7,7 +7,7 @@
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
-    <link href="test_dark.css" id="sS" rel="stylesheet" type="text/css">
+    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
     <!-- CSS FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -26,9 +26,15 @@
     }
 
     if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
         swapStylesheet("request_bright.css", "rS");
+        swapStylesheet("test_bright.css", "tS");
+    }
     else
+    {
         swapStylesheet("request_dark.css", "rS");
+        swapStylesheet("test_dark.css", "tS");
+    }
 
   </script>
 

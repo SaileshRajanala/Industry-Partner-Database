@@ -15,8 +15,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 
-    <!-- JavaScript (EXTERNAL) -->
-    <script src="script.js"></script>
+    <!-- JavaScript (INTERNAL) -->
+    <script>
+
+    var d = new Date();
+
+    function swapStylesheet(sheet, name) 
+    {
+        document.getElementById(name).setAttribute('href', sheet);
+    }
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        swapStylesheet("request_bright.css", "rS");
+        swapStylesheet("test_bright.css", "tS");
+    }
+    else
+    {
+        swapStylesheet("request_dark.css", "rS");
+        swapStylesheet("test_dark.css", "tS");
+    }
+
+  </script>
 
   </head>
 
