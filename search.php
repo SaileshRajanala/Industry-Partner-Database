@@ -291,17 +291,6 @@
  <script type="text/javascript">
 
   var d = new Date();
-
-    if (d.getHours() >= 6 && d.getHours() < 18)
-    {  
-        swapStylesheet("request_bright.css", "rS");
-        swapStylesheet("test_bright.css", "tS");
-    }
-    else
-    {
-        swapStylesheet("request_dark.css", "rS");
-        swapStylesheet("test_dark.css", "tS");
-    }
     
     document.getElementById('searchBar').onfocus = function() 
     {
