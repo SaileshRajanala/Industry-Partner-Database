@@ -7,7 +7,10 @@
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
-    <link href="search_dark.css" id="sS" rel="stylesheet" type="text/css">
+
+    <!-- TEST CSS -->
+    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
+
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -37,7 +40,6 @@
     <button class="uiButtonOff" id="close" onclick="closePreview()">(X)</button>
     <div id="layer"></div>
     
-    <!-- <div id="topBar">Industry Partner Database</div> -->
     <!-- Top Bar Arc Structure -->
       <div id="topBar">
 
@@ -45,73 +47,51 @@
 
       Industry Partner Database
 
-      <img class="icon" id="searchIcon" src="search_dark.png">
+      <!-- <img class="icon" id="searchIcon" src="search_dark.png"> -->
 
       </div>
 
-      
-      <!-- SEARCH BAR -->
-      <form name="searchForm" action="search.php" method="POST">
-            <input type="text" name="searchBar" id="searchBar" placeholder="Search..."> 
-        </form>
+    <div class="dashboard"></div>
+
+     <form name="searchForm" action="" method="POST">
+         <input type="text" name="searchBar" id="searchBar" placeholder="Search..."> 
+         <button type="submit" id="searchButton">-></button>
+     </form>
 
 
-    <div class="dashboard">
+    <!-- SEARCH SECTION -->
 
-      <div class="widget">
+     <div class="searchResultsDiv">
+        
+        <div class="widget">
 
-        <h1 class="widgetTitle">Today</h1>
+        <h1 class="widgetTitle">Search Results</h1>
 
         <table class="dataTable">
 
           <?php
-          
-          global $o;
+           global $o;
           require "./connect.php";
           require_once "./global.php";
 
-          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
-          
-          $result = $conn->query($sql);
-          $o = 0;
-
-        if ($result->num_rows > 0) 
-          while($row = $result->fetch_assoc()) 
+          if (isset($_POST["searchBar"]))
           {
-            if($row["Prefix"] != "")
-            {
-              echo "<tr previewPair={$o}>";
+            $sql = "
 
-              echo "<td>" . $row["First_Name"] . " " . $row["Last_Name"]  . "</td>";
+          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Contacts WHERE False " .
 
-              echo "<td>" . $row["Workplace"] . "</td>";
-
-              echo "<td>" . $row["Title"] . "</td>";
-
-              // echo "<td><button class=\"uiButton\">Details ></button></td>";
-
-              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
-               $o++;
-     
-              echo "</tr>";
-            }
-          }
-
-          ?>
-
-        </table>
-        
-      </div>
-
-      <div class="widget">
-
-        <h1 class="widgetTitle">Older</h1>
-
-        <table class="dataTable">
-
-          <?php
-
-          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
+          'OR UPPER(First_Name)     LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Last_Name)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Email)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Phone_Number)   LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(College)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Current_Status) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%')            
+    
+          ";
 
           $result = $conn->query($sql);
 
@@ -135,6 +115,11 @@
               echo "</tr>";
             }
           }
+          else
+            echo "No results found";
+
+          }
+
 
           ?>
 
@@ -142,17 +127,33 @@
         
       </div>
 
-    </div>
+       </div>
 
-    <!-- Previews -->
+      <!-- RESULTS PREVIEW -->
 
-    <?php
+      <?php
 
-      $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
+      if (isset($_POST["searchBar"]))
+      {
+
+      $sql = "
+
+          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Contacts WHERE False " .
+
+          'OR UPPER(First_Name)     LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Last_Name)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Email)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Phone_Number)   LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(College)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Current_Status) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%')            
+    
+          ";
 
         $result = $conn->query($sql);
-
-        $o = 0;
 
   if ($result->num_rows > 0) 
     while($row = $result->fetch_assoc()) 
@@ -181,41 +182,7 @@
         $o++;
       }
    }
-
-    ?>
-
-    <?php
-
-      $sql = "SELECT " . $insertSchema . ", Timestamp FROM Contacts WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
-
-        $result = $conn->query($sql);
-
-  if ($result->num_rows > 0) 
-    while($row = $result->fetch_assoc()) 
-    {
-      if($row["Prefix"] != "")
-      {
-        echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
-
-        echo "<h2 class=\"previewTitle\">";
-        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . '</h2>';
-
-        echo '<div class="previewSection">';
-        echo $row["Title"] . '<br><br>';
-        echo $row["Workplace"] . '<br><br>';
-        echo 'LinkedIn : ' . $row["LinkedIn"] . '<br><br>';
-        echo 'Current Status : ' . $row["Current_Status"] . '</div>';
-    
-        echo '<div class="previewSection"> Notes <br><br>' . $row["Notes"] . '</div>';
-
-        echo '<div class="previewSection">Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
-        echo 'Phone : ' . $row["Phone_Number"] . '<br><br>';
-        echo 'Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
-
-        echo '</div></div>';
-        $o++;
-      }
-   }
+ }
 
     ?>
 
@@ -294,84 +261,6 @@
         }
       
   }
-    </script>
-
-    <!-- SEARCH SCRIPT -->
-
-    <script type="text/javascript">
-      
-      var searchIcon = document.getElementById('searchIcon');
-      var dashBoard = document.getElementsByClassName('dashboard')[0];
-
-
-      searchBar.style.display = "none";
-
-      searchIcon.onclick = function () 
-      {
-
-        var searchBar = document.getElementById("searchBar");
-
-        if (searchBar.classList.contains("bubblegumOn"))
-        {
-          searchBar.classList.add("bubblegumOff");
-          searchBar.classList.remove("bubblegumOn");
-
-          if (searchIcon.classList.contains("iconActive"))
-          {
-            searchIcon.classList.remove("iconActive");
-            searchIcon.classList.add("icon");
-
-            document.getElementById("searchIcon").src = "search_dark.png";
-          }
-
-            dashBoard.style.display = "block";
-            dashBoard.style.animationDelay = "0s";
-            dashBoard.classList.remove("hideBelow");
-        }
-        else 
-        {
-          dashBoard.style.animationDelay = "0s";
-          dashBoard.classList.add("hideBelow");
-
-          searchIcon.classList.add("iconActive");
-          searchIcon.classList.remove("icon");
-
-          document.getElementById("searchIcon").src = "close_dark.png";
-
-          searchBar.style.display = 'block';
-
-          searchBar.classList.add("bubblegumOn");
-          
-          if (searchBar.classList.contains("bubblegumOff"))
-            searchBar.classList.remove("bubblegumOff");
-        }
-
-        searchBar.addEventListener("animationend", 
-
-          function() 
-          {
-            if (searchBar.classList.contains("bubblegumOff"))
-            {
-                searchBar.style.display = 'none';
-            }
-          }
-
-        );
-
-        dashBoard.addEventListener("animationend", 
-
-          function() 
-          {
-            if (dashBoard.classList.contains("hideBelow"))
-            {
-                dashBoard.style.display = 'none';
-            }
-          }
-
-        );
-
-      };
-
-    </script>
+    </script>   
 
   </body>
