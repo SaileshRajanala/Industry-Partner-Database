@@ -307,26 +307,26 @@
 
             currentRow.onclick = createClickHandler(currentRow, rowIndex);
             rowIndex++;
-        }
-      
-  }
+        }  
+    }
     </script>
 
     <!-- SEARCH SCRIPT -->
-
     <script type="text/javascript">
       
       var searchIcon = document.getElementById('searchIcon');
       var dashBoard = document.getElementsByClassName('dashboard')[0];
       var searchBar = document.getElementById("searchBarDiv");
 
+      var d = new Date();
+
+      if (d.getHours() >= 6 && d.getHours() < 18)
+        searchIcon.src = "search_bright.png";
+
       searchBar.style.display = "none";
 
       searchIcon.onclick = function () 
-      {
-
-        
-
+      { 
         if (searchBar.classList.contains("bubblegumOn"))
         {
           searchBar.classList.add("bubblegumOff");
@@ -337,7 +337,10 @@
             searchIcon.classList.remove("iconActive");
             searchIcon.classList.add("icon");
 
-            document.getElementById("searchIcon").src = "search_dark.png";
+            if (d.getHours() >= 6 && d.getHours() < 18)
+              searchIcon.src = "search_bright.png";
+            else
+              searchIcon.src = "search_dark.png";
           }
 
             dashBoard.style.display = "block";
@@ -352,7 +355,10 @@
           searchIcon.classList.add("iconActive");
           searchIcon.classList.remove("icon");
 
-          document.getElementById("searchIcon").src = "close_dark.png";
+          if (d.getHours() >= 6 && d.getHours() < 18)
+              searchIcon.src = "close_bright.png";
+            else
+              searchIcon.src = "close_dark.png";
 
           // searchBar.style.display = 'block';
           searchBar.style.display = 'flex'; //necessary for button on input field
@@ -386,7 +392,6 @@
           }
 
         );
-
       };
 
     </script>

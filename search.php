@@ -74,10 +74,10 @@
 
      </form>
 
-     <!-- <div class="dashboard"></div> -->
+     <div class="dashboard"></div>
     <!-- SEARCH SECTION -->
 
-     <div class="dashboard" id="searchResultsDiv">
+     <div  id="searchResultsDiv">
         
         <div class="widget">
 
@@ -288,15 +288,35 @@
     </script>   
 
  <!-- SEARCH BAR GRAPHIC SCRIPT -->
- <script type="text/javascript">  
+ <script type="text/javascript">
 
-    document.body.style.animation = "none";
-    document.getElementById('topBar').style.animation = "none";
-    document.getElementById('searchResultsDiv').style.animationDelay = "0s"; 
+  var d = new Date();
 
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        swapStylesheet("request_bright.css", "rS");
+        swapStylesheet("test_bright.css", "tS");
+    }
+    else
+    {
+        swapStylesheet("request_dark.css", "rS");
+        swapStylesheet("test_dark.css", "tS");
+    }
+    
     document.getElementById('searchBar').onfocus = function() 
     {
-      document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+      if (d.getHours() >= 6 && d.getHours() < 18)
+      {  
+        document.getElementById("searchBarDiv").style.backgroundColor = 'black';
+        //document.getElementById("searchBarDiv").style.boxShadow = "none";
+        document.getElementById("searchButtonIcon").style.boxShadow = "none";
+
+      }
+      else
+      {
+        document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+      }
+
       document.getElementById("searchBarDiv").style.padding = '0.7%';
       document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
       document.getElementById("searchBarDiv").style.margin = '-0.7%';
@@ -305,11 +325,28 @@
 
     document.getElementById('searchBar').onfocusout = function() 
     {
-      document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
+      if (d.getHours() >= 6 && d.getHours() < 18)
+      {  
+        document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+        //document.getElementById("searchBarDiv").style.boxShadow = "0px 13px 26px rgb(200,200,200)";
+        document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
+      }
+      else
+      {
+        document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
+      }
       document.getElementById("searchBarDiv").style.padding = '0%';
       document.getElementById("searchBarDiv").style.margin = '-0%';
     };
 
+ </script>
+
+ <script type="text/javascript">
+   document.body.style.animation = 'none';
+   document.getElementById('topBar').style.animation = 'none';
+   document.getElementById('searchResultsDiv').style.animationName = 'toplaunch';
+   document.getElementById('searchResultsDiv').style.animationDelay = '0s';
+   document.getElementById('searchResultsDiv').style.animationDuration = '0.5s';
  </script>
 
   </body>

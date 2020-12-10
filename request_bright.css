@@ -54,7 +54,7 @@ body
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	z-index: 2;
+	z-index: 8;
 	display: none;
 	left: 0%;
 	top: 0%;
@@ -72,7 +72,7 @@ body
 	text-align: center;
 	top: 0%;
 	left: 0%;
-	z-index: 3;
+	z-index: 9;
 
 	width: 100%;
 	background-color: rgb(250,250,250,0.4);
@@ -187,9 +187,7 @@ td
 	background-color: white;
 	margin: 7%; 
 	padding: 2%;
-
-	z-index: 3;
-	
+	z-index: 9;
 	color: black;
 	height: 60%;
 	overflow-y: scroll;
@@ -337,7 +335,7 @@ body
 	width: 10%;
 	left: 45%;
 	padding: 1%;
-	z-index: 3;
+	z-index: 9;
 }
 
 .stretch
