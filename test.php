@@ -421,7 +421,9 @@
       document.getElementById("searchBarDiv").style.marginRight = '1.3%';
     };
 
-    document.getElementById('searchBar').onfocusout = function() 
+    document.getElementById('searchBar').addEventListener("focusout", onFocusOff);
+
+    function onFocusOff() 
     {
       if (d.getHours() >= 6 && d.getHours() < 18)
       {  

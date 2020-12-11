@@ -212,7 +212,6 @@
 
     <script type="text/javascript">
 
-
       var scroll_Y = 0;
 
       function previewDiv(i)
@@ -299,7 +298,6 @@
         document.getElementById("searchBarDiv").style.backgroundColor = 'black';
         //document.getElementById("searchBarDiv").style.boxShadow = "none";
         document.getElementById("searchButtonIcon").style.boxShadow = "none";
-
       }
       else
       {
@@ -312,7 +310,9 @@
       document.getElementById("searchBarDiv").style.marginRight = '1.3%';
     };
 
-    document.getElementById('searchBar').onfocusout = function() 
+    document.getElementById('searchBar').addEventListener("focusout", onFocusOff);
+
+    function onFocusOff() 
     {
       if (d.getHours() >= 6 && d.getHours() < 18)
       {  
@@ -325,7 +325,7 @@
         document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
       }
       document.getElementById("searchBarDiv").style.padding = '0%';
-      document.getElementById("searchBarDiv").style.margin = '-0%';
+      document.getElementById("searchBarDiv").style.margin = '0%';
     };
 
  </script>
