@@ -421,6 +421,7 @@
       document.getElementById("searchBarDiv").style.marginRight = '1.3%';
     };
 
+    // CrossBrowserCompatible Method for FocusOut below
     document.getElementById('searchBar').addEventListener("focusout", onFocusOff);
 
     function onFocusOff() 
