@@ -434,7 +434,7 @@
         document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
       }
       document.getElementById("searchBarDiv").style.padding = '0%';
-      document.getElementById("searchBarDiv").style.margin = '-0%';
+      document.getElementById("searchBarDiv").style.margin = '0%';
     };
 
  </script>
