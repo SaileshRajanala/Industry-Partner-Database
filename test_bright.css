@@ -1,3 +1,33 @@
+.linkA
+{
+	text-decoration: none;
+	color: black;
+	border-radius: 1000em;
+	padding: 1.5%;
+	margin: -1.5%;
+
+	transition: all 0.25s;
+}
+
+.linkA:hover
+{
+	box-shadow: 0px 0px 10px rgb(139,139,139);
+	background-color: white;
+	padding: 0.5%;
+	padding-left: 1.5%;
+	padding-right: 1.5%;
+
+	margin: -0.5%;
+	margin-left: 0.3%;
+	margin-right: 0.3%;
+}
+
+.linkA:active
+{
+	color: white;
+	background-color: black;
+}
+
 #searchBarDiv
 {
 	background-color: white;
@@ -7,7 +37,7 @@
 	top: 10%;
 	width: 50%;
 	left: 25%;
-	z-index: 10;
+	z-index: 2;
 
 	/*border-radius: 47px;*/
 	border-radius: 1000em;

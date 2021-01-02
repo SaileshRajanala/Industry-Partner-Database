@@ -46,15 +46,15 @@
     <div id="layer"></div>
     
     <!-- Top Bar Arc Structure -->
-      <div id="topBar">
+    <div id="topBar">
 
-      <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+        <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
 
-      Industry Partner Database
+              <a class="linkA" href="test.html">Industry Partner Database</a>
 
-      <img class="icon" id="searchIcon" src="search_dark.png">
+              <!-- <img class="icon" id="searchIcon" src="search_dark.png"> -->
 
-      </div>
+    </div>
       
       <!-- SEARCH BAR -->
       <form name="searchForm" action="search.php" method="POST">
