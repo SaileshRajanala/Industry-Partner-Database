@@ -240,6 +240,11 @@ td
 
 /*********************************/
 
+#prefix
+{
+	width: 92%;
+}
+
 .mainTitle
 {
 	font-family: "Comfortaa";
