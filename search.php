@@ -77,7 +77,7 @@
      <div class="dashboard"></div>
     <!-- SEARCH SECTION -->
 
-     <div  id="searchResultsDiv">
+     <div id="searchResultsDiv">
         
         <div class="widget">
 

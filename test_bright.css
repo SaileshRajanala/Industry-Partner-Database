@@ -8,7 +8,7 @@
 	width: 50%;
 	left: 25%;
 	z-index: 10;
-	
+
 	/*border-radius: 47px;*/
 	border-radius: 1000em;
 	box-shadow: 0px 13px 26px rgb(200,200,200);
@@ -183,15 +183,26 @@
 	background-color: transparent;
 	border-radius: 47px;
 	overflow-y: scroll;
-	padding: 2%;
+	padding: 1%;
 	position: fixed;
-	height: 64%;
-	left: 8%;
+	height: 67%;
+	left: 5%;
 	bottom: 4%;
-	width: 80%;
+	width: 88%;
 	margin: 0;
 
 	z-index: 1;
+}
+
+#searchResultsDiv::-webkit-scrollbar 
+{
+    display: none;
+}
+
+#searchResultsDiv
+{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 #searchButton
