@@ -454,4 +454,81 @@ textarea:hover
     border: 1px solid white;
 }
 
+/********/
+
+#thankYou
+{
+	padding: 7%;
+	font-size: 225%;
+	font-family: "Comfortaa";
+
+	animation-name: leftlaunch;
+  	animation-delay: 0.5s;
+  	animation-fill-mode: both;
+  	animation-duration: 0.5s;
+}
+
+.summary
+{
+	font-family: "QuickSand";
+	border-radius: 25px;
+	
+	padding: 4%;
+	margin: 1%;
+	margin-top: 4%;
+	margin-bottom: 7%;
+
+	box-shadow: none;
+	background-color: transparent;
+
+	animation-name: rightlaunch;
+  	animation-delay: 1s;
+  	animation-fill-mode: both;
+  	animation-duration: 0.5s;
+}
+
+.summaryTable
+{
+	font-size: large;
+	width: 102%;
+	margin: -2%;
+	padding: 4%;
+	border-radius: 25px;
+	background-color: transparent;
+	box-shadow: none;
+	border: none;
+
+	transition: all 0.25s;
+}
+
+.summaryTable:hover
+{
+	transform: scale(1);
+	box-shadow: none;
+	border: none;
+}
+
+td
+{	
+	width: 36%;
+	border-radius: 47px;
+	padding: 1%;
+	
+	display: block;
+}
+
+tr
+{
+	transition: all 0.1s;
+	display: block;
+	border-radius: 15px;
+	transition: all 0.25s;
+}
+
+tr:hover
+{
+	background-color: white;
+	color: black;
+}
+
 }
