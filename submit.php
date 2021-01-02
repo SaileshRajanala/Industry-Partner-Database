@@ -7,7 +7,7 @@
 
   <!-- CSS 3 (EXTERNAL) -->
   <link href="submit_dark.css" id="sS" rel="stylesheet" type="text/css">
-
+  <link href="mobile_dark.css" id="sS" rel="stylesheet" type="text/css">
   <!-- Font (Google Fonts) -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
@@ -20,9 +20,15 @@ function swapStylesheet(sheet, name) {
    document.getElementById(name).setAttribute('href', sheet);
 }
     if (d.getHours() >= 6 && d.getHours() < 18)
+    {
         swapStylesheet("submit_bright.css", "sS");
+        swapStylesheet("mobile_bright.css", "mS");
+    }
     else
+    {
         swapStylesheet("submit_dark.css", "sS");
+        swapStylesheet("mobile_dark.css", "mS");
+    }
   </script>
 
 </head>
