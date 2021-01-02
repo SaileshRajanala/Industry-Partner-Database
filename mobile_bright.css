@@ -345,7 +345,7 @@ label, input, select, option
 input
 {
   padding: 3%;
-  border: 1px solid darkgrey;
+  border: 1px solid black;
   padding-left: 4.7%; 
   width: 90%;
   font-size: x-large;
