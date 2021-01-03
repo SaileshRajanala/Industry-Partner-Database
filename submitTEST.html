@@ -21,9 +21,15 @@
         document.getElementById(name).setAttribute('href', sheet);
     }
     if (d.getHours() >= 6 && d.getHours() < 18)
+    {
         swapStylesheet("submit_bright.css", "sS");
+        swapStylesheet("mobile_bright.css", "mS");
+    }
     else
+    {
         swapStylesheet("submit_dark.css", "sS");
+        swapStylesheet("mobile_dark.css", "mS");
+    }
     </script>
 
 </head>
