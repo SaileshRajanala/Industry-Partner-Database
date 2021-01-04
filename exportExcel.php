@@ -24,34 +24,35 @@ header("Expires: 0");
 //define separator (defines columns in excel & tabs in word)
 $sep = "\t"; //tabbed character
 //start of printing column names as names of MySQL fields
-while ($property = mysqli_fetch_field($result)) 
-{
-    echo $property->name . "\t";
-}
+// while ($property = mysqli_fetch_field($result)) 
+// {
+//     echo $property->name . "\t";
+// }
 
-print("\n");    
+// print("\n");    
 //end of printing column names  
 //start while loop to get data
-while($row = $result->fetch_assoc())
+$flag = false;
+while ($row = $result->fetch_assoc()) 
 {
-    $schema_insert = "";
-
-    for($j = 0; $j < mysqli_num_fields($result); $j++)
+    if (!$flag) 
     {
-        if(!isset($row[$j]))
-            $schema_insert .= "NULL".$sep;
-        elseif ($row[$j] != "")
-            $schema_insert .= "$row[$j]".$sep;
-        else
-            $schema_insert .= "".$sep;
+        // display field/column names as first row
+        echo implode("\t", array_keys($row)) . "\r\n";
+        $flag = true;
     }
 
-    $schema_insert = str_replace($sep."$", "", $schema_insert);
-    $schema_insert = preg_replace("/\r\n|\n\r|\n|\r/", " ", $schema_insert);
-    $schema_insert .= "\t";
+    $copy = array_values($row);
 
-    print(trim($schema_insert));
-    print "\n";
-}   
+    for ($i=0; $i < count($copy); $i++) 
+    { 
+        $copy[$i] = str_replace("\r\n", "", $copy[$i]);
+        $copy[$i] = str_replace("\r\t", "", $copy[$i]);
+        $copy[$i] = str_replace("\n", "", $copy[$i]);
+        $copy[$i] = str_replace("\t", "", $copy[$i]);
+    }
+
+    echo implode("\t", $copy) . "\r\n";
+}
 
 ?>
