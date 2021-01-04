@@ -4,11 +4,6 @@ $user     = "id15084806_teamlotus";
 $password =     "SlZ}Df1?-NeUt?>/";    
 $filename = "Industry Partner Database - Data";    
 
-if (isset($_POST["fileName"])) 
-{
-    $filename = $_POST["fileName"]);
-}
-
 $sql = "SELECT * FROM Contacts";
 
 $conn = mysqli_connect($server, $user, $password, "id15084806_main_database");
