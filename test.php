@@ -119,6 +119,11 @@
       var exportDiv = document.getElementById('exportDiv');
       var exportIcon = document.getElementById('exportIcon');
 
+      if (d.getHours() >= 6 && d.getHours() < 18)
+          exportIcon.src = "download_bright.png";
+      else
+          exportIcon.src = "download_dark.png";
+
       exportIcon.onclick = function () 
       { 
         if (exportDiv.classList.contains("exportOn"))
