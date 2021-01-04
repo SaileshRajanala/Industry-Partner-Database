@@ -1,19 +1,19 @@
 <?php
-/*******EDIT LINES 3-8*******/
 $DB_Server = "localhost"; //MySQL Server    
-$DB_Username = "username"; //MySQL Username     
-$DB_Password = "password";             //MySQL Password     
-$DB_DBName = "databasename";         //MySQL Database Name  
-$DB_TBLName = "tablename"; //MySQL Table Name   
-$filename = "excelfilename";         //File Name
-/*******YOU DO NOT NEED TO EDIT ANYTHING BELOW THIS LINE*******/    
-//create MySQL connection   
-$sql = "Select * from $DB_TBLName";
-$Connect = @mysql_connect($DB_Server, $DB_Username, $DB_Password) or die("Couldn't connect to MySQL:<br>" . mysql_error() . "<br>" . mysql_errno());
-//select database   
-$Db = @mysql_select_db($DB_DBName, $Connect) or die("Couldn't select database:<br>" . mysql_error(). "<br>" . mysql_errno());   
-//execute query 
-$result = @mysql_query($sql,$Connect) or die("Couldn't execute query:<br>" . mysql_error(). "<br>" . mysql_errno());    
+$DB_Username = "id15084806_teamlotus"; //MySQL Username     
+$DB_Password = "SlZ}Df1?-NeUt?>/";             //MySQL Password     
+$DB_DBName = "id15084806_main_database";         //MySQL Database Name  
+$filename = "output";         //File Name
+
+$sql = "SELECT * FROM Contacts";
+
+$conn = mysqli_connect($DB_Server, $DB_Username, $DB_Password, "id15084806_main_database");
+
+if (!$conn) 
+  die("Connection failed: " . mysqli_connect_error());
+
+$result = $conn->query($sql);
+
 $file_ending = "xls";
 //header info for browser
 header("Content-Type: application/xls");    
@@ -24,28 +24,34 @@ header("Expires: 0");
 //define separator (defines columns in excel & tabs in word)
 $sep = "\t"; //tabbed character
 //start of printing column names as names of MySQL fields
-for ($i = 0; $i < mysql_num_fields($result); $i++) {
-echo mysql_field_name($result,$i) . "\t";
+while ($property = mysqli_fetch_field($result)) 
+{
+    echo $property->name . "\t";
 }
+
 print("\n");    
 //end of printing column names  
 //start while loop to get data
-    while($row = mysql_fetch_row($result))
+while($row = $result->fetch_assoc())
+{
+    $schema_insert = "";
+
+    for($j = 0; $j < mysqli_num_fields($result); $j++)
     {
-        $schema_insert = "";
-        for($j=0; $j<mysql_num_fields($result);$j++)
-        {
-            if(!isset($row[$j]))
-                $schema_insert .= "NULL".$sep;
-            elseif ($row[$j] != "")
-                $schema_insert .= "$row[$j]".$sep;
-            else
-                $schema_insert .= "".$sep;
-        }
-        $schema_insert = str_replace($sep."$", "", $schema_insert);
-        $schema_insert = preg_replace("/\r\n|\n\r|\n|\r/", " ", $schema_insert);
-        $schema_insert .= "\t";
-        print(trim($schema_insert));
-        print "\n";
-    }   
+        if(!isset($row[$j]))
+            $schema_insert .= "NULL".$sep;
+        elseif ($row[$j] != "")
+            $schema_insert .= "$row[$j]".$sep;
+        else
+            $schema_insert .= "".$sep;
+    }
+
+    $schema_insert = str_replace($sep."$", "", $schema_insert);
+    $schema_insert = preg_replace("/\r\n|\n\r|\n|\r/", " ", $schema_insert);
+    $schema_insert .= "\t";
+
+    print(trim($schema_insert));
+    print "\n";
+}   
+
 ?>
