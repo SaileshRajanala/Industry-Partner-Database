@@ -4,6 +4,11 @@ $user     = "id15084806_teamlotus";
 $password =     "SlZ}Df1?-NeUt?>/";    
 $filename = "Industry Partner Database - Data";    
 
+if (isset($_POST["fileName"]) && $_POST["fileName"] != "") 
+{
+    $filename = $_POST["fileName"];
+}
+
 $sql = "SELECT * FROM Contacts";
 
 $conn = mysqli_connect($server, $user, $password, "id15084806_main_database");
@@ -11,10 +16,8 @@ $conn = mysqli_connect($server, $user, $password, "id15084806_main_database");
 if (!$conn) 
   die("Connection failed: " . mysqli_connect_error());
 
-$result = $conn->query($sql);
+    $result = $conn->query($sql);
 
-function exportToExcel($result, $filename)
-{
     $file_ending = "xls";
 
     header("Content-Type: application/xls");    
@@ -44,6 +47,5 @@ function exportToExcel($result, $filename)
 
         echo implode("\t", $copy) . "\r\n";
     }
-}
 
 ?>

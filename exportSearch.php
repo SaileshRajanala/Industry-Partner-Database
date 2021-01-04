@@ -4,11 +4,6 @@ $user     = "id15084806_teamlotus";
 $password =     "SlZ}Df1?-NeUt?>/";    
 $filename = "Industry Partner Database - Data";    
 
-if (isset($_POST["fileName"])) 
-{
-    $filename = $_POST["fileName"]);
-}
-
 $sql = "SELECT * FROM Contacts";
 
 $conn = mysqli_connect($server, $user, $password, "id15084806_main_database");
@@ -16,10 +11,30 @@ $conn = mysqli_connect($server, $user, $password, "id15084806_main_database");
 if (!$conn) 
   die("Connection failed: " . mysqli_connect_error());
 
-$result = $conn->query($sql);
-
-function exportToExcel($result, $filename)
+if (isset($_POST["searchContent"]) && $_POST["searchContent"] != "")
 {
+    $filename = $_POST["searchContent"];
+
+    $sql = "
+
+          SELECT DISTINCT * FROM Contacts WHERE False " .
+
+          'OR UPPER(First_Name)     LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(Last_Name)      LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(Email)          LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(Phone_Number)   LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(College)        LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(Current_Status) LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchContent"]}%') " .
+          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchContent"]}%')            
+    
+        ";
+}
+
+    $result = $conn->query($sql);
+
     $file_ending = "xls";
 
     header("Content-Type: application/xls");    
@@ -49,6 +64,5 @@ function exportToExcel($result, $filename)
 
         echo implode("\t", $copy) . "\r\n";
     }
-}
 
 ?>

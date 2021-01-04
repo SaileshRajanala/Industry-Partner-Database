@@ -54,8 +54,10 @@
 
               <form action="exportExcel.php" method="POST">
                 <input type="fileName" name="fileName">
-                <button type="submit">Download ~></button>
+                <button class="searchButton" type="submit">Download ~></button>
               </form>
+
+              
 
     </div>
       
@@ -69,10 +71,29 @@
             </button>
             
             <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
-          
+            
           </div>
 
      </form>
+
+     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     <form action="download.php" method="POST">
+          <input type="text" name="searchContent" id="searchContent">
+          <button class="downloadSearchResults" type="submit">Download SEARCH ~></button>
+    </form>
+
+    <script type="text/javascript">
+
+
+
+      document.getElementById("searchBar").addEventListener("keyup", myFunction);
+
+function myFunction() {
+  var x = document.getElementById("searchBar");
+  var y = document.getElementById("searchContent");
+  y.value = x.value;
+}
+    </script>
 
 
     <div class="dashboard">
