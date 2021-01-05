@@ -54,7 +54,7 @@
 
     <button class="uiButtonOff" id="close" onclick="closePreview()">(X)</button>
     <div id="layer"></div>
-    
+  
     <!-- Top Bar Arc Structure -->
     <div id="topBar">
 
@@ -65,9 +65,9 @@
               -> Search
 
               <!-- <img class="icon" id="searchIcon" src="search_dark.png"> -->
-            <img class="icon" id="exportIcon" src="download_dark.png" style="left: 3.5%;position: fixed; top: 10%;">
+            <img class="icon" id="exportIcon" src="download_dark.png" style="position:absolute; left: 4%;top:10%;">
 
-          <button id="helpButton" class="icon" style="left: 10%;position: fixed;">?</button>
+          <button id="helpButton" class="icon" style="position:absolute; left: 10%;">?</button>
     </div>
 
      <form name="searchForm" action="" method="post">
