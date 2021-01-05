@@ -84,7 +84,7 @@
 
     <div id="exportDiv" class="alertDiv">
 
-      <h1>Export Search Results for "<?php echo $_POST["searchBar"]; ?>"</h1>
+      <h1>Export Search Results for "<?php if (isset($_POST["searchBar"])) echo $_POST['searchBar'] ?>"</h1>
 
       <form action="exportSearch.php" method="POST">
           <label>Download as </label>
