@@ -7,10 +7,9 @@
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
+    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
     <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
-    <!-- TEST CSS -->
-    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
 
     <!-- CSS FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -63,7 +62,7 @@
               -> Search
 
               <!-- <img class="icon" id="searchIcon" src="search_dark.png"> -->
-            <img class="icon" id="exportIcon" src="download_dark.png" style="left: 4%;">
+            <img class="icon" id="exportIcon" src="download_dark.png" style="left: 4%;position: fixed; top: 1.5%;">
     </div>
 
      <form name="searchForm" action="" method="post">
@@ -94,6 +93,12 @@
           <button class="downloadButton" type="submit"><img class=downloadIcon 
             id="downloadImg" src="download_bright.png"></button>
       </form>
+
+      <!-- <form action="exportAll.php" method="POST">
+          <label>or Export all records ?</label>
+          <button class="downloadButton" type="submit"><img class=downloadIcon 
+            id="downloadImg" src="download_bright.png"></button>
+      </form> -->
       
     </div>
 
