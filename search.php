@@ -62,7 +62,7 @@
               -> Search
 
               <!-- <img class="icon" id="searchIcon" src="search_dark.png"> -->
-            <img class="icon" id="exportIcon" src="download_dark.png" style="left: 4%;position: fixed; top: 0.5%;">
+            <img class="icon" id="exportIcon" src="download_dark.png" style="left: 3.5%;position: fixed; top: 0.5%;">
     </div>
 
      <form name="searchForm" action="" method="post">

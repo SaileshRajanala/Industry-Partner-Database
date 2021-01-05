@@ -59,7 +59,7 @@
               <a class="linkA" href="test.php">Industry Partner Database</a>
 
         <img class="icon" id="searchIcon" src="search_dark.png">
-        <img class="icon" id="exportIcon" src="download_dark.png" style="left: 4%;">
+        <img class="icon" id="exportIcon" src="download_dark.png" style="left: 3.5%;">
     </div>
       
       <!-- SEARCH BAR -->
