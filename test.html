@@ -470,8 +470,274 @@
 
     </script>
 
+    <!-- HELP DIV START -->
 
- 
+    <style type="text/css">
+      
+      #helpDiv
+      {
+        position: fixed;
+        top: 13%;
+        left: 4%;
+        bottom: 13%;
+        margin: 0%; 
+
+        padding: 1%;
+        padding-top: 0.5%;
+        padding-bottom: -3.5%;
+
+        width: 35%;
+        
+        z-index: 1;
+        font-size: x-large;
+
+        border-radius: 2em;
+
+        box-shadow: 0px 0px 13px rgb(200,200,200);
+        background-color: rgb(222,222,222,0.2);
+
+        -webkit-backdrop-filter: blur(13px);
+        backdrop-filter: blur(13px);
+
+        overflow-y: scroll;
+
+      }
+
+      .helpArticle
+      {
+        
+        padding: 4%;
+        margin: 1%;
+        margin-bottom: 4%;
+        border-radius: 1.5em;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        font-size: large;
+        
+        background-color: white;
+        box-shadow: 0px 13px 13px rgb(200,200,200);
+        transition: all 0.25s;
+      }
+
+      /*.helpArticle:hover
+      {
+        background-color: white;
+        padding: 5%;
+        margin: 0%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        margin-bottom: 4%;
+        box-shadow: 0px 13px 13px rgb(200,200,200);
+      }*/
+
+      h1
+      {
+        margin-left: 4%;
+      }
+
+      #helpDiv::-webkit-scrollbar 
+      {
+        display: none;
+      }
+
+      #helpDiv
+      {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+
+      li
+      {
+        border-radius: 1em;
+        box-shadow: 0px 26px 26px rgb(200,200,200);
+        padding: 4%;
+        transition: all 0.25s;
+      }
+
+      
+
+    </style>
+
+    <div id="helpDiv">
+
+      <h1>Help</h1>
+
+      <div class="helpArticle">
+
+        <h2>Navigating Around < > </h2>
+        
+        <ul>
+          <li>You can always return <b>home</b> by clicking the <br><br>
+            <b>"Industry Partner Database"</b> <br><br> 
+            link on the top middle of the screen
+          </li>
+            <br>
+
+          <li>
+            You can click on a record to access its full details
+            <br>
+            
+            <br>
+            You can click the <b>(X)</b> button to dismiss a record's preview
+          </li>
+          <br>
+
+          <li>
+            You can use the <b>Search Icon</b> on the top right corner to search for records.
+            <br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+          
+          <li>
+            You can use the <b>Download Icon</b> on the top left corner to export data.
+            <br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            You can click the <b>Close Icon</b> to dismis either Search or Export operations.
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+        </ul>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Search?</h2>
+        
+        <p></p>
+
+        <ul>
+          <li>To start a search, click the <b>Search Icon</b> on the top right corner<br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the search operation, click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To search for something, type it in the <b>Search Bar</b> <br><br> 
+            Click the <b>Search Icon</b> <br><b>
+            or </b><br> 
+            Press the <b>"Enter"</b> key
+          </li>
+          <br>
+
+          <li>To go back and view all records, click the <br><br>
+            <b>"Industry Partner Database"</b> <br><br> 
+            link on the top middle of the screen
+          </li>
+          <br>
+
+        </ul>
+
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Export all records?</h2>
+
+        <p>
+          You can download data 
+          as an Excel Spreadsheet 
+          <br><br> 
+          Format : <b>.xls</b>
+        </p>
+
+        <ul>
+          <li>
+          To export all data,<br> click the <b>Downlaod Icon</b> on the top left corner<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the export operation,<br> click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           By default, the downloaded file is named as 
+           <br><br>
+           <b>"Industry Data.xls"</b>
+           <br><br>
+           You can rename it by typing the desired file name in the text box
+          </li>
+          <br>
+
+          <li>
+            Click the <b>Downlaod Icon</b> to download the file<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+        </ul>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Export only Search Results?</h2>
+        
+        <p>
+          You can download data 
+          as an Excel Spreadsheet 
+          <br><br> 
+          Format : <b>.xls</b>
+        </p>
+
+        <ul>
+
+          <li>
+          To export only the search data, <br> you need to perform a search by clicking the <b>Search Icon</b> on the top right corner<br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           To export the search resutls,<br> click the <b>Downlaod Icon</b> on the top left corner<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the export operation,<br> click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           To rename the download file, <br>type the desired file name in the text box
+          </li>
+          <br>
+
+          <li>
+            Click the <b>Downlaod Icon</b> to download the file<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- HELP DIV END -->
 
   </body>
 
