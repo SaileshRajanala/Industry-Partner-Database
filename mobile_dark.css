@@ -611,7 +611,7 @@ tr:hover
   top: 4%;
   bottom: 0%;	
   width: 96%;       
-  z-index: 1;
+  z-index: 2;
   border-radius: 0em;
   font-size: large;
 }

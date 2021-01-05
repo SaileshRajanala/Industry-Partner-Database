@@ -3,7 +3,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Industry Partner Database</title>
+    <title>Search Results</title>
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
@@ -60,7 +60,7 @@
 
         <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
 
-              <a class="linkA" href="test.php">Industry Partner Database</a>
+              <a class="linkA" href="test.php" style="font-size: medium">Industry Partner Database</a>
 
               -> Search
 
