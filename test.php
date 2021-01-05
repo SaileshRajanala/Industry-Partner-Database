@@ -9,6 +9,7 @@
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
     <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
     <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
+    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
     <!-- CSS FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,6 +33,7 @@
         swapStylesheet("request_bright.css", "rS");
         swapStylesheet("test_bright.css", "tS");
         swapStylesheet("export_bright.css", "eS");
+        swapStylesheet("help_bright.css", "hS");
         swapStylesheet("mobile_bright.css", "mS");
     }
     else
@@ -39,6 +41,7 @@
         swapStylesheet("request_dark.css", "rS");
         swapStylesheet("test_dark.css", "tS");
         swapStylesheet("export_dark.css", "eS");
+        swapStylesheet("help_dark.css", "hS");
         swapStylesheet("mobile_dark.css", "mS");
     }
 
@@ -56,10 +59,12 @@
 
         <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
 
-              <a class="linkA" href="test.php">Industry Partner Database</a>
+        <a class="linkA" href="test.php">Industry Partner Database</a>
 
         <img class="icon" id="searchIcon" src="search_dark.png">
-        <img class="icon" id="exportIcon" src="download_dark.png" style="left: 3.5%;">
+        <img class="icon" id="exportIcon" src="download_dark.png" style="left: 4%;position: fixed;top: 10%">
+        <button id="helpButton" class="icon">?</button>
+
     </div>
       
       <!-- SEARCH BAR -->
@@ -77,7 +82,8 @@
 
      </form>
 
-    <!-- EXPORT DIV START -->
+
+     <!-- EXPORT DIV START -->
 
     <div id="exportDiv" class="alertDiv">
 
@@ -115,15 +121,15 @@
 
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT START -->
     <script type="text/javascript">
-      
+      var d = new Date();
       var exportDiv = document.getElementById('exportDiv');
       var exportIcon = document.getElementById('exportIcon');
-
+        
       if (d.getHours() >= 6 && d.getHours() < 18)
           exportIcon.src = "download_bright.png";
       else
-          exportIcon.src = "download_dark.png";
-
+          exportIcon.src = "download_dark.png";    
+        
       exportIcon.onclick = function () 
       { 
         if (exportDiv.classList.contains("exportOn"))
@@ -163,6 +169,7 @@
 
     </script>
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT END -->
+
 
     <div class="dashboard">
 
@@ -534,4 +541,346 @@
 
  </script>
 
+ <!-- HELP DIV START -->
+
+    <div id="helpDiv">
+
+      <h1>Help?</h1>
+
+      <div class="helpArticle">
+
+        <h2>Navigating Around < > </h2>
+        
+        <ul>
+          <li>You can always return <b>home</b> by clicking the <br><br>
+            <b>"Industry Partner Database"</b> <br><br> 
+            link on the top middle of the screen
+          </li>
+            <br>
+
+          <li>
+            You can click on a record to access its full details
+            <br>
+            
+            <br>
+            You can click the <b>(X)</b> button to dismiss a record's preview
+          </li>
+          <br>
+
+          <li>
+            You can use the <b>Search Icon</b> on the top right corner to search for records.
+            <br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+          
+          <li>
+            You can use the <b>Download Icon</b> on the top left corner to export data.
+            <br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            You can click the <b>Close Icon</b> to dismis either Search or Export operations.
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+        </ul>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Search?</h2>
+        
+        <p></p>
+
+        <ul>
+          <li>To start a search, click the <b>Search Icon</b> on the top right corner<br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the search operation, click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To search for something, type it in the <b>Search Bar</b> <br><br> 
+            Click the <b>Search Icon</b> <br><b>
+            or </b><br> 
+            Press the <b>"Enter"</b> key
+          </li>
+          <br>
+
+          <li>To go back and view all records, click the <br><br>
+            <b>"Industry Partner Database"</b> <br><br> 
+            link on the top middle of the screen
+          </li>
+          <br>
+
+        </ul>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Export all records?</h2>
+
+        <p>
+          You can download data 
+          as an Excel Spreadsheet 
+          <br><br> 
+          Format : <b>.xls</b>
+        </p>
+
+        <ul>
+          <li>
+          To export all data,<br> click the <b>Downlaod Icon</b> on the top left corner<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the export operation,<br> click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           By default, the downloaded file is named as 
+           <br><br>
+           <b>"Industry Data.xls"</b>
+           <br><br>
+           You can rename it by typing the desired file name in the text box
+          </li>
+          <br>
+
+          <li>
+            Click the <b>Downlaod Icon</b> to download the file<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+        </ul>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Export only Search Results?</h2>
+        
+        <p>
+          You can download data 
+          as an Excel Spreadsheet 
+          <br><br> 
+          Format : <b>.xls</b>
+        </p>
+
+        <ul>
+
+          <li>
+          To export only the search data, <br> you need to perform a search by clicking the <b>Search Icon</b> on the top right corner<br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           To export the search resutls,<br> click the <b>Downlaod Icon</b> on the top left corner<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the export operation,<br> click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           To rename the download file, <br>type the desired file name in the text box
+          </li>
+          <br>
+
+          <li>
+            Click the <b>Downlaod Icon</b> to download the file<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+        </ul>
+
+      </div>
+
+      <div class="helpArticle" id="fontSizeHelpArticle">
+
+        <h2>Font Size?</h2>
+
+        <ul>
+          <li>
+           On a Mac, 
+           <br><br>
+           Use "Command" <b>+</b> "+" to Increase Font Size.
+           <br><br>
+           Use "Command" <b>+</b> "-" to Decrease Font Size.
+          </li>
+          <br>
+
+          <li>
+           On Windows, 
+           <br><br>
+           Use "CTRL" <b>+</b> "+" to Increase Font Size.
+           <br><br>
+           Use "CTRL" <b>+</b> "-" to Decrease Font Size.
+           <br><br>
+           You can also hold <b>"CTRL"</b> and scroll the <b>"Mouse Wheel"</b> to adjust the Font Size.
+          </li>
+          <br>
+        </ul>
+
+      </div>
+
+      <div class="helpArticle" id="displayHelpArticle">
+
+        <h2>Display?</h2>
+        <h2>Can't differentiate between elements?</h2>
+        
+        <p>Please make sure the <b>Contrast</b> Setting of your display is around 50%</p>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Dismiss Help?</h2>
+
+        To dismiss Help, click on <span id="helpHelpButton" style="padding: 2.5%;padding-top:  1%;padding-bottom: 1%;margin: 1%;color: white;background-color: darkred;border-radius: 0.5em;font-size: x-large;">X</span> button on the top left of the screen
+        <br><br>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Need more help?</h2>
+
+        Contact Support 
+        <br><br>
+        <a class="helpEmailLink" href="mailto:support@lotus.com">Team Lotus</a>
+        <br><br>
+
+      </div>
+
+    </div>
+
+    <!-- HELP DIV END -->
+
+    <!-- HELP DIV ICON SWITCH SCRIPT START -->
+
+    <script type="text/javascript">
+    
+    var d = new Date();
+
+    searchIcons = document.getElementsByClassName("helpSearchIcon");
+    exportIcons = document.getElementsByClassName("helpDownloadIcon");
+    closeIcons = document.getElementsByClassName("helpCloseIcon");
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        for (var i = searchIcons.length - 1; i >= 0; i--) {
+          searchIcons[i].src = "search_bright.png";
+        }
+
+        for (var i = closeIcons.length - 1; i >= 0; i--) {
+          closeIcons[i].src = "close_bright.png";
+        }
+
+        for (var i = exportIcons.length - 1; i >= 0; i--) {
+          exportIcons[i].src = "download_bright.png";
+        }
+        document.getElementById('helpHelpButton').style.backgroundColor = "red";
+    }
+    else
+    {
+        for (var i = searchIcons.length - 1; i >= 0; i--) {
+          searchIcons[i].src = "search_dark.png";
+        }
+
+        for (var i = closeIcons.length - 1; i >= 0; i--) {
+          closeIcons[i].src = "close_dark.png";
+        }
+
+        for (var i = exportIcons.length - 1; i >= 0; i--) {
+          exportIcons[i].src = "download_dark.png";
+        }
+
+        document.getElementById('helpButton').style.color = "white";
+    }
+
+    </script>
+
+    <!-- HELP DIV ICON SWITCH SCRIPT END -->
+
+    <!-- HELP DIV FUNCTIONALITY SCRIPT START -->
+
+    <script type="text/javascript">
+      
+      var helpDiv = document.getElementById('helpDiv');
+      var helpIcon = document.getElementById('helpButton');
+
+      helpIcon.onclick = function () 
+      { 
+        if (helpDiv.classList.contains("helpOn"))
+        {
+          helpDiv.classList.add("helpOff");
+          helpDiv.classList.remove("helpOn");
+
+          if (helpIcon.classList.contains("iconActive"))
+          {
+            helpIcon.classList.remove("iconActive");
+            helpIcon.classList.add("icon");
+            helpIcon.innerHTML = "?";
+
+            if (d.getHours() >= 6 && d.getHours() < 18)
+            document.getElementById('helpButton').style.color = "black";
+            else
+            document.getElementById('helpButton').style.color = "white";
+
+            if (d.getHours() >= 6 && d.getHours() < 18)
+              helpIcon.src = "download_bright.png";
+            else
+              helpIcon.src = "download_dark.png";
+          }
+        }
+        else 
+        {
+          helpDiv.classList.add("helpOn");
+          helpIcon.classList.add("iconActive");
+          helpIcon.classList.remove("icon");
+
+          helpIcon.innerHTML = "X";
+          document.getElementById('helpButton').style.color = "white";
+
+          if (d.getHours() >= 6 && d.getHours() < 18)
+              helpIcon.src = "close_bright.png";
+            else
+              helpIcon.src = "close_dark.png";
+
+          helpDiv.classList.add("helpOn");
+          
+          if (helpDiv.classList.contains("helpOff"))
+            helpDiv.classList.remove("helpOff");
+        }
+      };
+
+    </script>
+    <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
+
   </body>
+  
+  </html>

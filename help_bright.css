@@ -1,4 +1,4 @@
-a
+.helpEmailLink
 {
   text-decoration: none;
   padding: 4%;
@@ -13,7 +13,7 @@ a
   transition: all 0.25s;
 }
 
-a:hover
+.helpEmailLink:hover
 {
   color: white;
   background-color: black;
@@ -23,7 +23,6 @@ a:hover
 {
   font-size: x-large;
   left: 9%;
-  top: 10%;
 }
 
 #helpDiv
