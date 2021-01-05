@@ -63,21 +63,43 @@
 
       </div>
 
-
     <!-- EXPORT DIV START -->
 
     <div id="exportDiv" class="alertDiv">
 
-      <h1>Export everything</h1>
+      <h1>Export Search Results for "<?php echo $_POST["searchBar"]; ?>"</h1>
 
-      <form action="exportAll.php" method="POST">
+      <form action="exportSearch.php" method="POST">
           <label>Download as </label>
           <input type="fileName" id="fileName" name="fileName" placeholder="Industry Data">
+
+          
+
           <button class="downloadButton" type="submit"><img class=downloadIcon 
             id="downloadImg" src="download_bright.png"></button>
       </form>
       
     </div>
+    <input style="display: block; background-color: red;color: white;position: fixed;top: 10%;left: 40%;font-size: 200%;" type="text" name="searchContent" id="searchContent">
+    <!-- SEARCH EXPORT SCRIPT START -->
+
+    <script type="text/javascript">
+
+    var x = document.getElementById("searchBar");
+    var y = document.getElementById("searchContent");
+
+    function myFunction() 
+    {
+      y.value = x.value;
+    }
+
+    myFunction(); // when page is ready
+
+    document.getElementById("searchBar").addEventListener("keyup", myFunction);
+
+    </script>
+
+    <!-- SEARCH EXPORT SCRIPT END -->
 
     <script type="text/javascript">
     var d = new Date();

@@ -2,7 +2,7 @@
 $server   =            "localhost"; 
 $user     = "id15084806_teamlotus";  
 $password =     "SlZ}Df1?-NeUt?>/";    
-$filename = "Industry Data";    
+$filename =        "Industry Data";    
 
 $sql = "SELECT * FROM Contacts";
 

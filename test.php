@@ -77,8 +77,7 @@
 
      </form>
 
-
-     <!-- EXPORT DIV START -->
+    <!-- EXPORT DIV START -->
 
     <div id="exportDiv" class="alertDiv">
 
@@ -159,7 +158,6 @@
 
     </script>
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT END -->
-
 
     <div class="dashboard">
 

@@ -7,12 +7,13 @@
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
-
+    <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
+    <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
     <!-- TEST CSS -->
     <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
+
     <!-- CSS FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -32,11 +33,15 @@
     {  
         swapStylesheet("request_bright.css", "rS");
         swapStylesheet("test_bright.css", "tS");
+        swapStylesheet("export_bright.css", "eS");
+        swapStylesheet("mobile_bright.css", "mS");
     }
     else
     {
         swapStylesheet("request_dark.css", "rS");
         swapStylesheet("test_dark.css", "tS");
+        swapStylesheet("export_dark.css", "eS");
+        swapStylesheet("mobile_dark.css", "mS");
     }
 
   </script>
@@ -53,12 +58,12 @@
 
         <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
 
-              <a class="linkA" href="test.html">Industry Partner Database</a>
+              <a class="linkA" href="test.php">Industry Partner Database</a>
 
               -> Search
 
               <!-- <img class="icon" id="searchIcon" src="search_dark.png"> -->
-
+            <img class="icon" id="exportIcon" src="download_dark.png" style="left: 4%;">
     </div>
 
      <form name="searchForm" action="" method="post">
@@ -76,10 +81,116 @@
 
      </form>
 
+     <!-- EXPORT DIV START -->
+
+    <div id="exportDiv" class="alertDiv">
+
+      <h1>Export Search Results for "<?php echo $_POST["searchBar"]; ?>"</h1>
+
+      <form action="exportSearch.php" method="POST">
+          <label>Download as </label>
+          <input type="fileName" id="fileName" name="fileName" placeholder="Industry Data">
+          <input style="display: none;" type="text" name="searchContent" id="searchContent">
+          <button class="downloadButton" type="submit"><img class=downloadIcon 
+            id="downloadImg" src="download_bright.png"></button>
+      </form>
+      
+    </div>
+
+    <script type="text/javascript">
+    var d = new Date();
+    var downloadIcons = document.getElementsByClassName("downloadIcon");
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        for (var i = downloadIcons.length - 1; i >= 0; i--) {
+          downloadIcons[i].src = "download_bright.png";
+        }
+    }
+    else
+    {
+        for (var i = downloadIcons.length - 1; i >= 0; i--) {
+          downloadIcons[i].src = "download_dark.png";
+        }    
+    }
+
+    </script>
+
+    <!-- EXPORT DIV END -->
+
+    <!-- SEARCH EXPORT SCRIPT START -->
+
+    <script type="text/javascript">
+
+    var x = document.getElementById("searchBar");
+    var y = document.getElementById("searchContent");
+    var z = document.getElementById("fileName");
+    
+    function myFunction() 
+    {
+      y.value = x.value;
+      z.value = x.value;
+    }
+
+    myFunction(); // when page is ready
+
+    document.getElementById("searchBar").addEventListener("keyup", myFunction);
+
+    </script>
+
+    <!-- SEARCH EXPORT SCRIPT END -->
+
+    <!-- EXPORT DIV FUNCTIONALITY SCRIPT START -->
+
+    <script type="text/javascript">
+      
+      var exportDiv = document.getElementById('exportDiv');
+      var exportIcon = document.getElementById('exportIcon');
+
+      exportIcon.onclick = function () 
+      { 
+        if (exportDiv.classList.contains("exportOn"))
+        {
+          exportDiv.classList.add("exportOff");
+          exportDiv.classList.remove("exportOn");
+
+          if (exportIcon.classList.contains("iconActive"))
+          {
+            exportIcon.classList.remove("iconActive");
+            exportIcon.classList.add("icon");
+
+            if (d.getHours() >= 6 && d.getHours() < 18)
+              exportIcon.src = "download_bright.png";
+            else
+              exportIcon.src = "download_dark.png";
+          }
+        }
+        else 
+        {
+          exportDiv.classList.add("exportOn");
+          exportIcon.classList.add("iconActive");
+          exportIcon.classList.remove("icon");
+
+          if (d.getHours() >= 6 && d.getHours() < 18)
+              exportIcon.src = "close_bright.png";
+            else
+              exportIcon.src = "close_dark.png";
+
+          exportDiv.classList.add("exportOn");
+          
+          if (exportDiv.classList.contains("exportOff"))
+            exportDiv.classList.remove("exportOff");
+        }
+
+      };
+
+    </script>
+    <!-- EXPORT DIV FUNCTIONALITY SCRIPT END -->
+
      <div class="dashboard"></div>
     <!-- SEARCH SECTION -->
 
-     <div id="searchResultsDiv">
+     <div  id="searchResultsDiv">
         
         <div class="widget">
 

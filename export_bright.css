@@ -20,7 +20,7 @@
         border-top-right-radius: 100em;
         border-top-left-radius: 100em; 
 
-        z-index: 9;
+        z-index: 7;
       }
 
       #fileName
@@ -104,9 +104,13 @@
 
       @keyframes bottomDOWN
       {
+        0%
+        {
+          bottom: 0px;
+        }
+
         100%
         {
           opacity: 0;
-          
         }
       }
