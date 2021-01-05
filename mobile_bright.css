@@ -552,4 +552,33 @@ tr:hover
         }
       }
 
+/******HELP DIV******/
+
+#fontSizeHelpArticle, #displayHelpArticle
+{
+	display: none;
+}
+
+a
+{
+  font-size: x-large; 
+}
+
+#helpDiv
+{ 
+  top: 4%;
+  bottom: 0%;	
+  width: 96%;       
+  z-index: 1;
+  border-radius: 0em;
+  font-size: large;
+}
+
+#helpButton
+{
+  font-size: x-large;
+  left: 12%;
+  top: -1%;
+}
+
 }
