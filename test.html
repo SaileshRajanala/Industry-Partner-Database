@@ -9,6 +9,7 @@
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
     <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
     <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
+    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
 
     <!-- CSS FOR ICONS -->
@@ -33,6 +34,7 @@
         swapStylesheet("request_bright.css", "rS");
         swapStylesheet("test_bright.css", "tS");
         swapStylesheet("export_bright.css", "eS");
+        swapStylesheet("help_bright.css", "hS");
         swapStylesheet("mobile_bright.css", "mS");
     }
     else
@@ -40,6 +42,7 @@
         swapStylesheet("request_dark.css", "rS");
         swapStylesheet("test_dark.css", "tS");
         swapStylesheet("export_dark.css", "eS");
+        swapStylesheet("help_dark.css", "hS");
         swapStylesheet("mobile_dark.css", "mS");
     }
 
@@ -60,6 +63,7 @@
 
       <img class="icon" id="searchIcon" src="search_dark.png">
       <img class="icon" id="exportIcon" src="download_dark.png" style="left: 4%;position: fixed; top: 4%;">
+      <button id="helpButton" class="icon" style="font-size: x-large; left: 9%;top: 10%;">?</button>
 
       </div>
 
@@ -472,92 +476,6 @@
 
     <!-- HELP DIV START -->
 
-    <style type="text/css">
-      
-      #helpDiv
-      {
-        position: fixed;
-        top: 13%;
-        left: 4%;
-        bottom: 13%;
-        margin: 0%; 
-
-        padding: 1%;
-        padding-top: 0.5%;
-        padding-bottom: -3.5%;
-
-        width: 35%;
-        
-        z-index: 1;
-        font-size: x-large;
-
-        border-radius: 2em;
-
-        box-shadow: 0px 0px 13px rgb(200,200,200);
-        background-color: rgb(222,222,222,0.2);
-
-        -webkit-backdrop-filter: blur(13px);
-        backdrop-filter: blur(13px);
-
-        overflow-y: scroll;
-
-      }
-
-      .helpArticle
-      {
-        
-        padding: 4%;
-        margin: 1%;
-        margin-bottom: 7%;
-        border-radius: 1.5em;
-        padding-top: 1%;
-        padding-bottom: 1%;
-        font-size: large;
-        
-        background-color: white;
-        box-shadow: 0px 13px 13px rgb(200,200,200);
-        transition: all 0.25s;
-      }
-
-      /*.helpArticle:hover
-      {
-        background-color: white;
-        padding: 5%;
-        margin: 0%;
-        padding-top: 1%;
-        padding-bottom: 1%;
-        margin-bottom: 4%;
-        box-shadow: 0px 13px 13px rgb(200,200,200);
-      }*/
-
-      h1
-      {
-        margin-left: 4%;
-      }
-
-      #helpDiv::-webkit-scrollbar 
-      {
-        display: none;
-      }
-
-      #helpDiv
-      {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-      }
-
-      li
-      {
-        border-radius: 1em;
-        box-shadow: 0px 26px 26px rgb(200,200,200);
-        padding: 4%;
-        transition: all 0.25s;
-      }
-
-      
-
-    </style>
-
     <div id="helpDiv">
 
       <h1>Help</h1>
@@ -738,6 +656,100 @@
     </div>
 
     <!-- HELP DIV END -->
+
+    <!-- HELP DIV ICON SWITCH SCRIPT START -->
+
+    <script type="text/javascript">
+    
+    var d = new Date();
+
+    searchIcons = document.getElementsByClassName("helpSearchIcon");
+    exportIcons = document.getElementsByClassName("helpDownloadIcon");
+    closeIcons = document.getElementsByClassName("helpCloseIcon");
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        for (var i = searchIcons.length - 1; i >= 0; i--) {
+          searchIcons[i].src = "search_bright.png";
+        }
+
+        for (var i = closeIcons.length - 1; i >= 0; i--) {
+          closeIcons[i].src = "close_bright.png";
+        }
+
+        for (var i = exportIcons.length - 1; i >= 0; i--) {
+          exportIcons[i].src = "download_bright.png";
+        }
+    }
+    else
+    {
+        for (var i = searchIcons.length - 1; i >= 0; i--) {
+          searchIcons[i].src = "search_dark.png";
+        }
+
+        for (var i = closeIcons.length - 1; i >= 0; i--) {
+          closeIcons[i].src = "close_dark.png";
+        }
+
+        for (var i = exportIcons.length - 1; i >= 0; i--) {
+          exportIcons[i].src = "download_dark.png";
+        }
+    }
+
+    </script>
+
+    <!-- HELP DIV ICON SWITCH SCRIPT END -->
+
+    <!-- HELP DIV FUNCTIONALITY SCRIPT START -->
+
+    <script type="text/javascript">
+      
+      var helpDiv = document.getElementById('helpDiv');
+      var helpIcon = document.getElementById('helpButton');
+
+      helpIcon.onclick = function () 
+      { 
+        if (helpDiv.classList.contains("helpOn"))
+        {
+          helpDiv.classList.add("helpOff");
+          helpDiv.classList.remove("helpOn");
+
+          if (helpIcon.classList.contains("iconActive"))
+          {
+            helpIcon.classList.remove("iconActive");
+            helpIcon.classList.add("icon");
+            helpIcon.innerHTML = "?";
+
+            if (d.getHours() >= 6 && d.getHours() < 18)
+              helpIcon.src = "download_bright.png";
+            else
+              helpIcon.src = "download_dark.png";
+          }
+        }
+        else 
+        {
+          helpDiv.classList.add("helpOn");
+          helpIcon.classList.add("iconActive");
+          helpIcon.classList.remove("icon");
+
+          helpIcon.innerHTML = "X";
+
+          if (d.getHours() >= 6 && d.getHours() < 18)
+              helpIcon.src = "close_bright.png";
+            else
+              helpIcon.src = "close_dark.png";
+
+          helpDiv.classList.add("helpOn");
+          
+          if (helpDiv.classList.contains("helpOff"))
+            helpDiv.classList.remove("helpOff");
+        }
+
+      };
+
+    </script>
+    <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
+
 
   </body>
 
