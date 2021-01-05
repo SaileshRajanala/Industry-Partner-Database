@@ -60,7 +60,7 @@
 
         <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
 
-              <a class="linkA" href="test.php" style="font-size: medium">Industry Partner Database</a>
+              <a class="linkA" href="test.php" style="font-size: small">Industry Partner Database</a>
 
               -> Search
 
