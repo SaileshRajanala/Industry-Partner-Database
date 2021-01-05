@@ -414,6 +414,11 @@ textarea
   transition: all 0.25s;
 }
 
+#searchTitleLink
+{
+	font-size: small;
+}
+
 /**********************/
 
 #thankYou
