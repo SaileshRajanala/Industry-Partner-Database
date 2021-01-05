@@ -2,7 +2,7 @@
 $server   =            "localhost"; 
 $user     = "id15084806_teamlotus";  
 $password =     "SlZ}Df1?-NeUt?>/";    
-$filename = "Industry Partner Database - Data";    
+$filename = "Industry Data";    
 
 $sql = "SELECT * FROM Contacts";
 
@@ -14,6 +14,11 @@ if (!$conn)
 if (isset($_POST["searchContent"]) && $_POST["searchContent"] != "")
 {
     $filename = $_POST["searchContent"];
+
+    if (isset($_POST["fileName"]) && $_POST["fileName"] != "") 
+    {
+        $filename = $_POST["fileName"];
+    }
 
     $sql = "
 

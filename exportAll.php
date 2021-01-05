@@ -2,7 +2,7 @@
 $server   =            "localhost"; 
 $user     = "id15084806_teamlotus";  
 $password =     "SlZ}Df1?-NeUt?>/";    
-$filename = "Industry Partner Database - Data";    
+$filename = "Industry Data";    
 
 if (isset($_POST["fileName"]) && $_POST["fileName"] != "") 
 {
