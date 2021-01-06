@@ -779,7 +779,11 @@
             helpIcon.classList.remove("iconActive");
             helpIcon.classList.add("icon");
             helpIcon.innerHTML = "?";
+
+            if (d.getHours() >= 6 && d.getHours() < 18)
             document.getElementById('helpButton').style.color = "black";
+            else
+            document.getElementById('helpButton').style.color = "white";
 
             if (d.getHours() >= 6 && d.getHours() < 18)
               helpIcon.src = "download_bright.png";
