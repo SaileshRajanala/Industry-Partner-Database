@@ -65,7 +65,7 @@
               -> Search
 
               <!-- <img class="icon" id="searchIcon" src="search_dark.png"> -->
-            <img class="icon" id="exportIcon" src="download_dark.png" style="position:absolute; left: 4%;top:10%;">
+            <img class="icon" id="exportIcon" src="download_dark.png" style="position:absolute; left: 4%;width:1.3em;">
 
           <button id="helpButton" class="icon" style="position:absolute; left: 10%;">?</button>
     </div>
