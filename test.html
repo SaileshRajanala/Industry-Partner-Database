@@ -478,7 +478,7 @@
 
     <div id="helpDiv">
 
-      <h1>Help</h1>
+      <h1>Help?</h1>
 
       <div class="helpArticle">
 
@@ -653,6 +653,26 @@
 
       </div>
 
+      <div class="helpArticle">
+
+        <h2>Dismiss Help?</h2>
+
+        To dismiss Help, click on <span id="helpHelpButton" style="padding: 2.5%;color: white;background-color: darkred;border-radius: 0.5em;font-size: x-large;">X</span> button on the top left of the screen
+        <br><br>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Need more help?</h2>
+
+        Contact Support 
+        <br><br>
+        <a href="mailto:support@lotus.com">Team Lotus</a>
+        <br><br>
+
+      </div>
+
     </div>
 
     <!-- HELP DIV END -->
@@ -680,6 +700,7 @@
         for (var i = exportIcons.length - 1; i >= 0; i--) {
           exportIcons[i].src = "download_bright.png";
         }
+        document.getElementById('helpHelpButton').style.backgroundColor = "red";
     }
     else
     {
@@ -694,6 +715,8 @@
         for (var i = exportIcons.length - 1; i >= 0; i--) {
           exportIcons[i].src = "download_dark.png";
         }
+
+        document.getElementById('helpButton').style.color = "white";
     }
 
     </script>
@@ -719,6 +742,7 @@
             helpIcon.classList.remove("iconActive");
             helpIcon.classList.add("icon");
             helpIcon.innerHTML = "?";
+            document.getElementById('helpButton').style.color = "black";
 
             if (d.getHours() >= 6 && d.getHours() < 18)
               helpIcon.src = "download_bright.png";
@@ -733,6 +757,7 @@
           helpIcon.classList.remove("icon");
 
           helpIcon.innerHTML = "X";
+          document.getElementById('helpButton').style.color = "white";
 
           if (d.getHours() >= 6 && d.getHours() < 18)
               helpIcon.src = "close_bright.png";
