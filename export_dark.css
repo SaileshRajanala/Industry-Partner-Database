@@ -4,7 +4,7 @@
         -webkit-backdrop-filter: blur(44px);
         backdrop-filter: blur(13px);
         box-shadow: 0px 0px 26px black;
-        bottom: -300px;
+        bottom: -1000px;
         width: 40%;
         right: 2.5%;
         margin: 0%;
@@ -32,6 +32,7 @@
         box-shadow: 0px 0px 13px black;
         padding-right: 2.5%;
         margin: 1%;
+        width: 35%;
         font-size: x-large;
         font-family: QuickSand;
         margin-top: -2%;
@@ -104,7 +105,7 @@
       {
         100%
         {
-          transform: translateY(-300px);
+          transform: translateY(-1000px);
         }
       }
 
