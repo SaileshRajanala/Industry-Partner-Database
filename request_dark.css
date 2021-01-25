@@ -409,3 +409,41 @@ body
 }
 
 
+
+.linkB 
+{
+    background-color: transparent;
+    color: white;
+    
+    font-size: x-large;
+    font-family: "QuickSand";
+    
+    border: none;
+    
+    border-radius: 5em;
+    
+    outline: none;
+    transition: all 0.25s;
+    
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    
+    padding: 0.25%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.linkB:hover
+{
+    box-shadow: 0px 0px 13px white;
+    cursor: pointer;
+    background-color: black;
+}
+
+.linkB:active, .linkB_active
+{
+    color: black;
+    background-color: white;
+    box-shadow: none;
+}
+

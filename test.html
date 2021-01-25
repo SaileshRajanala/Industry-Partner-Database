@@ -29,7 +29,7 @@
         document.getElementById(name).setAttribute('href', sheet);
     }
 
-    if (d.getHours() >= 6 && d.getHours() < 18)
+    if (d.getHours() >= 6 && d.getHours() < 180)
     {  
         swapStylesheet("request_bright.css", "rS");
         swapStylesheet("test_bright.css", "tS");
@@ -58,20 +58,17 @@
       <div id="topBar">
 
       <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+          
+          <button class="linkB"  style="float: right">Help</button>
+          <button id="exportIcon" class="linkB" style="float: right">Export</button>
+          <button class="linkB" style="float: left">Industry Partner Database</button>
+          <button id="searchIcon" class="linkB" style="float: right">Search</button>
+          
 <!--
-          <button style="float: left">Help</button>
-          <button style="float: left">Export</button>
--->
-          <button>Industry Partner Database</button>
-<!--          <button style="float: right">Search</button>-->
-          
-          
-    
-
-
       <img class="icon" id="searchIcon" src="search_dark.png" style="float: right;position: relative">
       <img class="icon" id="exportIcon" src="download_dark.png" style="float: left;position: relative">
       <button id="helpButton" class="icon" style="float: left;position: relative">?</button>
+-->
 
 
       </div>
