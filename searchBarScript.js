@@ -44,7 +44,7 @@
       
       var searchNavIcon = document.getElementById('searchNavIcon');
       var searchNavButton = document.getElementById('searchNavButton');
-      
+
       var dashBoard = document.getElementsByClassName('dashboard')[0];
       var searchBar = document.getElementById("searchBarDiv");
 
@@ -67,7 +67,7 @@
             searchNavIcon.classList.add("fab");
             searchNavIcon.classList.add("fa-sistrix");
 
-            searchNavButton.style.backgroundColor = "white";
+            searchNavButton.style.backgroundColor = "transparent";
             searchNavButton.style.color = "black";
 
             // if (d.getHours() >= 6 && d.getHours() < 18)
