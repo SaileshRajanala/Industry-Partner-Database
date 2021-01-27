@@ -65,7 +65,7 @@
     <div id="topBar">
 
         <form method="POST" action="test.php">
-        <button class="linkB" style="float: left">
+        <button id="homeNavButton" class="linkB" style="float: left">
            Industry Partner Database</button>
           </form>
 
