@@ -53,6 +53,7 @@
   </head>
 
   <body>
+        <button class="uiButtonOn" id="close" onclick="closePreview()">(X)</button>
 
     <div id="layer"></div>
 
@@ -145,7 +146,7 @@
 
         <div class="widget">
 
-          <h1 class="widgetTitle" id="greeting">Good Evening! 
+          <h1 class="widgetTitle" id="greeting">Good Evening! <i class='fas fa-moon'></i>
             <i class='far fa-times-circle' style="float: right; margin-right: 2%"></i></h1>
 
           <p style="margin-left: 2.5%">No new enteries today. </p>
@@ -157,14 +158,14 @@
           
           d = new Date();
 
-          if (d.getHours() >= 18)
-            document.getElementById('greeting').innerHTML = "Good Evening!";
+         if (d.getHours() >= 18)
+            document.getElementById('greeting').innerHTML = "Good Evening! <i class='fas fa-moon'></i>";
           else if (d.getHours() >= 12)
-            document.getElementById('greeting').innerHTML = "Good Afternoon!";
+            document.getElementById('greeting').innerHTML = "Good Afternoon! <i class='fas fa-sun'></i>";
           else if (d.getHours() >= 3)
-            document.getElementById('greeting').innerHTML = "Good Morning!";
+            document.getElementById('greeting').innerHTML = "Good Morning! <i class='fas fa-sun'></i>";
           else
-            document.getElementById('greeting').innerHTML = "Good Night!";
+            document.getElementById('greeting').innerHTML = "Good Night! <i class='fas fa-moon'></i>";
 
         </script>
         <!-- GREETING SCRIPT END -->
@@ -251,7 +252,7 @@
           <div id="searchBarDiv">
              
             <button id="searchButtonIcon" type="submit">
-              <i class="fab fa-sistrix"></i>
+              <i class="fa fa-search"></i>
             </button>
             <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
           </div>

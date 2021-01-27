@@ -64,8 +64,10 @@
     <!-- Top Bar Arc Structure -->
     <div id="topBar">
 
+        <form method="POST" action="test.php">
         <button class="linkB" style="float: left">
            Industry Partner Database</button>
+          </form>
 
           <button id="helpNavButton" class="linkB" style="float: right">
             Help <i id="helpNavIcon" class='far fa-question-circle'></i></button>
@@ -87,7 +89,7 @@
           <div id="searchBarDiv">
              
             <button id="searchButtonIcon" type="submit">
-              <i class="fab fa-sistrix"></i>
+              <i class="fa fa-search"></i>
             </button>
             
             <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
@@ -142,37 +144,9 @@
 
     <div class="dashboard">
 
-      <div class="widget">
-
-          <h1 class="widgetTitle" id="greeting">Good Evening! 
-            <i class='far fa-times-circle' style="float: right; margin-right: 2%"></i></h1>
-
-          <p style="margin-left: 2.5%">No new enteries today. </p>
-          
-        </div>
-
-        <!-- GREETING SCRIPT START -->
-        <script type="text/javascript">
-          
-          d = new Date();
-
-          if (d.getHours() >= 18)
-            document.getElementById('greeting').innerHTML = "Good Evening!";
-          else if (d.getHours() >= 12)
-            document.getElementById('greeting').innerHTML = "Good Afternoon!";
-          else if (d.getHours() >= 3)
-            document.getElementById('greeting').innerHTML = "Good Morning!";
-          else
-            document.getElementById('greeting').innerHTML = "Good Night!";
-
-        </script>
-        <!-- GREETING SCRIPT END -->
-
-      <div class="widget">
-
-        <h1 class="widgetTitle">Today</h1>
-
-        <table class="dataTable">
+        <div class="widget">
+          <h1 class="widgetTitle" id="greeting"></h1>
+        <!-- TODAY PHP SCRIPT START -->
 
           <?php
           
@@ -185,7 +159,19 @@
           $result = $conn->query($sql);
           $o = 0;
 
-        if ($result->num_rows > 0) 
+        if ($result->num_rows > 0)
+        {
+          echo '<p style="margin-left: 2.5%">';
+          echo $result->num_rows;
+
+          if ($result->num_rows == 1) 
+            echo ' new entry today.</p>';
+          else
+            echo ' new entries today.</p>';
+          
+          echo '<h1 class="widgetTitle">Today\'s Entries</h1>';
+          echo '<table class="dataTable">';
+
           while($row = $result->fetch_assoc()) 
           {
             if($row["Prefix"] != "")
@@ -206,16 +192,39 @@
               echo "</tr>";
             }
           }
+          echo "</table>";
 
-          ?>
+        }
+        else // No entries for today
+        {
+          echo '<p style="margin-left: 2.5%">No new entries today.</p>';
+        }
 
-        </table>
-        
+        ?>
+
+      <!-- TODAY PHP SCRIPT END -->
       </div>
+
+      <!-- GREETING SCRIPT START -->
+        <script type="text/javascript">
+          
+          d = new Date();
+
+          if (d.getHours() >= 18)
+            document.getElementById('greeting').innerHTML = "Good Evening! <i class='fas fa-moon'></i>";
+          else if (d.getHours() >= 12)
+            document.getElementById('greeting').innerHTML = "Good Afternoon! <i class='fas fa-sun'></i>";
+          else if (d.getHours() >= 3)
+            document.getElementById('greeting').innerHTML = "Good Morning! <i class='fas fa-sun'></i>";
+          else
+            document.getElementById('greeting').innerHTML = "Good Night! <i class='fas fa-moon'></i>";
+
+        </script>
+        <!-- GREETING SCRIPT END -->
 
       <div class="widget">
 
-        <h1 class="widgetTitle">Older</h1>
+        <h1 class="widgetTitle">Older Entries</h1>
 
         <table class="dataTable">
 
