@@ -145,12 +145,29 @@
 
         <div class="widget">
 
-          <h1 class="widgetTitle">Good Evening! 
+          <h1 class="widgetTitle" id="greeting">Good Evening! 
             <i class='far fa-times-circle' style="float: right; margin-right: 2%"></i></h1>
 
-          <p style="margin-left: 2.5%">No new results today. </p>
+          <p style="margin-left: 2.5%">No new enteries today. </p>
           
         </div>
+
+        <!-- GREETING SCRIPT START -->
+        <script type="text/javascript">
+          
+          d = new Date();
+
+          if (d.getHours() >= 18)
+            document.getElementById('greeting').innerHTML = "Good Evening!";
+          else if (d.getHours() >= 12)
+            document.getElementById('greeting').innerHTML = "Good Afternoon!";
+          else if (d.getHours() >= 3)
+            document.getElementById('greeting').innerHTML = "Good Morning!";
+          else
+            document.getElementById('greeting').innerHTML = "Good Night!";
+
+        </script>
+        <!-- GREETING SCRIPT END -->
 
         <div class="widget">
 
