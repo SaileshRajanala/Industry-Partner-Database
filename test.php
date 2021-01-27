@@ -11,8 +11,12 @@
     <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
     <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
+
     <!-- CSS FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- ICONS SCRIPT -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -51,19 +55,29 @@
 
   <body>
 
-    <button class="uiButtonOff" id="close" onclick="closePreview()">(X)</button>
+    <button class="uiButtonOff" id="close" onclick="closePreview()"> 
+      Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
+    </button>
+
     <div id="layer"></div>
     
     <!-- Top Bar Arc Structure -->
     <div id="topBar">
 
-        <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+        <button class="linkB" style="float: left">
+           Industry Partner Database</button>
 
-        <a class="linkA" href="test.php">Industry Partner Database</a>
+          <button id="helpNavButton" class="linkB" style="float: right">
+            Help <i id="helpNavIcon" class='far fa-question-circle'></i></button>
 
-        <img class="icon" id="searchIcon" src="search_dark.png">
-        <img class="icon" id="exportIcon" src="download_dark.png" style="left: 4%;position: fixed;width:1.3em">
-        <button id="helpButton" class="icon">?</button>
+          <!-- <button class="linkB" style="float: right">
+            Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
+
+          <button id="exportNavButton" class="linkB" style="float: right">
+            Export <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
+
+          <button id="searchNavButton" class="linkB" style="float: right">
+            Search <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
 
     </div>
       
@@ -73,7 +87,7 @@
           <div id="searchBarDiv">
              
             <button id="searchButtonIcon" type="submit">
-              <i class="fa fa-search"></i>
+              <i class="fab fa-sistrix"></i>
             </button>
             
             <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
@@ -92,13 +106,16 @@
       <form action="exportAll.php" method="POST">
           <label>Download as </label>
           <input type="fileName" id="fileName" name="fileName" placeholder="Industry Data">
-          <button class="downloadButton" type="submit"><img class=downloadIcon 
-            id="downloadImg" src="download_bright.png"></button>
+
+          <button class="downloadButton" type="submit">
+           <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i>
+         </button>
       </form>
       
     </div>
 
     <script type="text/javascript">
+
     var d = new Date();
     var downloadIcons = document.getElementsByClassName("downloadIcon");
 
@@ -120,58 +137,36 @@
     <!-- EXPORT DIV END -->
 
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT START -->
-    <script type="text/javascript">
-      var d = new Date();
-      var exportDiv = document.getElementById('exportDiv');
-      var exportIcon = document.getElementById('exportIcon');
-        
-      if (d.getHours() >= 6 && d.getHours() < 18)
-          exportIcon.src = "download_bright.png";
-      else
-          exportIcon.src = "download_dark.png";    
-        
-      exportIcon.onclick = function () 
-      { 
-        if (exportDiv.classList.contains("exportOn"))
-        {
-          exportDiv.classList.add("exportOff");
-          exportDiv.classList.remove("exportOn");
-
-          if (exportIcon.classList.contains("iconActive"))
-          {
-            exportIcon.classList.remove("iconActive");
-            exportIcon.classList.add("icon");
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-              exportIcon.src = "download_bright.png";
-            else
-              exportIcon.src = "download_dark.png";
-          }
-        }
-        else 
-        {
-          exportDiv.classList.add("exportOn");
-          exportIcon.classList.add("iconActive");
-          exportIcon.classList.remove("icon");
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-              exportIcon.src = "close_bright.png";
-            else
-              exportIcon.src = "close_dark.png";
-
-          exportDiv.classList.add("exportOn");
-          
-          if (exportDiv.classList.contains("exportOff"))
-            exportDiv.classList.remove("exportOff");
-        }
-
-      };
-
-    </script>
+    <script type="text/javascript" src="exportScript.js"></script>
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT END -->
 
-
     <div class="dashboard">
+
+      <div class="widget">
+
+          <h1 class="widgetTitle" id="greeting">Good Evening! 
+            <i class='far fa-times-circle' style="float: right; margin-right: 2%"></i></h1>
+
+          <p style="margin-left: 2.5%">No new enteries today. </p>
+          
+        </div>
+
+        <!-- GREETING SCRIPT START -->
+        <script type="text/javascript">
+          
+          d = new Date();
+
+          if (d.getHours() >= 18)
+            document.getElementById('greeting').innerHTML = "Good Evening!";
+          else if (d.getHours() >= 12)
+            document.getElementById('greeting').innerHTML = "Good Afternoon!";
+          else if (d.getHours() >= 3)
+            document.getElementById('greeting').innerHTML = "Good Morning!";
+          else
+            document.getElementById('greeting').innerHTML = "Good Night!";
+
+        </script>
+        <!-- GREETING SCRIPT END -->
 
       <div class="widget">
 
@@ -336,7 +331,6 @@
 
     <script type="text/javascript">
 
-
       var scroll_Y = 0;
 
       function previewDiv(i)
@@ -411,137 +405,9 @@
     </script>
 
     <!-- SEARCH SCRIPT -->
-    <script type="text/javascript">
-      
-      var searchIcon = document.getElementById('searchIcon');
-      var dashBoard = document.getElementsByClassName('dashboard')[0];
-      var searchBar = document.getElementById("searchBarDiv");
+    <script type="text/javascript" src="searchBarScript.js"></script>
 
-      var d = new Date();
-
-      if (d.getHours() >= 6 && d.getHours() < 18)
-        searchIcon.src = "search_bright.png";
-
-      searchBar.style.display = "none";
-
-      searchIcon.onclick = function () 
-      { 
-        if (searchBar.classList.contains("bubblegumOn"))
-        {
-          searchBar.classList.add("bubblegumOff");
-          searchBar.classList.remove("bubblegumOn");
-
-          if (searchIcon.classList.contains("iconActive"))
-          {
-            searchIcon.classList.remove("iconActive");
-            searchIcon.classList.add("icon");
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-              searchIcon.src = "search_bright.png";
-            else
-              searchIcon.src = "search_dark.png";
-          }
-
-            dashBoard.style.display = "block";
-            dashBoard.style.animationDelay = "0s";
-            dashBoard.classList.remove("hideBelow");
-        }
-        else 
-        {
-          dashBoard.style.animationDelay = "0s";
-          dashBoard.classList.add("hideBelow");
-
-          searchIcon.classList.add("iconActive");
-          searchIcon.classList.remove("icon");
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-              searchIcon.src = "close_bright.png";
-            else
-              searchIcon.src = "close_dark.png";
-
-          // searchBar.style.display = 'block';
-          searchBar.style.display = 'flex'; //necessary for button on input field
-
-          searchBar.classList.add("bubblegumOn");
-          
-          if (searchBar.classList.contains("bubblegumOff"))
-            searchBar.classList.remove("bubblegumOff");
-        }
-
-        searchBar.addEventListener("animationend", 
-
-          function() 
-          {
-            if (searchBar.classList.contains("bubblegumOff"))
-            {
-                searchBar.style.display = 'none';
-            }
-          }
-
-        );
-
-        dashBoard.addEventListener("animationend", 
-
-          function() 
-          {
-            if (dashBoard.classList.contains("hideBelow"))
-            {
-                dashBoard.style.display = 'none';
-            }
-          }
-
-        );
-      };
-
-    </script>
-
- <!-- SEARCH BAR GRAPHIC SCRIPT -->
- <script type="text/javascript">
-
-  var d = new Date();
-    
-    document.getElementById('searchBar').onfocus = function() 
-    {
-      if (d.getHours() >= 6 && d.getHours() < 18)
-      {  
-        document.getElementById("searchBarDiv").style.backgroundColor = 'black';
-        //document.getElementById("searchBarDiv").style.boxShadow = "none";
-        document.getElementById("searchButtonIcon").style.boxShadow = "none";
-
-      }
-      else
-      {
-        document.getElementById("searchBarDiv").style.backgroundColor = 'white';
-      }
-
-      document.getElementById("searchBarDiv").style.padding = '0.7%';
-      document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
-      document.getElementById("searchBarDiv").style.margin = '-0.7%';
-      document.getElementById("searchBarDiv").style.marginRight = '1.3%';
-    };
-
-    // CrossBrowserCompatible Method for FocusOut below
-    document.getElementById('searchBar').addEventListener("focusout", onFocusOff);
-
-    function onFocusOff() 
-    {
-      if (d.getHours() >= 6 && d.getHours() < 18)
-      {  
-        document.getElementById("searchBarDiv").style.backgroundColor = 'white';
-        //document.getElementById("searchBarDiv").style.boxShadow = "0px 13px 26px rgb(200,200,200)";
-        document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
-      }
-      else
-      {
-        document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
-      }
-      document.getElementById("searchBarDiv").style.padding = '0%';
-      document.getElementById("searchBarDiv").style.margin = '0%';
-    };
-
- </script>
-
- <!-- HELP DIV START -->
+    <!-- HELP DIV START -->
 
     <div id="helpDiv">
 
@@ -827,58 +693,7 @@
     <!-- HELP DIV ICON SWITCH SCRIPT END -->
 
     <!-- HELP DIV FUNCTIONALITY SCRIPT START -->
-
-    <script type="text/javascript">
-      
-      var helpDiv = document.getElementById('helpDiv');
-      var helpIcon = document.getElementById('helpButton');
-
-      helpIcon.onclick = function () 
-      { 
-        if (helpDiv.classList.contains("helpOn"))
-        {
-          helpDiv.classList.add("helpOff");
-          helpDiv.classList.remove("helpOn");
-
-          if (helpIcon.classList.contains("iconActive"))
-          {
-            helpIcon.classList.remove("iconActive");
-            helpIcon.classList.add("icon");
-            helpIcon.innerHTML = "?";
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-            document.getElementById('helpButton').style.color = "black";
-            else
-            document.getElementById('helpButton').style.color = "white";
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-              helpIcon.src = "download_bright.png";
-            else
-              helpIcon.src = "download_dark.png";
-          }
-        }
-        else 
-        {
-          helpDiv.classList.add("helpOn");
-          helpIcon.classList.add("iconActive");
-          helpIcon.classList.remove("icon");
-
-          helpIcon.innerHTML = "X";
-          document.getElementById('helpButton').style.color = "white";
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-              helpIcon.src = "close_bright.png";
-            else
-              helpIcon.src = "close_dark.png";
-
-          helpDiv.classList.add("helpOn");
-          
-          if (helpDiv.classList.contains("helpOff"))
-            helpDiv.classList.remove("helpOff");
-        }
-      };
-
-    </script>
+    <script type="text/javascript" src="helpScript.js"></script>
     <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
 
   </body>
