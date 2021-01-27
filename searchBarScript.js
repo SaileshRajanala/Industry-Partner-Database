@@ -66,18 +66,7 @@
             searchNavIcon.classList.remove("far");
             searchNavIcon.classList.add("fab");
             searchNavIcon.classList.add("fa-sistrix");
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-          {
-            searchNavButton.style.backgroundColor = "transparent";
-            searchNavButton.style.color = "black";
-          }
-          else
-          {
-            searchNavButton.style.backgroundColor = "transparent";
-            searchNavButton.style.color = "white";
-          }
-
+            searchNavButton.classList.remove("linkB_active");
           }
 
             dashBoard.style.display = "block";
@@ -93,17 +82,7 @@
           searchNavIcon.classList.remove("fab");
           searchNavIcon.classList.add("far");
           searchNavIcon.classList.add("fa-times-circle");
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-          {
-            searchNavButton.style.backgroundColor = "black";
-            searchNavButton.style.color = "white";
-          }
-          else
-          {
-            searchNavButton.style.backgroundColor = "white";
-            searchNavButton.style.color = "black";
-          }
+          searchNavButton.classList.add("linkB_active");
 
           //Code below is necessary for button on input field
           searchBar.style.display = 'flex'; 

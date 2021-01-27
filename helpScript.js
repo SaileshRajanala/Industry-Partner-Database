@@ -1,42 +1,42 @@
 // HELP DIV ICON SWITCH SCRIPT START
     
-    var d = new Date();
+    // var d = new Date();
 
-    searchIcons = document.getElementsByClassName("helpSearchIcon");
-    exportIcons = document.getElementsByClassName("helpDownloadIcon");
-    closeIcons = document.getElementsByClassName("helpCloseIcon");
+    // searchIcons = document.getElementsByClassName("helpSearchIcon");
+    // exportIcons = document.getElementsByClassName("helpDownloadIcon");
+    // closeIcons = document.getElementsByClassName("helpCloseIcon");
 
-    if (d.getHours() >= 6 && d.getHours() < 18)
-    {  
-        for (var i = searchIcons.length - 1; i >= 0; i--) {
-          searchIcons[i].src = "search_bright.png";
-        }
+    // if (d.getHours() >= 6 && d.getHours() < 18)
+    // {  
+    //     for (var i = searchIcons.length - 1; i >= 0; i--) {
+    //       searchIcons[i].src = "search_bright.png";
+    //     }
 
-        for (var i = closeIcons.length - 1; i >= 0; i--) {
-          closeIcons[i].src = "close_bright.png";
-        }
+    //     for (var i = closeIcons.length - 1; i >= 0; i--) {
+    //       closeIcons[i].src = "close_bright.png";
+    //     }
 
-        for (var i = exportIcons.length - 1; i >= 0; i--) {
-          exportIcons[i].src = "download_bright.png";
-        }
-        document.getElementById('helpHelpButton').style.backgroundColor = "red";
-    }
-    else
-    {
-        for (var i = searchIcons.length - 1; i >= 0; i--) {
-          searchIcons[i].src = "search_dark.png";
-        }
+    //     for (var i = exportIcons.length - 1; i >= 0; i--) {
+    //       exportIcons[i].src = "download_bright.png";
+    //     }
+    //     document.getElementById('helpHelpButton').style.backgroundColor = "red";
+    // }
+    // else
+    // {
+    //     for (var i = searchIcons.length - 1; i >= 0; i--) {
+    //       searchIcons[i].src = "search_dark.png";
+    //     }
 
-        for (var i = closeIcons.length - 1; i >= 0; i--) {
-          closeIcons[i].src = "close_dark.png";
-        }
+    //     for (var i = closeIcons.length - 1; i >= 0; i--) {
+    //       closeIcons[i].src = "close_dark.png";
+    //     }
 
-        for (var i = exportIcons.length - 1; i >= 0; i--) {
-          exportIcons[i].src = "download_dark.png";
-        }
+    //     for (var i = exportIcons.length - 1; i >= 0; i--) {
+    //       exportIcons[i].src = "download_dark.png";
+    //     }
 
-        // document.getElementById('helpButton').style.color = "white";
-    }
+    //     // document.getElementById('helpButton').style.color = "white";
+    // }
 
     // HELP DIV ICON SWITCH SCRIPT END
 
@@ -58,17 +58,8 @@
           {
             helpNavIcon.classList.remove("fa-times-circle");
             helpNavIcon.classList.add("fa-question-circle");
-
-           if (d.getHours() >= 6 && d.getHours() < 18)
-          {
-            helpNavButton.style.backgroundColor = "transparent";
-            helpNavButton.style.color = "black";
-          }
-          else
-          {
-            helpNavButton.style.backgroundColor = "transparent";
-            helpNavButton.style.color = "white";
-          }
+    
+            helpNavButton.classList.remove("linkB_active");
           }
         }
         else 
@@ -77,17 +68,7 @@
           
           helpNavIcon.classList.remove("fa-question-circle");
           helpNavIcon.classList.add("fa-times-circle");
-
-           if (d.getHours() >= 6 && d.getHours() < 18)
-          {
-            helpNavButton.style.backgroundColor = "black";
-            helpNavButton.style.color = "white";
-          }
-          else
-          {
-            helpNavButton.style.backgroundColor = "white";
-            helpNavButton.style.color = "black";
-          }
+          helpNavButton.classList.add("linkB_active");
 
           helpDiv.classList.add("helpOn");
           

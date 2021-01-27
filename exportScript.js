@@ -20,16 +20,7 @@
             exportNavIcon.classList.add("fas");
             exportNavIcon.classList.add("fa-arrow-circle-down");
 
-            if (d.getHours() >= 6 && d.getHours() < 18)
-          {
-            exportNavButton.style.backgroundColor = "transparent";
-            exportNavButton.style.color = "black";
-          }
-          else
-          {
-            exportNavButton.style.backgroundColor = "transparent";
-            exportNavButton.style.color = "white";
-          }
+            exportNavButton.classList.remove("linkB_active");
           }
         }
         else 
@@ -41,16 +32,7 @@
           exportNavIcon.classList.add("far");
           exportNavIcon.classList.add("fa-times-circle");
 
-          if (d.getHours() >= 6 && d.getHours() < 18)
-          {
-            exportNavButton.style.backgroundColor = "black";
-            exportNavButton.style.color = "white";
-          }
-          else
-          {
-            exportNavButton.style.backgroundColor = "white";
-            exportNavButton.style.color = "black";
-          }
+          exportNavButton.classList.add("linkB_active");
 
           exportDiv.classList.add("exportOn");
           
