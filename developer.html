@@ -64,25 +64,17 @@
            <button class="linkB" style="float: left">
            Industry Partner Database</button>
 
-          <button class="linkB" style="float: right">
-            Help <i id="helpLinkIcon" class='far fa-question-circle'></i></button>
+          <button id="helpNavButton" class="linkB" style="float: right">
+            Help <i id="helpNavIcon" class='far fa-question-circle'></i></button>
 
-          <button class="linkB" style="float: right">
-            Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button>
+          <!-- <button class="linkB" style="float: right">
+            Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
 
-          <button id="exportIcon" class="linkB" style="float: right">
-            Export <i id="exportLinkIcon" class='fas fa-arrow-circle-down'></i></button>
+          <button id="exportNavButton" class="linkB" style="float: right">
+            Export <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
 
           <button id="searchNavButton" class="linkB" style="float: right">
             Search <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
-
-          
-<!--
-      <img class="icon" id="searchIcon" src="search_dark.png" style="float: right;position: relative">
-      <img class="icon" id="exportIcon" src="download_dark.png" style="float: left;position: relative">
-      <button id="helpButton" class="icon" style="float: left;position: relative">?</button>
--->
-
 
       </div>
 
@@ -144,51 +136,8 @@
     <!-- EXPORT DIV END -->
 
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT START -->
-    <script type="text/javascript">
-      
-      var exportDiv = document.getElementById('exportDiv');
-      var exportIcon = document.getElementById('exportIcon');
-
-      exportIcon.onclick = function () 
-      { 
-        if (exportDiv.classList.contains("exportOn"))
-        {
-          exportDiv.classList.add("exportOff");
-          exportDiv.classList.remove("exportOn");
-
-          if (exportIcon.classList.contains("iconActive"))
-          {
-            exportIcon.classList.remove("iconActive");
-            exportIcon.classList.add("icon");
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-              exportIcon.src = "download_bright.png";
-            else
-              exportIcon.src = "download_dark.png";
-          }
-        }
-        else 
-        {
-          exportDiv.classList.add("exportOn");
-          exportIcon.classList.add("iconActive");
-          exportIcon.classList.remove("icon");
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-              exportIcon.src = "close_bright.png";
-            else
-              exportIcon.src = "close_dark.png";
-
-          exportDiv.classList.add("exportOn");
-          
-          if (exportDiv.classList.contains("exportOff"))
-            exportDiv.classList.remove("exportOff");
-        }
-
-      };
-
-    </script>
+    <script type="text/javascript" src="exportScript.js"></script>
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT END -->
-
 
       <div class="dashboard">
 
@@ -333,9 +282,6 @@
 
       <!-- RESULTS PREVIEW -->
 
-
-     
-
     <!-- <div class="preview">
 
         <h2 class="previewTitle">Mr. Sailesh Rajanala</h2>
@@ -370,8 +316,6 @@
         </div>
 
     </div> -->
-
-   
 
     <!-- HELP DIV START -->
 
@@ -651,7 +595,7 @@
           exportIcons[i].src = "download_dark.png";
         }
 
-        document.getElementById('helpButton').style.color = "white";
+        // document.getElementById('helpButton').style.color = "white";
     }
 
     </script>
@@ -659,59 +603,7 @@
     <!-- HELP DIV ICON SWITCH SCRIPT END -->
 
     <!-- HELP DIV FUNCTIONALITY SCRIPT START -->
-
-    <script type="text/javascript">
-      
-      var helpDiv = document.getElementById('helpDiv');
-      var helpIcon = document.getElementById('helpButton');
-
-      helpIcon.onclick = function () 
-      { 
-        if (helpDiv.classList.contains("helpOn"))
-        {
-          helpDiv.classList.add("helpOff");
-          helpDiv.classList.remove("helpOn");
-
-          if (helpIcon.classList.contains("iconActive"))
-          {
-            helpIcon.classList.remove("iconActive");
-            helpIcon.classList.add("icon");
-            helpIcon.innerHTML = "?";
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-            document.getElementById('helpButton').style.color = "black";
-            else
-            document.getElementById('helpButton').style.color = "white";
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-              helpIcon.src = "download_bright.png";
-            else
-              helpIcon.src = "download_dark.png";
-          }
-        }
-        else 
-        {
-          helpDiv.classList.add("helpOn");
-          helpIcon.classList.add("iconActive");
-          helpIcon.classList.remove("icon");
-
-          helpIcon.innerHTML = "X";
-          document.getElementById('helpButton').style.color = "white";
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-              helpIcon.src = "close_bright.png";
-            else
-              helpIcon.src = "close_dark.png";
-
-          helpDiv.classList.add("helpOn");
-          
-          if (helpDiv.classList.contains("helpOff"))
-            helpDiv.classList.remove("helpOff");
-        }
-
-      };
-
-    </script>
+    <script type="text/javascript" src="helpScript.js"></script>
     <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
 
   </body>
