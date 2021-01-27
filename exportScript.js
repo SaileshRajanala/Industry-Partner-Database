@@ -1,9 +1,8 @@
 // EXPORT DIV FUNCTIONALITY SCRIPT START
 
-      var exportNavIcon = document.getElementById('exportNavIcon');
-      var exportNavButton = document.getElementById('exportNavButton');
-
-      var exportDiv = document.getElementById('exportDiv');
+    var exportNavIcon = document.getElementById('exportNavIcon');
+    var exportNavButton = document.getElementById('exportNavButton');
+    var exportDiv = document.getElementById('exportDiv');
 
       exportNavButton.onclick = function() 
       { 
