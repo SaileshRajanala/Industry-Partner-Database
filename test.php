@@ -82,6 +82,10 @@
             Search <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
 
     </div>
+
+    <!-- TOP BAR MOBILE START -->
+      <script type="text/javascript" src="topBarMobileScript.js"></script>
+      <!-- TOP BAR MOBILE END -->
       
       <!-- SEARCH BAR -->
       <form name="searchForm" action="search.php" method="POST">
