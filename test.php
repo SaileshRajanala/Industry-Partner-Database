@@ -65,26 +65,26 @@
     <div id="topBar">
 
         <form method="POST" action="test.php">
-        <button id="homeNavButton" class="linkB" style="float: left">
+        <button type="submit" class="linkB" id="homeNavButton" style="float: left">
            Industry Partner Database</button>
-          </form>
+         </form>
 
           <button id="helpNavButton" class="linkB" style="float: right">
-            Help <i id="helpNavIcon" class='far fa-question-circle'></i></button>
+            <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
 
           <!-- <button class="linkB" style="float: right">
             Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
 
           <button id="exportNavButton" class="linkB" style="float: right">
-            Export <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
+            <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
 
           <button id="searchNavButton" class="linkB" style="float: right">
-            Search <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
+            <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
 
     </div>
 
     <!-- TOP BAR MOBILE START -->
-      <script type="text/javascript" src="topBarMobileScript.js"></script>
+      <!-- <script type="text/javascript" src="topBarMobileScript.js"></script> -->
       <!-- TOP BAR MOBILE END -->
       
       <!-- SEARCH BAR -->
@@ -148,7 +148,7 @@
 
     <div class="dashboard">
 
-        <div class="widget">
+        <div class="widget" id="todaySummary">
           <h1 class="widgetTitle" id="greeting"></h1>
         <!-- TODAY PHP SCRIPT START -->
 
