@@ -6,7 +6,8 @@ function myFunction(x)
     document.getElementById('homeNavButton').innerHTML = "<i class='fas fa-home'></i>";
 	  document.getElementById('helpNavButton').innerHTML = "<i id='helpNavIcon' class='far fa-question-circle'></i>";
     document.getElementById('exportNavButton').innerHTML = "<i id='exportNavIcon' class='fas fa-arrow-circle-down'></i>";
-    document.getElementById('searchNavButton').innerHTML = "<i id='searchNavIcon' class='fab fa-sistrix'></i>";  } 
+    document.getElementById('searchNavButton').innerHTML = "<i id='searchNavIcon' class='fab fa-sistrix'></i>";   
+  }
   else 
   {
     document.getElementById('homeNavButton').innerHTML = "Industry Partner Database";
