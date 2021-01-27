@@ -631,13 +631,9 @@ tr:hover
   top: -1%;
 }
 
-.linkB
+#homeNavButton
 {
-  display: block;
-  width: 100%;
-  text-align: center;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  font-size: large;
 }
 
 }

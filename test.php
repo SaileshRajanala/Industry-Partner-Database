@@ -161,7 +161,7 @@
 
         if ($result->num_rows > 0)
         {
-          echo '<p id="todaySummary">';
+          echo '<p style="margin-left: 2.5%">';
           echo $result->num_rows;
 
           if ($result->num_rows == 1) 
@@ -197,7 +197,7 @@
         }
         else // No entries for today
         {
-          echo '<p id="todaySummary">No new entries today.</p>';
+          echo '<p style="margin-left: 2.5%">No new entries today.</p>';
         }
 
         ?>

@@ -589,4 +589,8 @@ tr:hover
   top: -1%;
 }
 
+#homeNavButton
+{
+	font-size: large;
+}
 }
