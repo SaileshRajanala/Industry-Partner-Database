@@ -265,6 +265,27 @@
         
       </div>
 
+      <div class="widget">
+
+        <h1 class="widgetTitle">Information</h1>
+
+          <?php
+
+          $sql = "SELECT * FROM Contacts";
+
+          $result = $conn->query($sql);
+
+          echo "<p style='margin-left: 2.5%'>Total number of records = <b>";
+          echo $result->num_rows;
+          echo "</b>";
+
+          ?>
+
+          <p style='margin-left: 2.5%'>Version Number = <b>4.7</b></p>
+          <p style='margin-left: 2.5%'>Copyright <i class='far fa-copyright'></i> 2020-2021. <b>Team Lotus.</b> </p>
+
+      </div>
+
     </div>
 
     <!-- Previews -->
