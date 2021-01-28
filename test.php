@@ -256,9 +256,10 @@
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
                $o++;
     
-              echo "</tr></table></div>";
+              echo "</tr>";
             }
           }
+          echo "</table></div>";
         }
           ?>    
 
