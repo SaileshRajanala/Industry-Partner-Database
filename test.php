@@ -312,7 +312,7 @@
         echo 'LinkedIn : ' . $row["LinkedIn"] . '<br><br>';
         echo 'Current Status : ' . $row["Current_Status"] . '</div>';
     
-        echo '<div class="previewSection"> Notes <br><br>' . $row["Notes"] . '</div>';
+        echo '<div class="previewSection"> Notes <i class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
 
         echo '<div class="previewSection"><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
         echo '<i class="fas fa-phone-alt"></i> Phone : ' . $row["Phone_Number"] . '<br><br>';
@@ -348,7 +348,7 @@
         echo 'LinkedIn : ' . $row["LinkedIn"] . '<br><br>';
         echo 'Current Status : ' . $row["Current_Status"] . '</div>';
     
-        echo '<div class="previewSection"> Notes <br><br>' . $row["Notes"] . '</div>';
+        echo '<div class="previewSection"> Notes <i class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
 
         echo '<div class="previewSection"><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
         echo '<i class="fas fa-phone-alt"></i> Phone : ' . $row["Phone_Number"] . '<br><br>';
