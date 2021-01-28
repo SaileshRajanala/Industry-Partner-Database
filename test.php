@@ -207,7 +207,7 @@
         }
         else // No entries for today
         {
-          echo '<p style="margin-left: 2.5%">No new entries today.</p>';
+          echo '<p style="margin-left: 2.5%">No new entries yet, today.</p>';
         }
 
         ?>
