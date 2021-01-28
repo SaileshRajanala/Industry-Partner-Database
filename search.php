@@ -196,7 +196,9 @@
           'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
           'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
           'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%')            
+          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .  
+
+          " ORDER BY Timestamp DESC         
     
           ";
 
@@ -268,8 +270,10 @@
           'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
           'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
           'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%')            
-    
+          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " . 
+
+          " ORDER BY Timestamp DESC           
+        
           ";
 
         $result = $conn->query($sql);
