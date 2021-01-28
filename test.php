@@ -155,6 +155,10 @@
           <?php
           
           global $o;
+          global $newEntriesToday;
+
+          $newEntriesToday = False;
+
           require "./connect.php";
           require_once "./global.php";
 
@@ -165,6 +169,8 @@
 
         if ($result->num_rows > 0)
         {
+          $newEntriesToday = True; // There are new entries for the day.
+
           echo '<p style="margin-left: 2.5%"><b>';
           echo $result->num_rows;
 
@@ -237,8 +243,14 @@
           if ($result->num_rows > 0) 
           {
             echo "<div class='widget'>";
-            echo '<h1 class="widgetTitle">Older Entries <i class="far fa-calendar-alt"></i></h1>';
-            echo '<table class="dataTable">';
+            echo '<h1 class="widgetTitle">';
+
+            if ($newEntriesToday) 
+              echo 'Older Entries <i style="float:right;margin-right:2%;" class="far fa-calendar-alt"></i>';
+            else
+              echo "All Entries <i style='float:right;margin-right:2%;' class='fas fa-list-ul'></i>";
+
+            echo '</h1><table class="dataTable">';
           
           while($row = $result->fetch_assoc()) 
           {
