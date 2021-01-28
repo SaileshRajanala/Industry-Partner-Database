@@ -173,7 +173,7 @@
           else
             echo ' new entries today.</p>';
           
-          echo '<h1 class="widgetTitle">Today\'s Entries <i class="far fa-calendar-alt"></i></h1>';
+          echo '<h1 class="widgetTitle">Today\'s Entries</h1>';
           echo '<table class="dataTable">';
 
           while($row = $result->fetch_assoc()) 
@@ -226,11 +226,7 @@
         </script>
         <!-- GREETING SCRIPT END -->
 
-      <div class="widget">
-
-        <h1 class="widgetTitle">Older Entries</h1>
-
-        <table class="dataTable">
+        <!-- OLDER ENTRIES -->
 
           <?php
 
@@ -239,6 +235,11 @@
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) 
+          {
+            echo "<div class='widget'>";
+            echo '<h1 class="widgetTitle">Older Entries <i class="far fa-calendar-alt"></i></h1>';
+            echo '<table class="dataTable">';
+          
           while($row = $result->fetch_assoc()) 
           {
             if($row["Prefix"] != "")
@@ -255,15 +256,11 @@
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
                $o++;
     
-              echo "</tr>";
+              echo "</tr></table></div>";
             }
           }
-
-          ?>
-
-        </table>
-        
-      </div>
+        }
+          ?>    
 
       <div class="widget">
 
