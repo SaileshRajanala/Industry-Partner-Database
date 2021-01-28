@@ -246,9 +246,9 @@
             echo '<h1 class="widgetTitle">';
 
             if ($newEntriesToday) 
-              echo 'Older Entries <i style="float:right;margin-right:2%;" class="far fa-calendar-alt"></i>';
+              echo 'Older Entries <i class="far fa-calendar-alt"></i>';
             else
-              echo "All Entries <i style='float:right;margin-right:2%;' class='fas fa-list-ul'></i>";
+              echo "All Entries <i class='far fa-list-alt'></i>";
 
             echo '</h1><table class="dataTable">';
           
