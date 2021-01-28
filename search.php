@@ -58,6 +58,7 @@
     <button class="uiButtonOff" id="close" onclick="closePreview()"> 
       Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
     </button>
+    <div id="layer"></div>
   
     <!-- Top Bar Arc Structure -->
       <div id="topBar">
