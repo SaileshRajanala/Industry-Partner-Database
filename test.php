@@ -279,7 +279,7 @@
 
           ?>
 
-          <p style='margin-left: 2.5%'>Version Number = <b>4.7</b></p>
+          <p style='margin-left: 2.5%'>Version <b>4.7 RS</b></p>
           <p style='margin-left: 2.5%'>Copyright <i class='far fa-copyright'></i> 2020-2021. <b>Team Lotus.</b> </p>
 
       </div>
