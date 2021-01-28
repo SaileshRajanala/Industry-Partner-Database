@@ -165,13 +165,13 @@
 
         if ($result->num_rows > 0)
         {
-          echo '<p style="margin-left: 2.5%">';
+          echo '<p style="margin-left: 2.5%"><b>';
           echo $result->num_rows;
 
           if ($result->num_rows == 1) 
-            echo ' new entry today.</p>';
+            echo '</b> new entry today.</p>';
           else
-            echo ' new entries today.</p>';
+            echo '</b> new entries today.</p>';
           
           echo '<h1 class="widgetTitle">Today\'s Entries</h1>';
           echo '<table class="dataTable">';
@@ -304,7 +304,7 @@
         echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
 
         echo "<h2 class=\"previewTitle\">";
-        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . '</h2>';
+        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . ' <i class="far fa-address-card" style="float:right;margin-right:4%;"></i></h2>';
 
         echo '<div class="previewSection">';
         echo $row["Title"] . '<br><br>';
@@ -340,7 +340,7 @@
         echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
 
         echo "<h2 class=\"previewTitle\">";
-        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . '</h2>';
+        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . ' <i class="far fa-address-card" style="float:right;margin-right:4%;"></i></h2>';
 
         echo '<div class="previewSection">';
         echo $row["Title"] . '<br><br>';
