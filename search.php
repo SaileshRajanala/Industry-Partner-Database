@@ -55,16 +55,19 @@
 
   <body>
 
-    <button class="uiButtonOff" id="close" onclick="closePreview()">(X)</button>
-    <div id="layer"></div>
+    <button class="uiButtonOff" id="close" onclick="closePreview()"> 
+      Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
+    </button>
   
     <!-- Top Bar Arc Structure -->
       <div id="topBar">
 
       <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
-          
-           <button class="linkB" id="homeNavButton" style="float: left">
+            
+           <form method="POST" action="test.php">
+          <button type="submit" class="linkB" id="homeNavButton" style="float: left">
            Industry Partner Database</button>
+         </form>
 
           <button id="helpNavButton" class="linkB" style="float: right">
             <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
@@ -105,8 +108,9 @@
           <label>Download as </label>
           <input type="fileName" id="fileName" name="fileName" placeholder="Industry Data">
           <input style="display: none;" type="text" name="searchContent" id="searchContent">
-          <button class="downloadButton" type="submit"><img class=downloadIcon 
-            id="downloadImg" src="download_bright.png"></button>
+          <button class="downloadButton" type="submit">
+           <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i>
+         </button>
       </form>
 
       <!-- <form action="exportAll.php" method="POST">
