@@ -15,6 +15,9 @@
     <!-- CSS FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- ICONS SCRIPT -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
@@ -56,19 +59,26 @@
     <div id="layer"></div>
   
     <!-- Top Bar Arc Structure -->
-    <div id="topBar">
+      <div id="topBar">
 
-        <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+      <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+          
+           <button class="linkB" id="homeNavButton" style="float: left">
+           Industry Partner Database</button>
 
-              <a class="linkA" id="searchTitleLink" href="test.php">Industry Partner Database</a>
+          <button id="helpNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
 
-              -> Search
+          <!-- <button class="linkB" style="float: right">
+            Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
 
-              <!-- <img class="icon" id="searchIcon" src="search_dark.png"> -->
-            <img class="icon" id="exportIcon" src="download_dark.png" style="position:absolute; left: 4%;width:1.3em;">
+          <button id="exportNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
 
-          <button id="helpButton" class="icon" style="position:absolute; left: 10%;">?</button>
-    </div>
+          <!-- <button id="searchNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button> -->
+
+      </div>
 
      <form name="searchForm" action="" method="post">
 
@@ -151,57 +161,7 @@
     <!-- SEARCH EXPORT SCRIPT END -->
 
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT START -->
-
-    <script type="text/javascript">
-      
-      var exportDiv = document.getElementById('exportDiv');
-      var exportIcon = document.getElementById('exportIcon');
-      
-      var d = new Date();
-      
-      if (d.getHours() >= 6 && d.getHours() < 18)
-        exportIcon.src = "download_bright.png";
-      else
-        exportIcon.src = "download_dark.png";
-      
-      exportIcon.onclick = function () 
-      { 
-        if (exportDiv.classList.contains("exportOn"))
-        {
-          exportDiv.classList.add("exportOff");
-          exportDiv.classList.remove("exportOn");
-
-          if (exportIcon.classList.contains("iconActive"))
-          {
-            exportIcon.classList.remove("iconActive");
-            exportIcon.classList.add("icon");
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-              exportIcon.src = "download_bright.png";
-            else
-              exportIcon.src = "download_dark.png";
-          }
-        }
-        else 
-        {
-          exportDiv.classList.add("exportOn");
-          exportIcon.classList.add("iconActive");
-          exportIcon.classList.remove("icon");
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-              exportIcon.src = "close_bright.png";
-            else
-              exportIcon.src = "close_dark.png";
-
-          exportDiv.classList.add("exportOn");
-          
-          if (exportDiv.classList.contains("exportOff"))
-            exportDiv.classList.remove("exportOff");
-        }
-
-      };
-
-    </script>
+    <script type="text/javascript" src="exportScript.js"></script>
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT END -->
 
      <div class="dashboard"></div>
@@ -317,7 +277,7 @@
         echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
 
         echo "<h2 class=\"previewTitle\">";
-        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . '</h2>';
+        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . ' <i class="far fa-address-card" style="float:right;margin-right:4%;"></i></h2>';
 
         echo '<div class="previewSection">';
         echo $row["Title"] . '<br><br>';
@@ -755,58 +715,7 @@
     <!-- HELP DIV ICON SWITCH SCRIPT END -->
 
     <!-- HELP DIV FUNCTIONALITY SCRIPT START -->
-
-    <script type="text/javascript">
-      
-      var helpDiv = document.getElementById('helpDiv');
-      var helpIcon = document.getElementById('helpButton');
-
-      helpIcon.onclick = function () 
-      { 
-        if (helpDiv.classList.contains("helpOn"))
-        {
-          helpDiv.classList.add("helpOff");
-          helpDiv.classList.remove("helpOn");
-
-          if (helpIcon.classList.contains("iconActive"))
-          {
-            helpIcon.classList.remove("iconActive");
-            helpIcon.classList.add("icon");
-            helpIcon.innerHTML = "?";
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-            document.getElementById('helpButton').style.color = "black";
-            else
-            document.getElementById('helpButton').style.color = "white";
-
-            if (d.getHours() >= 6 && d.getHours() < 18)
-              helpIcon.src = "download_bright.png";
-            else
-              helpIcon.src = "download_dark.png";
-          }
-        }
-        else 
-        {
-          helpDiv.classList.add("helpOn");
-          helpIcon.classList.add("iconActive");
-          helpIcon.classList.remove("icon");
-
-          helpIcon.innerHTML = "X";
-          document.getElementById('helpButton').style.color = "white";
-
-          if (d.getHours() >= 6 && d.getHours() < 18)
-              helpIcon.src = "close_bright.png";
-            else
-              helpIcon.src = "close_dark.png";
-
-          helpDiv.classList.add("helpOn");
-          
-          if (helpDiv.classList.contains("helpOff"))
-            helpDiv.classList.remove("helpOff");
-        }
-      };
-
-    </script>
+    <script type="text/javascript" src="helpScript.js"></script>
     <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
 
   </body>
