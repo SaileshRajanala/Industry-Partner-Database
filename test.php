@@ -173,7 +173,7 @@
           else
             echo ' new entries today.</p>';
           
-          echo '<h1 class="widgetTitle">Today\'s Entries</h1>';
+          echo '<h1 class="widgetTitle">Today\'s Entries <i class="far fa-calendar-alt"></i></h1>';
           echo '<table class="dataTable">';
 
           while($row = $result->fetch_assoc()) 
@@ -267,7 +267,7 @@
 
       <div class="widget">
 
-        <h1 class="widgetTitle">Information</h1>
+        <h1 class="widgetTitle">Information <i class='fas fa-info-circle'></i></h1>
 
           <?php
 
