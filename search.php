@@ -187,16 +187,16 @@
 
           SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Contacts WHERE False " .
 
-          'OR UPPER(First_Name)     LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(Last_Name)      LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(Email)          LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(Phone_Number)   LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(College)        LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(Current_Status) LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(Workplace)      LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(LinkedIn)       LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(Notes)          LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .
-          'OR UPPER(Title)          LIKE TRIM(UPPER(' . "'%{$_POST["searchBar"]}%')) " .  
+          'OR UPPER(First_Name)     LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Last_Name)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Email)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Phone_Number)   LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(College)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Current_Status) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .  
 
           " ORDER BY Timestamp DESC         
     
