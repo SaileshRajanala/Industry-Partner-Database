@@ -153,6 +153,15 @@ tr:hover
 	cursor: pointer;
 }
 
+tr:active
+{
+	transform: scale(1.01);
+	box-shadow: none;
+	cursor: pointer;
+	color: white;
+	background-color: black;
+}
+
 td
 {
 	width: 22.5%;
