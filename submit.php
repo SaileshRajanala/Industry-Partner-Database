@@ -235,7 +235,7 @@ $checkValidity = true ;
           $checkValidity = false ;
     }
    
-    $sql = "
+$sql = "
 
 INSERT INTO 
 Contacts (" . $insertSchema . ")
