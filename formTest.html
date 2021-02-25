@@ -13,6 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+
+
+    <!-- ICONS SCRIPT -->
+    <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
+
     <!-- JavaScript (EXTERNAL) -->
     <script src="script.js"></script>
   
@@ -28,6 +35,19 @@
         padding: 4%;
         padding-top: 0%;
         padding-bottom: 0%;
+
+        position: fixed;
+        top: 4%;
+        width: 70%;
+        left: 13%;
+        padding: 1%;
+        padding-left: 2%;
+        padding-right: 2%; 
+
+        border-radius: 1em;
+
+        /*background: transparent;
+        box-shadow: 0px 15px 25px rgb(200,200,200);*/
       }
 
       .formPage
@@ -35,25 +55,30 @@
         
         left: 13%;
         width: 70%;
-        top: 15%;
+        height: 74%;
+        top: 20%;
         margin: 0%;
         padding: 2%;
         position: fixed;
         background-color: white;
-
+        overflow-y: scroll;
+        
         border-radius: 2em;
+        border-bottom-right-radius: 0em;
+        border-bottom-left-radius: 0em;
+
         box-shadow: 0px 15px 25px rgb(200,200,200);
 
       }
 
       button
       {
-        padding: 1.5%;
-        padding-left: 3%;
-        padding-right: 3%;
+        padding: 1%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
         background-color: white;
         border-radius: 2em;
-        box-shadow: 0px 15px 25px rgb(200,200,200);
+        box-shadow: 0px 0px 25px rgb(200,200,200);
         font-family: 'Quicksand';
         font-size: large;
         border: none;
@@ -63,14 +88,15 @@
 
        button:hover
        {
-        background-color: black;
-        color: white;
-        cursor: pointer;
+         box-shadow: 0px 15px 25px rgb(200,200,200);
+         cursor: pointer;
        }
 
        button:active
        {
-        transform: scale(0.7);
+        background-color: black;
+        color: white;
+        transform: scale(0.8);
        }
 
        .nextButton
@@ -84,9 +110,9 @@
 
     </style>
 
-    <div id="form_section1" class="formPage">
+    <h1 id="message">Welcome!</h1>
 
-      <h1 id="message">Welcome!</h1>
+    <div id="form_section1" class="formPage">
 
        <div class="sideByside">
         <select id="prefix" name="prefix" required>
@@ -113,10 +139,33 @@
       </div>
       </div>
 
-      <button class="nextButton"> Next <i class="fas fa-chevron-circle-right"></i> </button>
+      <div class="sideByside">
+        <select id="suffix" name="suffix" required>
+        <option value="">Suffix</option>
+        <option value="Jr.">Jr.</option>
+        <option value="Sr.">Sr.</option>
+      </select>
+       </div>
+
+       <div class="formSetion">
+      <div class="sideByside">
+      <div class="normalBlock"> 
+      <label for="email">Email</label>
+      <input type="Email" id="email" name="email" placeholder="eg. name@email.com" required>
+      </div>
+
+      <div class="normalBlock"> 
+      <label for="phone_number">Phone Number</label>
+      <input type="Phone" id="phone_number" name="phone_number" placeholder="eg. 123-456-7890"required>
+      </div>
+
+      </div>
+      </div>
+
+      <button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>
 
     </div>
-
+  
     <script type="text/javascript">
       
       function message(msg) 
@@ -125,6 +174,22 @@
       }
 
       message('What should we call you?');
+
+
+      // on clicking the next_section1 button
+      document.getElementById('next_section1').onclick = function()
+      {
+
+        var prefix = document.getElementById('prefix').value + ' ';
+        var suffix = document.getElementById('suffix').value + ' ';
+        var first_name = document.getElementById('first_name').value + ' ';
+        var last_name = document.getElementById('last_name').value + ' ';
+
+        message('Hello, ' + prefix + first_name + last_name + suffix )
+
+      };
+
+      
 
 
     </script>
