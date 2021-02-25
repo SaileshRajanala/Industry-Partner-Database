@@ -20,9 +20,124 @@
 
   <body>
     
+    <style type="text/css">
+      
+      #message
+      {
+        font-family: 'Quicksand';
+        padding: 4%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+      }
+
+      .formPage
+      {
+        
+        left: 13%;
+        width: 70%;
+        top: 15%;
+        margin: 0%;
+        padding: 2%;
+        position: fixed;
+        background-color: white;
+
+        border-radius: 2em;
+        box-shadow: 0px 15px 25px rgb(200,200,200);
+
+      }
+
+      button
+      {
+        padding: 1.5%;
+        padding-left: 3%;
+        padding-right: 3%;
+        background-color: white;
+        border-radius: 2em;
+        box-shadow: 0px 15px 25px rgb(200,200,200);
+        font-family: 'Quicksand';
+        font-size: large;
+        border: none;
+
+        transition: all 0.25s;
+      }
+
+       button:hover
+       {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+       }
+
+       button:active
+       {
+        transform: scale(0.7);
+       }
+
+       .nextButton
+       {
+        float: right;
+        display: block;
+       }
+
+    </style>
+
+    <div id="form_section1" class="formPage">
+
+      <h1 id="message">Welcome!</h1>
+
+       <div class="sideByside">
+        <select id="prefix" name="prefix" required>
+        <option value="">Prefix</option>
+        <option value="Mr">Mr</option>
+        <option value="Ms">Ms</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Dr">Dr</option>
+        <option value="Miss">Miss</option>
+        <option value="Sir">Sir</option>
+        <option value="Madam">Madam</option>
+      </select>
+       </div>
+
+      <div class="sideByside">
+      <div class="normalBlock">  
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name" name="first_name" required>
+      </div>
+
+      <div class="normalBlock">
+      <label for="last_name">Last Name</label>
+      <input type="text" id="last_name" name="last_name" required>
+      </div>
+      </div>
+
+      <div class="sideByside" style="background-color: red">
+        
+        <button class="nextButton"> Next > </button>
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+      
+      function message(msg) 
+      {
+        document.getElementById('message').innerHTML = msg;
+      }
+
+      message('What should we call you?');
+
+
+    </script>
+
+
+
+
+
+
     <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1>
 
-    <div class="formDiv">
+    <div class="formDiv" style="display: none">
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
 
       <div class="formSetion">
