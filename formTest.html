@@ -7,11 +7,14 @@
     <title>Industry Partner Database</title>
 
     <link href="style_dark.css" id="fS" rel="stylesheet" type="text/css">
+    <link href="test_bright.css" id="tS" rel="stylesheet" type="text/css">
+    <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
     <link href="mobile_bright.css" id="mS" rel="stylesheet" type="text/css">
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
@@ -29,14 +32,18 @@
     
     <style type="text/css">
       
+
       #message
       {
         font-family: 'Quicksand';
+        
         padding: 4%;
         padding-top: 0%;
         padding-bottom: 0%;
+        text-align: center;
 
-        position: fixed;
+
+        
         top: 4%;
         width: 70%;
         left: 13%;
@@ -48,6 +55,22 @@
 
         /*background: transparent;
         box-shadow: 0px 15px 25px rgb(200,200,200);*/
+
+        animation-name: messagePop;
+        animation-duration: 0.25s;
+        animation-fill-mode: both;
+      }
+
+      #messageDiv
+      {
+        position: relative;
+        background-color: rgb(25,25,25);
+      }
+
+      #formWrapper
+      {
+        position: relative;
+        background-color: rgb(25,25,25);
       }
 
       .formPage
@@ -59,15 +82,16 @@
         top: 20%;
         margin: 0%;
         padding: 2%;
-        position: fixed;
-        background-color: white;
+        padding-bottom: 10%;
+        
+        background-color: transparent;
         overflow-y: scroll;
         
         border-radius: 2em;
-        border-bottom-right-radius: 0em;
-        border-bottom-left-radius: 0em;
+        /*border-bottom-right-radius: 0em;
+        border-bottom-left-radius: 0em;*/
 
-        box-shadow: 0px 15px 25px rgb(200,200,200);
+        /*box-shadow: 0px 15px 25px rgb(200,200,200);*/
 
       }
 
@@ -108,9 +132,19 @@
         margin-bottom: 1%;
        }
 
+       body
+       {
+        background-image: none;
+       }
+
     </style>
 
-    <h1 id="message">Welcome!</h1>
+    <div id="messageDiv">
+      <h1 id="message">Welcome!</h1>
+    </div>
+
+    <div id="formWrapper">
+    
 
     <div id="form_section1" class="formPage">
 
@@ -170,6 +204,8 @@
       <button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>
 
     </div>
+
+  </div>
   
     <script type="text/javascript">
       
@@ -199,12 +235,31 @@
 
     </script>
 
+<div id="topBar">
+
+        <form method="POST" action="test.php">
+        <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+           Industry Partner Database</button>
+         </form>
+
+          <button id="helpNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
+
+          <!-- <button class="linkB" style="float: right">
+            Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
+
+          <button id="exportNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
+
+          <button id="searchNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
+
+    </div>
 
 
 
 
-
-    <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1>
+   <!--  <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1> -->
 
     <div class="formDiv" style="display: none">
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
