@@ -31,6 +31,19 @@
   <body>
     
     <style type="text/css">
+
+      /*COOL UPDATES*/
+      ::selection
+      {
+        background-color: white;
+        color: black;
+      }
+
+      input:active::selection
+      {
+        background-color: black;
+        color: white;
+      }
       
       #message
       {
@@ -346,7 +359,7 @@
       function error_message(msg) 
       {
         message(msg);
-        messageDiv.style.color = 'lavared';
+        messageDiv.style.color = 'red';
       }
 
 
@@ -382,7 +395,7 @@
           function () {messageDiv.innerHTML = 'Industry Partner Form';});
 
 
-error_message('Great! Please go to the next section');
+      // error_message('Please enter a valid name.');
 
 
 
@@ -412,7 +425,6 @@ error_message('Great! Please go to the next section');
       //   message('Hello, ' + prefix + first_name + last_name + suffix + '<button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>');
 
       // };
-
 
     </script>
 
