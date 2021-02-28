@@ -322,7 +322,16 @@
         
         messageDiv.innerHTML = msg;
 
-        messageDiv.classList.remove('msgPopAnimation');
+        // Code below is necessary for animation on request.
+        messageDiv.addEventListener("animationend", 
+
+          function() 
+          {
+              messageDiv.classList.remove('msgPopAnimation');            
+          }
+
+        );
+        
       }
 
       id_('first_name').addEventListener("focusin", 
