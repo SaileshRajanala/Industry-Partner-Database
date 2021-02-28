@@ -47,7 +47,7 @@
         justify-content: center;
         
         width: 98%;
-        padding: 0.5%;
+        padding: 1%;
         padding-left: 1%;
         padding-right: 1%; 
         
@@ -319,11 +319,11 @@
       
       function message(msg) 
       {
-        var messageDiv = document.getElementById('message');
+        messageDiv = document.getElementById('message');
 
         messageDiv.classList.add('msgPopAnimation');
-        
-        messageDiv.innerHTML = msg;
+        messageDiv.innerHTML = '<i class="fas fa-comment"></i>&nbsp; ' + msg + '';
+        messageDiv.style.color = 'white';
 
         // Code below is necessary for animation on request.
         messageDiv.addEventListener("animationend", 
@@ -336,6 +336,20 @@
         );
         
       }
+
+      function success_message(msg) 
+      {
+        message(msg);
+        messageDiv.style.color = 'lime';
+      }
+
+      function error_message(msg) 
+      {
+        message(msg);
+        messageDiv.style.color = 'lavared';
+      }
+
+
 
       id_('first_name').addEventListener("focusin", 
         function () {message('Please enter your First Name');});
@@ -353,7 +367,7 @@
       // Important Function below.
       for (var i = tag_('input').length - 1; i >= 0; i--) 
         tag_('input')[i].addEventListener("focusout", 
-          function () {message('Industry Partner Form');});
+          function () {messageDiv.innerHTML = 'Industry Partner Form';});
 
 
       id_('prefix').addEventListener("focusin", 
@@ -365,13 +379,10 @@
       // Important Function below.
       for (var i = tag_('select').length - 1; i >= 0; i--) 
         tag_('input')[i].addEventListener("change", 
-          function () {
-             // WORK ON THE CHANGE FOR SELECTTTTTTTTTTTTTTTT
-              message('Industry Partner Form');
-          });
+          function () {messageDiv.innerHTML = 'Industry Partner Form';});
 
 
-message('Great! Please go to the next section <button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>');
+error_message('Great! Please go to the next section');
 
 
 
