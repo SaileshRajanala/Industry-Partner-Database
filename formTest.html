@@ -32,23 +32,26 @@
     
     <style type="text/css">
       
-
       #message
       {
         font-family: 'Montserrat', sans-serif;
+        font-size: 130%;
+        background-color: transparent;
+
         margin: 0%; 
         padding-top: 0%;
         padding-bottom: 0%;
-        text-align: center;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         
-        width: 96%;
-        padding: 1%;
-        padding-left: 2%;
-        padding-right: 2%; 
-
-        border-radius: 1em;
-
-        background: transparent;
+        width: 98%;
+        padding: 0.5%;
+        padding-left: 1%;
+        padding-right: 1%; 
+        
+        border-radius: 5em;
 
         animation-name: messagePop;
         animation-duration: 0.25s;
@@ -71,11 +74,11 @@
         width: 80%;
         
         bottom: 0%;
-        top: 10%;
+        top: 14%;
         
         padding-bottom: 10%;
         
-        background-color: red;
+        background-color: transparent;
         overflow-y: scroll;
         
         border-radius: 2em;
@@ -118,35 +121,36 @@
        {
         display: inline-block;
         float: right;
-        margin: 3%;
-        margin-top: 1%;
-        margin-bottom: 1%;
+        margin-left: 3%;
        }
 
        body
        {
-        background-image: none;
+        background-position: center;
+        padding: 10%;
+        padding-top: 20%;
+       }
+
+       .formDiv
+       {
+        margin-top: 0%;
+        margin-bottom: 15%;
        }
 
     </style>
 
       <div id="topBar">
-
-        <form method="POST" action="formTest.php">
-        <button type="submit" class="linkB" id="homeNavButton" >
-           Industry Partner Form</button>
-         </form>
          
-      <h1 id="message">Welcome!</h1>         
+      <div id="message">Welcome!</div>   
 
-    </div>
+      </div>      
 
-   <div id="form_section1" class="formPage">
+    <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
 
-    <div class="formDiv">
+    <div class="formDiv" id="form_section1">
 
-       <div class="formSetion">
-       <div class="sideByside">
+        <div class="formSetion">
+        <div class="sideByside">
         <div class="normalBlock">  
         <select id="prefix" name="prefix" required>
         <option value="">Prefix</option>
@@ -161,7 +165,7 @@
         </div>
 
         <div class="normalBlock">  
-        <select id="suffix" name="suffix" required>
+        <select id="suffix" name="suffix">
         <option value="">Suffix</option>
         <option value="Jr.">Jr.</option>
         <option value="Sr.">Sr.</option>
@@ -202,7 +206,7 @@
 
     </div>
 
-  </div>
+  </form>
   
     <script type="text/javascript">
       
@@ -213,6 +217,7 @@
 
       message('What should we call you?');
 
+      message("Industry Partner Form");
 
       // on clicking the next_section1 button
       document.getElementById('next_section1').onclick = function()
@@ -223,7 +228,7 @@
         var first_name = document.getElementById('first_name').value + ' ';
         var last_name = document.getElementById('last_name').value + ' ';
 
-        message('Hello, ' + prefix + first_name + last_name + suffix )
+        message('Hello, ' + prefix + first_name + last_name + suffix + '<button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>');
 
       };
 
@@ -234,7 +239,7 @@
 
 
 
-   <!--  <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1> -->
+    <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1>
 
     <div class="formDiv" style="display: none">
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
