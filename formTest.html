@@ -134,7 +134,13 @@
        .formDiv
        {
         margin-top: 0%;
+        padding: 4%;
         margin-bottom: 15%;
+       }
+
+       .formSetion
+       {
+        margin-top: 6%;
        }
 
     </style>
@@ -149,11 +155,14 @@
 
     <div class="formDiv" id="form_section1">
 
+        <h1 style="text-align: center;">Personal Information</h1>
+
         <div class="formSetion">
         <div class="sideByside">
-        <div class="normalBlock">  
+        <div class="normalBlock"> 
+        <label for="prefix">Prefix</label> 
         <select id="prefix" name="prefix" required>
-        <option value="">Prefix</option>
+        <option value=""></option>
         <option value="Mr">Mr</option>
         <option value="Ms">Ms</option>
         <option value="Mrs">Mrs</option>
@@ -164,9 +173,10 @@
         </select>
         </div>
 
-        <div class="normalBlock">  
+        <div class="normalBlock"> 
+        <label for="suffix">Suffix</label> 
         <select id="suffix" name="suffix">
-        <option value="">Suffix</option>
+        <option value=""></option>
         <option value="Jr.">Jr.</option>
         <option value="Sr.">Sr.</option>
         </select>
@@ -202,7 +212,7 @@
       </div>
       </div>
 
-      <button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>
+      <!-- <button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button> -->
 
     </div>
 
@@ -238,8 +248,7 @@
     </script>
 
 
-
-    <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1>
+    <!-- <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1> -->
 
     <div class="formDiv" style="display: none">
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
