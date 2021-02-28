@@ -35,14 +35,8 @@
       /*COOL UPDATES*/
       ::selection
       {
-        background-color: white;
+        background-color: aqua;
         color: black;
-      }
-
-      input:active::selection
-      {
-        background-color: black;
-        color: white;
       }
       
       #message
@@ -362,20 +356,18 @@
         messageDiv.style.color = 'red';
       }
 
+      function focus_message(_id, msg)
+      {
+        id_(_id).addEventListener("focusin", 
+        function () {message(msg);});
+      }
 
-
-      id_('first_name').addEventListener("focusin", 
-        function () {message('Please enter your First Name');});
-
-      id_('last_name').addEventListener("focusin", 
-        function () {message('Please enter your Last Name');});
-
-      id_('email').addEventListener("focusin", 
-        function () {message('Please enter your Email Address');});
-
-      id_('phone_number').addEventListener("focusin", 
-        function () {message('Please enter your Phone Number');});
-
+      focus_message('first_name', 'Please enter your First Name');
+      focus_message('last_name', 'Please enter your Last Name');
+      focus_message('email', 'Please enter your Email Address');
+      focus_message('phone_number', 'Please enter your Phone Number');
+      focus_message('employer', "Please enter your Employer's Name");
+      focus_message('job_title', 'What is the title of your job?');
 
       // Important Function below.
       for (var i = tag_('input').length - 1; i >= 0; i--) 
@@ -394,9 +386,9 @@
         tag_('input')[i].addEventListener("change", 
           function () {messageDiv.innerHTML = 'Industry Partner Form';});
 
-
-      // error_message('Please enter a valid name.');
-
+       // TESTS
+       // error_message('Please enter a valid name.');
+       // success_message('Great! Please fill out the next section.');
 
 
       // id_('first_name').onclick = function () {
