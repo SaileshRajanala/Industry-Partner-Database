@@ -58,6 +58,15 @@
         animation-fill-mode: both;
       }
 
+      @keyframes messagePop
+      {
+        0%
+        { 
+           transform: translateX(74px);
+           opacity: 0;
+        }
+      }
+
       #formWrapper
       {
         position: relative;
@@ -286,28 +295,55 @@
   </form>
   
     <script type="text/javascript">
+
+      function id_(_id)
+      {
+        return document.getElementById(_id);
+      }
+
+      function class_(_class)
+      {
+        return document.getElementsByClassName(_class);
+      }
       
       function message(msg) 
       {
-        document.getElementById('message').innerHTML = msg;
+        var messageDiv = document.getElementById('message');
+
+        messageDiv.innerHTML = msg;
+
+        messageDiv.style.animationName = "none";
+        messageDiv.style.animationName  = 'messagePop';
       }
 
-      message('What should we call you?');
+      message('Industry Partner Database');
+
+      id_('first_name').onclick = function () {
+
+        message('Please enter your First Name.');
+
+      };
+
+       id_('last_name').onclick = function () {
+
+        message('Please enter your Last Name.');
+
+      };
 
       //message("Industry Partner Form");
 
       // on clicking the next_section1 button
-      document.getElementById('next_section1').onclick = function()
-      {
+      // document.getElementById('next_section1').onclick = function()
+      // {
 
-        var prefix = document.getElementById('prefix').value + ' ';
-        var suffix = document.getElementById('suffix').value + ' ';
-        var first_name = document.getElementById('first_name').value + ' ';
-        var last_name = document.getElementById('last_name').value + ' ';
+      //   var prefix = document.getElementById('prefix').value + ' ';
+      //   var suffix = document.getElementById('suffix').value + ' ';
+      //   var first_name = document.getElementById('first_name').value + ' ';
+      //   var last_name = document.getElementById('last_name').value + ' ';
 
-        message('Hello, ' + prefix + first_name + last_name + suffix + '<button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>');
+      //   message('Hello, ' + prefix + first_name + last_name + suffix + '<button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>');
 
-      };
+      // };
 
 
     </script>
