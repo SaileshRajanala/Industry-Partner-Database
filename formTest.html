@@ -35,6 +35,7 @@
       #message
       {
         font-family: 'Montserrat', sans-serif;
+        font-size: 110%;
         background-color: transparent;
 
         margin: 0%; 
@@ -139,7 +140,7 @@
 
        .formSetion
        {
-        border-radius: 2.5em;
+        border-radius: 2em;
         margin-top: 6%;
         box-shadow: 0em 0em 5em black;
        }
@@ -149,6 +150,16 @@
           background-color: rgb(7,7,7,0.7);
           -webkit-backdrop-filter: blur(13px);
           backdrop-filter: blur(13px);
+       }
+
+       select
+       {
+        width: 92%;
+       }
+
+       .noHover:hover
+       {
+        transform: none;
        }
 
     </style>
@@ -161,13 +172,13 @@
 
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
 
-    <div class="formDiv" id="form_section1">
+    <div class="formDiv" id="Personal_Information">
 
         <h1 style="text-align: center;">Personal Information</h1>
 
         <div class="formSetion">
         <div class="sideByside">
-        <div class="normalBlock"> 
+        <div class="normalBlock noHover"> 
         <label for="prefix">Prefix</label> 
         <select id="prefix" name="prefix" required>
         <option value=""></option>
@@ -181,7 +192,7 @@
         </select>
         </div>
 
-        <div class="normalBlock"> 
+        <div class="normalBlock noHover"> 
         <label for="suffix">Suffix</label> 
         <select id="suffix" name="suffix">
         <option value=""></option>
@@ -203,8 +214,7 @@
       </div>
       </div>
     </div>
-      
-
+    
       <div class="formSetion">
       <div class="sideByside">
       <div class="normalBlock"> 
@@ -224,6 +234,58 @@
 
     </div>
 
+    <div class="formDiv" id="Professional_Information">
+
+        <h1 style="text-align: center;">Professional Information</h1>
+
+        <div class="formSetion">
+
+      <div class="sideByside">
+      <div class="normalBlock">  
+      <label for="employer">Employer</label>
+      <input type="text" id="employer" name="employer" required>
+      </div>
+
+      <div class="normalBlock">
+      <label for="job_title">Job Title</label>
+      <input type="text" id="job_title" name="job_title" required>
+      </div>
+      </div>
+      </div>
+
+      <div class="formSetion">
+        <div class="sideByside">
+
+        <div class="normalBlock noHover"> 
+        <label for="state">State</label> 
+        <select id="state" name="state">
+        <option value=""></option>
+        <option value="Jr.">Jr.</option>
+        <option value="Sr.">Sr.</option>
+        </select>
+        </div>
+          
+        <div class="normalBlock noHover"> 
+        <label for="city">City</label> 
+        <select id="city" name="city" required>
+        <option value=""></option>
+        <option value="Mr">Mr</option>
+        <option value="Ms">Ms</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Dr">Dr</option>
+        <option value="Miss">Miss</option>
+        <option value="Sir">Sir</option>
+        <option value="Madam">Madam</option>
+        </select>
+        </div>
+
+        
+       </div>
+
+      <!-- <button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button> -->
+
+    </div>
+
   </form>
   
     <script type="text/javascript">
@@ -235,7 +297,7 @@
 
       message('What should we call you?');
 
-      message("Industry Partner Form");
+      //message("Industry Partner Form");
 
       // on clicking the next_section1 button
       document.getElementById('next_section1').onclick = function()
