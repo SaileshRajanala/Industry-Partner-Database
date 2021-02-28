@@ -36,35 +36,23 @@
       #message
       {
         font-family: 'Montserrat', sans-serif;
-        
-        padding: 4%;
+        margin: 0%; 
         padding-top: 0%;
         padding-bottom: 0%;
         text-align: center;
-
-
         
-        top: 4%;
-        width: 70%;
-        left: 13%;
+        width: 96%;
         padding: 1%;
         padding-left: 2%;
         padding-right: 2%; 
 
         border-radius: 1em;
 
-        /*background: transparent;
-        box-shadow: 0px 15px 25px rgb(200,200,200);*/
+        background: transparent;
 
         animation-name: messagePop;
         animation-duration: 0.25s;
         animation-fill-mode: both;
-      }
-
-      #messageDiv
-      {
-        position: relative;
-        background-color: rgb(25,25,25);
       }
 
       #formWrapper
@@ -75,21 +63,24 @@
 
       .formPage
       {
-        
-        left: 13%;
-        width: 70%;
-        height: 74%;
-        top: 20%;
+        position: fixed;
         margin: 0%;
+        left: 8%;
         padding: 2%;
+
+        width: 80%;
+        
+        bottom: 0%;
+        top: 10%;
+        
         padding-bottom: 10%;
         
-        background-color: transparent;
+        background-color: red;
         overflow-y: scroll;
         
         border-radius: 2em;
-        /*border-bottom-right-radius: 0em;
-        border-bottom-left-radius: 0em;*/
+        border-bottom-right-radius: 0em;
+        border-bottom-left-radius: 0em;
 
         /*box-shadow: 0px 15px 25px rgb(200,200,200);*/
 
@@ -139,14 +130,20 @@
 
     </style>
 
-    <div id="messageDiv">
-      <h1 id="message">Welcome!</h1>
+      <div id="topBar">
+
+        <form method="POST" action="formTest.php">
+        <button type="submit" class="linkB" id="homeNavButton" >
+           Industry Partner Form</button>
+         </form>
+         
+      <h1 id="message">Welcome!</h1>         
+
     </div>
 
-    <div id="formWrapper">
-    
+   <div id="form_section1" class="formPage">
 
-    <div id="form_section1" class="formPage">
+    <div class="formDiv">
 
        <div class="formSetion">
        <div class="sideByside">
@@ -234,15 +231,6 @@
 
 
     </script>
-
-  <div id="topBar">
-
-        <form method="POST" action="formTest.php">
-        <button type="submit" class="linkB" id="homeNavButton" >
-           Industry Partner Form</button>
-         </form>
-
-    </div>
 
 
 
