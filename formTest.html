@@ -57,7 +57,7 @@
       .msgPopAnimation
       {
         animation-name: messagePop;
-        animation-duration: 1s;
+        animation-duration: 0.25s;
         animation-fill-mode: both;
       }
 
@@ -318,12 +318,12 @@
       {
         var messageDiv = document.getElementById('message');
 
+        messageDiv.classList.add('msgPopAnimation');
+        
         messageDiv.innerHTML = msg;
 
-        messageDiv.classList.add('msgPopAnimation');
+        messageDiv.classList.remove('msgPopAnimation');
       }
-
-      message('Industry Partner Database');
 
       id_('first_name').addEventListener("focusin", 
         function () {message('Please enter your First Name.');});
@@ -353,7 +353,7 @@
 
 
 
-      
+
 
       // id_('first_name').onclick = function () {
 
