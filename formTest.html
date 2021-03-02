@@ -112,13 +112,13 @@
         padding: 1%;
         padding-left: 2.5%;
         padding-right: 2.5%;
-        background-color: transparent;
+        background-color: rgb(25,25,25);
         color: white;
         border-radius: 2em;
-        box-shadow: 0px 0px 25px rgb(200,200,200);
-        font-family: 'Quicksand';
-        font-size: large;
+        box-shadow: 0em 0em 1em black;
         border: none;
+        font-family: 'Quicksand';
+        font-size: x-large;
 
         transition: all 0.25s;
       }
@@ -127,15 +127,22 @@
        {
          background-color: white;
          color: black;
-         box-shadow: 0px 15px 25px rgb(200,200,200);
+         transform: scale(1.1);
+         /*box-shadow: 0px 15px 25px rgb(200,200,200);*/
          cursor: pointer;
        }
 
        button:active
        {
-        background-color: black;
-        color: white;
-        transform: scale(0.8);
+        background-color: white;
+        color: black;
+        transform: scale(0.9);
+       }
+
+       button:disabled
+       {
+          box-shadow: none;
+
        }
 
        .nextButton
@@ -166,7 +173,7 @@
        {
         border-radius: 2em;
         margin-top: 6%;
-        box-shadow: 0em 0em 5em black;
+        box-shadow: 0em 0em 10em black;
        }
 
        #topBar
@@ -196,6 +203,7 @@
           width: 88%;
           display: inline-block;
           margin: 6%; 
+          margin-top: 4%;
           margin-bottom: 2%;
        }
 
@@ -271,7 +279,7 @@
       <div class="prevNextDiv">
 
       <button class="prevButton" id="next_section1">
-       <i class="fas fa-chevron-circle-left"></i> Previous 
+       <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 
       <button class="nextButton" id="next_section1">
@@ -326,8 +334,19 @@
         </div>
         
        </div>
+     </div>
 
-      <button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>
+      <div class="prevNextDiv">
+
+      <button class="prevButton" id="next_section1">
+       <i class="fas fa-chevron-circle-left"></i> Back 
+      </button>
+
+      <button class="nextButton" id="next_section1">
+       Next <i class="fas fa-chevron-circle-right"></i> 
+      </button>
+
+      </div>
 
     </div>
 
