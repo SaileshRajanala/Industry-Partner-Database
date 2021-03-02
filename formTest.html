@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
 
 
     <!-- ICONS SCRIPT -->
@@ -38,6 +38,21 @@
         background-color: aqua;
         color: black;
       }
+
+      #messageDiv
+      {
+        position: fixed;
+        width: 74%;
+        left: 13%;
+        top: 2%;
+        background-color: rgb(25,25,25,0.7);
+
+        -webkit-backdrop-filter: blur(13px);
+        backdrop-filter: blur(13px);
+
+        box-shadow: 0em 0em 1em black;
+        border-radius: 5em;
+      }
       
       #message
       {
@@ -54,11 +69,10 @@
         justify-content: center;
         
         width: 98%;
-        padding: 0.75%;
+        padding: 1%;
         padding-left: 1%;
         padding-right: 1%; 
-        
-        border-radius: 5em;
+      
       }
 
       .msgPopAnimation
@@ -72,7 +86,7 @@
       {
         0%
         { 
-           transform: translateX(74px);
+           transform: translateX(5em);
            opacity: 0;
         }
       }
@@ -185,7 +199,7 @@
 
        select
        {
-        width: 92%;
+        min-width: 48%;
        }
 
        .noHover:hover
@@ -207,13 +221,42 @@
           margin-bottom: 2%;
        }
 
+       input[type="radio"]
+       {
+        width: initial;
+        display: inline-block;
+       }
+
+       .radioList li
+       {
+        margin-top: 1%;
+        margin-bottom: 1%;
+       }
+
+       .radioList li label
+       {
+        display: inline-block;
+        background-color: black;
+        padding: 1%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+        border-radius: 2em; 
+       }
+
     </style>
 
-      <div id="topBar">
+     <!--  <div id="topBar" class="messageBar">
          
       <div id="message">Industry Partner Form</div>   
 
-      </div>      
+      </div>   -->    
+      <div id="messageDiv">
+      <div id="message">Industry Partner Form</div> 
+      </div>
+
+    
+
+    <!-- START OF THE TEST FORM -->
 
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
 
@@ -350,122 +393,214 @@
 
     </div>
 
-  </form>
-  
-    <script type="text/javascript">
+    <!-- FORM WE ARE WORKING ON NOW -->
+    <div class="formDiv" id="Education_Experience">
 
-      function tag_(_tag)
-      {
-        return document.getElementsByTagName(_tag);
-      }
+      <h1 style="text-align: center;">Education Experience</h1>
+
+      <div class="formSetion">
       
-      function id_(_id)
-      {
-        return document.getElementById(_id);
-      }
-
-      function class_(_class)
-      {
-        return document.getElementsByClassName(_class);
-      }
       
-      function message(msg) 
-      {
-        messageDiv = document.getElementById('message');
+      <!-- <div class="normalBlock">   -->
 
-        messageDiv.classList.add('msgPopAnimation');
-        messageDiv.innerHTML = '<i class="fas fa-comment"></i>&nbsp; ' + msg + '';
-        messageDiv.style.color = 'white';
-
-        // Code below is necessary for animation on request.
-        messageDiv.addEventListener("animationend", 
-
-          function() 
-          {
-              messageDiv.classList.remove('msgPopAnimation');            
-          }
-          
-        );
+        <label>Do you have some form of college education?</label>
         
-      }
+        <ul type="none" class="radioList">
+          <li>
+            <input type="radio" id="1" name="college_education" 
+            value="No, I have not taken any college classes">
+            <label class="radioLabel" for="1">No, I have not taken any college classes</label>
+          </li>
 
-      function success_message(msg) 
-      {
-        message(msg);
-        messageDiv.style.color = 'lime';
-      }
+          <li>
+            <input type="radio" id="2" name="college_education" 
+            value="Yes, I have taken some college classes">
+            <label class="radioLabel" for="2">Yes, I have taken some college classes</label>
+          </li>
 
-      function error_message(msg) 
-      {
-        message(msg);
-        messageDiv.style.color = 'red';
-      }
+          <li>
+            <input type="radio" id="3" name="college_education" 
+        value="Yes, I have an Associate's degree">
+        <label class="radioLabel" for="3">Yes, I have an Associate's degree</label>
+          </li>
 
-      function focus_message(_id, msg)
-      {
-        id_(_id).addEventListener("focusin", 
-        function () {message(msg);});
-      }
+          <li>
+            <input type="radio" id="4" name="college_education" 
+        value="Yes, I have an Technical degree">
+        <label class="radioLabel" for="4">Yes, I have an Technical degree</label>
+          </li>
 
-      focus_message('first_name', 'Please enter your First Name');
-      focus_message('last_name', 'Please enter your Last Name');
-      focus_message('email', 'Please enter your Email Address');
-      focus_message('phone_number', 'Please enter your Phone Number');
-      focus_message('employer', "Please enter your Employer's Name");
-      focus_message('job_title', 'What is the title of your job?');
-      focus_message('state', 'In which state, do you work?');
-      focus_message('city', 'In which city, do you work?');
+          <li>
+           <input type="radio" id="5" name="college_education" 
+        value="Yes, I have an Bachelor's degree">
+        <label class="radioLabel" for="5">Yes, I have an Bachelor's degree</label>
+          </li>
 
-      // Important Function below.
-      for (var i = tag_('input').length - 1; i >= 0; i--) 
-        tag_('input')[i].addEventListener("focusout", 
-          function () {messageDiv.innerHTML = 'Industry Partner Form';});
+        </ul>
+                
+
+        
+
+  
+      <!-- </div> -->
+
+      
+      </div>
+      </div>
+
+      <!-- CODE HERE -->
+       <div class="formSetion">
+      <div class="sideByside">
+      <label> Did you go to Wichita State University for your undergradudate degree? </label>
+      <input type="radio" id="Yes" name="wichitaUndergrad" value="yes I did go to wichita state university">
+      <label for="yes">Yes, I did go to wichita state university</label><br>
+      <input type="radio" id="No" name="wichitaUndergrad" value="No, I attended different university">
+      <label for="yes">No, I attended different university</label><br>
+      </div>
+      </div>
 
 
-      id_('prefix').addEventListener("focusin", 
-        function () {message('Please select your Prefix');});
+       <div class="formSetion">
+      <div class="sideByside">
+       <label> Please select the field of your undergraduate degree: </label><br>
+      <input type="radio" id="Business" name="UndergradDegree" value="Business">
+      <label for="Business">Business</label><br>
+      <input type="radio" id="Education" name="UndergradDegree" value="Education">
+      <label for="Education">Education</label><br>
+      <input type="radio" id="Engineering" name="UndergradDegree" value="Engineering">
+      <label for="Engineering">Engineering</label><br>
+      <input type="radio" id="Health Professions" name="UndergradDegree" value="Health Professions">
+      <label for="Health Professions">Health Professions</label><br>
+      <input type="radio" id="Liberal Arts" name="UndergradDegree" value="Liberal Arts">
+      <label for="Liberal Arts">Liberal Arts</label><br>
+      <input type="radio" id="Math" name="UndergradDegree" value="Math">
+      <label for="Math">Math</label><br>
+      <input type="radio" id="Science" name="UndergradDegree" value="Science">
+      <label for="Science">Science</label><br>
+      <input type="radio" id="Other" name="UndergradDegree" value="Other">
+      <label for="Other">Other</label><br>
+      </div>
+       </div>
 
-      id_('suffix').addEventListener("focusin", 
-        function () {message('Please select your Suffix');});
+        <div class="formSetion">
+      <div class="sideByside">
+      
+      <label> Please select the discipline of your engineering degree:</label><br>
+      <input type="radio" id="Aerospace Engineering" name="EngDiscipline" value="Aerospace Engineering">
+      <label for="Aerospace Engineering">Aerospace Engineering</label><br>
+      <input type="radio" id="Applied Computing" name="EngDiscipline" value="Applied Computing">
+      <label for="Applied Computing">Applied Computing</label><br>
+      <input type="radio" id="Biomedical Engineering" name="EngDiscipline" value="Biomedical Engineering">
+      <label for="Biomedical Engineering">Biomedical Engineering</label><br>
+      <input type="radio" id="Chemical Engineering" name="EngDiscipline" value="Chemical Engineering">
+      <label for="Chemical Engineering">Chemical Engineering</label><br>
+      <input type="radio" id="Civil Engineering" name="EngDiscipline" value="Civil Engineering">
+      <label for="Civil Engineering">Civil Engineering</label><br>
+      <input type="radio" id="Computer Engineering" name="EngDiscipline" value="Computer Engineering">
+      <label for="Computer Engineering">Computer Engineering</label><br>
+      <input type="radio" id="Computer Science" name="EngDiscipline" value="Computer Science">
+      <label for="Computer Science">Computer Science</label><br>
+      <input type="radio" id="Cybersecurity" name="EngDiscipline" value="Cybersecurity">
+      <label for="Cybersecurity">Cybersecurity</label><br>
+      <input type="radio" id="Electrical Engineering" name="EngDiscipline" value="Electrical Engineering">
+      <label for="Electrical Engineering">Electrical Engineering</label><br>
+      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
+      <label for="Environmental Engineering">Environmental Engineering</label><br>
+      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
+      <label for="Environmental Engineering">Environmental Engineering</label><br>
+      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
+      <label for="Environmental Engineering">Environmental Engineering</label><br>
+      <input type="radio" id="Engineering Management" name="EngDiscipline" value="Engineering Management">
+      <label for="Engineering Management">Engineering Management</label><br>
+      <input type="radio" id="Facilities Engineering" name="EngDiscipline" value="Facilities Engineering">
+      <label for="Facilities Engineering">Facilities Engineering</label><br>
+      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
+      <label for="Environmental Engineering">Environmental Engineering</label><br>
+      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
+      <label for="Environmental Engineering">Environmental Engineering</label><br>
+      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
+      <label for="Environmental Engineering">Environmental Engineering</label><br>
+      
+      </div>
+      </div>
+
+      <div class="formSetion">
+      <div class="sideByside">
+      <label> What year did you earn your degree? (YYYY) <label>
+      <input type="text" name="degreeyear" >
+      </div></div>
+
+      <div class="formSetion">
+      <div class="sideByside">
+        <label>Do you have a master's degree? </label><br>
+        <input type="radio" name="mastersDegree" id="yesFromWichita" value="mastersDegree">
+        <label for="yesFromWichita">Yes,from wichita state university</label><br>
+        <input type="radio" name="mastersDegree" id="yesFromOther" value="mastersDegree">
+        <label for="yesFromOther">yes,from another college/university</label><br>
+        <input type="radio" name="mastersDegree" id="no" value="No">
+        <label for="no">No</label><br>
+      </div></div>
+
+        <label>Please tell us which college/university you earned your master's degree from:</label><br>
+        <input type="text" id="universityName" value="University's Name">
+
+
+       <div class="formSetion">
+      <div class="sideByside">
+       <label>Please select the field of your master's degree:</label><br>
+      <input type="radio" id="Business" name="mastersDegree" value="Business">
+      <label for="Business">Business</label><br>
+      <input type="radio" id="Education" name="mastersDegree" value="Education">
+      <label for="Education">Education</label><br>
+      <input type="radio" id="Engineering" name="mastersDegree" value="Engineering">
+      <label for="Engineering">Engineering</label><br>
+      <input type="radio" id="Health Professions" name="mastersDegree" value="Health Professions">
+      <label for="Health Professions">Health Professions</label><br>
+      <input type="radio" id="Liberal Arts" name="mastersDegree" value="Liberal Arts">
+      <label for="Liberal Arts">Liberal Arts</label><br>
+      <input type="radio" id="Math" name="mastersDegree" value="Math">
+      <label for="Math">Math</label><br>
+      <input type="radio" id="Science" name="mastersDegree" value="Science">
+      <label for="Science">Science</label><br>
+      <input type="radio" id="Other" name="mastersDegree" value="Other">
+      <label for="Other">Other</label><br>
+      </div>
+       </div>
+
+      <!-- BEFORE  HERE -->
+
+      
+      <div class="prevNextDiv">
+
+      <button class="prevButton" id="next_section1">
+       <i class="fas fa-chevron-circle-left"></i> Back 
+      </button>
+
+      <button class="nextButton" id="next_section1">
+       Next <i class="fas fa-chevron-circle-right"></i> 
+      </button>
+
+      </div>
+
+    </div>
     
-      // Important Function below.
-      for (var i = tag_('select').length - 1; i >= 0; i--) 
-        tag_('input')[i].addEventListener("change", 
-          function () {messageDiv.innerHTML = 'Industry Partner Form';});
 
-       // TESTS
-       // error_message('Please enter a valid name.');
-       // success_message('Great! Please fill out the next section.');
+  </form> 
+  <!-- END OF THE TEST FORM -->
+    <script type="text/javascript" src="formTestScript.js"></script>
 
 
-      // id_('first_name').onclick = function () {
 
-      //   message('Please enter your First Name.');
 
-      // };
 
-      //  id_('last_name').onclick = function () {
 
-      //   message('Please enter your Last Name.');
 
-      // };
 
-      //message("Industry Partner Form");
 
-      // on clicking the next_section1 button
-      // document.getElementById('next_section1').onclick = function()
-      // {
 
-      //   var prefix = document.getElementById('prefix').value + ' ';
-      //   var suffix = document.getElementById('suffix').value + ' ';
-      //   var first_name = document.getElementById('first_name').value + ' ';
-      //   var last_name = document.getElementById('last_name').value + ' ';
 
-       //  message('Great! Please proceed to the next section <button class="nextButton" id="next_section1"> Next <i class="fas fa-chevron-circle-right"></i> </button>');
 
-      // };
 
-    </script>
 
 
     <!-- <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1> -->

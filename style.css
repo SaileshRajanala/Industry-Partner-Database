@@ -84,7 +84,7 @@ body
   background-color: rgb(13, 13, 13,0.1);   */
 }
 
-label, input, select, option
+.normalBlock label, input, select, option
 {
   mix-blend-mode: inherit;
   display: block;
