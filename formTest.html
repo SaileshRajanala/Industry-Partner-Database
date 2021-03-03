@@ -222,12 +222,6 @@
           margin-bottom: 2%;
        }
 
-       input[type="radio"]
-       {
-        width: initial;
-        display: inline-block;
-       }
-
        .radioList li
        {
         margin-top: 1%;
@@ -237,11 +231,14 @@
        .radioList li label
        {
         display: inline-block;
-        background-color: rgb(25,25,25);
+        background-color: transparent;
         padding: 1%;
         padding-left: 2.5%;
         padding-right: 2.5%;
-        border-radius: 2em; 
+        border-radius: 2em;  
+        text-align: center;
+
+        margin-left: -2%;
 
         transition: all 0.25s;
        }
@@ -264,9 +261,22 @@
         padding: 2%;
        }
 
-       .radioBlock label
+       .radioBlock > label
        {
+        margin: 2%; 
         margin-left: 4%;
+        font-size: x-large;
+       }
+
+       input[type="radio"]:checked + label
+       {
+         background-color: white;
+         color: black;
+       }
+
+       input[type="radio"]
+       {
+        display: none;
        }
 
     </style>
