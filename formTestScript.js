@@ -59,7 +59,7 @@ focus_message('employer', "Please enter your Employer's Name");
 focus_message('job_title', 'What is the title of your job?');
 focus_message('state', 'In which state, do you work?');
 focus_message('city', 'In which city, do you work?');
-focus_message('OtherEngDiscipline', 'Please enter your Engineering Disciplines');
+focus_message('otherEngDisciplineText', 'Please list the discipline of your Engineering Degree');
 
 
 // Important Function below.
@@ -77,6 +77,23 @@ id_('suffix').addEventListener("focusin",
 for (var i = tag_('select').length - 1; i >= 0; i--) 
   tag_('input')[i].addEventListener("change", 
     function () {messageDiv.innerHTML = 'Industry Partner Form';});
+
+
+// OTHER RADIO Button  ******************************
+function linkRadioWithText(_radio, _text)
+{
+  id_(_text).addEventListener("keyup", 
+  function () 
+  {
+    id_(_radio).click();
+    id_(_radio).value = id_(_text).value;
+  });
+}
+
+linkRadioWithText('otherUndergradDegreeRadio','otherUndergradDegreeText');
+linkRadioWithText('otherEngDisciplineRadio','otherEngDisciplineText');
+
+
 
  // TESTS
  // error_message('Please enter a valid name.');
