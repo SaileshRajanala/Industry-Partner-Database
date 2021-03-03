@@ -296,6 +296,20 @@
         transform: scale(1.025);
        }
 
+       .singleBlock
+       {
+        padding: 4%;
+       }
+
+       .singleBlock > input
+       {
+        margin-top: 4%;
+        font-size: x-large;
+        padding: 2%;
+        padding-left: 3%;
+        padding-right: 3%;
+       }
+
     </style>
 
      <!--  <div id="topBar" class="messageBar">
@@ -637,51 +651,85 @@
       </div>
 
       <div class="formSetion">
-      <div class="sideByside">
-      <label> What year did you earn your degree? (YYYY) <label>
-      <input type="text" name="degreeyear" >
-      </div></div>
+      <div class="singleBlock">
+
+      <label> What year did you earn your degree? (YYYY) </label>
+      <input type="text" name="degree_year" placeholder="eg. 2021">
+
+      </div>
+      </div>
 
       <div class="formSetion">
-      <div class="sideByside">
-        <label>Do you have a master's degree? </label><br>
+      <div class="radioBlock">
+
+        <label>Do you have a master's degree? </label>
+
+        <ul type="none" class="radioList">
+
+        <li>
         <input type="radio" name="mastersDegree" id="yesFromWichita" value="mastersDegree">
-        <label for="yesFromWichita">Yes,from wichita state university</label><br>
+        <label for="yesFromWichita">Yes, from Wichita State University</label>
+        </li>
+        <li>
         <input type="radio" name="mastersDegree" id="yesFromOther" value="mastersDegree">
-        <label for="yesFromOther">yes,from another college/university</label><br>
+        <label for="yesFromOther">Yes, from another College/University</label>
+        </li>
+        <li>
         <input type="radio" name="mastersDegree" id="no" value="No">
-        <label for="no">No</label><br>
-      </div></div>
+        <label for="no">No</label>
+        </li>
+        </ul>
 
         <label>Please tell us which college/university you earned your master's degree from:</label><br>
-        <input type="text" id="universityName" value="University's Name">
+        <input type="text" id="universityName" placeholder="University's Name">
+        
+        </div>
+        </div>
 
+      <div class="formSetion">
+      <div class="radioBlock">
 
-       <div class="formSetion">
-      <div class="sideByside">
-       <label>Please select the field of your master's degree:</label><br>
+      <label>Please select the field of your master's degree:</label>
+
+      <ul type="none" class="radioList">
+
+      <li>
       <input type="radio" id="Business" name="mastersDegree" value="Business">
-      <label for="Business">Business</label><br>
+      <label for="Business">Business</label>
+      </li>
+      <li>
       <input type="radio" id="Education" name="mastersDegree" value="Education">
-      <label for="Education">Education</label><br>
+      <label for="Education">Education</label>
+      </li>
+      <li>
       <input type="radio" id="Engineering" name="mastersDegree" value="Engineering">
-      <label for="Engineering">Engineering</label><br>
+      <label for="Engineering">Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Health Professions" name="mastersDegree" value="Health Professions">
-      <label for="Health Professions">Health Professions</label><br>
+      <label for="Health Professions">Health Professions</label>
+      </li>
+      <li>
       <input type="radio" id="Liberal Arts" name="mastersDegree" value="Liberal Arts">
-      <label for="Liberal Arts">Liberal Arts</label><br>
+      <label for="Liberal Arts">Liberal Arts</label>
+      </li>
+      <li>
       <input type="radio" id="Math" name="mastersDegree" value="Math">
-      <label for="Math">Math</label><br>
+      <label for="Math">Math</label>
+      </li>
+      <li>
       <input type="radio" id="Science" name="mastersDegree" value="Science">
-      <label for="Science">Science</label><br>
+      <label for="Science">Science</label>
+      </li>
+      <li>
       <input type="radio" id="Other" name="mastersDegree" value="Other">
-      <label for="Other">Other</label><br>
-      </div>
-       </div>
+      <label for="Other">Other</label>
+      </li>
+      </ul>
 
-      <!-- BEFORE  HERE -->
-    </div>
-      
+      </div>
+      </div>
+
       <div class="prevNextDiv">
 
       <button class="prevButton" id="next_section1">
@@ -693,8 +741,10 @@
       </button>
 
       </div>
+      </div>
 
-    </div>
+      <!-- BEFORE  HERE -->
+   
     
 
   </form> 
