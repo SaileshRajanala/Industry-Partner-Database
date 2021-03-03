@@ -281,11 +281,19 @@
 
        .otherOption
        {
-        width: 90%;
-        margin-left: -1%;
+        
+        width: 94%;
+        margin-left: 0%;
         padding: 2%;
         padding-left: 3%;
         padding-right: 3%;
+
+        transition: all 0.25s;
+       }
+
+       .otherOption:hover
+       {
+        transform: scale(1.025);
        }
 
     </style>
@@ -621,10 +629,10 @@
       <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
       <label for="Environmental Engineering">Environmental Engineering</label>
       </li>
-      <li>
-      <input type="text" class="otherOption" id="OtherEngDiscipline" name="EngDiscipline" placeholder="Other">
-      </li>
       </ul>
+      <input type="text" class="otherOption" id="OtherEngDiscipline" name="EngDiscipline" placeholder="Other">
+      
+      
 
       </div>
       </div>
