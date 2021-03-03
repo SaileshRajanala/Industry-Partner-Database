@@ -59,12 +59,13 @@ focus_message('employer', "Please enter your Employer's Name");
 focus_message('job_title', 'What is the title of your job?');
 focus_message('state', 'In which state, do you work?');
 focus_message('city', 'In which city, do you work?');
+focus_message('OtherEngDiscipline', 'Please enter other your engineering disciplines seperated by commas');
+
 
 // Important Function below.
 for (var i = tag_('input').length - 1; i >= 0; i--) 
   tag_('input')[i].addEventListener("focusout", 
     function () {messageDiv.innerHTML = 'Industry Partner Form';});
-
 
 id_('prefix').addEventListener("focusin", 
   function () {message('Please select your Prefix');});

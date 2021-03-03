@@ -236,7 +236,6 @@
         padding-left: 2.5%;
         padding-right: 2.5%;
         border-radius: 2em;  
-        text-align: center;
 
         margin-left: -2.5%; 
 
@@ -264,8 +263,9 @@
        .radioBlock > label
        {
         margin: 2%; 
-        margin-left: 4%;
         font-size: xx-large;
+
+        display: block;
        }
 
        input[type="radio"]:checked + label
@@ -279,6 +279,15 @@
         display: none;
        }
 
+       .otherOption
+       {
+        width: 90%;
+        margin-left: -1%;
+        padding: 2%;
+        padding-left: 3%;
+        padding-right: 3%;
+       }
+
     </style>
 
      <!--  <div id="topBar" class="messageBar">
@@ -289,8 +298,6 @@
       <div id="messageDiv">
       <div id="message">Industry Partner Form</div> 
       </div>
-
-    
 
     <!-- START OF THE TEST FORM -->
 
@@ -478,82 +485,147 @@
       <!-- CODE HERE -->
       <div class="formSetion">
       <div class="radioBlock">
+
       <label> Did you go to Wichita State University for your undergradudate degree? </label>
+      
       <ul type="none" class="radioList">
       <li>
       <input type="radio" id="Yes" name="wichitaUndergrad" value="yes I did go to wichita state university">
-      <label for="Yes">Yes, I did go to wichita state university</label>
+      <label for="Yes">Yes, I did go to Wichita State University</label>
       </li>
       <li>
       <input type="radio" id="No" name="wichitaUndergrad" value="No, I attended different university">
       <label for="No">No, I attended different university</label>
       </li>
-      <li>
+      </ul>
+        
       </div>
       </div>
 
 
-       <div class="formSetion">
+      <div class="formSetion">
       <div class="radioBlock">
-       <label> Please select the field of your undergraduate degree: </label><br>
+
+      <label> Please select the field of your undergraduate degree: </label>
+
+      <ul type="none" class="radioList">
+      <li>
       <input type="radio" id="Business" name="UndergradDegree" value="Business">
-      <label for="Business">Business</label><br>
+      <label for="Business">Business</label>
+      </li>
+      <li>
       <input type="radio" id="Education" name="UndergradDegree" value="Education">
-      <label for="Education">Education</label><br>
+      <label for="Education">Education</label>
+      </li>
+      <li>
       <input type="radio" id="Engineering" name="UndergradDegree" value="Engineering">
-      <label for="Engineering">Engineering</label><br>
+      <label for="Engineering">Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Health Professions" name="UndergradDegree" value="Health Professions">
-      <label for="Health Professions">Health Professions</label><br>
+      <label for="Health Professions">Health Professions</label>
+      </li>
+      <li>
       <input type="radio" id="Liberal Arts" name="UndergradDegree" value="Liberal Arts">
-      <label for="Liberal Arts">Liberal Arts</label><br>
+      <label for="Liberal Arts">Liberal Arts</label>
+      </li>
+      <li>
       <input type="radio" id="Math" name="UndergradDegree" value="Math">
-      <label for="Math">Math</label><br>
+      <label for="Math">Math</label>
+      </li>
+      <li>
       <input type="radio" id="Science" name="UndergradDegree" value="Science">
-      <label for="Science">Science</label><br>
+      <label for="Science">Science</label>
+      </li>
+      <li>
       <input type="radio" id="Other" name="UndergradDegree" value="Other">
-      <label for="Other">Other</label><br>
+      <label for="Other">Other</label>
+      </li>
+      </ul>
+
       </div>
-       </div>
+      </div>
 
       <div class="formSetion">
       <div class="radioBlock">
       
-      <label> Please select the discipline of your engineering degree:</label><br>
+      <label> Please select the discipline of your engineering degree:</label>
+
+      <ul type="none" class="radioList">
+      </li>
+      <li>
       <input type="radio" id="Aerospace Engineering" name="EngDiscipline" value="Aerospace Engineering">
-      <label for="Aerospace Engineering">Aerospace Engineering</label><br>
+      <label for="Aerospace Engineering">Aerospace Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Applied Computing" name="EngDiscipline" value="Applied Computing">
-      <label for="Applied Computing">Applied Computing</label><br>
+      <label for="Applied Computing">Applied Computing</label>
+      </li>
+      <li>
       <input type="radio" id="Biomedical Engineering" name="EngDiscipline" value="Biomedical Engineering">
-      <label for="Biomedical Engineering">Biomedical Engineering</label><br>
+      <label for="Biomedical Engineering">Biomedical Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Chemical Engineering" name="EngDiscipline" value="Chemical Engineering">
-      <label for="Chemical Engineering">Chemical Engineering</label><br>
+      <label for="Chemical Engineering">Chemical Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Civil Engineering" name="EngDiscipline" value="Civil Engineering">
-      <label for="Civil Engineering">Civil Engineering</label><br>
+      <label for="Civil Engineering">Civil Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Computer Engineering" name="EngDiscipline" value="Computer Engineering">
-      <label for="Computer Engineering">Computer Engineering</label><br>
+      <label for="Computer Engineering">Computer Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Computer Science" name="EngDiscipline" value="Computer Science">
-      <label for="Computer Science">Computer Science</label><br>
+      <label for="Computer Science">Computer Science</label>
+      </li>
+      <li>
       <input type="radio" id="Cybersecurity" name="EngDiscipline" value="Cybersecurity">
-      <label for="Cybersecurity">Cybersecurity</label><br>
+      <label for="Cybersecurity">Cybersecurity</label>
+      </li>
+      <li>
       <input type="radio" id="Electrical Engineering" name="EngDiscipline" value="Electrical Engineering">
-      <label for="Electrical Engineering">Electrical Engineering</label><br>
+      <label for="Electrical Engineering">Electrical Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
-      <label for="Environmental Engineering">Environmental Engineering</label><br>
-      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
-      <label for="Environmental Engineering">Environmental Engineering</label><br>
-      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
-      <label for="Environmental Engineering">Environmental Engineering</label><br>
+      <label for="Environmental Engineering">Environmental Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Engineering Management" name="EngDiscipline" value="Engineering Management">
-      <label for="Engineering Management">Engineering Management</label><br>
-      <input type="radio" id="Facilities Engineering" name="EngDiscipline" value="Facilities Engineering">
-      <label for="Facilities Engineering">Facilities Engineering</label><br>
+      <label for="Engineering Management">Engineering Management</label>
+      </li>
+      <li>
+      <input type="radio" id="Facilities Management" name="EngDiscipline" value="Facilities Management">
+      <label for="Facilities Management">Facilities Management</label>
+      </li>
+      <li>
+      <input type="radio" id="Industrial/Systems Engineering" name="EngDiscipline" value="Industrial/Systems Engineering">
+      <label for="Industrial/Systems Engineering">Industrial/Systems Engineering</label>
+      </li>
+      <li>
+      <input type="radio" id="Mechatronics" name="EngDiscipline" value="Mechatronics">
+      <label for="Mechatronics">Mechatronics</label>
+      </li>
+      <li>
+      <input type="radio" id="Mechanical Engineering" name="EngDiscipline" value="Mechanical Engineering">
+      <label for="Mechanical Engineering">Mechanical Engineering</label>
+      </li>
+      <li>
+      <input type="radio" id="Product Design and Manufacturing Engineering" name="EngDiscipline" value="Product Design and Manufacturing Engineering">
+      <label for="Product Design and Manufacturing Engineering">Product Design and Manufacturing Engineering</label>
+      </li>
+      <li>
       <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
-      <label for="Environmental Engineering">Environmental Engineering</label><br>
-      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
-      <label for="Environmental Engineering">Environmental Engineering</label><br>
-      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
-      <label for="Environmental Engineering">Environmental Engineering</label><br>
-      
+      <label for="Environmental Engineering">Environmental Engineering</label>
+      </li>
+      <li>
+      <input type="text" class="otherOption" id="OtherEngDiscipline" name="EngDiscipline" placeholder="Other">
+      </li>
+      </ul>
+
       </div>
       </div>
 
