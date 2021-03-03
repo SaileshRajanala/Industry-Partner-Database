@@ -42,8 +42,9 @@
       #messageDiv
       {
         position: fixed;
-        width: 74%;
-        left: 13%;
+        width: 84%;
+        left: 8%;
+        z-index: 10;
         top: 2%;
         background-color: rgb(25,25,25,0.7);
 
@@ -241,12 +242,31 @@
         padding-left: 2.5%;
         padding-right: 2.5%;
         border-radius: 2em; 
+
+        transition: all 0.25s;
        }
 
        .radioList li label:hover
        {
         background-color: white;
-        
+        color: black;
+        cursor: pointer;
+        transform: scale(1.025);
+       }
+
+       .radioList li label:active
+       {
+        transform: scale(1);
+       }
+
+       .radioBlock
+       {
+        padding: 2%;
+       }
+
+       .radioBlock label
+       {
+        margin-left: 4%;
        }
 
     </style>
@@ -407,7 +427,7 @@
       <div class="formSetion">
       
       
-      <!-- <div class="normalBlock">   -->
+      <div class="radioBlock">  
 
         <label>Do you have some form of college education?</label>
         
@@ -415,36 +435,36 @@
           <li>
             <input type="radio" id="1" name="college_education" 
             value="No, I have not taken any college classes">
-            <label class="radioLabel" for="1">No, I have not taken any college classes</label>
+            <label for="1">No, I have not taken any college classes</label>
           </li>
 
           <li>
             <input type="radio" id="2" name="college_education" 
             value="Yes, I have taken some college classes">
-            <label class="radioLabel" for="2">Yes, I have taken some college classes</label>
+            <label for="2">Yes, I have taken some college classes</label>
           </li>
 
           <li>
             <input type="radio" id="3" name="college_education" 
         value="Yes, I have an Associate's degree">
-        <label class="radioLabel" for="3">Yes, I have an Associate's degree</label>
+        <label for="3">Yes, I have an Associate's degree</label>
           </li>
 
           <li>
             <input type="radio" id="4" name="college_education" 
         value="Yes, I have an Technical degree">
-        <label class="radioLabel" for="4">Yes, I have an Technical degree</label>
+        <label for="4">Yes, I have an Technical degree</label>
           </li>
 
           <li>
            <input type="radio" id="5" name="college_education" 
         value="Yes, I have an Bachelor's degree">
-        <label class="radioLabel" for="5">Yes, I have an Bachelor's degree</label>
+        <label for="5">Yes, I have an Bachelor's degree</label>
           </li>
 
         </ul>
                 
-
+      </div>
         
 
   
@@ -455,7 +475,7 @@
       </div>
 
       <!-- CODE HERE -->
-       <div class="formSetion">
+      <div class="formSetion">
       <div class="sideByside">
       <label> Did you go to Wichita State University for your undergradudate degree? </label>
       <input type="radio" id="Yes" name="wichitaUndergrad" value="yes I did go to wichita state university">
