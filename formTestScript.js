@@ -121,7 +121,7 @@ for (var i = 0; i < labels.length; i++) {
 // {
 //     if(inputs[i].type == "checkbox") 
 //     {
-//         inputs[i].addEventListener("change", 
+//         inputs[i].addEventListener("onmouseover", 
           
 //           function () 
 //           {
