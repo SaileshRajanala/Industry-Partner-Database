@@ -202,7 +202,7 @@
        {
         border-radius: 2em;
         margin-top: 6%;
-        box-shadow: 0em 0em 10em black;
+        box-shadow: 0em 0em 5em black;
        }
 
        #topBar
@@ -369,6 +369,18 @@
 
     <!-- START OF THE TEST FORM -->
 
+    <!-- <div class="prevNextDiv">
+
+      <button class="prevButton" id="next_section1">
+       <i class="fas fa-chevron-circle-left"></i> Back 
+      </button>
+
+      <button class="nextButton" id="next_section1">
+       Next <i class="fas fa-chevron-circle-right"></i> 
+      </button>
+
+      </div> -->
+
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
 
     <div class="formDiv" id="Personal_Information">
@@ -432,11 +444,11 @@
 
       <div class="prevNextDiv">
 
-      <button class="prevButton" id="next_section1">
+      <!-- <button class="prevButton" id="next_section1" disabled>
        <i class="fas fa-chevron-circle-left"></i> Back 
-      </button>
+      </button> -->
 
-      <button class="nextButton" id="next_section1">
+      <button class="nextButton" targetDiv="Professional_Information">
        Next <i class="fas fa-chevron-circle-right"></i> 
       </button>
 
@@ -492,11 +504,11 @@
 
       <div class="prevNextDiv">
 
-      <button class="prevButton" id="next_section1">
+      <button class="prevButton" targetDiv="Personal_Information">
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 
-      <button class="nextButton" id="next_section1">
+      <button class="nextButton" targetDiv="Education_Experience">
        Next <i class="fas fa-chevron-circle-right"></i> 
       </button>
 
@@ -798,13 +810,13 @@
 
       <div class="prevNextDiv">
 
-      <button class="prevButton" id="next_section1">
+      <button class="prevButton" targetDiv="Professional_Information">
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 
-      <button class="nextButton" id="next_section1">
+      <!-- <button class="nextButton" targetDiv="Education_Experience">
        Next <i class="fas fa-chevron-circle-right"></i> 
-      </button>
+      </button> -->
 
       </div>
       </div>
