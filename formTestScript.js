@@ -121,7 +121,7 @@ function switchDiv(targetDiv, currentDiv)
 
     id_(targetDiv).style.display = 'block';
     window.scrollTo(0, 0);
-    id_(targetDiv).classList.add('formDivLaunchAnimation');
+    //id_(targetDiv).classList.add('formDivLaunchAnimation');
 
 }
 
