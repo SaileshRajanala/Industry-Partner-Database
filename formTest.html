@@ -217,6 +217,8 @@
         font-family: 'Quicksand';
         font-size: x-large;
 
+        outline: none;
+
         transition: all 0.25s;
       }
 
@@ -257,7 +259,7 @@
         background-position: center;
         padding: 10%;
 
-        padding-bottom: 5%;
+        padding-bottom: 10%;
         padding-top: 7%;
        }
 
@@ -426,7 +428,7 @@
 
        li
        {
-        margin: 1%;
+        margin: 1.25%;
        }
 
        .lessMargin
@@ -442,18 +444,31 @@
         width: 96%;
        }
 
+       textarea::selection
+       {
+        color: white;
+        background-color: rgb(25,25,25);
+       }
+
+       #welcomeDiv
+       {
+          box-shadow: none;
+          padding: 0%;
+          background-color: transparent;
+       }
+
+       #welcomeFormSection
+       {
+          background-color: rgb(13,13,13,0.4);
+          backdrop-filter: blur(0.5em);
+          -webkit-backdrop-filter: blur(0.5em);
+       }
+
     </style>
 
      <!-- <div id="messageDiv">
       <div id="message">Industry Partner Form</div> 
       </div> -->
-
-      <div id="messageBar">
-         
-      <span id="message">Industry Partner Form</span>   
-
-      </div>      
-     
 
     <!-- START OF THE TEST FORM -->
 
@@ -469,12 +484,18 @@
 
       </div> -->
 
+      <div id="messageBar">
+         
+      <span id="message"></span>   
+
+      </div>
+
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
 
-    <div class="formDiv" id="Form_Start">
+    <div class="formDiv" id="welcomeDiv">
       <h1 style="text-align: center;">Industry Partner Form</h1>
 
-      <div class="formSetion"> 
+      <div class="formSetion" id="welcomeFormSection"> 
         <ul style="text-align: left;" type="none">
           <li>
             <i class="far fa-handshake"></i>&nbsp;&nbsp; Build Relationships with <b>Wichita State University.</b>
@@ -490,7 +511,7 @@
 
       <div class="prevNextDiv lessMargin">
       <button class="nextButton" 
-      onclick="switchDiv('Personal_Information', 'Form_Start')">
+      onclick="switchDiv('Personal_Information', 'welcomeDiv')">
        Get Started <i class="fas fa-chevron-circle-right"></i> 
       </button>
       </div>
@@ -1445,16 +1466,12 @@
       </div>
 
 
-
-
-
       <div class="formSetion">
       <div class="singleBlock">
 
       <label> Please tell us how you want to be involved: </label>
-      <textarea type="text" id="Involvement_Notes" 
-      name="Involvement_Notes" placeholder="Notes" rows="5">
-      </textarea>
+      <textarea id="Involvement_Notes" 
+      name="Involvement_Notes" placeholder="Notes" rows="5"></textarea>
 
       </div>
       </div>
