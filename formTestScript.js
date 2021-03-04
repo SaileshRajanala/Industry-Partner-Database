@@ -19,7 +19,9 @@ function message(msg)
 
   messageDiv.classList.add('msgPopAnimation');
   messageDiv.innerHTML = '<i class="fas fa-comment"></i>&nbsp; ' + msg + '';
-  messageDiv.style.color = 'white';
+  
+  messageDiv.style.color = 'black';
+  messageDiv.style.backgroundColor = 'white';
 
   // Code below is necessary for animation on request.
   messageDiv.addEventListener("animationend", 
@@ -51,6 +53,13 @@ function focus_message(_id, msg)
   function () {message(msg);});
 }
 
+function default_message()
+{
+  messageDiv.innerHTML = 'Industry Partner Form';
+  // messageDiv.style.color = 'white';
+  // messageDiv.style.backgroundColor = 'transparent';
+}
+
 for (var i = tag_('input').length - 1; i >= 0; i--) 
   tag_('input')[i].addEventListener("focusout", 
     function () {messageDiv.innerHTML = 'Industry Partner Form';});
@@ -67,8 +76,7 @@ focus_message('otherEngDisciplineText', 'Please list the discipline of your Engi
 
 // Important Function below.
 for (var i = tag_('input').length - 1; i >= 0; i--) 
-  tag_('input')[i].addEventListener("focusout", 
-    function () {messageDiv.innerHTML = 'Industry Partner Form';});
+  tag_('input')[i].addEventListener("focusout", default_message);
 
 id_('prefix').addEventListener("focusin", 
   function () {message('Please select your Prefix');});
@@ -107,31 +115,49 @@ for (var i = 0; i < labels.length; i++) {
 }
 
 // CHECKBOX JS TEST 
-var inputs = document.getElementsByTagName("input");  // all inputs
+// var inputs = document.getElementsByTagName("input");  // all inputs
 
-for(var i = 0; i < inputs.length; i++) 
-{
-    if(inputs[i].type == "checkbox") 
-    {
-        inputs[i].addEventListener("change", 
+// for(var i = 0; i < inputs.length; i++) 
+// {
+//     if(inputs[i].type == "checkbox") 
+//     {
+//         inputs[i].addEventListener("change", 
           
-          function () 
-          {
-             if (inputs[i].checked) 
-             {
-                var labels = document.getElementsByTagName('label');
+//           function () 
+//           {
+//              if (inputs[i].checked) 
+//              {
+//                 var labels = document.getElementsByTagName('label');
+
+//                 //htmlFor
+//                 for (var k = labels.length - 1; k >= 0; k--) 
+//                 {
+//                   if (labels[i].htmlFor == inputs[i].getAttribute('id'))
+//                   {
+//                     labels[i].innerHTML += ' <i class="fas fa-check-circle"></i>';
+//                   }
+//                 }
 
 
-             }
-             else
-             {
+//              }
+//              else
+//              {
+//                 var labels = document.getElementsByTagName('label');
 
-             }
-          }
+//                 //htmlFor
+//                 for (var k = labels.length - 1; k >= 0; k--) 
+//                 {
+//                   if (labels[i].htmlFor == inputs[i].getAttribute('id'))
+//                   {
+//                     labels[i].innerHTML += ' <i class="fas fa-check-circle"></i>';
+//                   }
+//                 }
+//              }
+//           }
         
-        );    
-    }  
-}
+//         );    
+//     }  
+// }
 
 
  // TESTS

@@ -39,40 +39,45 @@
         color: black;
       }
 
-      #messageDiv
+      #messageBar
       {
         position: fixed;
-        width: 84%;
-        left: 8%;
+        display: inline-flex;
+        justify-content: center;
+        width: 80%;
+        left: 10%;
         z-index: 10;
-        top: 2%;
-        background-color: rgb(44,44,44,0.7);
+        top: 0%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        background-color: transparent;
 
         -webkit-backdrop-filter: blur(13px);
         backdrop-filter: blur(13px);
 
-        box-shadow: 0em 0em 1em black;
-        border-radius: 5em;
+        /*box-shadow: 0em 0em 1em black;*/
+        border-radius: 10em;
+        border-top-right-radius: 0em;
+        border-top-left-radius: 0em;
       }
       
       #message
       {
         font-family: 'Quicksand', sans-serif;
-/*        font-size: 110%;
-*/        background-color: transparent;
+        background-color: white;
+        color: black;
+        display: inline-block;
+        /*box-shadow: 0em 0.5em 1em black;*/
 
-        margin: 0%; 
-        padding-top: 0%;
-        padding-bottom: 0%;
+        border-radius: 4em;
 
-        display: inline-flex;
         align-items: center;
         justify-content: center;
         
-        width: 98%;
-        padding: 1%;
-        padding-left: 1%;
-        padding-right: 1%; 
+        /*width: 98%;*/
+        padding: 0.5%;
+        padding-left: 1.5%;
+        padding-right: 1.5%; 
       
       }
 
@@ -254,12 +259,12 @@
         cursor: pointer;
         border: 0.1em solid white;
         /*box-shadow: 0em 1em 2em black;*/
-        transform: scale(1.025);
+        transform: scale(1);
        }
 
-       .radioList li label:active
+       .radioList li label:active, .checkList li label:active
        {
-        transform: scale(1);
+        transform: scale(1.1);
        }
 
        .radioBlock
@@ -342,14 +347,16 @@
 
     </style>
 
-     <!--  <div id="topBar" class="messageBar">
-         
-      <div id="message">Industry Partner Form</div>   
-
-      </div>   -->    
-      <div id="messageDiv">
+     <!-- <div id="messageDiv">
       <div id="message">Industry Partner Form</div> 
-      </div>
+      </div> -->
+
+      <div id="messageBar">
+         
+      <span id="message">Industry Partner Form</span>   
+
+      </div>      
+     
 
     <!-- START OF THE TEST FORM -->
 
