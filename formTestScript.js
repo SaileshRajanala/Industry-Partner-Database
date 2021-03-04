@@ -51,6 +51,10 @@ function focus_message(_id, msg)
   function () {message(msg);});
 }
 
+for (var i = tag_('input').length - 1; i >= 0; i--) 
+  tag_('input')[i].addEventListener("focusout", 
+    function () {messageDiv.innerHTML = 'Industry Partner Form';});
+
 focus_message('first_name', 'Please enter your First Name');
 focus_message('last_name', 'Please enter your Last Name');
 focus_message('email', 'Please enter your Email Address');
@@ -92,6 +96,42 @@ function linkRadioWithText(_radio, _text)
 linkRadioWithText('otherUndergradDegreeRadio','otherUndergradDegreeText');
 linkRadioWithText('otherEngDisciplineRadio','otherEngDisciplineText');
 
+
+var labels = document.getElementsByTagName('LABEL');
+for (var i = 0; i < labels.length; i++) {
+    if (labels[i].htmlFor != '') {
+         var elem = document.getElementById(labels[i].htmlFor);
+         if (elem)
+            elem.label = labels[i];         
+    }
+}
+
+// CHECKBOX JS TEST 
+var inputs = document.getElementsByTagName("input");  // all inputs
+
+for(var i = 0; i < inputs.length; i++) 
+{
+    if(inputs[i].type == "checkbox") 
+    {
+        inputs[i].addEventListener("change", 
+          
+          function () 
+          {
+             if (inputs[i].checked) 
+             {
+                var labels = document.getElementsByTagName('label');
+
+
+             }
+             else
+             {
+
+             }
+          }
+        
+        );    
+    }  
+}
 
 
  // TESTS
