@@ -62,7 +62,7 @@ function default_message()
 
 for (var i = tag_('input').length - 1; i >= 0; i--) 
   tag_('input')[i].addEventListener("focusout", 
-    function () {message('Industry Partner Form');});
+    function () {messageDiv.innerHTML = 'Industry Partner Form';});
 
 focus_message('first_name', 'Please enter your First Name');
 focus_message('last_name', 'Please enter your Last Name');
