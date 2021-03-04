@@ -256,14 +256,16 @@
        {
         background-position: center;
         padding: 10%;
-        padding-top: 10%;
+
+        padding-bottom: 5%;
+        padding-top: 7%;
        }
 
        .formDiv
        {
         margin-top: 0%;
         padding: 4%;
-        margin-bottom: 15%;
+        /*margin-bottom: 15%;*/
         border-radius: 3.5em;
 
         animation-name: formDivLaunch;
@@ -422,6 +424,17 @@
         display: none;
        }
 
+       li
+       {
+        margin: 1%;
+       }
+
+       .lessMargin
+       {
+        margin-top: 1%;
+        margin-bottom: 1%;
+       }
+
     </style>
 
      <!-- <div id="messageDiv">
@@ -450,6 +463,32 @@
       </div> -->
 
     <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="post">
+
+    <div class="formDiv" id="Form_Start">
+      <h1 style="text-align: center;">Industry Partner Form</h1>
+
+      <div class="formSetion"> 
+        <ul style="text-align: left;" type="none">
+          <li>
+            <i class="far fa-handshake"></i>&nbsp;&nbsp; Build Relationships with <b>Wichita State University.</b>
+          </li>
+          <li>
+            <i class="fas fa-school"></i>&nbsp;&nbsp; Get involved with University Events.
+          </li>
+          <li>
+            <i class="fas fa-graduation-cap"></i>&nbsp;&nbsp; Provide Opportunities for Students.
+          </li>
+        </ul>
+      </div>
+
+      <div class="prevNextDiv lessMargin">
+      <button class="nextButton" 
+      onclick="switchDiv('Personal_Information', 'Form_Start')">
+       Get Started <i class="fas fa-chevron-circle-right"></i> 
+      </button>
+      </div>
+      
+    </div>
 
     <div class="formDiv" id="Personal_Information">
 
