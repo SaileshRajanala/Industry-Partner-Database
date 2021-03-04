@@ -118,9 +118,12 @@ for (var i = 0; i < labels.length; i++) {
 function switchDiv(targetDiv, currentDiv)
 {
     id_(currentDiv).style.display = 'none';
-    id_(targetDiv).style.display = 'block';
-}
 
+    id_(targetDiv).style.display = 'block';
+    window.scrollTo(0, 0);
+    id_(targetDiv).classList.add('formDivLaunchAnimation');
+
+}
 
 // INITIALIZE FORM START##########################################################################
 var formDivs = document.getElementsByClassName('formDiv');
