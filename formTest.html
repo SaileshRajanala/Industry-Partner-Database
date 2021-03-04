@@ -435,6 +435,13 @@
         margin-bottom: 1%;
        }
 
+       textarea
+       {
+        margin: 0%;
+        margin-top: 4%;
+        width: 96%;
+       }
+
     </style>
 
      <!-- <div id="messageDiv">
@@ -1093,11 +1100,10 @@
       
       <h1 style="text-align: center;">Involvement Opportunities</h1>
 
-
       <div class="formSetion">
       <div class="checkBlock">
 
-      <label> How would you like to be involved with the Wichita State University College of Engineering? <br><br> (Select all that apply)</label>
+      <label> How would you like to be involved with the Wichita State University College of Engineering?<br><br>(Select all that apply)<br></label>
 
       <ul type="none" class="checkList">
 
@@ -1209,7 +1215,7 @@
       <div class="checkBlock">
 
       <label>What is your preferred level of involvement? 
-        <br>(Select all that apply)</label>
+        <br><br>(Select all that apply)<br></label>
 
       <ul type="none" class="checkList">
 
@@ -1247,6 +1253,213 @@
       </div>
       </div>
 
+      <div class="formSetion">
+      <div class="checkBlock">
+
+      <label>What age level(s) of students would you want to work with for a recruitment or retention event?<br><br>(Select all that apply)<br></label>
+
+      <ul type="none" class="checkList">
+
+
+      <li>
+      <input type="checkbox" id="Recruitment_Level1" name="Recruitment_Level" 
+      value="Elementary School">
+
+      <label for="Recruitment_Level1">
+        Elementary School
+      </label>
+      </li>
+
+      <li>
+      <input type="checkbox" id="Recruitment_Level2" name="Recruitment_Level" 
+      value="Middle School">
+
+      <label for="Recruitment_Level2">
+        Middle School
+      </label>
+      </li>
+
+      <li>
+      <input type="checkbox" id="Recruitment_Level3" name="Recruitment_Level" 
+      value="High School">
+
+      <label for="Recruitment_Level3">
+        High School
+      </label>
+      </li>
+
+      <li>
+      <input type="checkbox" id="Recruitment_Level4" name="Recruitment_Level" 
+      value="College/University">
+
+      <label for="Recruitment_Level4">
+        College/University
+      </label>
+      </li>
+
+      </ul>
+
+      </div>
+      </div>
+
+
+      <div class="formSetion">
+      <div class="checkBlock">
+
+      <label>What age(s) of students would you want to mentor?<br><br>(Select that all apply)<br></label>
+
+      <ul type="none" class="checkList">
+
+
+      <li>
+      <input type="checkbox" id="Mentor_Age1" name="Mentor_Age" 
+      value="Elementry">
+
+      <label for="Mentor_Age1">
+        Elementry
+      </label>
+      </li>
+
+
+      <li>
+      <input type="checkbox" id="Mentor_Age2" name="Mentor_Age" 
+      value="Middle School">
+
+      <label for="Mentor_Age2">
+        Middle School
+      </label>
+      </li>
+
+      <li>
+      <input type="checkbox" id="Mentor_Age3" name="Mentor_Age" 
+      value="High School">
+
+      <label for="Mentor_Age3">
+        High School
+      </label>
+      </li>
+
+
+      <li>
+      <input type="checkbox" id="Mentor_Age4" name="Mentor_Age" 
+      value="Undergraduate">
+
+      <label for="Mentor_Age4">
+        Undergraduate
+      </label>
+      </li>
+
+
+      <li>
+      <input type="checkbox" id="Mentor_Age5" name="Mentor_Age" 
+      value="Master's">
+
+      <label for="Mentor_Age5">
+        Master's
+      </label>
+      </li>
+
+
+      <li>
+      <input type="checkbox" id="Mentor_Age6" name="Mentor_Age" 
+      value="Doctoral">
+
+      <label for="Mentor_Age6">
+        Doctoral
+      </label>
+      </li>
+
+      </ul>
+
+      </div>
+      </div>
+
+
+      <div class="formSetion">
+      <div class="checkBlock">
+
+      <label>We are always looking for people to serve as role models to under-represented populations. Are there certain populations you would like to work with?<br><br>(Select that all apply)<br></label>
+
+      <ul type="none" class="checkList">
+
+
+      <li>
+      <input type="checkbox" id="Role_Model1" name="Role_Model" 
+      value="First-generation college students">
+
+      <label for="Role_Model1">
+        First-generation college students
+      </label>
+      </li>
+
+      <li>
+      <input type="checkbox" id="Role_Model2" name="Role_Model"
+      value="Female">
+
+      <label for="Role_Model2">
+        Female
+      </label>
+      </li>
+
+      <li>
+      <input type="checkbox" id="Role_Model3" name="Role_Model" 
+      value="African American">
+
+      <label for="Role_Model3">
+        African American
+      </label>
+      </li>
+
+
+      <li>
+      <input type="checkbox" id="Role_Model4" name="Role_Model" 
+      value="Hispanic">
+
+      <label for="Role_Model4">
+        Hispanic
+      </label>
+      </li>
+
+
+      <li>
+      <input type="checkbox" id="Role_Model5" name="Role_Model" 
+      value="Veterans">
+
+      <label for="Role_Model5">
+        Veterans
+      </label>
+      </li>
+
+      <li>
+      <input type="checkbox" id="Role_Model6" name="Role_Model" 
+      value="Other">
+
+      <label for="Role_Model6">
+        Other
+      </label>
+      </li>
+
+      </ul>
+
+      </div>
+      </div>
+
+
+
+
+
+      <div class="formSetion">
+      <div class="singleBlock">
+
+      <label> Please tell us how you want to be involved: </label>
+      <textarea type="text" id="Involvement_Notes" 
+      name="Involvement_Notes" placeholder="Notes" rows="5">
+      </textarea>
+
+      </div>
+      </div>
+
+
       <div class="prevNextDiv">
 
       <button class="prevButton" 
@@ -1254,10 +1467,9 @@
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 
-      <!-- <button class="nextButton"
-      onclick="switchDiv('Involvement_Opportunities','Education_Experience')">
-       Next <i class="fas fa-chevron-circle-right"></i> 
-      </button> -->
+      <button class="nextButton" type="submit">
+       Submit <i class="fas fa-chevron-circle-right"></i> 
+      </button>
 
       </div>
       </div>
