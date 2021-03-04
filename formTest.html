@@ -448,13 +448,18 @@
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button> -->
 
-      <button class="nextButton" targetDiv="Professional_Information">
+      <button class="nextButton" 
+      onclick="switchDiv('Professional_Information', 'Personal_Information')">
        Next <i class="fas fa-chevron-circle-right"></i> 
       </button>
 
       </div>
 
     </div>
+
+
+<!-- ********************* -->
+
 
     <div class="formDiv" id="Professional_Information">
 
@@ -504,17 +509,22 @@
 
       <div class="prevNextDiv">
 
-      <button class="prevButton" targetDiv="Personal_Information">
+      <button class="prevButton" 
+      onclick="switchDiv('Personal_Information', 'Professional_Information')">
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 
-      <button class="nextButton" targetDiv="Education_Experience">
+      <button class="nextButton" 
+      onclick="switchDiv('Education_Experience', 'Professional_Information')">
        Next <i class="fas fa-chevron-circle-right"></i> 
       </button>
 
       </div>
 
     </div>
+
+    <!-- ********************* -->
+
 
     <!-- FORM WE ARE WORKING ON NOW -->
     <div class="formDiv" id="Education_Experience">
@@ -810,7 +820,8 @@
 
       <div class="prevNextDiv">
 
-      <button class="prevButton" targetDiv="Professional_Information">
+      <button class="prevButton" 
+      onclick="switchDiv('Professional_Information','Education_Experience')">
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 

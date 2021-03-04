@@ -49,6 +49,7 @@ function error_message(msg)
 
 function focus_message(_id, msg)
 {
+  if (id_(_id).style.display != 'none')
   id_(_id).addEventListener("focusin", 
   function () {message(msg);});
 }
@@ -113,6 +114,53 @@ for (var i = 0; i < labels.length; i++) {
             elem.label = labels[i];         
     }
 }
+
+function switchDiv(targetDiv, currentDiv)
+{
+    id_(currentDiv).style.display = 'none';
+    id_(targetDiv).style.display = 'block';
+}
+
+
+// INITIALIZE FORM START##########################################################################
+var formDivs = document.getElementsByClassName('formDiv');
+
+for (var i = formDivs.length - 1; i >= 0; i--) {
+  formDivs[i].style.display = 'none';
+}
+
+formDivs[0].style.display = 'block';
+// INITIALIZE FORM END##########################################################################
+
+// var nextButtons = document.getElementsByClassName('nextButton');
+
+// for (var i = nextButtons.length - 1; i >= 0; i--) 
+// {
+//   var currDiv = id_(nextButtons[i].getAttribute('currentDiv'));
+//   var nextDiv = id_(nextButtons[i].getAttribute('targetDiv'));
+
+//   nextButtons[i].addEventListener('click', function() 
+//     {
+//       currDiv.style.display = 'none';
+//       nextDiv.style.display = 'block';
+//     });
+// }
+
+// var prevButtons = document.getElementsByClassName('prevButton');
+
+// for (var i = prevButtons.length - 1; i >= 0; i--) 
+// {
+//   var currDiv = id_(prevButtons[i].getAttribute('currentDiv'));
+//   var prevDiv = id_(prevButtons[i].getAttribute('targetDiv'));
+
+//   prevButtons[i].addEventListener('click', function() 
+//     {
+
+//       prevDiv.style.display = 'block';
+//       currDiv.style.display = 'none';
+//     });
+// }
+
 
 // CHECKBOX JS TEST 
 // var inputs = document.getElementsByTagName("input");  // all inputs
