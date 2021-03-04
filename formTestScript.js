@@ -132,7 +132,7 @@ for (var i = formDivs.length - 1; i >= 0; i--) {
   formDivs[i].style.display = 'none';
 }
 
-formDivs[0].style.display = 'block';
+formDivs[4].style.display = 'block';
 // INITIALIZE FORM END##########################################################################
 
 // var nextButtons = document.getElementsByClassName('nextButton');
