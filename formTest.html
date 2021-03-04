@@ -222,18 +222,25 @@
           margin-bottom: 2%;
        }
 
-       .radioList li
+       .radioList li, .checkList li
        {
         margin-top: 1%;
         margin-bottom: 1%;
        }
 
-       .radioList li label
+       .radioList li label::selection, .checkList li label::selection
+       {
+        background-color: transparent;
+        color: inherit;
+       }
+
+       .radioList li label, .checkList li label
        {
         display: inline-block;
         background-color: transparent;
         padding: 1%;
         padding-left: 2.5%;
+        border: 0.1em solid transparent;
         padding-right: 2.5%;
         border-radius: 2em;  
 
@@ -242,11 +249,11 @@
         transition: all 0.25s;
        }
 
-       .radioList li label:hover
+       .radioList li label:hover, .checkList li label:hover
        {
-        background-color: white;
-        color: black;
         cursor: pointer;
+        border: 0.1em solid white;
+        /*box-shadow: 0em 1em 2em black;*/
         transform: scale(1.025);
        }
 
@@ -272,6 +279,12 @@
        {
          background-color: white;
          color: black;
+       }
+
+       input[type="radio"]:not(:checked) + label
+       {
+         background-color: transparent;
+         color: white;
        }
 
        input[type="radio"]
@@ -308,6 +321,23 @@
         padding: 2%;
         padding-left: 3%;
         padding-right: 3%;
+       }
+
+       input[type="checkbox"]:checked + label
+       {
+         background-color: white;
+         color: black;
+       }
+
+       input[type="checkbox"]:not(:checked) + label
+       {
+         background-color: transparent;
+         color: white;
+       }
+
+       input[type="checkbox"]
+       {
+        display: none;
        }
 
     </style>
@@ -574,71 +604,71 @@
       
       <label> Please select the discipline of your engineering degree:</label>
 
-      <ul type="none" class="radioList">
+      <ul type="none" class="checkList">
       </li>
       <li>
-      <input type="radio" id="Aerospace Engineering" name="EngDiscipline" value="Aerospace Engineering">
+      <input type="checkbox" id="Aerospace Engineering" name="EngDiscipline" value="Aerospace Engineering">
       <label for="Aerospace Engineering">Aerospace Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Applied Computing" name="EngDiscipline" value="Applied Computing">
+      <input type="checkbox" id="Applied Computing" name="EngDiscipline" value="Applied Computing">
       <label for="Applied Computing">Applied Computing</label>
       </li>
       <li>
-      <input type="radio" id="Biomedical Engineering" name="EngDiscipline" value="Biomedical Engineering">
+      <input type="checkbox" id="Biomedical Engineering" name="EngDiscipline" value="Biomedical Engineering">
       <label for="Biomedical Engineering">Biomedical Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Chemical Engineering" name="EngDiscipline" value="Chemical Engineering">
+      <input type="checkbox" id="Chemical Engineering" name="EngDiscipline" value="Chemical Engineering">
       <label for="Chemical Engineering">Chemical Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Civil Engineering" name="EngDiscipline" value="Civil Engineering">
+      <input type="checkbox" id="Civil Engineering" name="EngDiscipline" value="Civil Engineering">
       <label for="Civil Engineering">Civil Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Computer Engineering" name="EngDiscipline" value="Computer Engineering">
+      <input type="checkbox" id="Computer Engineering" name="EngDiscipline" value="Computer Engineering">
       <label for="Computer Engineering">Computer Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Computer Science" name="EngDiscipline" value="Computer Science">
+      <input type="checkbox" id="Computer Science" name="EngDiscipline" value="Computer Science">
       <label for="Computer Science">Computer Science</label>
       </li>
       <li>
-      <input type="radio" id="Cybersecurity" name="EngDiscipline" value="Cybersecurity">
+      <input type="checkbox" id="Cybersecurity" name="EngDiscipline" value="Cybersecurity">
       <label for="Cybersecurity">Cybersecurity</label>
       </li>
       <li>
-      <input type="radio" id="Electrical Engineering" name="EngDiscipline" value="Electrical Engineering">
+      <input type="checkbox" id="Electrical Engineering" name="EngDiscipline" value="Electrical Engineering">
       <label for="Electrical Engineering">Electrical Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
+      <input type="checkbox" id="Environmental Engineering" name="EngDiscipline" value="Environmental Engineering">
       <label for="Environmental Engineering">Environmental Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Engineering Management" name="EngDiscipline" value="Engineering Management">
+      <input type="checkbox" id="Engineering Management" name="EngDiscipline" value="Engineering Management">
       <label for="Engineering Management">Engineering Management</label>
       </li>
       <li>
-      <input type="radio" id="Facilities Management" name="EngDiscipline" value="Facilities Management">
+      <input type="checkbox" id="Facilities Management" name="EngDiscipline" value="Facilities Management">
       <label for="Facilities Management">Facilities Management</label>
       </li>
       <li>
-      <input type="radio" id="Industrial/Systems Engineering" name="EngDiscipline" value="Industrial/Systems Engineering">
+      <input type="checkbox" id="Industrial/Systems Engineering" name="EngDiscipline" value="Industrial/Systems Engineering">
       <label for="Industrial/Systems Engineering">Industrial/Systems Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Mechatronics" name="EngDiscipline" value="Mechatronics">
+      <input type="checkbox" id="Mechatronics" name="EngDiscipline" value="Mechatronics">
       <label for="Mechatronics">Mechatronics</label>
       </li>
       <li>
-      <input type="radio" id="Mechanical Engineering" name="EngDiscipline" value="Mechanical Engineering">
+      <input type="checkbox" id="Mechanical Engineering" name="EngDiscipline" value="Mechanical Engineering">
       <label for="Mechanical Engineering">Mechanical Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Product Design and Manufacturing Engineering" name="EngDiscipline" value="Product Design and Manufacturing Engineering">
-      <label for="Product Design and Manufacturing Engineering">Product Design and Manufacturing Engineering</label>
+      <input type="checkbox" id="Product_Design_and_Manufacturing_Engineering" name="EngDiscipline" value="Product Design and Manufacturing Engineering">
+      <label for="Product_Design_and_Manufacturing_Engineering">Product Design and Manufacturing Engineering</label>
       </li>
       </ul>
 
@@ -662,29 +692,29 @@
       <div class="formSetion">
       <div class="radioBlock">
 
-        <label>Do you have a master's degree? </label>
+      <label>Do you have a master's degree? </label>
 
-        <ul type="none" class="radioList">
+      <ul type="none" class="radioList">
 
-        <li>
-        <input type="radio" name="mastersDegree" id="yesFromWichita" value="mastersDegree">
-        <label for="yesFromWichita">Yes, from Wichita State University</label>
-        </li>
-        <li>
-        <input type="radio" name="mastersDegree" id="yesFromOther" value="mastersDegree">
-        <label for="yesFromOther">Yes, from another College/University</label>
-        </li>
-        <li>
-        <input type="radio" name="mastersDegree" id="no" value="No">
-        <label for="no">No</label>
-        </li>
-        </ul>
+      <li>
+      <input type="radio" name="haveMastersDegree" id="yesFromWichita" value="yesFromWichita">
+      <label for="yesFromWichita">Yes, from Wichita State University</label>
+      </li>
+      <li>
+      <input type="radio" name="haveMastersDegree" id="yesFromOther" value="yesFromOther">
+      <label for="yesFromOther">Yes, from another College/University</label>
+      </li>
+      <li>
+      <input type="radio" name="haveMastersDegree" id="no" value="No">
+      <label for="no">No</label>
+      </li>
+      </ul>
 
-        <label>Please tell us which college/university you earned your master's degree from:</label><br>
-        <input type="text" id="universityName" placeholder="University's Name">
-        
-        </div>
-        </div>
+      <label>Please tell us which college/university you earned your master's degree from:</label>
+      <input type="text" id="universityName" placeholder="University's Name">
+      
+      </div>
+      </div>
 
       <div class="formSetion">
       <div class="radioBlock">
@@ -706,11 +736,11 @@
       <label for="Engineering">Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Health Professions" name="mastersDegree" value="Health Professions">
+      <input type="radio" id="Health Professions" name="mastersDegree" value="HealthProfessions">
       <label for="Health Professions">Health Professions</label>
       </li>
       <li>
-      <input type="radio" id="Liberal Arts" name="mastersDegree" value="Liberal Arts">
+      <input type="radio" id="Liberal Arts" name="mastersDegree" value="LiberalArts">
       <label for="Liberal Arts">Liberal Arts</label>
       </li>
       <li>
