@@ -59,8 +59,29 @@
         border-radius: 10em;
         border-top-right-radius: 0em;
         border-top-left-radius: 0em;
+
+        animation-name: topReveal;
+        animation-duration: 0.5s;
+        animation-delay: 0.5s;
+        animation-fill-mode: both;
       }
       
+      @keyframes topReveal
+      {
+        0%
+        { 
+           transform: translateY(-15em);
+        }
+      }
+
+      @keyframes downReveal
+      {
+        0%
+        { 
+           transform: translateY(15em);
+        }
+      }
+
       #message
       {
         font-family: 'Quicksand', sans-serif;
@@ -95,6 +116,20 @@
         animation-fill-mode: both;
       }
 
+      .ToLeftAnimation
+      {
+        animation-name: ToLeft;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+      }
+
+      .ToRightAnimation
+      {
+        animation-name: ToRight;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+      }
+
 
      /* @keyframes messagePop
       {
@@ -121,6 +156,22 @@
            transform: scale(1.5);
            margin-top: 0%;
            opacity: 0;
+        }
+      }
+
+      @keyframes ToLeft
+      {
+        0%
+        { 
+           transform: translateX(50em);
+        }
+      }
+
+      @keyframes ToRight
+      {
+        100%
+        { 
+           transform: translateX(-50em);
         }
       }
 
@@ -214,6 +265,12 @@
         margin-top: 0%;
         padding: 4%;
         margin-bottom: 15%;
+        border-radius: 3.5em;
+
+        /*animation-name: downReveal;
+        animation-duration: 0.5s;
+        animation-delay: 0.5s;
+        animation-fill-mode: both;*/
        }
 
        .formSetion
@@ -223,12 +280,12 @@
         box-shadow: 0em 0em 5em black;
        }
 
-       #topBar
+       /*#topBar
        {
           background-color: rgb(7,7,7,0.7);
           -webkit-backdrop-filter: blur(13px);
           backdrop-filter: blur(13px);
-       }
+       }*/
 
        select
        {
@@ -238,11 +295,6 @@
        .noHover:hover
        {
         transform: none;
-       }
-
-       .formDiv
-       {
-          border-radius: 3.5em;
        }
 
        .prevNextDiv
