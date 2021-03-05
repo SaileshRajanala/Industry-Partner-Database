@@ -236,10 +236,10 @@ textarea
 
   margin: 0%;
   margin-top: 4%;
-  width: 96%;
+  width: 92%;
 
-  border-radius: 25px;
-  padding: 2%;
+  border-radius: 1.5em;
+  padding: 4%;
   border: none;
   color: white;
   background-color: transparent;

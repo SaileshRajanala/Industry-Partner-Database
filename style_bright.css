@@ -233,10 +233,10 @@ textarea
 
   margin: 0%;
   margin-top: 4%;
-  width: 96%;
+  width: 92%;
 
-  border-radius: 25px;
-  padding: 2%;
+  border-radius: 1.5em;
+  padding: 4%;
   border: none;
   font-family: 'Quicksand', sans-serif;
   box-shadow: 0px 0px 13px rgb(200,200,200);
@@ -265,8 +265,8 @@ textarea:focus
 /*COOL UPDATES*/
 ::selection
 {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
 }
 
 #messageBar
@@ -314,8 +314,10 @@ textarea:focus
 #message
 {
   font-family: 'Quicksand', sans-serif;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
+  /*box-shadow: 0em 0em 1em rgb(200,200,200);*/
+
   display: inline-block;
   /*box-shadow: 0em 0.5em 1em black;*/
 
@@ -437,10 +439,10 @@ button
   padding: 1%;
   padding-left: 2.5%;
   padding-right: 2.5%;
-  background-color: rgb(25,25,25);
-  color: white;
+  background-color: white;
+  color: black;
   border-radius: 2em;
-  box-shadow: 0em 0em 1em black;
+  box-shadow: 0em 0em 1em rgb(200,200,200);
   border: none;
   font-family: 'Quicksand';
   font-size: x-large;
@@ -452,8 +454,8 @@ button
 
  button:hover
  {
-   background-color: white;
-   color: black;
+   background-color: black;
+   color: white;
    transform: scale(1.1);
    /*box-shadow: 0px 15px 25px rgb(200,200,200);*/
    cursor: pointer;
@@ -461,8 +463,8 @@ button
 
  button:active
  {
-  background-color: white;
-  color: black;
+  background-color: black;
+   color: white;
   transform: scale(0.9);
  }
 
@@ -531,8 +533,8 @@ button
  .radioList li label:hover, .checkList li label:hover
  {
   cursor: pointer;
-  border: 0.1em solid white;
-  /*box-shadow: 0em 1em 2em black;*/
+  /*border: 0.1em solid black;*/
+  box-shadow: 0em 1em 2em rgb(200,200,200);
   transform: scale(1);
  }
 
@@ -554,16 +556,18 @@ button
   display: block;
  }
 
- input[type="radio"]:checked + label
+ input[type="radio"]:checked + label,
+ input[type="checkbox"]:checked + label
  {
-   background-color: white;
-   color: black;
+   background-color: black;
+   color: white;
  }
 
- input[type="radio"]:not(:checked) + label
+ input[type="radio"]:not(:checked) + label,
+ input[type="checkbox"]:not(:checked) + label
  {
    background-color: transparent;
-   color: white;
+   color: black;
  }
 
  input[type="radio"]
@@ -602,18 +606,6 @@ button
   padding-right: 3%;
  }
 
- input[type="checkbox"]:checked + label
- {
-   background-color: white;
-   color: black;
- }
-
- input[type="checkbox"]:not(:checked) + label
- {
-   background-color: transparent;
-   color: white;
- }
-
  input[type="checkbox"]
  {
   display: none;
@@ -632,8 +624,8 @@ button
 
 textarea::selection, input[type='text']::selection
 {
-  color: white;
-  background-color: rgb(25,25,25);
+  color: black;
+  background-color: white;
 }
 
 #welcomeDiv
@@ -646,7 +638,7 @@ textarea::selection, input[type='text']::selection
 
 #welcomeFormSection
 {
-  background-color: rgb(13,13,13,0.4);
+  background-color: rgb(234,234,234,0.4);
   backdrop-filter: blur(0.5em);
   -webkit-backdrop-filter: blur(0.5em);
 }

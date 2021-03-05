@@ -20,8 +20,8 @@ function message(msg)
   messageDiv.classList.add('msgPopAnimation');
   messageDiv.innerHTML = '<i class="fas fa-comment"></i>&nbsp; ' + msg + '';
   
-  messageDiv.style.color = 'black';
-  messageDiv.style.backgroundColor = 'white';
+  // messageDiv.style.color = 'black';
+  // messageDiv.style.backgroundColor = 'white';
 
   // Code below is necessary for animation on request.
   messageDiv.addEventListener("animationend", 
