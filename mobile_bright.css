@@ -282,7 +282,7 @@ td
   box-shadow: none;
 }
 
-.formSetion
+.formSection
 { 
   background-color: white;
   box-shadow: 0px 0px 25px rgb(200,200,200);
@@ -296,7 +296,7 @@ td
   backdrop-filter: blur(13px);*/
 }
 
-/*.formSetion:hover
+/*.formSection:hover
 {
   margin: 4%;
   padding: 2%;

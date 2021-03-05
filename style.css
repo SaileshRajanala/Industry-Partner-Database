@@ -33,7 +33,7 @@ body
   margin-top: 100%;
 }
 
-.formSetion
+.formSection
 { 
   background-color: transparent;
   
@@ -46,7 +46,7 @@ body
   background-color: rgb(13, 13, 13,0.4);
 }
 
-/*.formSetion:hover
+/*.formSection:hover
 {
   margin: 4%;
   padding: 2%;

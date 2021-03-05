@@ -8,6 +8,8 @@ body
   background-color: black;
   margin: 0px;
   padding: 10%;
+  padding-top: 7%;
+  padding-bottom: 7%;
   font-size: x-large;
   color: white;
   font-family: 'Quicksand';
@@ -15,6 +17,7 @@ body
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
 
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
@@ -68,29 +71,38 @@ body
   padding: 4%;
   /* background-image: linear-gradient(147deg, yellow, aqua); */
   margin: 0;
-  border-radius: 100px;
+  border-radius: 4em;
   /*background-image: url('worlds.png');*/
   background-color: rgb(25,25,25);
 
   z-index: 1;
-  margin-top: 100%;
+  /*margin-top: 100%;*/
   box-shadow: 0px 0px 25px black;
+
+  /* new */
+  animation-name: formDivLaunch;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
 }
 
-.formSetion
+.formSection
 { 
   background-color: rgb(25,25,25);
-  box-shadow: 0px 0px 25px black;
+  /*box-shadow: 0px 0px 25px black;*/
   
   margin: 4%;
   padding: 2%;
-  border-radius: 47px;
+  
   transition: all 0.25s;
+
+  border-radius: 2em;
+  margin-top: 6%;
+  box-shadow: 0em 0em 5em black;
   /*-webkit-backdrop-filter: blur(13px);
   backdrop-filter: blur(13px);*/
 }
 
-/*.formSetion:hover
+/*.formSection:hover
 {
   margin: 4%;
   padding: 2%;
@@ -160,12 +172,12 @@ select, option
   margin: 4%;
   color: white;
   font-size: 125%;
-    background-color: rgb(25,25,25);
+  background-color: rgb(25,25,25);
+
+  box-shadow: 0px 0px 13px black;
   
-    box-shadow: 0px 0px 13px black;
-    
-    padding: 0.5%;
-    padding-left: 2%;
+  padding: 0.5%;
+  padding-left: 2%;
 }
 
 input
@@ -219,8 +231,13 @@ input[type="submit"]:active
 
 textarea
 {
-  margin: 2%;
-  width: 92%;
+  /*margin: 2%;
+  width: 92%;*/
+
+  margin: 0%;
+  margin-top: 4%;
+  width: 96%;
+
   border-radius: 25px;
   padding: 2%;
   border: none;
@@ -237,3 +254,399 @@ textarea:hover
 {
     border: 1px solid white;
 }
+
+
+
+/* ####################### */
+
+
+
+/*COOL UPDATES*/
+::selection
+{
+  background-color: white;
+  color: black;
+}
+
+#messageBar
+{
+  position: fixed;
+  display: inline-flex;
+  justify-content: center;
+  width: 80%;
+  left: 10%;
+  z-index: 10;
+  top: 0%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: transparent;
+
+  -webkit-backdrop-filter: blur(13px);
+  backdrop-filter: blur(13px);
+
+  /*box-shadow: 0em 0em 1em black;*/
+  border-radius: 10em;
+  border-top-right-radius: 0em;
+  border-top-left-radius: 0em;
+
+  animation-name: topReveal;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes topReveal
+{
+  0%
+  { 
+     transform: translateY(-15em);
+  }
+}
+
+@keyframes downReveal
+{
+  0%
+  { 
+     transform: translateY(15em);
+  }
+}
+
+#message
+{
+  font-family: 'Quicksand', sans-serif;
+  background-color: white;
+  color: black;
+  display: inline-block;
+  /*box-shadow: 0em 0.5em 1em black;*/
+
+  border-radius: 4em;
+
+  align-items: center;
+  justify-content: center;
+  
+  /*width: 98%;*/
+  padding: 0.5%;
+  padding-left: 2%;
+  padding-right: 2%; 
+
+}
+
+.msgPopAnimation
+{
+  animation-name: messagePop;
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+}
+
+.formDivLaunchAnimation
+{
+  animation-name: formDivLaunch;
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+}
+
+.ToLeftAnimation
+{
+  animation-name: ToLeft;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.ToRightAnimation
+{
+  animation-name: ToRight;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+
+/* @keyframes messagePop
+{
+  0%
+  { 
+     transform: translateX(5em);
+     opacity: 0;
+  }
+}
+*/
+@keyframes messagePop
+{
+  0%
+  { 
+     transform: scale(0.4);
+     opacity: 0;
+  }
+}
+
+@keyframes formDivLaunch
+{
+  0%
+  { 
+     transform: scale(1.5);
+     margin-top: 0%;
+     opacity: 0;
+  }
+}
+
+@keyframes ToLeft
+{
+  0%
+  { 
+     transform: translateX(50em);
+  }
+}
+
+@keyframes ToRight
+{
+  100%
+  { 
+     transform: translateX(-50em);
+  }
+}
+
+/*#formWrapper
+{
+  position: relative;
+  background-color: rgb(25,25,25);
+}*/
+
+/*.formPage
+{
+  position: fixed;
+  margin: 0%;
+  left: 8%;
+  padding: 2%;
+
+  width: 80%;
+  
+  bottom: 0%;
+  top: 14%;
+  
+  padding-bottom: 10%;
+  
+  background-color: transparent;
+  overflow-y: scroll;
+  
+  border-radius: 2em;
+  border-bottom-right-radius: 0em;
+  border-bottom-left-radius: 0em;
+}*/
+
+button
+{
+  padding: 1%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  background-color: rgb(25,25,25);
+  color: white;
+  border-radius: 2em;
+  box-shadow: 0em 0em 1em black;
+  border: none;
+  font-family: 'Quicksand';
+  font-size: x-large;
+
+  outline: none;
+
+  transition: all 0.25s;
+}
+
+ button:hover
+ {
+   background-color: white;
+   color: black;
+   transform: scale(1.1);
+   /*box-shadow: 0px 15px 25px rgb(200,200,200);*/
+   cursor: pointer;
+ }
+
+ button:active
+ {
+  background-color: white;
+  color: black;
+  transform: scale(0.9);
+ }
+
+ button:disabled
+ {
+    box-shadow: none;
+    cursor: not-allowed;
+ }
+
+ .nextButton
+ {
+  float: right;
+ }
+
+ .prevButton
+ {
+  float: left;
+ }
+
+ select
+ {
+    min-width: 48%;
+ }
+
+ .noHover:hover
+ {
+    transform: none;
+ }
+
+ .prevNextDiv
+ {
+    width: 88%;
+    display: inline-block;
+    margin: 6%; 
+    margin-top: 4%;
+    margin-bottom: 2%;
+ }
+
+ .radioList li, .checkList li
+ {
+  margin-top: 1%;
+  margin-bottom: 1%;
+ }
+
+ .radioList li label::selection, .checkList li label::selection
+ {
+  background-color: transparent;
+  color: inherit;
+ }
+
+ .radioList li label, .checkList li label
+ {
+  display: inline-block;
+  background-color: transparent;
+  padding: 1%;
+  padding-left: 2.5%;
+  border: 0.1em solid transparent;
+  padding-right: 2.5%;
+  border-radius: 2em;  
+
+  margin-left: -2.5%; 
+
+  transition: all 0.25s;
+ }
+
+ .radioList li label:hover, .checkList li label:hover
+ {
+  cursor: pointer;
+  border: 0.1em solid white;
+  /*box-shadow: 0em 1em 2em black;*/
+  transform: scale(1);
+ }
+
+ .radioList li label:active, .checkList li label:active
+ {
+  transform: scale(1.1);
+ }
+
+ .radioBlock, .checkBlock
+ {
+  padding: 2%;
+ }
+
+ .radioBlock > label, .checkBlock > label
+ {
+  margin: 2%; 
+  font-size: xx-large;
+
+  display: block;
+ }
+
+ input[type="radio"]:checked + label
+ {
+   background-color: white;
+   color: black;
+ }
+
+ input[type="radio"]:not(:checked) + label
+ {
+   background-color: transparent;
+   color: white;
+ }
+
+ input[type="radio"]
+ {
+  display: none;
+ }
+
+ .otherOption
+ {
+  
+  width: 94%;
+  margin-left: 0%;
+  padding: 2%;
+  padding-left: 3%;
+  padding-right: 3%;
+
+  transition: all 0.25s;
+ }
+
+ .otherOption:hover
+ {
+  transform: scale(1.025);
+ }
+
+ .singleBlock
+ {
+  padding: 4%;
+ }
+
+ .singleBlock > input
+ {
+  margin-top: 4%;
+  font-size: x-large;
+  padding: 2%;
+  padding-left: 3%;
+  padding-right: 3%;
+ }
+
+ input[type="checkbox"]:checked + label
+ {
+   background-color: white;
+   color: black;
+ }
+
+ input[type="checkbox"]:not(:checked) + label
+ {
+   background-color: transparent;
+   color: white;
+ }
+
+ input[type="checkbox"]
+ {
+  display: none;
+ }
+
+ li
+{
+  margin: 1.25%;
+}
+
+.lessMargin
+{
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+textarea::selection, input[type='text']::selection
+{
+  color: white;
+  background-color: rgb(25,25,25);
+}
+
+#welcomeDiv
+{
+  box-shadow: none;
+  padding: 0%;
+
+  background-color: transparent;
+}
+
+#welcomeFormSection
+{
+  background-color: rgb(13,13,13,0.4);
+  backdrop-filter: blur(0.5em);
+  -webkit-backdrop-filter: blur(0.5em);
+}
+
