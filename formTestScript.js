@@ -15,13 +15,18 @@ function class_(_class)
 
 function message(msg) 
 {
-  messageDiv = document.getElementById('message');
+  messageDiv = id_('message');
 
-  messageDiv.classList.add('msgPopAnimation');
+  // messageDiv.classList.add('msgPopAnimation');
   messageDiv.innerHTML = '<i class="fas fa-comment"></i>&nbsp; ' + msg + '';
   
   // messageDiv.style.color = 'black';
-  // messageDiv.style.backgroundColor = 'white';
+  var d = new Date();
+
+  if (d.getHours() >= 6 && d.getHours() < 18)
+    messageDiv.style.backgroundColor = 'black';
+  else 
+    messageDiv.style.backgroundColor = 'white';
 
   // Code below is necessary for animation on request.
   messageDiv.addEventListener("animationend", 
@@ -32,38 +37,36 @@ function message(msg)
     }
     
   );
-  
 }
 
-function success_message(msg) 
+function animate_Message()
 {
-  message(msg);
-  messageDiv.style.color = 'lime';
-}
-
-function error_message(msg) 
-{
-  message(msg);
-  messageDiv.style.color = 'red';
+  id_('message').classList.add('msgPopAnimation');
 }
 
 function focus_message(_id, msg)
 {
   if (id_(_id).style.display != 'none')
   id_(_id).addEventListener("focusin", 
-  function () {message(msg);});
+  function () 
+  { 
+    message(msg);
+    animate_Message(); 
+  });
 }
 
 function default_message()
 {
   messageDiv.innerHTML = 'Industry Partner Form';
-  // messageDiv.style.color = 'white';
-  // messageDiv.style.backgroundColor = 'transparent';
+
+  if (d.getHours() >= 6 && d.getHours() < 18)
+    messageDiv.style.backgroundColor = 'black';
+  else 
+    messageDiv.style.backgroundColor = 'white';
 }
 
 for (var i = tag_('input').length - 1; i >= 0; i--) 
-  tag_('input')[i].addEventListener("focusout", 
-    function () {messageDiv.innerHTML = 'Industry Partner Form';});
+  tag_('input')[i].addEventListener("focusout", default_message);
 
 focus_message('first_name', 'Please enter your First Name');
 focus_message('last_name', 'Please enter your Last Name');
@@ -122,7 +125,6 @@ function switchDiv(targetDiv, currentDiv)
     id_(targetDiv).style.display = 'block';
     window.scrollTo(0, 0);
     //id_(targetDiv).classList.add('formDivLaunchAnimation');
-
 }
 
 // INITIALIZE FORM START##########################################################################
@@ -134,6 +136,7 @@ for (var i = formDivs.length - 1; i >= 0; i--) {
 
 formDivs[0].style.display = 'block';
 // INITIALIZE FORM END##########################################################################
+
 
 // var nextButtons = document.getElementsByClassName('nextButton');
 

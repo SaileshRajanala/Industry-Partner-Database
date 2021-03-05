@@ -76,6 +76,7 @@ body
   /*background-color: white;*/
 
   z-index: 1;
+  display: none;
   /*margin-top: 100%;*/
   /*box-shadow: 0px 0px 25px rgb(200,200,200)*/;
 
@@ -632,6 +633,7 @@ textarea::selection, input[type='text']::selection
 {
   box-shadow: none;
   padding: 0%;
+  display: block;
 
   background-color: transparent;
 }
