@@ -94,7 +94,7 @@ function alphabetsOnly(_id, _msg, _errorMsg)
 	}
 	);
 }
-
+ 
 alphabetsOnly('first_name', 'Please enter your First Name', 
 	'Frst Name should only contain Alphabets'); 
 
