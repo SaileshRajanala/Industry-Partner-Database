@@ -9,9 +9,12 @@ body
   margin: 0px;
   padding: 10%;
   font-size: x-large;
+  color: black;
+  font-family: 'Quicksand';
   background-image: url('planets.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  background-attachment: fixed;
   
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
