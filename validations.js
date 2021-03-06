@@ -25,24 +25,28 @@ function message(msg, icon = '<i class="fas fa-comment"></i>')
   var d = new Date();
 
   if (d.getHours() >= 6 && d.getHours() < 18)
+  {
     messageDiv.style.backgroundColor = 'black';
+    messageDiv.style.color = 'white';
+  }
   else 
+  {
     messageDiv.style.backgroundColor = 'white';
-
-  // Code below is necessary for animation on request.
-  messageDiv.addEventListener("animationend", 
-
-    function() 
-    {
-        messageDiv.classList.remove('msgPopAnimation');            
-    }
-    
-  );
+    messageDiv.style.color = 'black';
+  }
 }
 
-function animate_Message()
+function animate_Message(_animationClass='msgPopAnimation')
 {
-	id_('message').classList.add('msgPopAnimation');
+	id_('message').classList.add(_animationClass);
+
+	// Code below is necessary for animation on request.
+  	id_('message').addEventListener("animationend", 
+    function() 
+    {
+        messageDiv.classList.remove(_animationClass);            
+    }
+    );
 }
 
 function focus_message(_id, msg)
@@ -72,6 +76,8 @@ function success_message(msg)
 	messageDiv.style.backgroundColor = 'green';
 	messageDiv.style.color = 'white';
   }
+
+  animate_Message('successMsgAnimation');
 }
 
 function error_message(msg) 
@@ -88,6 +94,8 @@ function error_message(msg)
   {
 	messageDiv.style.backgroundColor = 'darkred';
   }
+
+  animate_Message('errorMsgAnimation');
 }
 
 function no_message()

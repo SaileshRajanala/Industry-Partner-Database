@@ -362,6 +362,80 @@ textarea:focus
   animation-fill-mode: both;
 }
 
+
+.errorMsgAnimation
+{
+  animation-name: errorMessage;
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+}
+
+.successMsgAnimation
+{
+  animation-name:successMessage;
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+}
+
+/* @keyframes messagePop
+{
+  0%
+  { 
+     transform: translateX(5em);
+     opacity: 0;
+  }
+}
+*/
+@keyframes messagePop
+{
+  0%
+  { 
+     transform: scale(0.4);
+     opacity: 0;
+  }
+}
+
+@keyframes errorMessage
+{
+  0%
+  { 
+     transform: translateX(1.25em);
+  }
+
+  20%
+  { 
+     transform: translateX(-1.25em);
+  }
+
+  40%
+  { 
+     transform: translateX(1.25em);
+  }
+
+  60%
+  { 
+     transform: translateX(-1.25em);
+  }
+
+  /*50%
+  { 
+     transform: translateX(-1.3em);
+  }*/
+
+  100%
+  { 
+     transform: translateX(0em);
+  }
+}
+
+@keyframes successMessage
+{
+  0%
+  { 
+     opacity: 0.5;
+  }
+}
+
 /* @keyframes messagePop
 {
   0%
