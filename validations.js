@@ -59,14 +59,35 @@ function focus_message(_id, msg)
 function success_message(msg) 
 {
   message(msg);
-  messageDiv.style.backgroundColor = 'transparent';
-  messageDiv.style.backgroundImage = 'linear-gradient(147deg, aqua, yellow)';
+  messageDiv.style.color = 'white';
+  // messageDiv.style.backgroundImage = 'linear-gradient(147deg, lime, green)';
+
+  if (d.getHours() >= 6 && d.getHours() < 18)
+  {
+	messageDiv.style.backgroundColor = 'lime';
+	messageDiv.style.color = 'black';
+  }
+  else 
+  {
+	messageDiv.style.backgroundColor = 'green';
+	messageDiv.style.color = 'white';
+  }
 }
 
 function error_message(msg) 
 {
   message(msg);
-  messageDiv.style.backgroundColor = 'red';
+  messageDiv.style.color = 'white';
+  // messageDiv.style.backgroundImage = 'linear-gradient(147deg, red, darkred)';
+
+  if (d.getHours() >= 6 && d.getHours() < 18)
+  {
+	messageDiv.style.backgroundColor = 'red';
+  }
+  else 
+  {
+	messageDiv.style.backgroundColor = 'darkred';
+  }
 }
 
 function no_message()
@@ -136,7 +157,7 @@ function alphabetsOnly(_id, _msg, _errorMsg, _successMsg)
 }
  
 alphabetsOnly('first_name', 'Please enter your First Name', 
-	'Frst Name should only contain Alphabets', 'First Name entered is Valid'); 
+	'First Name should only contain Alphabets', 'First Name entered is Valid'); 
 
 alphabetsOnly('last_name', 'Please enter your Last Name', 
 	'Last Name should only contain Alphabets', 'Last Name entered is Valid');
