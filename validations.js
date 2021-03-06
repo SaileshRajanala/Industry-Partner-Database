@@ -16,6 +16,7 @@ function class_(_class)
 function message(msg) 
 {
   messageDiv = id_('message');
+  messageDiv.style.backgroundImage = 'none';
 
   // messageDiv.classList.add('msgPopAnimation');
   messageDiv.innerHTML = '<i class="fas fa-comment"></i>&nbsp; ' + msg + '';
@@ -58,7 +59,8 @@ function focus_message(_id, msg)
 function success_message(msg) 
 {
   message(msg);
-  messageDiv.style.backgroundColor = 'lime';
+  messageDiv.style.backgroundColor = 'transparent';
+  messageDiv.style.backgroundImage = 'linear-gradient(147deg, aqua, yellow)';
 }
 
 function error_message(msg) 
@@ -79,7 +81,45 @@ function no_message()
 		messageDiv.style.backgroundColor = 'white';
 }
 
-function alphabetsOnly(_id, _msg, _errorMsg) 
+function default_message()
+{
+  messageDiv.innerHTML = 'Industry Partner Form';
+
+  if (d.getHours() >= 6 && d.getHours() < 18)
+    messageDiv.style.backgroundColor = 'black';
+  else 
+    messageDiv.style.backgroundColor = 'white';
+}
+
+for (var i = tag_('input').length - 1; i >= 0; i--) 
+  tag_('input')[i].addEventListener("focusout", default_message);
+
+focus_message('first_name', 'Please enter your First Name');
+focus_message('last_name', 'Please enter your Last Name');
+focus_message('email', 'Please enter your Email Address');
+focus_message('phone_number', 'Please enter your Phone Number');
+focus_message('employer', "Please enter your Employer's Name");
+focus_message('job_title', 'What is the title of your job?');
+focus_message('state', 'In which state, do you work?');
+focus_message('city', 'In which city, do you work?');
+focus_message('otherEngDisciplineText', 'Please list the discipline of your Engineering Degree');
+
+// Important Function below.
+for (var i = tag_('input').length - 1; i >= 0; i--) 
+  tag_('input')[i].addEventListener("focusout", default_message);
+
+id_('prefix').addEventListener("focusin", 
+  function () {message('Please select your Prefix');});
+
+id_('suffix').addEventListener("focusin", 
+  function () {message('Please select your Suffix');});
+
+// Important Function below.
+for (var i = tag_('select').length - 1; i >= 0; i--) 
+  tag_('input')[i].addEventListener("change", 
+    function () {messageDiv.innerHTML = 'Industry Partner Form';});
+
+function alphabetsOnly(_id, _msg, _errorMsg, _successMsg) 
 {
 	id_(_id).addEventListener("keyup", function () 
 	{	
@@ -90,16 +130,19 @@ function alphabetsOnly(_id, _msg, _errorMsg)
 		else if (!regex.test( id_(_id).value ))
 			error_message(_errorMsg);
 		else
-			message(_msg);
+			success_message(_successMsg);
 	}
 	);
 }
  
 alphabetsOnly('first_name', 'Please enter your First Name', 
-	'Frst Name should only contain Alphabets'); 
+	'Frst Name should only contain Alphabets', 'First Name entered is Valid'); 
 
 alphabetsOnly('last_name', 'Please enter your Last Name', 
-	'Last Name should only contain Alphabets');
+	'Last Name should only contain Alphabets', 'Last Name entered is Valid');
+
+alphabetsOnly('employer', 'Please enter your Last Name', 
+	'Last Name should only contain Alphabets with spaces');
 
 
 
