@@ -13,13 +13,13 @@ function class_(_class)
   return document.getElementsByClassName(_class);
 }
 
-function message(msg) 
+function message(msg, icon = '<i class="fas fa-comment"></i>') 
 {
   messageDiv = id_('message');
   messageDiv.style.backgroundImage = 'none';
 
   // messageDiv.classList.add('msgPopAnimation');
-  messageDiv.innerHTML = '<i class="fas fa-comment"></i>&nbsp; ' + msg + '';
+  messageDiv.innerHTML = icon + '&nbsp; ' + msg + '';
   
   // messageDiv.style.color = 'black';
   var d = new Date();
@@ -58,7 +58,7 @@ function focus_message(_id, msg)
 
 function success_message(msg) 
 {
-  message(msg);
+  message(msg, '<i class="far fa-check-circle"></i>');
   messageDiv.style.color = 'white';
   // messageDiv.style.backgroundImage = 'linear-gradient(147deg, lime, green)';
 
@@ -76,7 +76,7 @@ function success_message(msg)
 
 function error_message(msg) 
 {
-  message(msg);
+  message(msg, '<i class="fas fa-exclamation-triangle"></i>');
   messageDiv.style.color = 'white';
   // messageDiv.style.backgroundImage = 'linear-gradient(147deg, red, darkred)';
 
