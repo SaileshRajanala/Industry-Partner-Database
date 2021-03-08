@@ -171,7 +171,7 @@ alphabetsOnly('last_name', 'Please enter your Last Name',
 	'Last Name should only contain Alphabets', 'Last Name entered is Valid');
 
 alphabetsOnly('employer', 'Please enter your Last Name', 
-	'Last Name should only contain Alphabets with spaces');
+	"Employer's Name should only contain Alphabets");
 
 
 
