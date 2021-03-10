@@ -98,11 +98,10 @@
       <div class="normalBlock">  
       <label for="first_name">First Name</label>
       <input type="text" id="first_name" name="first_name" required>
+      <p class="mobileError">First name should only contain alphabets.</p>
       </div>
 
-      <div class="normalBlock errorDiv">  
-      <p>First name should only contain alphabets.</p>
-      </div>
+      
 
       <div class="normalBlock">
       <label for="last_name">Last Name</label>
@@ -127,6 +126,15 @@
           padding-right: 8%;
           padding-top: 0.5%;
           padding-bottom: 0.5%;
+        }
+
+        .mobileError
+        {
+          background-color: red;
+          color: white;
+          padding: 0.5em;
+          text-align: center;
+          
         }
 
       </style> 
