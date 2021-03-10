@@ -164,26 +164,34 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
       id_(_id).parentElement.appendChild(node);
       animate(guideID,'slideDownAnimation');
 
-      id_message(guideID, _msg);
+      if (id_(_id).value == "")
+        id_message(guideID, _msg);
+      else if (!_regex.test( id_(_id).value ))
+        id_error_message(guideID, _errorMsg);
+      else
+        id_success_message(guideID, _successMsg);
     });
 
-  id_(_id).addEventListener("keyup", function () 
+  id_(_id).addEventListener("keyup", function (event) 
   { 
-    if (id_(_id).value == "")
-      id_message(guideID, _msg);
-    else if (!_regex.test( id_(_id).value ))
-    {
-      //error_message(_errorMsg);
-      animate(guideID,'errorMsgAnimation');
-      id_error_message(guideID, _errorMsg);
-      
-      // animateAll('guide','errorMsgAnimation');
-    }
-    else
-    {
-      id_success_message(guideID, _successMsg);
-      animate(guideID,'successMsgAnimation');
-    }
+    if ((event.keyCode >=  48 && event.keyCode <=  90) ||
+        (event.keyCode >= 186 && event.keyCode <= 222) ||
+         event.keyCode ==  32 || event.keyCode ==   8)  
+      if (id_(_id).value == "")
+        id_message(guideID, _msg);
+      else if (!_regex.test( id_(_id).value ))
+      {
+        //error_message(_errorMsg);
+        animate(guideID,'errorMsgAnimation');
+        id_error_message(guideID, _errorMsg);
+        
+        // animateAll('guide','errorMsgAnimation');
+      }
+      else
+      {
+        id_success_message(guideID, _successMsg);
+        animate(guideID,'successMsgAnimation');
+      }
   }
   );
 
@@ -194,6 +202,39 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
       id_(_id).parentElement.removeChild(id_(_id).parentElement.lastElementChild);
       id_(_id).classList.remove('bond');
     });
+}
+
+
+function capitalizeStringAt(str, i)
+{
+    return str.substring(0, i) +str[i].toUpperCase() + str.substring(i + 1);
+}
+
+function sanitize(_id)
+{
+  id_(_id).addEventListener("keyup", function (event) 
+  { 
+    input = id_(_id).value;
+
+    if ((event.keyCode >=  48 && event.keyCode <=  90) ||
+        (event.keyCode >= 186 && event.keyCode <= 222) ||
+         event.keyCode ==  32 || event.keyCode ==   8)  
+      if (input != "") 
+      {
+        input = capitalizeStringAt(input, 0);
+
+        for (var i = 1; i < input.length - 1; i++) 
+        {
+          if (input[i] == ' ')
+          {
+            input = capitalizeStringAt(input, i + 1);
+          }
+        }
+
+        id_(_id).value = input;
+      }
+
+  });
 }
 
 // DevTEST END ---------------------------------------
@@ -346,5 +387,8 @@ validate('job_title', /^[a-zA-Z ]*$/,
   "Please enter your Job Title", 
   "Enter enter a valid Job Title", "Job Title is valid");
 
-
+sanitize('first_name');
+sanitize('last_name');
+sanitize('employer');
+sanitize('job_title');
 
