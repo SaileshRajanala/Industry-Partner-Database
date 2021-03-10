@@ -198,9 +198,21 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
   if (id_(_id).style.display != 'none')
     id_(_id).addEventListener("focusout", 
     function () 
-    {   
+    { 
+      animate(guideID,'fadeOffAnimation');
       id_(_id).parentElement.removeChild(id_(_id).parentElement.lastElementChild);
       id_(_id).classList.remove('bond');
+
+      var d = new Date();
+      if (!_regex.test( id_(_id).value ))
+      {
+        id_(_id).classList.add('wrongInput');
+      }
+      else
+      {
+        id_(_id).classList.remove('wrongInput');
+      }
+      
     });
 }
 
