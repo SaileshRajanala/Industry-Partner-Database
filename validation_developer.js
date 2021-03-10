@@ -120,7 +120,7 @@ function id_error_message(_id, msg)
   messageDiv.style.backgroundColor = 'darkred';
   }
 
-  animate_Message('errorMsgAnimation');
+  // animate_Message('errorMsgAnimation');
 }
 
 function id_success_message(_id, msg) 
@@ -140,7 +140,7 @@ function id_success_message(_id, msg)
   messageDiv.style.color = 'white';
   }
 
-  animate_Message('successMsgAnimation');
+  // animate_Message('successMsgAnimation');
 }
 
 function validate(_id, _regex, _msg, _errorMsg, _successMsg) 
@@ -151,6 +151,8 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
     id_(_id).addEventListener("focusin", 
     function () 
     { 
+      id_(_id).classList.add('bond');
+
       var node = document.createElement("p");
       node.classList.add('guide');
       
@@ -160,27 +162,28 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
       // node.appendChild(textnode);
 
       id_(_id).parentElement.appendChild(node);
+      animate(guideID,'slideDownAnimation');
 
       id_message(guideID, _msg);
     });
 
   id_(_id).addEventListener("keyup", function () 
   { 
-    var regex = _regex;
-
-    
     if (id_(_id).value == "")
       id_message(guideID, _msg);
-    else if (!regex.test( id_(_id).value ))
+    else if (!_regex.test( id_(_id).value ))
     {
       //error_message(_errorMsg);
-      // animate('first_name','errorMsgAnimation');
+      animate(guideID,'errorMsgAnimation');
       id_error_message(guideID, _errorMsg);
       
-      animateAll('guide','errorMsgAnimation');
+      // animateAll('guide','errorMsgAnimation');
     }
     else
+    {
       id_success_message(guideID, _successMsg);
+      animate(guideID,'successMsgAnimation');
+    }
   }
   );
 
@@ -189,6 +192,7 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
     function () 
     {   
       id_(_id).parentElement.removeChild(id_(_id).parentElement.lastElementChild);
+      id_(_id).classList.remove('bond');
     });
 }
 
@@ -323,5 +327,24 @@ function alphabetsOnly(_id, _msg, _errorMsg, _successMsg)
 
 validate('first_name', /^[a-zA-Z]+$/, 'Please enter your First Name', 
   'Enter only alphabets', 'First Name is Valid');
+
+validate('last_name', /^[a-zA-Z]+$/, 'Please enter your Last Name', 
+  'Enter only alphabets', 'Last Name is Valid');
+
+validate('email', 
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i, 'Please enter your email address', 
+  'Enter a valid email', 'Email is Valid');
+
+validate('phone_number', /^\d{10}$/, 'Please enter your email address', 
+  'Enter a valid U.S. Phone Number', 'Phone Number is Valid');
+
+validate('employer', /^[a-zA-Z]+ [a-zA-Z]+$/, 
+  "Please enter your Employer's Name", 
+  "Enter First Name & Last Name", "Employer's Name is valid");
+
+validate('job_title', /^[a-zA-Z ]*$/, 
+  "Please enter your Job Title", 
+  "Enter enter a valid Job Title", "Job Title is valid");
+
 
 

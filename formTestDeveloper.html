@@ -130,11 +130,70 @@
         {
           background-color: red;
           color: white;
-          padding: 0.5em;
+
           text-align: left;
           border-radius: 0.5em;
-          font-size: large;
+          font-size: medium;
+          padding: 3%;
+          margin: 1%;
+
+          width: 90%;
+          border: 1px solid transparent;
+          margin-top: 0%;
+          border-radius: 0px;
+          padding-top: 4%;
+          padding-bottom: 4%;
+          border-bottom-left-radius: 1.25em;
+          border-bottom-right-radius: 1.25em;
+
         }
+
+        .slideDownAnimation
+        {
+          animation-name: slideDown;
+          animation-fill-mode: both;
+          animation-duration: 0.25s;
+        }
+
+        @keyframes slideDown
+        {
+          0% 
+          {
+            border-radius: 5em;
+            transform: translateY(1em);
+          }
+
+          50%
+          {
+            transform: scale(1.1);
+          }
+        }
+
+        .bond
+        {
+          border-bottom-left-radius: 0em;
+          border-bottom-right-radius: 0em;
+          border-top-left-radius: 1em;
+          border-top-right-radius: 1em;
+          box-shadow: none;
+          border: 1px solid transparent;
+          margin-bottom: 0%;
+          padding-bottom: 1%;
+          transition: all 0s;
+        }
+
+        input
+        {
+          padding-left: 3%;
+        }
+
+        input::selection
+        {
+          color: white;
+          background-color: black;
+        }
+
+
 
       </style> 
 
