@@ -105,9 +105,29 @@
       <input type="text" id="last_name" name="last_name" required>
       </div> 
 
-      </div>
+      </div> 
 
-      <div class="errorDiv" style="background-color: red;color: white; margin-bottom: -1%;border-radius: 1em;">
+      <style type="text/css">
+          
+        .errorDiv
+        {
+          background-color: red;
+          color: white;
+
+          margin: -2%;
+          border-radius: 0em;
+          border-bottom-left-radius: 2em;
+          border-bottom-right-radius: 2em;
+
+          padding-left: 8%;
+          padding-right: 8%;
+          padding-top: 0.5%;
+          padding-bottom: 0.5%;
+        }
+
+      </style> 
+
+      <div class="errorDiv">
       <p>First name should only contain alphabets.</p>
       </div>
 
@@ -1049,7 +1069,7 @@
 
   </form> 
   <!-- END OF THE TEST FORM -->
-  <script type="text/javascript" src="validations.js"></script>
+  <script type="text/javascript" src="validation_developer.js"></script>
   <script type="text/javascript" src="formTestScript.js"></script>
 
 
