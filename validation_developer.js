@@ -145,7 +145,7 @@ function id_success_message(_id, msg)
 
 function validate(_id, _regex, _msg, _errorMsg, _successMsg) 
 {
-  guideID = _id + '_Message';
+  var guideID = _id + '_Message';
 
   if (id_(_id).style.display != 'none')
     id_(_id).addEventListener("focusin", 
