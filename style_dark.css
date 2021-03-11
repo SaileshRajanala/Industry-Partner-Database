@@ -707,3 +707,20 @@ textarea::selection, input[type='text']::selection
   -webkit-backdrop-filter: blur(0.5em);
 }
 
+/********* DEV ************/
+
+.wrongInput
+{
+   border-color: red;
+}
+
+.correctInput
+{
+   border-color: transparent;
+}
+
+input::selection
+{
+  color: white;
+  background-color: black;
+}

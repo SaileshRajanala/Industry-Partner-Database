@@ -461,13 +461,13 @@ function reveal_if_checked_checkbox(_checkboxID, _id)
 
 }
 
-// id_('3').addEventListener("input", function() 
-// {
-//   if (id_('3').checked) 
-//     id_('ass').style.display = "block";
-//   else 
-//     id_('ass').style.display = "none";
-// });
+id_('3').addEventListener("input", function() 
+{
+  if (id_('3').checked) 
+    id_('ass').style.display = "block";
+  else 
+    id_('ass').style.display = "none";
+});
 
 
 
