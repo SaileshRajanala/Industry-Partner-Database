@@ -235,6 +235,7 @@ function capitalizeStringAt(str, i)
     return str.substring(0, i) +str[i].toUpperCase() + str.substring(i + 1);
 }
 
+
 function sanitize(_id)
 {
   id_(_id).addEventListener("keyup", function (event) 
