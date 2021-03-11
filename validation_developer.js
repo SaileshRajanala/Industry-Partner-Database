@@ -145,7 +145,8 @@ function id_success_message(_id, msg)
 
 function validate(_id, _regex, _msg, _errorMsg, _successMsg) 
 {
-  var guideID = _id + '_Message';
+  var guideID    = _id + '_message_id'   ;
+  var guideClass = _id + '_message_class'; // helps in clearing clutter
 
   if (id_(_id).style.display != 'none')
     id_(_id).addEventListener("focusin", 
@@ -155,10 +156,9 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
       if (id_(_id).classList.contains('wrongInput'))
         id_(_id).classList.remove('wrongInput');
 
-      id_(_id).classList.add('bond');
-
       var node = document.createElement("p");
       node.classList.add('guide');
+      node.classList.add(guideClass);
       
       node.setAttribute("id", guideID);
 
@@ -167,6 +167,7 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
 
       id_(_id).parentElement.appendChild(node);
       animate(guideID,'slideDownAnimation');
+      id_(_id).classList.add('bond');
 
       if (id_(_id).value == "")
         id_message(guideID, _msg);
@@ -203,18 +204,24 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
     id_(_id).addEventListener("focusout", 
     function () 
     { 
-      animate(guideID,'fadeOffAnimation');
+      id_(_id).classList.remove('bond'); 
+      animate(_id, 'minimizeAnimation');
       id_(_id).parentElement.removeChild(id_(_id).parentElement.lastElementChild);
-      id_(_id).classList.remove('bond');
 
-      var d = new Date();
+      // INPUT DETECTION & CONFIRMATION BELOW
       if (!_regex.test( id_(_id).value ))
       {
         id_(_id).classList.add('wrongInput');
+
+        if (id_(_id).classList.contains('correctInput'))
+          id_(_id).classList.remove('correctInput');
       }
       else
       {
-        id_(_id).classList.remove('wrongInput');
+        if (id_(_id).classList.contains('wrongInput'))
+          id_(_id).classList.remove('wrongInput');
+
+        id_(_id).classList.add('correctInput');
       }
       
     });
