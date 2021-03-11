@@ -145,8 +145,7 @@ function id_success_message(_id, msg)
 
 function validate(_id, _regex, _msg, _errorMsg, _successMsg) 
 {
-  var guideID    = _id + '_message_id'   ;
-  var guideClass = _id + '_message_class'; // helps in clearing clutter
+  var guideID = _id + '_message_id';
 
   if (id_(_id).style.display != 'none')
     id_(_id).addEventListener("focusin", 
@@ -156,9 +155,12 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
       if (id_(_id).classList.contains('wrongInput'))
         id_(_id).classList.remove('wrongInput');
 
+      // remove correct class if contained
+      if (id_(_id).classList.contains('correctInput'))
+        id_(_id).classList.remove('correctInput');
+
       var node = document.createElement("p");
       node.classList.add('guide');
-      node.classList.add(guideClass);
       
       node.setAttribute("id", guideID);
 
@@ -404,7 +406,7 @@ validate('phone_number', /^\d{10}$/, 'Please enter your email address',
 
 validate('employer', /^[a-zA-Z]+ [a-zA-Z]+$/, 
   "Please enter your Employer's Name", 
-  "Enter First Name & Last Name", "Employer's Name is valid");
+  "Enter Employer's First & Last Name", "Employer's Name is valid");
 
 validate('job_title', /^[a-zA-Z ]*$/, 
   "Please enter your Job Title", 
