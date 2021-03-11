@@ -13,41 +13,41 @@ function class_(_class)
   return document.getElementsByClassName(_class);
 }
 
-function message(msg, icon = '<i class="fas fa-comment"></i>') 
-{
-  messageDiv = id_('message');
-  messageDiv.style.backgroundImage = 'none';
+// function message(msg, icon = '<i class="fas fa-comment"></i>') 
+// {
+//   var messageDiv = id_('message');
+//   messageDiv.style.backgroundImage = 'none';
 
-  // messageDiv.classList.add('msgPopAnimation');
-  messageDiv.innerHTML = icon + '&nbsp; ' + msg + '';
+//   // messageDiv.classList.add('msgPopAnimation');
+//   messageDiv.innerHTML = icon + '&nbsp; ' + msg + '';
   
-  // messageDiv.style.color = 'black';
-  var d = new Date();
+//   // messageDiv.style.color = 'black';
+//   var d = new Date();
 
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {
-    messageDiv.style.backgroundColor = 'black';
-    messageDiv.style.color = 'white';
-  }
-  else 
-  {
-    messageDiv.style.backgroundColor = 'white';
-    messageDiv.style.color = 'black';
-  }
-}
+//   if (d.getHours() >= 6 && d.getHours() < 18)
+//   {
+//     messageDiv.style.backgroundColor = 'black';
+//     messageDiv.style.color = 'white';
+//   }
+//   else 
+//   {
+//     messageDiv.style.backgroundColor = 'white';
+//     messageDiv.style.color = 'black';
+//   }
+// }
 
-function animate_Message(_animationClass='msgPopAnimation')
-{
-	id_('message').classList.add(_animationClass);
+// function animate_Message(_animationClass='msgPopAnimation')
+// {
+// 	id_('message').classList.add(_animationClass);
 
-	// Code below is necessary for animation on request.
-  	id_('message').addEventListener("animationend", 
-    function() 
-    {
-        id_('message').classList.remove(_animationClass);            
-    }
-    );
-}
+// 	// Code below is necessary for animation on request.
+//   	id_('message').addEventListener("animationend", 
+//     function() 
+//     {
+//         id_('message').classList.remove(_animationClass);            
+//     }
+//     );
+// }
 
 // DevTEST START ---------------------------------------
 
@@ -64,27 +64,27 @@ function animate(_id='message', _animationClass='msgPopAnimation')
     );
 }
 
-function animateAll(_class='message', _animationClass='msgPopAnimation')
-{
-  for (var i = class_(_class).length - 1; i >= 0; i--) 
-  {
-    var object = class_(_class)[i];
+// function animateAll(_class='message', _animationClass='msgPopAnimation')
+// {
+//   for (var i = class_(_class).length - 1; i >= 0; i--) 
+//   {
+//     var object = class_(_class)[i];
 
-    object.classList.add(_animationClass);
+//     object.classList.add(_animationClass);
 
-    // Code below is necessary for animation on request.
-    object.addEventListener("animationend", 
-    function() 
-    {
-        object.classList.remove(_animationClass);            
-    }
-    );
-  }
-}
+//     // Code below is necessary for animation on request.
+//     object.addEventListener("animationend", 
+//     function() 
+//     {
+//         object.classList.remove(_animationClass);            
+//     }
+//     );
+//   }
+// }
 
 function id_message(_id, msg, icon = '<i class="fas fa-comment"></i>') 
 {
-  messageDiv = id_(_id);
+  var messageDiv = id_(_id);
   messageDiv.style.backgroundImage = 'none';
 
   // messageDiv.classList.add('msgPopAnimation');
@@ -107,6 +107,7 @@ function id_message(_id, msg, icon = '<i class="fas fa-comment"></i>')
 
 function id_error_message(_id, msg) 
 {
+  var messageDiv = id_(_id);
   id_message(_id, msg, '<i class="fas fa-exclamation-triangle"></i>');
   messageDiv.style.color = 'white';
   // messageDiv.style.backgroundImage = 'linear-gradient(147deg, red, darkred)';
@@ -125,6 +126,7 @@ function id_error_message(_id, msg)
 
 function id_success_message(_id, msg) 
 {
+  var messageDiv = id_(_id);
   id_message(_id, msg, '<i class="far fa-check-circle"></i>');
   messageDiv.style.color = 'white';
   // messageDiv.style.backgroundImage = 'linear-gradient(147deg, lime, green)';
@@ -265,123 +267,127 @@ function sanitize(_id)
 
 // DevTEST END ---------------------------------------
 
-function focus_message(_id, msg)
-{
-  if (id_(_id).style.display != 'none')
-  id_(_id).addEventListener("focusin", 
-  function () 
-  { 
-  	message(msg);
-  	animate_Message(); 
-  });
-}
+// function focus_message(_id, msg)
+// {
+//   if (id_(_id).style.display != 'none')
+//   id_(_id).addEventListener("focusin", 
+//   function () 
+//   { 
+//   	message(msg);
+//   	animate_Message(); 
+//   });
+// }
 
-function success_message(msg) 
-{
-  message(msg, '<i class="far fa-check-circle"></i>');
-  messageDiv.style.color = 'white';
-  // messageDiv.style.backgroundImage = 'linear-gradient(147deg, lime, green)';
+// function success_message(msg) 
+// {
+//   var messageDiv = id_('message');
+//   message(msg, '<i class="far fa-check-circle"></i>');
+//   messageDiv.style.color = 'white';
+//   // messageDiv.style.backgroundImage = 'linear-gradient(147deg, lime, green)';
 
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {
-	messageDiv.style.backgroundColor = 'lime';
-	messageDiv.style.color = 'black';
-  }
-  else 
-  {
-	messageDiv.style.backgroundColor = 'green';
-	messageDiv.style.color = 'white';
-  }
+//   if (d.getHours() >= 6 && d.getHours() < 18)
+//   {
+// 	messageDiv.style.backgroundColor = 'lime';
+// 	messageDiv.style.color = 'black';
+//   }
+//   else 
+//   {
+// 	messageDiv.style.backgroundColor = 'green';
+// 	messageDiv.style.color = 'white';
+//   }
 
-  animate_Message('successMsgAnimation');
-}
+//   animate_Message('successMsgAnimation');
+// }
 
-function error_message(msg) 
-{
-  message(msg, '<i class="fas fa-exclamation-triangle"></i>');
-  messageDiv.style.color = 'white';
-  // messageDiv.style.backgroundImage = 'linear-gradient(147deg, red, darkred)';
+// function error_message(msg) 
+// {
+//   var messageDiv = id_('message');
+//   message(msg, '<i class="fas fa-exclamation-triangle"></i>');
+//   messageDiv.style.color = 'white';
+//   // messageDiv.style.backgroundImage = 'linear-gradient(147deg, red, darkred)';
 
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {
-	messageDiv.style.backgroundColor = 'red';
-  }
-  else 
-  {
-	messageDiv.style.backgroundColor = 'darkred';
-  }
+//   if (d.getHours() >= 6 && d.getHours() < 18)
+//   {
+// 	messageDiv.style.backgroundColor = 'red';
+//   }
+//   else 
+//   {
+// 	messageDiv.style.backgroundColor = 'darkred';
+//   }
 
-  animate_Message('errorMsgAnimation');
-}
+//   animate_Message('errorMsgAnimation');
+// }
 
-function no_message()
-{
-	id_('message').innerHTML = "";
+// function no_message()
+// {
+//   var messageDiv = id_('message');
+// 	id_('message').innerHTML = "";
 
-	var d = new Date();
+// 	var d = new Date();
 
-	if (d.getHours() >= 6 && d.getHours() < 18)
-		messageDiv.style.backgroundColor = 'black';
-	else 
-		messageDiv.style.backgroundColor = 'white';
-}
+// 	if (d.getHours() >= 6 && d.getHours() < 18)
+// 		messageDiv.style.backgroundColor = 'black';
+// 	else 
+// 		messageDiv.style.backgroundColor = 'white';
+// }
 
-function default_message()
-{
-  messageDiv.innerHTML = 'Industry Partner Form';
+// function default_message()
+// {
+//   var messageDiv = id_('message');
+//   messageDiv.innerHTML = 'Industry Partner Form';
 
-  if (d.getHours() >= 6 && d.getHours() < 18)
-    messageDiv.style.backgroundColor = 'black';
-  else 
-    messageDiv.style.backgroundColor = 'white';
-}
+//   if (d.getHours() >= 6 && d.getHours() < 18)
+//     messageDiv.style.backgroundColor = 'black';
+//   else 
+//     messageDiv.style.backgroundColor = 'white';
+// }
 
-for (var i = tag_('input').length - 1; i >= 0; i--) 
-  tag_('input')[i].addEventListener("focusout", default_message);
+// for (var i = tag_('input').length - 1; i >= 0; i--) 
+//   tag_('input')[i].addEventListener("focusout", default_message);
 
-focus_message('first_name', 'Please enter your First Name');
-focus_message('last_name', 'Please enter your Last Name');
-focus_message('email', 'Please enter your Email Address');
-focus_message('phone_number', 'Please enter your Phone Number');
-focus_message('employer', "Please enter your Employer's Name");
-focus_message('job_title', 'What is the title of your job?');
-focus_message('state', 'In which state, do you work?');
-focus_message('city', 'In which city, do you work?');
-focus_message('otherEngDisciplineText', 'Please list the discipline of your Engineering Degree');
+// focus_message('first_name', 'Please enter your First Name');
+// focus_message('last_name', 'Please enter your Last Name');
+// focus_message('email', 'Please enter your Email Address');
+// focus_message('phone_number', 'Please enter your Phone Number');
+// focus_message('employer', "Please enter your Employer's Name");
+// focus_message('job_title', 'What is the title of your job?');
+// focus_message('state', 'In which state, do you work?');
+// focus_message('city', 'In which city, do you work?');
+// focus_message('otherEngDisciplineText', 'Please list the discipline of your Engineering Degree');
 
-// Important Function below.
-for (var i = tag_('input').length - 1; i >= 0; i--) 
-  tag_('input')[i].addEventListener("focusout", default_message);
+// // Important Function below.
+// for (var i = tag_('input').length - 1; i >= 0; i--) 
+//   tag_('input')[i].addEventListener("focusout", default_message);
 
-id_('prefix').addEventListener("focusin", 
-  function () {message('Please select your Prefix');});
+// id_('prefix').addEventListener("focusin", 
+//   function () {message('Please select your Prefix');});
 
-id_('suffix').addEventListener("focusin", 
-  function () {message('Please select your Suffix');});
+// id_('suffix').addEventListener("focusin", 
+//   function () {message('Please select your Suffix');});
 
-// Important Function below.
-for (var i = tag_('select').length - 1; i >= 0; i--) 
-  tag_('input')[i].addEventListener("change", 
-    function () {messageDiv.innerHTML = 'Industry Partner Form';});
+// // Important Function below.
+// for (var i = tag_('select').length - 1; i >= 0; i--) 
+//   tag_('input')[i].addEventListener("change", 
+//     function () {messageDiv.innerHTML = 'Industry Partner Form';});
 
-function alphabetsOnly(_id, _msg, _errorMsg, _successMsg) 
-{
-	id_(_id).addEventListener("keyup", function () 
-	{	
-		var regex = /^[a-zA-Z]+$/;
+// function alphabetsOnly(_id, _msg, _errorMsg, _successMsg) 
+// {
+// 	id_(_id).addEventListener("keyup", function () 
+// 	{	
+// 		var regex = /^[a-zA-Z]+$/;
 
-		if (id_(_id).value == "")
-			message(_msg);
-		else if (!regex.test( id_(_id).value ))
-    {
-			error_message(_errorMsg);
-      animate('first_name','errorMsgAnimation');
-    }
-		else
-			success_message(_successMsg);
-	}
-	);
-}
+// 		if (id_(_id).value == "")
+// 			message(_msg);
+// 		else if (!regex.test( id_(_id).value ))
+//     {
+// 			error_message(_errorMsg);
+//       animate('first_name','errorMsgAnimation');
+//     }
+// 		else
+// 			success_message(_successMsg);
+// 	}
+// 	);
+// }
  
 // alphabetsOnly('first_name', 'Please enter your First Name', 
 // 	'First Name should only contain Alphabets', 'First Name entered is Valid'); 
@@ -417,4 +423,53 @@ sanitize('first_name');
 sanitize('last_name');
 sanitize('employer');
 sanitize('job_title');
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////// QUESTIONS /////////////////////
+function name_(_name)
+{
+  return document.getElements-ByName(_name);
+}
+
+function getRadioValue(_radioName)
+{
+  for (var i = name_(_radioName).length - 1; i >= 0; i--) 
+    if (name_(_radioName)[i].checked)
+      return name_(_radioName)[i].value;
+}
+
+function reveal_if_checked_radio(_radioID, _id)
+{
+  if (id_(_radioID).checked)
+    id_(_id).style.display = 'block';
+
+  id_(_radioID).addEventListener("change", myScript);
+}
+
+function reveal_if_checked_checkbox(_checkboxID, _id)
+{
+
+}
+
+// id_('3').addEventListener("input", function() 
+// {
+//   if (id_('3').checked) 
+//     id_('ass').style.display = "block";
+//   else 
+//     id_('ass').style.display = "none";
+// });
+
+
+
+
 
