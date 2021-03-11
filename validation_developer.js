@@ -151,6 +151,10 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
     id_(_id).addEventListener("focusin", 
     function () 
     { 
+      // remove error class if contained
+      if (id_(_id).classList.contains('wrongInput'))
+        id_(_id).classList.remove('wrongInput');
+
       id_(_id).classList.add('bond');
 
       var node = document.createElement("p");
