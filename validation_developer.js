@@ -405,10 +405,10 @@ validate('last_name', /^[a-zA-Z]+$/, 'Please enter your Last Name',
   'Enter only alphabets', 'Last Name is Valid');
 
 validate('email', 
-  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i, 'Please enter your email address', 
-  'Enter a valid email', 'Email is Valid');
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i, 
+  'Please enter your Email address', 'Enter a valid email', 'Email is Valid');
 
-validate('phone_number', /^\d{10}$/, 'Please enter your email address', 
+validate('phone_number', /^\d{10}$/, 'Enter your 10-digit Phone Number', 
   'Enter a valid U.S. Phone Number', 'Phone Number is Valid');
 
 validate('employer', /^[a-zA-Z]+ [a-zA-Z]+$/, 

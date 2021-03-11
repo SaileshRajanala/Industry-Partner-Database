@@ -169,20 +169,40 @@
           animation-duration: 0.25s;
         }
 
+        .maximizeAnimation
+        {
+          animation-name: maximize;
+          animation-fill-mode: both;
+          animation-duration: 0.25s;
+        }
+
         @keyframes slideDown
         {
           0% 
           {
             border-radius: 5em;
-            transform: translateY(1em);
+            transform: translateY(2em);
             opacity: 0;
             margin-bottom: -12%;
+          }
+
+          50%
+          {
+            transform: scale(1.1);
           }
         }
 
         @keyframes minimize
         {
           0%
+          {
+            margin-bottom: 12%;
+          }
+        }
+
+        @keyframes maximize
+        {
+          100%
           {
             margin-bottom: 12%;
           }
