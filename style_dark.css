@@ -127,7 +127,7 @@ body
 .normalBlock
 {
   display: inline;
-  width: 50%;
+  width: 42%;
   margin: 2%;
   padding: 2%;
   transition: all 0.25s;
@@ -539,7 +539,8 @@ button
 
  select
  {
-    min-width: 48%;
+    min-width: 46%;
+    max-width: 92%;
  }
 
  .noHover:hover
