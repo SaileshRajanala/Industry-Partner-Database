@@ -417,12 +417,19 @@ validate('employer', /^[a-zA-Z]+ [a-zA-Z]+$/,
 
 validate('job_title', /^[a-zA-Z ]*$/, 
   "Please enter your Job Title", 
-  "Enter enter a valid Job Title", "Job Title is valid");
+  "Enter a valid Job Title", "Job Title is valid");
+
+validate('city', /^[a-zA-Z ]*$/, 
+  "In which city did you work?", 
+  "Enter a valid city", "City is valid");
 
 sanitize('first_name');
 sanitize('last_name');
 sanitize('employer');
 sanitize('job_title');
+sanitize('city');
+
+
 
 
 
