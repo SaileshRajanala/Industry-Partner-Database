@@ -711,12 +711,12 @@ textarea::selection, input[type='text']::selection
 
 .wrongInput
 {
-   border-color: red;
+   border-color: darkred;
 }
 
 .correctInput
 {
-   border-color: transparent;
+   border-color: green;
 }
 
 input::selection

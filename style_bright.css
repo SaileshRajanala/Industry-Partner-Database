@@ -729,7 +729,7 @@ textarea::selection, input[type='text']::selection
 
 .correctInput
 {
-   border-color: transparent;
+   border-color: lime;
 }
 
 input::selection
