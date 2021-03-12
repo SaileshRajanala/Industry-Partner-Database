@@ -13,28 +13,28 @@ function class_(_class)
   return document.getElementsByClassName(_class);
 }
 
-// function message(msg, icon = '<i class="fas fa-comment"></i>') 
-// {
-//   var messageDiv = id_('message');
-//   messageDiv.style.backgroundImage = 'none';
+function message(msg, icon = '<i class="fas fa-comment"></i>') 
+{
+  var messageDiv = id_('message');
+  messageDiv.style.backgroundImage = 'none';
 
-//   // messageDiv.classList.add('msgPopAnimation');
-//   messageDiv.innerHTML = icon + '&nbsp; ' + msg + '';
+  // messageDiv.classList.add('msgPopAnimation');
+  messageDiv.innerHTML = icon + '&nbsp; ' + msg + '';
   
-//   // messageDiv.style.color = 'black';
-//   var d = new Date();
+  // messageDiv.style.color = 'black';
+  var d = new Date();
 
-//   if (d.getHours() >= 6 && d.getHours() < 18)
-//   {
-//     messageDiv.style.backgroundColor = 'black';
-//     messageDiv.style.color = 'white';
-//   }
-//   else 
-//   {
-//     messageDiv.style.backgroundColor = 'white';
-//     messageDiv.style.color = 'black';
-//   }
-// }
+  if (d.getHours() >= 6 && d.getHours() < 18)
+  {
+    messageDiv.style.backgroundColor = 'black';
+    messageDiv.style.color = 'white';
+  }
+  else 
+  {
+    messageDiv.style.backgroundColor = 'white';
+    messageDiv.style.color = 'black';
+  }
+}
 
 // function animate_Message(_animationClass='msgPopAnimation')
 // {
@@ -263,6 +263,21 @@ function sanitize(_id)
       }
 
   });
+}
+
+// SOURCE : formTestScript.js *********************************
+function switchDiv(targetDiv, currentDiv, msg)
+{
+    id_(currentDiv).style.display = 'none';
+
+    id_(targetDiv).style.display = 'block';
+    window.scrollTo(0, 0);
+
+    // message(msg);
+    // animate();
+    // Default Parameters ('message','msgPopAnimation')
+    
+    //id_(targetDiv).classList.add('formDivLaunchAnimation');
 }
 
 // DevTEST END ---------------------------------------

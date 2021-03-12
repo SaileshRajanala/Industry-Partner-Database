@@ -56,7 +56,7 @@
 
       <div class="prevNextDiv lessMargin">
       <button class="nextButton" 
-      onclick="switchDiv('Personal_Information', 'welcomeDiv')">
+      onclick="switchDiv('Personal_Information', 'welcomeDiv','Please provide your Personal Information')">
        Get Started <i class="fas fa-chevron-circle-right"></i> 
       </button>
       </div>
@@ -295,7 +295,7 @@
       </button> -->
 
       <button class="nextButton" 
-      onclick="switchDiv('Professional_Information', 'Personal_Information')">
+      onclick="switchDiv('Professional_Information', 'Personal_Information','Please provide your Professional Information')">
        Next <i class="fas fa-chevron-circle-right"></i> 
       </button>
 
@@ -407,12 +407,12 @@
       <div class="prevNextDiv">
 
       <button class="prevButton" 
-      onclick="switchDiv('Personal_Information', 'Professional_Information')">
+      onclick="switchDiv('Personal_Information', 'Professional_Information','Please provide your Personal Information')">
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 
       <button class="nextButton" 
-      onclick="switchDiv('Education_Experience', 'Professional_Information')">
+      onclick="switchDiv('Education_Experience', 'Professional_Information','Please provide details about your Education')">
        Next <i class="fas fa-chevron-circle-right"></i> 
       </button>
 
@@ -437,7 +437,8 @@
         <ul type="none" class="radioList">
           <li>
             <input type="radio" id="1" name="college_education" 
-            value="No, I have not taken any college classes">
+            value="No, I have not taken any college classes" required>
+            <!-- NEED REQUIRED FOR ATLEAST ONE FOR ALL RADIO BUTTONS WITH SAME NAME -->
             <label for="1">No, I have not taken any college classes</label>
           </li>
 
@@ -884,12 +885,12 @@
       <div class="prevNextDiv">
 
       <button class="prevButton" 
-      onclick="switchDiv('Professional_Information','Education_Experience')">
+      onclick="switchDiv('Professional_Information','Education_Experience','Please provide  your Professional Information')">
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 
       <button class="nextButton"
-      onclick="switchDiv('Involvement_Opportunities','Education_Experience')">
+      onclick="switchDiv('Involvement_Opportunities','Education_Experience','Please tell us how you like to be involved')">
        Next <i class="fas fa-chevron-circle-right"></i> 
       </button>
 
@@ -911,7 +912,7 @@
 
       <li>
       <input type="checkbox" id="Involvement1" name="Involvement" 
-      value="Advising a team of students on a project">
+      value="Advising a team of students on a project" required>
 
       <label for="Involvement1">
         Advising a team of students on a project
@@ -1024,7 +1025,7 @@
 
       <li>
       <input type="checkbox" id="Involvement_Level1" name="Involvement_Level" 
-      value="A one-time event lasting 1 to 2 hours">
+      value="A one-time event lasting 1 to 2 hours" required>
 
       <label for="Involvement_Level1">
         A one-time event lasting 1 to 2 hours
@@ -1115,7 +1116,7 @@
 
       <li>
       <input type="checkbox" id="Mentor_Age1" name="Mentor_Age" 
-      value="Elementry">
+      value="Elementry" required>
 
       <label for="Mentor_Age1">
         Elementry
@@ -1252,7 +1253,7 @@
 
       <label> Please tell us how you want to be involved: </label>
       <textarea id="Involvement_Notes" 
-      name="Involvement_Notes" placeholder="Notes" rows="5"></textarea>
+      name="Involvement_Notes" placeholder="Notes" rows="5" required></textarea>
 
       </div>
       </div>
@@ -1261,7 +1262,7 @@
       <div class="prevNextDiv">
 
       <button class="prevButton" 
-      onclick="switchDiv('Education_Experience','Involvement_Opportunities')">
+      onclick="switchDiv('Education_Experience','Involvement_Opportunities','Please provide details about your Education')">
        <i class="fas fa-chevron-circle-left"></i> Back 
       </button>
 
