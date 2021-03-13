@@ -273,8 +273,8 @@ function switchDiv(targetDiv, currentDiv, msg)
     id_(targetDiv).style.display = 'block';
     window.scrollTo(0, 0);
 
-    message(msg);
-    animate();
+    // message(msg);
+    // animate();
     // Default Parameters ('message','msgPopAnimation')
     
     //id_(targetDiv).classList.add('formDivLaunchAnimation');
