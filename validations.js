@@ -163,7 +163,21 @@ function alphabetsOnly(_id, _msg, _errorMsg, _successMsg)
 	}
 	);
 }
- 
+
+function switchDiv(targetDiv, currentDiv)
+{
+    id_(currentDiv).style.display = 'none';
+
+    id_(targetDiv).style.display = 'block';
+    window.scrollTo(0, 0);
+
+    // message(msg);
+    // animate();
+    // Default Parameters ('message','msgPopAnimation')
+    
+    //id_(targetDiv).classList.add('formDivLaunchAnimation');
+}
+
 alphabetsOnly('first_name', 'Please enter your First Name', 
 	'First Name should only contain Alphabets', 'First Name entered is Valid'); 
 
