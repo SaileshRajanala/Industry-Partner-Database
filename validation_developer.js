@@ -302,7 +302,6 @@ function other(_name, _value, _form = "Industry_Partner_Database")
     '_' + _type + '"> <span id="other_' + _name + '_span" class="otherSpan"> ' + _value + 
     ' </span> <input class="otherTextField" id="other_' + _name + 
     '_text" type="text" name="other_' + _name + '" placeholder="' + _value + '"> </label>';
-  
 
     var inputs = document.forms["Industry_Partner_Database"].elements[_name];
     var bindedSpanId = "other_" + _name + "_span";
@@ -360,7 +359,6 @@ function other(_name, _value, _form = "Industry_Partner_Database")
         }
       }
       );
-        
 }
 
 // SOURCE : formTestScript.js *********************************
