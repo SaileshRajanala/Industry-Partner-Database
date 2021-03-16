@@ -24,8 +24,8 @@ function linkRadioWithText(_radio, _text)
   });
 }
 
-linkRadioWithText('otherUndergradDegreeRadio','otherUndergradDegreeText');
-linkRadioWithText('otherEngDisciplineRadio','otherEngDisciplineText');
+// linkRadioWithText('otherUndergradDegreeRadio','otherUndergradDegreeText');
+// linkRadioWithText('otherEngDisciplineRadio','otherEngDisciplineText');
 
 
 var labels = document.getElementsByTagName('LABEL');

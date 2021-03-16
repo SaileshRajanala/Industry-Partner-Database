@@ -271,19 +271,49 @@ function sanitize(_id)
   });
 }
 
-function otherText(_name)
+/*
+
+
+
+            <input type="radio" name="college_education" id="other_college_education_radio" value="Other">
+
+            <label class="otherLabel" id="other_college_education_label" for="other_college_education_radio">
+            
+            <span id="other_college_education_span" class="otherSpan"> Other </span>
+            
+            <input class="otherTextField" id="other_college_education_text" type="text" name="other_college_education" placeholder="Other">
+
+            </label>
+
+
+
+            */
+
+function other(_name, _type,  _value)
 {
-    var radios = document.forms["Industry_Partner_Database"].elements[_name];
+    id_("other_" + _name).innerHTML = 
+    '<input type="' + _type + '" name="' + _name + '" id="other_' + _name 
+    + '_' + _type + '" value="' + _value + '"> ';
+
+    id_("other_" + _name).innerHTML += 
+    '<label class="otherLabel" id="other_' + _name + '_label" for="other_' + _name + 
+    '_' + _type + '"> <span id="other_' + _name + '_span" class="otherSpan"> ' + _value + 
+    ' </span> <input class="otherTextField" id="other_' + _name + 
+    '_text" type="text" name="other_' + _name + '" placeholder="' + _value + '"> </label>';
+  
+
+    var inputs = document.forms["Industry_Partner_Database"].elements[_name];
     var bindedSpanId = "other_" + _name + "_span";
     var bindedTextboxId = "other_" + _name + "_text";
     var bindedLabelId = "other_" + _name + "_label";
 
-    for (var i = radios.length - 1; i >= 0; i--) 
+    if (_type == 'radio')
+    for (var i = inputs.length - 1; i >= 0; i--) 
     {
-      radios[i].addEventListener('change', 
+      inputs[i].addEventListener('change', 
       function () 
       {
-        if (radios.value == "Other") 
+        if (inputs.value == _value) 
         {
           id_(bindedSpanId).style.display = "none";
           id_(bindedTextboxId).style.display = "block";
@@ -479,9 +509,11 @@ sanitize('employer');
 sanitize('job_title');
 sanitize('city');
 
-otherText("college_education");
-otherText("college_education");
 
+
+other("college_education", 'radio', 'Other');
+other("UndergradDegree", 'radio', 'Other Degree');
+other("EngDiscipline", 'checkbox', 'Other Discipline');
 
 // validate("other_college_education_text", /^[a-zA-Z]+$/, 'Please provide other', 
 //   'Enter only alphabets', 'Details are is Valid', false);
@@ -519,13 +551,13 @@ function reveal_if_checked_checkbox(_checkboxID, _id)
 
 }
 
-id_('3').addEventListener("input", function() 
-{
-  if (id_('3').checked) 
-    id_('ass').style.display = "block";
-  else 
-    id_('ass').style.display = "none";
-});
+// id_('3').addEventListener("input", function() 
+// {
+//   if (id_('3').checked) 
+//     id_('ass').style.display = "block";
+//   else 
+//     id_('ass').style.display = "none";
+// });
 
 // function otherText(_name)
 // {
