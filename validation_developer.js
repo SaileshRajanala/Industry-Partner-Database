@@ -480,7 +480,7 @@ sanitize('job_title');
 sanitize('city');
 
 otherText("college_education");
-
+otherText("college_education");
 
 
 // validate("other_college_education_text", /^[a-zA-Z]+$/, 'Please provide other', 
