@@ -289,8 +289,10 @@ function sanitize(_id)
 
             */
 
-function other(_name, _type,  _value)
+function other(_name, _value, _form = "Industry_Partner_Database")
 {
+  var _type = document.forms[_form].elements[_name][0].type;
+    
     id_("other_" + _name).innerHTML = 
     '<input type="' + _type + '" name="' + _name + '" id="other_' + _name 
     + '_' + _type + '" value="' + _value + '"> ';
@@ -325,18 +327,6 @@ function other(_name, _type,  _value)
         } 
       }
       );
-
-      id_(bindedTextboxId).addEventListener('focusout', 
-      function () 
-      {
-        if (id_(bindedTextboxId).value == "")
-        {
-          id_("other_" + _name + "_checkbox").checked = false;
-          id_(bindedSpanId).style.display = "block";
-          id_(bindedTextboxId).style.display = "none";
-        }
-      }
-      );
     }
     else if (_type == 'radio')
     for (var i = inputs.length - 1; i >= 0; i--) 
@@ -358,6 +348,18 @@ function other(_name, _type,  _value)
       }
       );
     }
+
+    id_(bindedTextboxId).addEventListener('focusout', 
+      function () 
+      {
+        if (id_(bindedTextboxId).value == "")
+        {
+          id_("other_" + _name + '_' + _type).checked = false;
+          id_(bindedSpanId).style.display = "block";
+          id_(bindedTextboxId).style.display = "none";
+        }
+      }
+      );
         
 }
 
@@ -542,9 +544,10 @@ sanitize('city');
 
 
 
-other("college_education", 'radio', 'Other');
-other("UndergradDegree", 'radio', 'Other Degree');
-other("EngDiscipline", 'checkbox', 'Other Discipline');
+other("college_education", 'Other');
+other("UndergradDegree", 'Other Degree');
+other("EngDiscipline", 'Other Discipline');
+
 
 // validate("other_college_education_text", /^[a-zA-Z]+$/, 'Please provide other', 
 //   'Enter only alphabets', 'Details are is Valid', false);
