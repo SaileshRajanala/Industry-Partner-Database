@@ -317,6 +317,7 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
         {
           id_(bindedSpanId).style.display = "none";
           id_(bindedTextboxId).style.display = "block";
+          animate(bindedTextboxId);
           id_(bindedTextboxId).focus();
         }
         else
@@ -337,6 +338,7 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
         {
           id_(bindedSpanId).style.display = "none";
           id_(bindedTextboxId).style.display = "block";
+          animate(bindedTextboxId);
           id_(bindedTextboxId).focus();
         }
         else
