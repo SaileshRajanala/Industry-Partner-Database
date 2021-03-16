@@ -307,7 +307,38 @@ function other(_name, _type,  _value)
     var bindedTextboxId = "other_" + _name + "_text";
     var bindedLabelId = "other_" + _name + "_label";
 
-    if (_type == 'radio')
+    if (_type == 'checkbox')
+    { 
+      id_("other_" + _name + "_checkbox").addEventListener('change', 
+      function () 
+      {
+        if (id_("other_" + _name + "_checkbox").checked)
+        {
+          id_(bindedSpanId).style.display = "none";
+          id_(bindedTextboxId).style.display = "block";
+          id_(bindedTextboxId).focus();
+        }
+        else
+        {
+          id_(bindedSpanId).style.display = "block";
+          id_(bindedTextboxId).style.display = "none";
+        } 
+      }
+      );
+
+      id_(bindedTextboxId).addEventListener('focusout', 
+      function () 
+      {
+        if (id_(bindedTextboxId).value == "")
+        {
+          id_("other_" + _name + "_checkbox").checked = false;
+          id_(bindedSpanId).style.display = "block";
+          id_(bindedTextboxId).style.display = "none";
+        }
+      }
+      );
+    }
+    else if (_type == 'radio')
     for (var i = inputs.length - 1; i >= 0; i--) 
     {
       inputs[i].addEventListener('change', 
