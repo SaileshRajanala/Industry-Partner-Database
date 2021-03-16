@@ -473,28 +473,7 @@
           <!-- OTHER RADIO -->
           <style type="text/css">
 
-.otherTextField
-{
-  display: none;
-  color: black;
-  box-shadow: 0px 0px 13px transparent;
 
-  /*padding: 0%;
-  background-color: transparent;
-  border: 2px solid transparent;*/
-}
-
-.inactiveLabel
-{
-  border:none;
-  background-color: transparent;
-}
-
-.otherLabel:hover
-{
-  border:none;
-  background-color: transparent;
-}
 
           </style>
 
@@ -542,13 +521,29 @@
         {
           id_(bindedSpanId).style.display = "none";
           id_(bindedTextboxId).style.display = "block";
+
           id_(bindedTextboxId).focus();
+          id_(bindedLabelId).style.borderRadius = "1.25em";
 
           //EXPERIMENT BELOW
-          id_(bindedLabelId).style.borderRadius = "1em";
-          id_(bindedLabelId).style.width = "94%";
-          // id_(bindedLabelId).style.backgroundColor = "transparent";
-          // id_(bindedLabelId).style.border = "none";
+          id_(bindedTextboxId).addEventListener('focusin', 
+          function () 
+          {
+            id_(bindedLabelId).style.borderRadius = "1.25em";
+          }
+          );
+
+          id_(bindedTextboxId).addEventListener('focusout', 
+          function () 
+          {
+            id_(bindedLabelId).style.borderRadius = "2em";
+          }
+          );
+
+          id_(bindedLabelId).style.width = "60%";
+          //id_(bindedLabelId).style.paddingRight = "1%";
+          //id_(bindedLabelId).style.backgroundColor = "transparent";
+          //id_(bindedTextboxId).style.border = "1px solid black";
         }
         else
         {
@@ -556,7 +551,9 @@
           id_(bindedTextboxId).style.display = "none";
 
           id_(bindedLabelId).style.borderRadius = "2em";
+          //id_(bindedLabelId).style.paddingRight = "2.5%";
           id_(bindedLabelId).style.width = "auto";
+          //id_(bindedTextboxId).style.border = "1px solid white";
         }
       }
       );
