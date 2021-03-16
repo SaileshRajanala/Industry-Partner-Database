@@ -479,19 +479,16 @@
 
           <li>
             <input type="radio" name="college_education" 
-            id="otherRadio_college_education" 
+            id="other_college_education_radio" 
             value="Other">
 
-            <label class="otherLabel" id="otherLabel_college_education" 
-            for="otherRadio_college_education"
-            binded_radio_id="otherRadio_college_education"
-            binded_textbox_id="otherText_college_education"
-            binded_span_id="otherSpan_college_education">
+            <label class="otherLabel" id="other_college_education_label" 
+            for="other_college_education_radio">
             
-            <span id="otherSpan_college_education" class="otherSpan"> Other </span>
+            <span id="other_college_education_span" class="otherSpan"> Other </span>
             
-            <input type="text" class="otherTextField" id="otherText_college_education" 
-            name="other_college_education" placeholder="Other">
+            <input class="otherTextField" id="other_college_education_text" 
+            type="text" name="other_college_education" placeholder="Other">
 
             </label>
           </li>
@@ -508,9 +505,9 @@
 
 
     var radios = document.forms["Industry_Partner_Database"].elements["college_education"];
-    var bindedSpanId = "otherSpan_" + "college_education";
-    var bindedTextboxId = "otherText_" + "college_education";
-    var bindedLabelId = "otherLabel_" + "college_education";
+    var bindedSpanId = "other_" + "college_education" + "_span";
+    var bindedTextboxId = "other_" + "college_education" + "_text";
+    var bindedLabelId = "other_" + "college_education" + "_label";
 
     for (var i = radios.length - 1; i >= 0; i--) 
     {
@@ -522,25 +519,35 @@
           id_(bindedSpanId).style.display = "none";
           id_(bindedTextboxId).style.display = "block";
 
+          // id_(bindedTextboxId).style.padding = "0%";
           id_(bindedTextboxId).focus();
-          id_(bindedLabelId).style.borderRadius = "1.25em";
+
+
+          id_(bindedTextboxId).addEventListener('keyup', 
+          function () 
+          {
+            id_(bindedLabelId).width = ((this.value.length + 1));
+          }
+          );
+
+          //id_(bindedLabelId).style.borderRadius = "1.25em";
 
           //EXPERIMENT BELOW
-          id_(bindedTextboxId).addEventListener('focusin', 
-          function () 
-          {
-            id_(bindedLabelId).style.borderRadius = "1.25em";
-          }
-          );
+          // id_(bindedTextboxId).addEventListener('focusin', 
+          // function () 
+          // {
+          //   id_(bindedLabelId).style.borderRadius = "1.25em";
+          // }
+          // );
 
-          id_(bindedTextboxId).addEventListener('focusout', 
-          function () 
-          {
-            id_(bindedLabelId).style.borderRadius = "2em";
-          }
-          );
+          // id_(bindedTextboxId).addEventListener('focusout', 
+          // function () 
+          // {
+          //   id_(bindedLabelId).style.borderRadius = "2em";
+          // }
+          // );
 
-          id_(bindedLabelId).style.width = "60%";
+          //id_(bindedLabelId).style.width = "60%";
           //id_(bindedLabelId).style.paddingRight = "1%";
           //id_(bindedLabelId).style.backgroundColor = "transparent";
           //id_(bindedTextboxId).style.border = "1px solid black";
@@ -549,10 +556,11 @@
         {
           id_(bindedSpanId).style.display = "block";
           id_(bindedTextboxId).style.display = "none";
+          // id_(bindedTextboxId).style.padding = "1%";
 
-          id_(bindedLabelId).style.borderRadius = "2em";
+          //id_(bindedLabelId).style.borderRadius = "2em";
           //id_(bindedLabelId).style.paddingRight = "2.5%";
-          id_(bindedLabelId).style.width = "auto";
+          //id_(bindedLabelId).style.width = "auto";
           //id_(bindedTextboxId).style.border = "1px solid white";
         }
       }

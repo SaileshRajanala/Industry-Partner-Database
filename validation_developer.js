@@ -145,7 +145,7 @@ function id_success_message(_id, msg)
   // animate_Message('successMsgAnimation');
 }
 
-function validate(_id, _regex, _msg, _errorMsg, _successMsg) 
+function validate(_id, _regex, _msg, _errorMsg, _successMsg, _inOutAnimation = true) 
 {
   var guideID = _id + '_message_id';
 
@@ -170,7 +170,10 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
       // node.appendChild(textnode);
 
       id_(_id).parentElement.appendChild(node);
-      animate(guideID,'slideDownAnimation');
+
+      if (_inOutAnimation)
+        animate(guideID,'slideDownAnimation');
+
       id_(_id).classList.add('bond');
 
       if (id_(_id).value == "")
@@ -209,7 +212,10 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg)
     function () 
     { 
       id_(_id).classList.remove('bond'); 
-      animate(_id, 'minimizeAnimation');
+
+      if (_inOutAnimation)
+        animate(_id, 'minimizeAnimation');
+
       id_(_id).parentElement.removeChild(id_(_id).parentElement.lastElementChild);
 
       // INPUT DETECTION & CONFIRMATION BELOW
@@ -448,8 +454,8 @@ sanitize('city');
 
 
 
-validate("otherText_college_education", /^[a-zA-Z]+$/, 'Please enter other information bro', 
-  'Enter only alphabets', 'First Name is Valid');
+// validate("other_college_education_text", /^[a-zA-Z]+$/, 'Please provide other', 
+//   'Enter only alphabets', 'Details are is Valid', false);
 
 
 
