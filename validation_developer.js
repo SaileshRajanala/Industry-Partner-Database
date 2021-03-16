@@ -561,30 +561,30 @@ other("Role_Model");
 
 
 ///////////////////// QUESTIONS /////////////////////
-function name_(_name)
-{
-  return document.getElements-ByName(_name);
-}
+// function name_(_name)
+// {
+//   return document.getElements-ByName(_name);
+// }
 
-function getRadioValue(_radioName)
-{
-  for (var i = name_(_radioName).length - 1; i >= 0; i--) 
-    if (name_(_radioName)[i].checked)
-      return name_(_radioName)[i].value;
-}
+// function getRadioValue(_radioName)
+// {
+//   for (var i = name_(_radioName).length - 1; i >= 0; i--) 
+//     if (name_(_radioName)[i].checked)
+//       return name_(_radioName)[i].value;
+// }
 
-function reveal_if_checked_radio(_radioID, _id)
-{
-  if (id_(_radioID).checked)
-    id_(_id).style.display = 'block';
+// function reveal_if_checked_radio(_radioID, _id)
+// {
+//   if (id_(_radioID).checked)
+//     id_(_id).style.display = 'block';
 
-  id_(_radioID).addEventListener("change", myScript);
-}
+//   id_(_radioID).addEventListener("change", myScript);
+// }
 
-function reveal_if_checked_checkbox(_checkboxID, _id)
-{
+// function reveal_if_checked_checkbox(_checkboxID, _id)
+// {
 
-}
+// }
 
 // id_('3').addEventListener("input", function() 
 // {
