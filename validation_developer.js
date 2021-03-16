@@ -448,7 +448,8 @@ sanitize('city');
 
 
 
-
+validate("otherText_college_education", /^[a-zA-Z]+$/, 'Please enter other information bro', 
+  'Enter only alphabets', 'First Name is Valid');
 
 
 

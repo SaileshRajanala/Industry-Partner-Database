@@ -35,7 +35,8 @@
 
     <!-- <h1 class="mainTitle"> Industry<br> Partner <br>Database </h1>
  -->
-    <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="POST">
+    <form action="https://flaggy-idea.000webhostapp.com/submit.php" method="POST" 
+    name="Industry_Partner_Database">
 
     <div class="formDiv" id="welcomeDiv">
       <h1 style="text-align: center;">Industry Partner Form</h1>
@@ -264,6 +265,9 @@
         }*/
 
 
+
+
+
       </style> 
 
       <!-- <div class="errorDiv">
@@ -466,7 +470,101 @@
         <label for="5">Yes, I have an Bachelor's degree</label>
           </li>
 
+          <!-- OTHER RADIO -->
+          <style type="text/css">
+
+.otherTextField
+{
+  display: none;
+  color: black;
+  box-shadow: 0px 0px 13px transparent;
+
+  /*padding: 0%;
+  background-color: transparent;
+  border: 2px solid transparent;*/
+}
+
+.inactiveLabel
+{
+  border:none;
+  background-color: transparent;
+}
+
+.otherLabel:hover
+{
+  border:none;
+  background-color: transparent;
+}
+
+          </style>
+
+          <li>
+            <input type="radio" name="college_education" 
+            id="otherRadio_college_education" 
+            value="Other">
+
+            <label class="otherLabel" id="otherLabel_college_education" 
+            for="otherRadio_college_education"
+            binded_radio_id="otherRadio_college_education"
+            binded_textbox_id="otherText_college_education"
+            binded_span_id="otherSpan_college_education">
+            
+            <span id="otherSpan_college_education" class="otherSpan"> Other </span>
+            
+            <input type="text" class="otherTextField" id="otherText_college_education" 
+            name="other_college_education" placeholder="Other">
+
+            </label>
+          </li>
+
         </ul>
+
+        <script type="text/javascript">
+          
+          function id_(_id)
+          {
+            return document.getElementById(_id);
+          }
+
+
+
+    var radios = document.forms["Industry_Partner_Database"].elements["college_education"];
+    var bindedSpanId = "otherSpan_" + "college_education";
+    var bindedTextboxId = "otherText_" + "college_education";
+    var bindedLabelId = "otherLabel_" + "college_education";
+
+    for (var i = radios.length - 1; i >= 0; i--) 
+    {
+      radios[i].addEventListener('change', 
+      function () 
+      {
+        if (radios.value == "Other") 
+        {
+          id_(bindedSpanId).style.display = "none";
+          id_(bindedTextboxId).style.display = "block";
+          id_(bindedTextboxId).focus();
+
+          //EXPERIMENT BELOW
+          id_(bindedLabelId).style.borderRadius = "1em";
+          id_(bindedLabelId).style.width = "94%";
+          // id_(bindedLabelId).style.backgroundColor = "transparent";
+          // id_(bindedLabelId).style.border = "none";
+        }
+        else
+        {
+          id_(bindedSpanId).style.display = "block";
+          id_(bindedTextboxId).style.display = "none";
+
+          id_(bindedLabelId).style.borderRadius = "2em";
+          id_(bindedLabelId).style.width = "auto";
+        }
+      }
+      );
+    }
+          
+
+
+        </script>
                 
       </div>
 
