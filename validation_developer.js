@@ -271,6 +271,35 @@ function sanitize(_id)
   });
 }
 
+function otherText(_name)
+{
+    var radios = document.forms["Industry_Partner_Database"].elements[_name];
+    var bindedSpanId = "other_" + _name + "_span";
+    var bindedTextboxId = "other_" + _name + "_text";
+    var bindedLabelId = "other_" + _name + "_label";
+
+    for (var i = radios.length - 1; i >= 0; i--) 
+    {
+      radios[i].addEventListener('change', 
+      function () 
+      {
+        if (radios.value == "Other") 
+        {
+          id_(bindedSpanId).style.display = "none";
+          id_(bindedTextboxId).style.display = "block";
+          id_(bindedTextboxId).focus();
+        }
+        else
+        {
+          id_(bindedSpanId).style.display = "block";
+          id_(bindedTextboxId).style.display = "none";
+        }
+      }
+      );
+    }
+        
+}
+
 // SOURCE : formTestScript.js *********************************
 function switchDiv(targetDiv, currentDiv, msg)
 {
@@ -450,7 +479,7 @@ sanitize('employer');
 sanitize('job_title');
 sanitize('city');
 
-
+otherText("college_education");
 
 
 
@@ -498,6 +527,71 @@ id_('3').addEventListener("input", function()
     id_('ass').style.display = "none";
 });
 
+// function otherText(_name)
+// {
+//     var radios = document.forms["Industry_Partner_Database"].elements["college_education"];
+//     var bindedSpanId = "other_" + "college_education" + "_span";
+//     var bindedTextboxId = "other_" + "college_education" + "_text";
+//     var bindedLabelId = "other_" + "college_education" + "_label";
+
+//     for (var i = radios.length - 1; i >= 0; i--) 
+//     {
+//       radios[i].addEventListener('change', 
+//       function () 
+//       {
+//         if (radios.value == "Other") 
+//         {
+//           id_(bindedSpanId).style.display = "none";
+//           id_(bindedTextboxId).style.display = "block";
+
+//           // id_(bindedTextboxId).style.padding = "0%";
+//           id_(bindedTextboxId).focus();
+
+
+//           id_(bindedTextboxId).addEventListener('keyup', 
+//           function () 
+//           {
+//             id_(bindedLabelId).width = ((this.value.length + 1));
+//           }
+//           );
+
+//           //id_(bindedLabelId).style.borderRadius = "1.25em";
+
+//           //EXPERIMENT BELOW
+//           // id_(bindedTextboxId).addEventListener('focusin', 
+//           // function () 
+//           // {
+//           //   id_(bindedLabelId).style.borderRadius = "1.25em";
+//           // }
+//           // );
+
+//           // id_(bindedTextboxId).addEventListener('focusout', 
+//           // function () 
+//           // {
+//           //   id_(bindedLabelId).style.borderRadius = "2em";
+//           // }
+//           // );
+
+//           //id_(bindedLabelId).style.width = "60%";
+//           //id_(bindedLabelId).style.paddingRight = "1%";
+//           //id_(bindedLabelId).style.backgroundColor = "transparent";
+//           //id_(bindedTextboxId).style.border = "1px solid black";
+//         }
+//         else
+//         {
+//           id_(bindedSpanId).style.display = "block";
+//           id_(bindedTextboxId).style.display = "none";
+//           // id_(bindedTextboxId).style.padding = "1%";
+
+//           //id_(bindedLabelId).style.borderRadius = "2em";
+//           //id_(bindedLabelId).style.paddingRight = "2.5%";
+//           //id_(bindedLabelId).style.width = "auto";
+//           //id_(bindedTextboxId).style.border = "1px solid white";
+//         }
+//       }
+//       );
+//     }    
+// }
 
 
 
