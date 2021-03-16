@@ -289,7 +289,7 @@ function sanitize(_id)
 
             */
 
-function other(_name, _value, _form = "Industry_Partner_Database")
+function other(_name, _value = "Other", _form = "Industry_Partner_Database")
 {
   var _type = document.forms[_form].elements[_name][0].type;
     
@@ -542,9 +542,12 @@ sanitize('city');
 
 
 
-other("college_education", 'Other');
+other("college_education");
 other("UndergradDegree", 'Other Degree');
 other("EngDiscipline", 'Other Discipline');
+other("mastersDegree");
+other("mastersEngDiscipline");
+other("Role_Model");
 
 
 // validate("other_college_education_text", /^[a-zA-Z]+$/, 'Please provide other', 
