@@ -53,7 +53,7 @@ for (var i = formDivs.length - 1; i >= 0; i--) {
   formDivs[i].style.display = 'none';
 }
 
-formDivs[3].style.display = 'block';
+formDivs[0].style.display = 'block';
 // INITIALIZE FORM END##########################################################################
 
 
