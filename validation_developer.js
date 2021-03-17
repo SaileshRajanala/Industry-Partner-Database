@@ -266,8 +266,8 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
   var _type = document.forms[_form].elements[_name][0].type;
 
   id_("other_" + _name).innerHTML = 
-  '<input type="' + _type + '" name="' + _name + '" id="other_' + _name 
-  + '_' + _type + '" value="' + _value + '"> ';
+  '<input type="' + _type + '" name="' + _name + 
+  '" id="other_' + _name + '_' + _type + '" value="' + _value + '"> ';
 
   id_("other_" + _name).innerHTML += 
   '<label class="otherLabel" id="other_' + _name + '_label" for="other_' + _name + 
