@@ -240,7 +240,7 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg, _inOutAnimation = t
 
 function capitalizeStringAt(str, i)
 {
-    return str.substring(0, i) +str[i].toUpperCase() + str.substring(i + 1);
+    return str.substring(0, i) + str[i].toUpperCase() + str.substring(i + 1);
 }
 
 
@@ -273,21 +273,17 @@ function sanitize(_id)
 
 /*
 
+  <input type="radio" name="college_education" id="other_college_education_radio" value="Other">
 
+  <label class="otherLabel" id="other_college_education_label" for="other_college_education_radio">
+  
+  <span id="other_college_education_span" class="otherSpan"> Other </span>
+  
+  <input class="otherTextField" id="other_college_education_text" type="text" name="other_college_education" placeholder="Other">
 
-            <input type="radio" name="college_education" id="other_college_education_radio" value="Other">
+  </label>
 
-            <label class="otherLabel" id="other_college_education_label" for="other_college_education_radio">
-            
-            <span id="other_college_education_span" class="otherSpan"> Other </span>
-            
-            <input class="otherTextField" id="other_college_education_text" type="text" name="other_college_education" placeholder="Other">
-
-            </label>
-
-
-
-            */
+*/
 
 function other(_name, _value = "Other", _form = "Industry_Partner_Database")
 {
@@ -317,11 +313,19 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
         {
           id_(bindedSpanId).style.display = "none";
           id_(bindedTextboxId).style.display = "block";
-          animate(bindedTextboxId);
+
+          id_(bindedLabelId).style.paddingTop = "0.5%";
+          id_(bindedLabelId).style.paddingBottom = "0.5%";
+
+           animate(bindedTextboxId);
+
           id_(bindedTextboxId).focus();
         }
         else
         {
+          id_(bindedLabelId).style.paddingTop = "1%";
+          id_(bindedLabelId).style.paddingBottom = "1%";
+
           id_(bindedSpanId).style.display = "block";
           id_(bindedTextboxId).style.display = "none";
         } 
@@ -338,11 +342,19 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
         {
           id_(bindedSpanId).style.display = "none";
           id_(bindedTextboxId).style.display = "block";
+
+          id_(bindedLabelId).style.paddingTop = "0.5%";
+          id_(bindedLabelId).style.paddingBottom = "0.5%";
+
           animate(bindedTextboxId);
+
           id_(bindedTextboxId).focus();
         }
         else
         {
+          id_(bindedLabelId).style.paddingTop = "1%";
+          id_(bindedLabelId).style.paddingBottom = "1%";
+
           id_(bindedSpanId).style.display = "block";
           id_(bindedTextboxId).style.display = "none";
         }
@@ -356,6 +368,10 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
         if (id_(bindedTextboxId).value == "")
         {
           id_("other_" + _name + '_' + _type).checked = false;
+
+          id_(bindedLabelId).style.paddingTop = "1%";
+          id_(bindedLabelId).style.paddingBottom = "1%";
+
           id_(bindedSpanId).style.display = "block";
           id_(bindedTextboxId).style.display = "none";
         }
