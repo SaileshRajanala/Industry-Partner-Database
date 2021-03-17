@@ -18,10 +18,11 @@ function message(msg, icon = '<i class="fas fa-comment"></i>')
   var messageDiv = id_('message');
   messageDiv.style.backgroundImage = 'none';
 
-  // messageDiv.classList.add('msgPopAnimation');
-  messageDiv.innerHTML = icon + '&nbsp; ' + msg + '';
-  
-  // messageDiv.style.color = 'black';
+  if (icon != "")
+    messageDiv.innerHTML = icon + '&nbsp; ' + msg;
+  else
+    messageDiv.innerHTML = msg;
+
   var d = new Date();
 
   if (d.getHours() >= 6 && d.getHours() < 18)
@@ -35,19 +36,6 @@ function message(msg, icon = '<i class="fas fa-comment"></i>')
     messageDiv.style.color = 'black';
   }
 }
-
-// function animate_Message(_animationClass='msgPopAnimation')
-// {
-// 	id_('message').classList.add(_animationClass);
-
-// 	// Code below is necessary for animation on request.
-//   	id_('message').addEventListener("animationend", 
-//     function() 
-//     {
-//         id_('message').classList.remove(_animationClass);            
-//     }
-//     );
-// }
 
 // DevTEST START ---------------------------------------
 
@@ -110,7 +98,6 @@ function id_error_message(_id, msg)
   var messageDiv = id_(_id);
   id_message(_id, msg, '<i class="fas fa-exclamation-triangle"></i>');
   messageDiv.style.color = 'white';
-  // messageDiv.style.backgroundImage = 'linear-gradient(147deg, red, darkred)';
 
   if (d.getHours() >= 6 && d.getHours() < 18)
   {
@@ -120,8 +107,6 @@ function id_error_message(_id, msg)
   {
   messageDiv.style.backgroundColor = 'darkred';
   }
-
-  // animate_Message('errorMsgAnimation');
 }
 
 function id_success_message(_id, msg) 
@@ -129,7 +114,6 @@ function id_success_message(_id, msg)
   var messageDiv = id_(_id);
   id_message(_id, msg, '<i class="far fa-check-circle"></i>');
   messageDiv.style.color = 'white';
-  // messageDiv.style.backgroundImage = 'linear-gradient(147deg, lime, green)';
 
   if (d.getHours() >= 6 && d.getHours() < 18)
   {
@@ -141,8 +125,24 @@ function id_success_message(_id, msg)
   messageDiv.style.backgroundColor = 'green';
   messageDiv.style.color = 'white';
   }
+}
 
-  // animate_Message('successMsgAnimation');
+function checkInput(_id, _regex)
+{
+  if (!_regex.test( id_(_id).value ))
+  {
+    id_(_id).classList.add('wrongInput');
+
+    if (id_(_id).classList.contains('correctInput'))
+      id_(_id).classList.remove('correctInput');
+  }
+  else
+  {
+    if (id_(_id).classList.contains('wrongInput'))
+      id_(_id).classList.remove('wrongInput');
+
+    id_(_id).classList.add('correctInput');
+  }
 }
 
 function validate(_id, _regex, _msg, _errorMsg, _successMsg, _inOutAnimation = true) 
@@ -193,11 +193,8 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg, _inOutAnimation = t
         id_message(guideID, _msg);
       else if (!_regex.test( id_(_id).value ))
       {
-        //error_message(_errorMsg);
         animate(guideID,'errorMsgAnimation');
-        id_error_message(guideID, _errorMsg);
-        
-        // animateAll('guide','errorMsgAnimation');
+        id_error_message(guideID, _errorMsg);        
       }
       else
       {
@@ -219,21 +216,7 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg, _inOutAnimation = t
       id_(_id).parentElement.removeChild(id_(_id).parentElement.lastElementChild);
 
       // INPUT DETECTION & CONFIRMATION BELOW
-      if (!_regex.test( id_(_id).value ))
-      {
-        id_(_id).classList.add('wrongInput');
-
-        if (id_(_id).classList.contains('correctInput'))
-          id_(_id).classList.remove('correctInput');
-      }
-      else
-      {
-        if (id_(_id).classList.contains('wrongInput'))
-          id_(_id).classList.remove('wrongInput');
-
-        id_(_id).classList.add('correctInput');
-      }
-      
+      checkInput(_id, _regex);
     });
 }
 
@@ -380,15 +363,15 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
 }
 
 // SOURCE : formTestScript.js *********************************
-function switchDiv(targetDiv, currentDiv, msg)
+function switchDiv(targetDiv, currentDiv)
 {
     id_(currentDiv).style.display = 'none';
 
     id_(targetDiv).style.display = 'block';
     window.scrollTo(0, 0);
 
-    message(msg);
-    animate();
+    message('Industry Partner Form', "");
+    // animate();
     // Default Parameters ('message','msgPopAnimation')
     
     //id_(targetDiv).classList.add('formDivLaunchAnimation');

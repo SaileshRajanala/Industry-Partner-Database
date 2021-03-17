@@ -14,15 +14,15 @@ function class_(_class)
 }
 
 // OTHER RADIO Button  ******************************
-function linkRadioWithText(_radio, _text)
-{
-  id_(_text).addEventListener("keyup", 
-  function () 
-  {
-    id_(_radio).click();
-    id_(_radio).value = id_(_text).value;
-  });
-}
+// function linkRadioWithText(_radio, _text)
+// {
+//   id_(_text).addEventListener("keyup", 
+//   function () 
+//   {
+//     id_(_radio).click();
+//     id_(_radio).value = id_(_text).value;
+//   });
+// }
 
 // linkRadioWithText('otherUndergradDegreeRadio','otherUndergradDegreeText');
 // linkRadioWithText('otherEngDisciplineRadio','otherEngDisciplineText');
