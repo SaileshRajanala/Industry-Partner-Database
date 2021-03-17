@@ -37,19 +37,17 @@ function message(msg, icon = '<i class="fas fa-comment"></i>')
   }
 }
 
-// DevTEST START ---------------------------------------
-
 function animate(_id='message', _animationClass='msgPopAnimation')
 {
   id_(_id).classList.add(_animationClass);
 
   // Code below is necessary for animation on request.
-    id_(_id).addEventListener("animationend", 
-    function() 
-    {
-        id_(_id).classList.remove(_animationClass);            
-    }
-    );
+  id_(_id).addEventListener("animationend", 
+  function() 
+  {
+      id_(_id).classList.remove(_animationClass);            
+  }
+  );
 }
 
 // function animateAll(_class='message', _animationClass='msgPopAnimation')
@@ -163,11 +161,7 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg, _inOutAnimation = t
 
       var node = document.createElement("p");
       node.classList.add('guide');
-      
       node.setAttribute("id", guideID);
-
-      // var textnode = document.createTextNode(_msg);
-      // node.appendChild(textnode);
 
       id_(_id).parentElement.appendChild(node);
 
@@ -220,12 +214,10 @@ function validate(_id, _regex, _msg, _errorMsg, _successMsg, _inOutAnimation = t
     });
 }
 
-
 function capitalizeStringAt(str, i)
 {
     return str.substring(0, i) + str[i].toUpperCase() + str.substring(i + 1);
 }
-
 
 function sanitize(_id)
 {
@@ -254,7 +246,10 @@ function sanitize(_id)
   });
 }
 
-/*
+function other(_name, _value = "Other", _form = "Industry_Partner_Database")
+{
+  
+  /* CREATES THIS HTML ELEMENT
 
   <input type="radio" name="college_education" id="other_college_education_radio" value="Other">
 
@@ -266,100 +261,98 @@ function sanitize(_id)
 
   </label>
 
-*/
+  */
 
-function other(_name, _value = "Other", _form = "Industry_Partner_Database")
-{
   var _type = document.forms[_form].elements[_name][0].type;
-    
-    id_("other_" + _name).innerHTML = 
-    '<input type="' + _type + '" name="' + _name + '" id="other_' + _name 
-    + '_' + _type + '" value="' + _value + '"> ';
 
-    id_("other_" + _name).innerHTML += 
-    '<label class="otherLabel" id="other_' + _name + '_label" for="other_' + _name + 
-    '_' + _type + '"> <span id="other_' + _name + '_span" class="otherSpan"> ' + _value + 
-    ' </span> <input class="otherTextField" id="other_' + _name + 
-    '_text" type="text" name="other_' + _name + '" placeholder="' + _value + '"> </label>';
+  id_("other_" + _name).innerHTML = 
+  '<input type="' + _type + '" name="' + _name + '" id="other_' + _name 
+  + '_' + _type + '" value="' + _value + '"> ';
 
-    var inputs = document.forms["Industry_Partner_Database"].elements[_name];
-    var bindedSpanId = "other_" + _name + "_span";
-    var bindedTextboxId = "other_" + _name + "_text";
-    var bindedLabelId = "other_" + _name + "_label";
+  id_("other_" + _name).innerHTML += 
+  '<label class="otherLabel" id="other_' + _name + '_label" for="other_' + _name + 
+  '_' + _type + '"> <span id="other_' + _name + '_span" class="otherSpan"> ' + _value + 
+  ' </span> <input class="otherTextField" id="other_' + _name + 
+  '_text" type="text" name="other_' + _name + '" placeholder="' + _value + '"> </label>';
 
-    if (_type == 'checkbox')
-    { 
-      id_("other_" + _name + "_checkbox").addEventListener('change', 
-      function () 
-      {
-        if (id_("other_" + _name + "_checkbox").checked)
-        {
-          id_(bindedSpanId).style.display = "none";
-          id_(bindedTextboxId).style.display = "block";
+  var inputs = document.forms["Industry_Partner_Database"].elements[_name];
+  var bindedSpanId = "other_" + _name + "_span";
+  var bindedTextboxId = "other_" + _name + "_text";
+  var bindedLabelId = "other_" + _name + "_label";
 
-          id_(bindedLabelId).style.paddingTop = "0.5%";
-          id_(bindedLabelId).style.paddingBottom = "0.5%";
-
-           animate(bindedTextboxId);
-
-          id_(bindedTextboxId).focus();
-        }
-        else
-        {
-          id_(bindedLabelId).style.paddingTop = "1%";
-          id_(bindedLabelId).style.paddingBottom = "1%";
-
-          id_(bindedSpanId).style.display = "block";
-          id_(bindedTextboxId).style.display = "none";
-        } 
-      }
-      );
-    }
-    else if (_type == 'radio')
-    for (var i = inputs.length - 1; i >= 0; i--) 
+  if (_type == 'checkbox')
+  { 
+    id_("other_" + _name + "_checkbox").addEventListener('change', 
+    function () 
     {
-      inputs[i].addEventListener('change', 
-      function () 
+      if (id_("other_" + _name + "_checkbox").checked)
       {
-        if (inputs.value == _value) 
-        {
-          id_(bindedSpanId).style.display = "none";
-          id_(bindedTextboxId).style.display = "block";
+        id_(bindedSpanId).style.display = "none";
+        id_(bindedTextboxId).style.display = "block";
 
-          id_(bindedLabelId).style.paddingTop = "0.5%";
-          id_(bindedLabelId).style.paddingBottom = "0.5%";
+        id_(bindedLabelId).style.paddingTop = "0.5%";
+        id_(bindedLabelId).style.paddingBottom = "0.5%";
 
-          animate(bindedTextboxId);
+         animate(bindedTextboxId);
 
-          id_(bindedTextboxId).focus();
-        }
-        else
-        {
-          id_(bindedLabelId).style.paddingTop = "1%";
-          id_(bindedLabelId).style.paddingBottom = "1%";
-
-          id_(bindedSpanId).style.display = "block";
-          id_(bindedTextboxId).style.display = "none";
-        }
+        id_(bindedTextboxId).focus();
       }
-      );
+      else
+      {
+        id_(bindedLabelId).style.paddingTop = "1%";
+        id_(bindedLabelId).style.paddingBottom = "1%";
+
+        id_(bindedSpanId).style.display = "block";
+        id_(bindedTextboxId).style.display = "none";
+      } 
     }
-
-    id_(bindedTextboxId).addEventListener('focusout', 
-      function () 
+    );
+  }
+  else if (_type == 'radio')
+  for (var i = inputs.length - 1; i >= 0; i--) 
+  {
+    inputs[i].addEventListener('change', 
+    function () 
+    {
+      if (inputs.value == _value) 
       {
-        if (id_(bindedTextboxId).value == "")
-        {
-          id_("other_" + _name + '_' + _type).checked = false;
+        id_(bindedSpanId).style.display = "none";
+        id_(bindedTextboxId).style.display = "block";
 
-          id_(bindedLabelId).style.paddingTop = "1%";
-          id_(bindedLabelId).style.paddingBottom = "1%";
+        id_(bindedLabelId).style.paddingTop = "0.5%";
+        id_(bindedLabelId).style.paddingBottom = "0.5%";
 
-          id_(bindedSpanId).style.display = "block";
-          id_(bindedTextboxId).style.display = "none";
-        }
+        animate(bindedTextboxId);
+
+        id_(bindedTextboxId).focus();
       }
-      );
+      else
+      {
+        id_(bindedLabelId).style.paddingTop = "1%";
+        id_(bindedLabelId).style.paddingBottom = "1%";
+
+        id_(bindedSpanId).style.display = "block";
+        id_(bindedTextboxId).style.display = "none";
+      }
+    }
+    );
+  }
+
+  id_(bindedTextboxId).addEventListener('focusout', 
+    function () 
+    {
+      if (id_(bindedTextboxId).value == "")
+      {
+        id_("other_" + _name + '_' + _type).checked = false;
+
+        id_(bindedLabelId).style.paddingTop = "1%";
+        id_(bindedLabelId).style.paddingBottom = "1%";
+
+        id_(bindedSpanId).style.display = "block";
+        id_(bindedTextboxId).style.display = "none";
+      }
+    }
+    );
 }
 
 // SOURCE : formTestScript.js *********************************
@@ -371,144 +364,11 @@ function switchDiv(targetDiv, currentDiv)
     window.scrollTo(0, 0);
 
     message('Industry Partner Form', "");
-    // animate();
-    // Default Parameters ('message','msgPopAnimation')
-    
-    //id_(targetDiv).classList.add('formDivLaunchAnimation');
 }
 
-// DevTEST END ---------------------------------------
 
-// function focus_message(_id, msg)
-// {
-//   if (id_(_id).style.display != 'none')
-//   id_(_id).addEventListener("focusin", 
-//   function () 
-//   { 
-//   	message(msg);
-//   	animate_Message(); 
-//   });
-// }
+// FUNCTIONS CALLS BELOW
 
-// function success_message(msg) 
-// {
-//   var messageDiv = id_('message');
-//   message(msg, '<i class="far fa-check-circle"></i>');
-//   messageDiv.style.color = 'white';
-//   // messageDiv.style.backgroundImage = 'linear-gradient(147deg, lime, green)';
-
-//   if (d.getHours() >= 6 && d.getHours() < 18)
-//   {
-// 	messageDiv.style.backgroundColor = 'lime';
-// 	messageDiv.style.color = 'black';
-//   }
-//   else 
-//   {
-// 	messageDiv.style.backgroundColor = 'green';
-// 	messageDiv.style.color = 'white';
-//   }
-
-//   animate_Message('successMsgAnimation');
-// }
-
-// function error_message(msg) 
-// {
-//   var messageDiv = id_('message');
-//   message(msg, '<i class="fas fa-exclamation-triangle"></i>');
-//   messageDiv.style.color = 'white';
-//   // messageDiv.style.backgroundImage = 'linear-gradient(147deg, red, darkred)';
-
-//   if (d.getHours() >= 6 && d.getHours() < 18)
-//   {
-// 	messageDiv.style.backgroundColor = 'red';
-//   }
-//   else 
-//   {
-// 	messageDiv.style.backgroundColor = 'darkred';
-//   }
-
-//   animate_Message('errorMsgAnimation');
-// }
-
-// function no_message()
-// {
-//   var messageDiv = id_('message');
-// 	id_('message').innerHTML = "";
-
-// 	var d = new Date();
-
-// 	if (d.getHours() >= 6 && d.getHours() < 18)
-// 		messageDiv.style.backgroundColor = 'black';
-// 	else 
-// 		messageDiv.style.backgroundColor = 'white';
-// }
-
-// function default_message()
-// {
-//   var messageDiv = id_('message');
-//   messageDiv.innerHTML = 'Industry Partner Form';
-
-//   if (d.getHours() >= 6 && d.getHours() < 18)
-//     messageDiv.style.backgroundColor = 'black';
-//   else 
-//     messageDiv.style.backgroundColor = 'white';
-// }
-
-// for (var i = tag_('input').length - 1; i >= 0; i--) 
-//   tag_('input')[i].addEventListener("focusout", default_message);
-
-// focus_message('first_name', 'Please enter your First Name');
-// focus_message('last_name', 'Please enter your Last Name');
-// focus_message('email', 'Please enter your Email Address');
-// focus_message('phone_number', 'Please enter your Phone Number');
-// focus_message('employer', "Please enter your Employer's Name");
-// focus_message('job_title', 'What is the title of your job?');
-// focus_message('state', 'In which state, do you work?');
-// focus_message('city', 'In which city, do you work?');
-// focus_message('otherEngDisciplineText', 'Please list the discipline of your Engineering Degree');
-
-// // Important Function below.
-// for (var i = tag_('input').length - 1; i >= 0; i--) 
-//   tag_('input')[i].addEventListener("focusout", default_message);
-
-// id_('prefix').addEventListener("focusin", 
-//   function () {message('Please select your Prefix');});
-
-// id_('suffix').addEventListener("focusin", 
-//   function () {message('Please select your Suffix');});
-
-// // Important Function below.
-// for (var i = tag_('select').length - 1; i >= 0; i--) 
-//   tag_('input')[i].addEventListener("change", 
-//     function () {messageDiv.innerHTML = 'Industry Partner Form';});
-
-// function alphabetsOnly(_id, _msg, _errorMsg, _successMsg) 
-// {
-// 	id_(_id).addEventListener("keyup", function () 
-// 	{	
-// 		var regex = /^[a-zA-Z]+$/;
-
-// 		if (id_(_id).value == "")
-// 			message(_msg);
-// 		else if (!regex.test( id_(_id).value ))
-//     {
-// 			error_message(_errorMsg);
-//       animate('first_name','errorMsgAnimation');
-//     }
-// 		else
-// 			success_message(_successMsg);
-// 	}
-// 	);
-// }
- 
-// alphabetsOnly('first_name', 'Please enter your First Name', 
-// 	'First Name should only contain Alphabets', 'First Name entered is Valid'); 
-
-// alphabetsOnly('last_name', 'Please enter your Last Name', 
-// 	'Last Name should only contain Alphabets', 'Last Name entered is Valid');
-
-// alphabetsOnly('employer', 'Please enter your Last Name', 
-// 	"Employer's Name should only contain Alphabets");
 
 validate('first_name', /^[a-zA-Z]+$/, 'Please enter your First Name', 
   'Enter only alphabets', 'First Name is Valid');
@@ -535,12 +395,12 @@ validate('city', /^[a-zA-Z ]*$/,
   "In which city did you work?", 
   "Enter a valid city", "City is valid");
 
+
 sanitize('first_name');
 sanitize('last_name');
 sanitize('employer');
 sanitize('job_title');
 sanitize('city');
-
 
 
 other("college_education");
@@ -551,115 +411,8 @@ other("mastersEngDiscipline");
 other("Role_Model");
 
 
-// validate("other_college_education_text", /^[a-zA-Z]+$/, 'Please provide other', 
-//   'Enter only alphabets', 'Details are is Valid', false);
 
 
-
-
-
-
-
-
-///////////////////// QUESTIONS /////////////////////
-// function name_(_name)
-// {
-//   return document.getElements-ByName(_name);
-// }
-
-// function getRadioValue(_radioName)
-// {
-//   for (var i = name_(_radioName).length - 1; i >= 0; i--) 
-//     if (name_(_radioName)[i].checked)
-//       return name_(_radioName)[i].value;
-// }
-
-// function reveal_if_checked_radio(_radioID, _id)
-// {
-//   if (id_(_radioID).checked)
-//     id_(_id).style.display = 'block';
-
-//   id_(_radioID).addEventListener("change", myScript);
-// }
-
-// function reveal_if_checked_checkbox(_checkboxID, _id)
-// {
-
-// }
-
-// id_('3').addEventListener("input", function() 
-// {
-//   if (id_('3').checked) 
-//     id_('ass').style.display = "block";
-//   else 
-//     id_('ass').style.display = "none";
-// });
-
-// function otherText(_name)
-// {
-//     var radios = document.forms["Industry_Partner_Database"].elements["college_education"];
-//     var bindedSpanId = "other_" + "college_education" + "_span";
-//     var bindedTextboxId = "other_" + "college_education" + "_text";
-//     var bindedLabelId = "other_" + "college_education" + "_label";
-
-//     for (var i = radios.length - 1; i >= 0; i--) 
-//     {
-//       radios[i].addEventListener('change', 
-//       function () 
-//       {
-//         if (radios.value == "Other") 
-//         {
-//           id_(bindedSpanId).style.display = "none";
-//           id_(bindedTextboxId).style.display = "block";
-
-//           // id_(bindedTextboxId).style.padding = "0%";
-//           id_(bindedTextboxId).focus();
-
-
-//           id_(bindedTextboxId).addEventListener('keyup', 
-//           function () 
-//           {
-//             id_(bindedLabelId).width = ((this.value.length + 1));
-//           }
-//           );
-
-//           //id_(bindedLabelId).style.borderRadius = "1.25em";
-
-//           //EXPERIMENT BELOW
-//           // id_(bindedTextboxId).addEventListener('focusin', 
-//           // function () 
-//           // {
-//           //   id_(bindedLabelId).style.borderRadius = "1.25em";
-//           // }
-//           // );
-
-//           // id_(bindedTextboxId).addEventListener('focusout', 
-//           // function () 
-//           // {
-//           //   id_(bindedLabelId).style.borderRadius = "2em";
-//           // }
-//           // );
-
-//           //id_(bindedLabelId).style.width = "60%";
-//           //id_(bindedLabelId).style.paddingRight = "1%";
-//           //id_(bindedLabelId).style.backgroundColor = "transparent";
-//           //id_(bindedTextboxId).style.border = "1px solid black";
-//         }
-//         else
-//         {
-//           id_(bindedSpanId).style.display = "block";
-//           id_(bindedTextboxId).style.display = "none";
-//           // id_(bindedTextboxId).style.padding = "1%";
-
-//           //id_(bindedLabelId).style.borderRadius = "2em";
-//           //id_(bindedLabelId).style.paddingRight = "2.5%";
-//           //id_(bindedLabelId).style.width = "auto";
-//           //id_(bindedTextboxId).style.border = "1px solid white";
-//         }
-//       }
-//       );
-//     }    
-// }
 
 
 
