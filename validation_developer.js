@@ -355,7 +355,7 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
     );
 }
 
-// SOURCE : formTestScript.js *********************************
+// SOURCE : formTestScript.js 
 function switchDiv(targetDiv, currentDiv)
 {
     id_(currentDiv).style.display = 'none';
