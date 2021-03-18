@@ -403,12 +403,46 @@ sanitize('job_title');
 sanitize('city');
 
 
-other("college_education");
 other("UndergradDegree", 'Other Degree');
 other("EngDiscipline", 'Other Discipline');
 other("mastersDegree");
 other("mastersEngDiscipline");
 other("Role_Model");
+
+
+function displayOnSelect(_targetID, _selectID)
+{
+  var inputs = document.forms["Industry_Partner_Database"].elements[id_(_selectID).name];
+
+  for (var i = inputs.length - 1; i >= 0; i--) 
+  {
+    inputs[i].addEventListener('change', 
+    function () 
+    {
+      if (inputs.value == id_(_selectID).value)
+      {
+        id_(_targetID).style.display = "block";
+        animate(_targetID);
+      }
+      else
+      {
+        id_(_targetID).style.display = "none";
+      }
+    }
+    );
+  }
+}
+
+displayOnSelect('associates_degree_div', 'college_education3');
+displayOnSelect('technical_degree_div', 'college_education4');
+displayOnSelect('technical_degree_div', 'college_education4');
+
+
+
+
+
+
+
 
 
 
