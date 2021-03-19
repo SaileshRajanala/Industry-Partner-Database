@@ -412,6 +412,8 @@ other("Role_Model");
 
 function displayOnSelect(_targetID, _selectID)
 {
+  id_(_targetID).style.display = "none";
+  
   var inputs = document.forms["Industry_Partner_Database"].elements[id_(_selectID).name];
 
   for (var i = inputs.length - 1; i >= 0; i--) 
