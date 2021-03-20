@@ -356,12 +356,22 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
 }
 
 // SOURCE : formTestScript.js 
-function isInputValid(_id, _regex)
+function isInputValid(_id, _regex = "")
 {
-  if (!_regex.test( id_(_id).value ))
-    return false;
+  if (_regex != "")
+  {
+    if (!_regex.test( id_(_id).value ))
+      return false;
+    else
+      return true; 
+  }
   else
-    return true; 
+  {
+    if (id_(_id).value == "")
+      return false;
+    else
+      return true; 
+  }
 }
 
 function isSelected(_name, _otherExists = false, _form = "Industry_Partner_Database")
@@ -589,6 +599,7 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isSelected_childCheckBoxGroup('Involvement6', 'Recruitment_Level')  &&
     isSelected_childCheckBoxGroup('Involvement8', 'Mentor_Age')         &&
     isSelected('Role_Model', true)                                      &&
+    isInputValid('Involvement_Notes')                                   &&
 
     true)) 
     {
