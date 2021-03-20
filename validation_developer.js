@@ -356,8 +356,52 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
 }
 
 // SOURCE : formTestScript.js 
+function isInputValid(_id, _regex)
+{
+  if (!_regex.test( id_(_id).value ))
+    return false;
+  else
+    return true; 
+}
+
+function emptyTextFields()
+{
+  
+}
+
 function switchDiv(targetDiv, currentDiv)
 {
+  if (currentDiv == "Personal_Professional_Information")
+  {
+    if (!(
+
+    isInputValid('first_name', /^[a-zA-Z]+$/)  &&
+    isInputValid('last_name', /^[a-zA-Z]+$/)  &&
+    isInputValid('email', /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)  &&
+    isInputValid('phone_number', /^\d{10}$/)  &&
+    isInputValid('employer', /^[a-zA-Z][a-zA-Z ]*$/)  &&
+    isInputValid('job_title', /^[a-zA-Z ]*$/)  &&
+    isInputValid('city', /^[a-zA-Z ]*$/)  && 
+    
+    true)) 
+    {
+
+      //class_('prevNextDiv')[1].innerHTML += '<div class="formSection">Please wht the fuck</div>';
+
+      id_error_message('message','Some entries are invalid');
+      animate('message','errorMsgAnimation');
+      return;
+    }
+  }
+  else if (currentDiv == "Education_Experience")
+  {
+
+  } 
+  else if (currentDiv == "Involvement_Opportunities")
+  {
+
+  }
+
     id_(currentDiv).style.display = 'none';
 
     id_(targetDiv).style.display = 'block';
@@ -531,7 +575,6 @@ displayOnSelectItems('PHD_year_div', ['PHD_wsu','PHD_other']);
 
 displayOnSelect('Recruitment_Retention_Event_Div', 'Involvement6');
 displayOnSelect('Mentor_Div', 'Involvement8');
-
 
 
 
