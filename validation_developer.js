@@ -463,7 +463,7 @@ sanitize('city');
 other("UndergradDegree", 'Other Degree');
 other("BS_Engineering_Discipline", 'Other Discipline');
 other("mastersDegree");
-other("mastersEngDiscipline");
+other("MS_Engineering_Discipline");
 other("Role_Model");
 
 
@@ -477,13 +477,17 @@ displayOnSelectItems('BS_field', ['wichitaUndergradYes','wichitaUndergradNo']);
 
 displayOnSelect('BS_Engineering_Discipline_Div', 'BS_Engineering');
 
-displayOnSelectItems('degree_year_div', 
+displayOnSelectItems('BS_year_div', 
   ['college_education3','college_education4','college_education5']);
 
 displayOnSelect('have_MS_degree', 'college_education5');
 
+displayOnSelect('MS_other_school_div', 'MS_other');
+displayOnSelectItems('MS_field', ['MS_wsu','MS_other']);
 
+displayOnSelect('MS_Engineering_Discipline_Div', 'MS_Engineering');
 
+displayOnSelectItems('MS_year_div', ['MS_wsu','MS_other']);
 
 
 
