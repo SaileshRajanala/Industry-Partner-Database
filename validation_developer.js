@@ -377,10 +377,78 @@ function isSelected(_name, _form = "Industry_Partner_Database")
   }
   else if (_type == "checkbox")
   {
-
+    //8****************************################sadasdsdaasdf#@!@#$
   }
 
 }
+
+function isFilled_childTextBox(_checkedID, _target, _regex = "")
+{
+  if (id_(_checkedID).checked)
+  {
+    if (_regex != "")
+    {
+      if (!_regex.test( id_(_target).value ))
+        return false;
+      else
+        return true; 
+    }
+    else
+    {
+      if (id_(_target).value == "")
+        return false;
+      else
+        return true; 
+    }
+
+  }
+  else
+    return true; // Dont worry case
+}
+
+function isSelected_childRadioGroup(_checkedID, _target, _otherExists = false, _regex = "")
+{
+  if (id_(_checkedID).checked)
+  {
+    if (!_otherExists)
+    {
+      if (!isSelected(_target))
+        return false;
+      else
+        return true; 
+    }
+    else
+    {
+      if (id_("other_" + _target + "_radio").checked)
+      {
+        if (_regex != "")
+        {
+          if (!_regex.test( id_("other_" + _target + "_text").value ))
+            return false;
+          else
+            return true; 
+        }
+        else
+        {
+          if (id_("other_" + _target + "_text").value == "")
+            return false;
+          else
+            return true; 
+        }
+      }
+      else
+      {
+        if (!isSelected(_target))
+          return false;
+        else
+          return true; 
+      }
+    }
+  }
+  else
+    return true; // Dont worry case
+}
+
 
 function switchDiv(targetDiv, currentDiv)
 {
@@ -408,10 +476,20 @@ function switchDiv(targetDiv, currentDiv)
   {
     if (!(
     // validity conditions below
-    isSelected('college_education')     &&
+    isSelected('college_education')                                              &&
+    isFilled_childTextBox('college_education3', 'associates_degree')             && 
+    isFilled_childTextBox('college_education4', 'technical_degree')              &&
+    isFilled_childTextBox('college_education3', 'college_degree_year')           && 
+    isFilled_childTextBox('college_education4', 'college_degree_year')           && 
+    isFilled_childTextBox('college_education5', 'college_degree_year')           &&
+    isSelected_childRadioGroup('college_education5', 'wichitaUndergrad')         && 
+    isSelected_childRadioGroup('BS_wsu', 'UndergradDegree', true)                &&
+    isSelected_childRadioGroup('BS_other', 'UndergradDegree', true)              &&
+    isFilled_childTextBox('BS_other', 'BS_other_school')                         &&
+
     true)) 
     {
-      id_error_message('message','Form is incomplete');
+      id_error_message('message','Form is incorrect or incomplete');
       animate('message','errorMsgAnimation');
       return;
     }
