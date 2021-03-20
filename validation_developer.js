@@ -506,6 +506,21 @@ function isSelected_childRadioGroup(_checkedID, _target, _otherExists = false, _
     return true; // Dont worry case
 }
 
+function isSelected_childCheckBoxGroup(_checkedID, _target, _otherExists = false, _form = "Industry_Partner_Database")
+{ 
+  if (id_(_checkedID).checked) 
+  {
+    if (isSelected(_target,_otherExists,_form))
+      return true;
+    else
+      return false;
+  } 
+  else 
+  {
+    return true;
+  }
+}
+
 
 function switchDiv(targetDiv, currentDiv)
 {
@@ -533,20 +548,33 @@ function switchDiv(targetDiv, currentDiv)
   {
     if (!(
     // validity conditions below
-    isSelected('college_education')                                              &&
-    isFilled_childTextBox('college_education3', 'associates_degree')             && 
-    isFilled_childTextBox('college_education4', 'technical_degree')              &&
-    isFilled_childTextBox('college_education3', 'college_degree_year')           && 
-    isFilled_childTextBox('college_education4', 'college_degree_year')           && 
-    isFilled_childTextBox('college_education5', 'college_degree_year')           &&
-    isSelected_childRadioGroup('college_education5', 'wichitaUndergrad')         && 
-    isSelected_childRadioGroup('BS_wsu', 'UndergradDegree', true)                &&
-    isSelected_childRadioGroup('BS_other', 'UndergradDegree', true)              &&
-    isFilled_childTextBox('BS_other', 'BS_other_school')                         &&
+    isSelected('college_education')                                                     &&
+    isFilled_childTextBox('college_education3', 'associates_degree')                    && 
+    isFilled_childTextBox('college_education4', 'technical_degree')                     &&
+    isFilled_childTextBox('college_education3', 'college_degree_year')                  && 
+    isFilled_childTextBox('college_education4', 'college_degree_year')                  && 
+    isFilled_childTextBox('college_education5', 'college_degree_year')                  &&
+    isSelected_childRadioGroup('college_education5', 'wichitaUndergrad')                && 
+    isSelected_childRadioGroup('BS_wsu', 'UndergradDegree', true)                       &&
+    isSelected_childRadioGroup('BS_other', 'UndergradDegree', true)                     &&
+    isFilled_childTextBox('BS_other', 'BS_other_school')                                &&
+    isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Engineering_Discipline', true)  &&
+    isSelected_childRadioGroup('college_education5', 'haveMastersDegree')               &&
+    isFilled_childTextBox('MS_wsu', 'MS_year')                                          &&
+    isFilled_childTextBox('MS_other', 'MS_year')                                        &&
+    isFilled_childTextBox('MS_other', 'MS_other_school')                                &&
+    isSelected_childRadioGroup('MS_wsu', 'mastersDegree', true)                         &&
+    isSelected_childRadioGroup('MS_other', 'mastersDegree', true)                       &&
+    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Engineering_Discipline', true)  &&
+    isSelected_childRadioGroup('MS_wsu', 'PHD_degree')                                  &&
+    isSelected_childRadioGroup('MS_other', 'PHD_degree')                                &&
+    isFilled_childTextBox('PHD_wsu', 'PHD_year')                                        &&
+    isFilled_childTextBox('PHD_other', 'PHD_year')                                      &&
+    isFilled_childTextBox('PHD_other', 'PHD_other_school')                              &&
 
     true)) 
     {
-      id_error_message('message','Form is incorrect or incomplete');
+      id_error_message('message','Form is incorrectly or incompletely filled');
       animate('message','errorMsgAnimation');
       return;
     }
