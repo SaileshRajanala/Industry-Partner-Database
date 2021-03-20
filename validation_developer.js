@@ -364,20 +364,77 @@ function isInputValid(_id, _regex)
     return true; 
 }
 
-function isSelected(_name, _form = "Industry_Partner_Database")
+function isSelected(_name, _otherExists = false, _form = "Industry_Partner_Database")
 { 
   var _type = document.forms[_form].elements[_name][0].type;
   
   if (_type == "radio")
   {
-    if (document.forms[_form].elements[_name].value == "")
-      return false;
-    else
-      return true;
+    // if (_otherExists) 
+    // {
+    //   if (id_("other_" + _name + "_radio").checked)
+    //   {
+    //     if (id_("other_" + _name + "_text").value == "")
+    //       return false;
+    //     else
+    //       return true;
+    //   }
+    //   else
+    //   {
+        if (document.forms[_form].elements[_name].value == "")
+          return false;
+        else
+          return true;
+    //   }
+    // }
+    // else
+    // {
+    //  if (document.forms[_form].elements[_name].value == "")
+    //       return false;
+    //     else
+    //       return true;
+    // }       
   }
   else if (_type == "checkbox")
   {
-    //8****************************################sadasdsdaasdf#@!@#$
+    if (_otherExists) 
+    {
+      if (id_("other_" + _name + "_checkbox").checked)
+      {
+        if (id_("other_" + _name + "_text").value == "")
+          return false;
+        else
+          return true;
+      }
+      else
+      {
+        var checkCount = 0;
+        var checkBoxes = document.forms[_form].elements[_name];
+
+        for (var i = checkBoxes.length - 1; i >= 0; i--) 
+          if (checkBoxes[i].checked)
+            checkCount++;
+        
+        if (checkCount > 0) 
+          return true;
+        else 
+          return false;
+      }
+    } 
+    else 
+    {
+      var checkCount = 0;
+      var checkBoxes = document.forms[_form].elements[_name];
+
+      for (var i = checkBoxes.length - 1; i >= 0; i--) 
+        if (checkBoxes[i].checked)
+          checkCount++;
+        
+      if (checkCount > 0) 
+        return true;
+      else 
+        return false;
+    }
   }
 
 }
