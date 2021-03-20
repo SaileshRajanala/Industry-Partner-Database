@@ -364,9 +364,22 @@ function isInputValid(_id, _regex)
     return true; 
 }
 
-function emptyTextFields()
-{
+function isSelected(_name, _form = "Industry_Partner_Database")
+{ 
+  var _type = document.forms[_form].elements[_name][0].type;
   
+  if (_type == "radio")
+  {
+    if (document.forms[_form].elements[_name].value == "")
+      return false;
+    else
+      return true;
+  }
+  else if (_type == "checkbox")
+  {
+
+  }
+
 }
 
 function switchDiv(targetDiv, currentDiv)
@@ -374,20 +387,18 @@ function switchDiv(targetDiv, currentDiv)
   if (currentDiv == "Personal_Professional_Information")
   {
     if (!(
-
-    isInputValid('first_name', /^[a-zA-Z]+$/)  &&
-    isInputValid('last_name', /^[a-zA-Z]+$/)  &&
+    // validity conditions below
+    isInputValid('first_name', /^[a-zA-Z]+$/)           &&
+    isInputValid('last_name', /^[a-zA-Z]+$/)            &&
     isInputValid('email', /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)  &&
-    isInputValid('phone_number', /^\d{10}$/)  &&
-    isInputValid('employer', /^[a-zA-Z][a-zA-Z ]*$/)  &&
-    isInputValid('job_title', /^[a-zA-Z ]*$/)  &&
-    isInputValid('city', /^[a-zA-Z ]*$/)  && 
-    
+    isInputValid('phone_number', /^\d{10}$/)            &&
+    isInputValid('employer', /^[a-zA-Z][a-zA-Z ]*$/)    &&
+    isInputValid('job_title', /^[a-zA-Z ]*$/)           &&
+    isInputValid('city', /^[a-zA-Z ]*$/)                && 
+    id_('state').value != ""                            &&
+
     true)) 
     {
-
-      //class_('prevNextDiv')[1].innerHTML += '<div class="formSection">Please wht the fuck</div>';
-
       id_error_message('message','Some entries are invalid');
       animate('message','errorMsgAnimation');
       return;
@@ -395,7 +406,15 @@ function switchDiv(targetDiv, currentDiv)
   }
   else if (currentDiv == "Education_Experience")
   {
-
+    if (!(
+    // validity conditions below
+    isSelected('college_education')     &&
+    true)) 
+    {
+      id_error_message('message','Form is incomplete');
+      animate('message','errorMsgAnimation');
+      return;
+    }
   } 
   else if (currentDiv == "Involvement_Opportunities")
   {
