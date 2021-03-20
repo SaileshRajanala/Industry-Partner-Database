@@ -761,7 +761,8 @@ displayOnSelect('technical_degree_div', 'college_education4');
 displayOnSelect('BS_wsu_div', 'college_education5');
 displayOnSelect('BS_other_school_div', 'BS_other');
 
-displayOnSelectItems('BS_field', ['BS_wsu','BS_other']);
+// displayOnSelectItems('BS_field', ['BS_wsu','BS_other']);
+displayOnSelect('BS_field', 'college_education5');
 
 displayOnSelect('BS_Engineering_Discipline_Div', 'BS_Engineering');
 
