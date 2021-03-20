@@ -477,9 +477,17 @@ validate('city', /^[a-zA-Z ]*$/,
   "In which city did you work?", 
   "Enter a valid city", "City is valid");
 
-validate('BS_year', /^\d{4}$/, 
-  "In which city did you work?", 
-  "Enter a valid city", "City is valid");
+validate('college_degree_year', /^\d{4}$/, 
+  "What year did you earn your degree?", 
+  "Enter a valid year", "Year is valid");
+
+validate('MS_year', /^\d{4}$/, 
+  "What year did you earn your degree?", 
+  "Enter a valid year", "Year is valid");
+
+validate('PHD_year', /^\d{4}$/, 
+  "What year did you earn your degree?", 
+  "Enter a valid year", "Year is valid");
 
 
 sanitize('first_name');
@@ -506,7 +514,7 @@ displayOnSelectItems('BS_field', ['wichitaUndergradYes','wichitaUndergradNo']);
 
 displayOnSelect('BS_Engineering_Discipline_Div', 'BS_Engineering');
 
-displayOnSelectItems('BS_year_div', 
+displayOnSelectItems('college_degree_year_div', 
   ['college_education3','college_education4','college_education5']);
 
 displayOnSelect('have_MS_degree', 'college_education5');
