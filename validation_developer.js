@@ -477,17 +477,17 @@ validate('city', /^[a-zA-Z ]*$/,
   "In which city did you work?", 
   "Enter a valid city", "City is valid");
 
-validate('college_degree_year', /^\d{4}$/, 
-  "What year did you earn your degree?", 
-  "Enter a valid year", "Year is valid");
+// validate('college_degree_year', /^\d{4}$/, 
+//   "What year did you earn your degree?", 
+//   "Enter a valid year", "Year is valid");
 
-validate('MS_year', /^\d{4}$/, 
-  "What year did you earn your degree?", 
-  "Enter a valid year", "Year is valid");
+// validate('MS_year', /^\d{4}$/, 
+//   "What year did you earn your degree?", 
+//   "Enter a valid year", "Year is valid");
 
-validate('PHD_year', /^\d{4}$/, 
-  "What year did you earn your degree?", 
-  "Enter a valid year", "Year is valid");
+// validate('PHD_year', /^\d{4}$/, 
+//   "What year did you earn your degree?", 
+//   "Enter a valid year", "Year is valid");
 
 
 sanitize('first_name');
