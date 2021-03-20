@@ -465,7 +465,7 @@ validate('email',
 validate('phone_number', /^\d{10}$/, 'Enter your 10-digit Phone Number', 
   'Enter a valid U.S. Phone Number', 'Phone Number is Valid');
 
-validate('employer', /^[a-zA-Z]+ [a-zA-Z]+$/, 
+validate('employer', /^[a-zA-Z][a-zA-Z ]*$/, 
   "Please enter your Employer's Name", 
   "Enter Employer's First & Last Name", "Employer's Name is valid");
 
@@ -474,7 +474,7 @@ validate('job_title', /^[a-zA-Z ]*$/,
   "Enter a valid Job Title", "Job Title is valid");
 
 validate('city', /^[a-zA-Z ]*$/, 
-  "In which city did you work?", 
+  "In which city do you work?", 
   "Enter a valid city", "City is valid");
 
 // validate('college_degree_year', /^\d{4}$/, 
@@ -492,7 +492,7 @@ validate('city', /^[a-zA-Z ]*$/,
 
 sanitize('first_name');
 sanitize('last_name');
-sanitize('employer');
+//sanitize('employer');
 sanitize('job_title');
 sanitize('city');
 
