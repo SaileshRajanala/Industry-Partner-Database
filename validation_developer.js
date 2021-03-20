@@ -469,14 +469,18 @@ other("Role_Model");
 
 displayOnSelect('associates_degree_div', 'college_education3');
 displayOnSelect('technical_degree_div', 'college_education4');
+
 displayOnSelect('wsuForBS', 'college_education5');
 displayOnSelect('otherSchoolForBS', 'wichitaUndergradNo');
-displayOnSelect('fieldBS', 'college_education5');
+
+displayOnSelectItems('BS_field', ['wichitaUndergradYes','wichitaUndergradNo']);
+
 displayOnSelect('BS_Engineering_Discipline_Div', 'BS_Engineering');
 
 displayOnSelectItems('degree_year_div', 
   ['college_education3','college_education4','college_education5']);
 
+displayOnSelect('have_MS_degree', 'college_education5');
 
 
 
