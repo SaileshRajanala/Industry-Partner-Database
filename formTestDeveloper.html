@@ -509,60 +509,68 @@
       </div>
 
 
-      <!-- CODE HERE -->
-      <div class="formSection">
+      <div class="formSection" id="wsuForBS">
       <div class="radioBlock">
 
       <label> Did you go to Wichita State University for your undergradudate degree? </label>
       
       <ul type="none" class="radioList">
       <li>
-      <input type="radio" id="Yes" name="wichitaUndergrad" value="yes I did go to wichita state university">
-      <label for="Yes">Yes, I did go to Wichita State University</label>
+      <input type="radio" id="wichitaUndergradYes" name="wichitaUndergrad" value="yes I did go to wichita state university">
+      <label for="wichitaUndergradYes">Yes, I did go to Wichita State University</label>
       </li>
       <li>
-      <input type="radio" id="No" name="wichitaUndergrad" value="No, I attended different university">
-      <label for="No">No, I attended different university</label>
+      <input type="radio" id="wichitaUndergradNo" name="wichitaUndergrad" value="No, I attended different university">
+      <label for="wichitaUndergradNo">No, I attended different university</label>
       </li>
       </ul>
         
       </div>
+
+
+      <div class="singleBlock" id="otherSchoolForBS">
+
+      <label> From what school did you earn your undergraduate degree? </label>
+      <input type="text" name="otherSchoolUndergrad" placeholder="eg. University of Wichita">
+
+      </div>
+
       </div>
 
 
-      <div class="formSection">
+      <div class="formSection" id="fieldBS">
       <div class="radioBlock">
 
       <label> Please select the field of your undergraduate degree: </label>
 
       <ul type="none" class="radioList">
       <li>
-      <input type="radio" id="Business" name="UndergradDegree" value="Business">
-      <label for="Business">Business</label>
+      <input type="radio" id="BS_Business" name="UndergradDegree" value="Business">
+      <label for="BS_Business">Business</label>
       </li>
       <li>
-      <input type="radio" id="Education" name="UndergradDegree" value="Education">
-      <label for="Education">Education</label>
+      <input type="radio" id="BS_Education" name="UndergradDegree" value="Education">
+      <label for="BS_Education">Education</label>
       </li>
       <li>
-      <input type="radio" id="Engineering" name="UndergradDegree" value="Engineering">
-      <label for="Engineering">Engineering</label>
+      <input type="radio" id="BS_Engineering" name="UndergradDegree" value="Engineering">
+      <label for="BS_Engineering">Engineering</label>
       </li>
       <li>
-      <input type="radio" id="Health Professions" name="UndergradDegree" value="Health Professions">
-      <label for="Health Professions">Health Professions</label>
+      <input type="radio" id="BS_Health_Professions" name="UndergradDegree" value="Health Professions">
+      <label for="BS_Health_Professions">Health Professions</label>
       </li>
       <li>
-      <input type="radio" id="Liberal Arts" name="UndergradDegree" value="Liberal Arts">
-      <label for="Liberal Arts">Liberal Arts</label>
+      <input type="radio" id="BS_Liberal_Arts" name="UndergradDegree" value="Liberal Arts">
+      <label for="BS_Liberal_Arts">Liberal Arts</label>
       </li>
       <li>
-      <input type="radio" id="Math" name="UndergradDegree" value="Math">
-      <label for="Math">Math</label>
+      <input type="radio" id="BS_Math" name="UndergradDegree" value="Math">
+      <label for="BS_Math">Math</label>
       </li>
       <li>
-      <input type="radio" id="Science" name="UndergradDegree" value="Science">
-      <label for="Science">Science</label>
+      <input type="radio" id="BS_Science" name="UndergradDegree" value="Science">
+      <label for="BS_Science">Science</label>
       </li>
 
       <li id="other_UndergradDegree"></li>
@@ -572,7 +580,7 @@
       </div>
       </div>
 
-      <div class="formSection">
+      <div class="formSection" id="BS_Engineering_Discipline_Div">
       <div class="checkBlock">
       
       <label> Please select the discipline of your engineering degree:</label>
@@ -580,95 +588,96 @@
       <ul type="none" class="checkList">
       
       <li>
-      <input type="checkbox" id="Aerospace_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Aerospace_Engineering" name="BS_Engineering_Discipline" 
       value="Aerospace Engineering">
       <label for="Aerospace_Engineering">Aerospace Engineering</label>
       </li>
       <li>
-      <input type="checkbox" id="Applied_Computing" name="EngDiscipline" 
+      <input type="checkbox" id="Applied_Computing" name="BS_Engineering_Discipline" 
       value="Applied Computing">
       <label for="Applied_Computing">Applied Computing</label>
       </li>
       <li>
-      <input type="checkbox" id="Biomedical_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Biomedical_Engineering" name="BS_Engineering_Discipline" 
       value="Biomedical Engineering">
       <label for="Biomedical_Engineering">Biomedical Engineering</label>
       </li>
       <li>
-      <input type="checkbox" id="Chemical_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Chemical_Engineering" name="BS_Engineering_Discipline" 
       value="Chemical Engineering">
       <label for="Chemical_Engineering">Chemical Engineering</label>
       </li>
       <li>
-      <input type="checkbox" id="Civil_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Civil_Engineering" name="BS_Engineering_Discipline" 
       value="Civil Engineering">
       <label for="Civil_Engineering">Civil Engineering</label>
       </li>
       <li>
-      <input type="checkbox" id="Computer_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Computer_Engineering" name="BS_Engineering_Discipline" 
       value="Computer Engineering">
       <label for="Computer_Engineering">Computer Engineering</label>
       </li>
       <li>
-      <input type="checkbox" id="Computer_Science" name="EngDiscipline" 
+      <input type="checkbox" id="Computer_Science" name="BS_Engineering_Discipline" 
       value="Computer Science">
       <label for="Computer_Science">Computer Science</label>
       </li>
       <li>
-      <input type="checkbox" id="Cybersecurity" name="EngDiscipline" 
+      <input type="checkbox" id="Cybersecurity" name="BS_Engineering_Discipline" 
       value="Cybersecurity">
       <label for="Cybersecurity">Cybersecurity</label>
       </li>
       <li>
-      <input type="checkbox" id="Electrical_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Electrical_Engineering" name="BS_Engineering_Discipline" 
       value="Electrical Engineering">
       <label for="Electrical_Engineering">Electrical Engineering</label>
       </li>
       <li>
-      <input type="checkbox" id="Environmental_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Environmental_Engineering" name="BS_Engineering_Discipline" 
       value="Environmental Engineering">
       <label for="Environmental_Engineering">Environmental Engineering</label>
       </li>
       <li>
-      <input type="checkbox" id="Engineering_Management" name="EngDiscipline" 
+      <input type="checkbox" id="Engineering_Management" name="BS_Engineering_Discipline" 
       value="Engineering Management">
       <label for="Engineering_Management">Engineering Management</label>
       </li>
       <li>
-      <input type="checkbox" id="Facilities_Management" name="EngDiscipline" 
+      <input type="checkbox" id="Facilities_Management" name="BS_Engineering_Discipline" 
       value="Facilities Management">
       <label for="Facilities_Management">Facilities Management</label>
       </li>
       <li>
-      <input type="checkbox" id="Industrial/Systems_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Industrial/Systems_Engineering" 
+      name="BS_Engineering_Discipline" 
       value="Industrial/Systems Engineering">
       <label for="Industrial/Systems_Engineering">Industrial/Systems Engineering</label>
       </li>
       <li>
-      <input type="checkbox" id="Mechatronics" name="EngDiscipline" 
+      <input type="checkbox" id="Mechatronics" name="BS_Engineering_Discipline" 
       value="Mechatronics">
       <label for="Mechatronics">Mechatronics</label>
       </li>
       <li>
-      <input type="checkbox" id="Mechanical_Engineering" name="EngDiscipline" 
+      <input type="checkbox" id="Mechanical_Engineering" name="BS_Engineering_Discipline" 
       value="Mechanical Engineering">
       <label for="Mechanical_Engineering">Mechanical Engineering</label>
       </li>
       <li>
       <input type="checkbox" id="Product_Design_and_Manufacturing_Engineering" 
-      name="EngDiscipline" value="Product Design and Manufacturing Engineering">
+      name="BS_Engineering_Discipline" value="Product Design and Manufacturing Engineering">
       <label for="Product_Design_and_Manufacturing_Engineering">
       Product Design and Manufacturing Engineering</label>
       </li>
 
-      <li id="other_EngDiscipline"></li>
+      <li id="other_BS_Engineering_Discipline"></li>
 
       </ul>
 
       </div>
       </div>
 
-      <div class="formSection">
+      <div class="formSection" id="degree_year_div">
       <div class="singleBlock">
 
       <label> What year did you earn your degree? (YYYY) </label>

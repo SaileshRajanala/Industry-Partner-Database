@@ -13,21 +13,6 @@ function class_(_class)
   return document.getElementsByClassName(_class);
 }
 
-// OTHER RADIO Button  ******************************
-// function linkRadioWithText(_radio, _text)
-// {
-//   id_(_text).addEventListener("keyup", 
-//   function () 
-//   {
-//     id_(_radio).click();
-//     id_(_radio).value = id_(_text).value;
-//   });
-// }
-
-// linkRadioWithText('otherUndergradDegreeRadio','otherUndergradDegreeText');
-// linkRadioWithText('otherEngDisciplineRadio','otherEngDisciplineText');
-
-
 var labels = document.getElementsByTagName('LABEL');
 for (var i = 0; i < labels.length; i++) {
     if (labels[i].htmlFor != '') {
@@ -36,15 +21,6 @@ for (var i = 0; i < labels.length; i++) {
             elem.label = labels[i];         
     }
 }
-
-// function switchDiv(targetDiv, currentDiv)
-// {
-//     id_(currentDiv).style.display = 'none';
-
-//     id_(targetDiv).style.display = 'block';
-//     window.scrollTo(0, 0);
-//     //id_(targetDiv).classList.add('formDivLaunchAnimation');
-// }
 
 // INITIALIZE FORM START##########################################################################
 var formDivs = document.getElementsByClassName('formDiv');

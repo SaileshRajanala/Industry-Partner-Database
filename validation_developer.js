@@ -366,6 +366,63 @@ function switchDiv(targetDiv, currentDiv)
     message('Industry Partner Form', "");
 }
 
+function displayOnSelect(_targetID, _selectID)
+{
+  id_(_targetID).style.display = "none";
+  
+  var inputs = document.forms["Industry_Partner_Database"].elements[id_(_selectID).name];
+
+  for (var i = inputs.length - 1; i >= 0; i--) 
+  {
+    inputs[i].addEventListener('change', 
+    function () 
+    {
+      if (inputs.value == id_(_selectID).value)
+      {
+        id_(_targetID).style.display = "block";
+        animate(_targetID);
+      }
+      else
+      {
+        id_(_targetID).style.display = "none";
+      }
+    }
+    );
+  }
+}
+
+function displayOnSelectItems(_targetID, _selectIDs)
+{
+  if (_selectIDs.length > 0)
+  {
+    id_(_targetID).style.display = "none";
+    
+    var inputs = document.forms["Industry_Partner_Database"].elements[id_(_selectIDs[0]).name];
+
+    for (var i = inputs.length - 1; i >= 0; i--) 
+    {
+      inputs[i].addEventListener('change', 
+      function () 
+      {
+
+        for (var j = _selectIDs.length - 1; j >= 0; j--) 
+        {
+          if (inputs.value == id_(_selectIDs[j]).value)
+          {
+            id_(_targetID).style.display = "block";
+            animate(_targetID);
+
+            return;
+          }
+        }
+        
+        id_(_targetID).style.display = "none";
+      }
+      );
+    }
+  }
+}
+
 
 // FUNCTIONS CALLS BELOW
 
@@ -404,40 +461,21 @@ sanitize('city');
 
 
 other("UndergradDegree", 'Other Degree');
-other("EngDiscipline", 'Other Discipline');
+other("BS_Engineering_Discipline", 'Other Discipline');
 other("mastersDegree");
 other("mastersEngDiscipline");
 other("Role_Model");
 
 
-function displayOnSelect(_targetID, _selectID)
-{
-  id_(_targetID).style.display = "none";
-  
-  var inputs = document.forms["Industry_Partner_Database"].elements[id_(_selectID).name];
-
-  for (var i = inputs.length - 1; i >= 0; i--) 
-  {
-    inputs[i].addEventListener('change', 
-    function () 
-    {
-      if (inputs.value == id_(_selectID).value)
-      {
-        id_(_targetID).style.display = "block";
-        animate(_targetID);
-      }
-      else
-      {
-        id_(_targetID).style.display = "none";
-      }
-    }
-    );
-  }
-}
-
 displayOnSelect('associates_degree_div', 'college_education3');
 displayOnSelect('technical_degree_div', 'college_education4');
-displayOnSelect('technical_degree_div', 'college_education4');
+displayOnSelect('wsuForBS', 'college_education5');
+displayOnSelect('otherSchoolForBS', 'wichitaUndergradNo');
+displayOnSelect('fieldBS', 'college_education5');
+displayOnSelect('BS_Engineering_Discipline_Div', 'BS_Engineering');
+
+displayOnSelectItems('degree_year_div', 
+  ['college_education3','college_education4','college_education5']);
 
 
 
