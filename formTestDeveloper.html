@@ -286,6 +286,18 @@
           padding-bottom: 2.5%;
         }
 
+        .singleBlock label
+        {
+          padding-left: 2%;
+          padding-right: 2%;
+          width: 96%;
+          display: block;
+        }
+
+        .singleBlock > input
+        {
+          margin-top: 2.5%;
+        }
 
       </style> 
 
@@ -497,29 +509,31 @@
       </div>
 
 
-      <div class="formSection" id="wsuForBS">
+      <div class="formSection" id="BS_wsu_div">
       <div class="radioBlock">
 
       <label> Did you go to Wichita State University for your undergradudate degree? </label>
       
       <ul type="none" class="radioList">
       <li>
-      <input type="radio" id="wichitaUndergradYes" name="wichitaUndergrad" value="yes I did go to wichita state university">
-      <label for="wichitaUndergradYes">Yes, I did go to Wichita State University</label>
+      <input type="radio" id="BS_wsu" name="wichitaUndergrad" 
+      value="yes I did go to wichita state university">
+      <label for="BS_wsu">Yes, I did go to Wichita State University</label>
       </li>
       <li>
-      <input type="radio" id="wichitaUndergradNo" name="wichitaUndergrad" value="No, I attended different university">
-      <label for="wichitaUndergradNo">No, I attended different university</label>
+      <input type="radio" id="BS_other" name="wichitaUndergrad" 
+      value="No, I attended different university">
+      <label for="BS_other">No, I attended different university</label>
       </li>
       </ul>
         
       </div>
 
 
-      <div class="singleBlock" id="otherSchoolForBS">
+      <div class="singleBlock" id="BS_other_school_div">
 
       <label> From what school did you earn your undergraduate degree? </label>
-      <input type="text" name="otherSchoolUndergrad" placeholder="eg. University of Wichita">
+      <input type="text" id="BS_other_school" name="BS_other_school" placeholder="eg. University of Wichita">
 
       </div>
 
@@ -702,7 +716,7 @@
 
       <div class="singleBlock" id="MS_other_school_div">
       <label>Please tell us which college/university you earned your master's degree from:</label>
-      <input type="text" id="MS_other_school" placeholder="University's Name">
+      <input type="text" id="MS_other_school" name="MS_other_school" placeholder="University's Name">
       
       </div>
       </div>
@@ -909,7 +923,7 @@
       <div class="formSection" id="MS_year_div">
       <div class="singleBlock">
 
-      <label> If applicable, please list any areas of specialization that you are willing to share: </label><br>
+      <label> If applicable, please list any areas of specialization that you are willing to share: </label>
       <input type="text" name="special_degree" placeholder="eg. Fluid Mechanics">
 
       </div>
