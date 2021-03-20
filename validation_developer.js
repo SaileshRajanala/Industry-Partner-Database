@@ -366,14 +366,36 @@ function switchDiv(targetDiv, currentDiv)
     message('Industry Partner Form', "");
 }
 
-function displayOnSelect(_targetID, _selectID)
+function displayOnSelect(_targetID, _selectID, _form = "Industry_Partner_Database")
 {
   id_(_targetID).style.display = "none";
-  
+
+  var _type = document.forms[_form].elements[id_(_selectID).name][0].type;
   var inputs = document.forms["Industry_Partner_Database"].elements[id_(_selectID).name];
 
+  if (_type == 'checkbox')
+  {
+
+    id_(_selectID).addEventListener('change', 
+    function () 
+    {
+      if (id_(_selectID).checked)
+      {
+        id_(_targetID).style.display = "block";
+        animate(_targetID);
+      }
+      else
+      {
+        id_(_targetID).style.display = "none";
+      } 
+    }
+    );
+
+  }  
+  else if (_type == 'radio')
   for (var i = inputs.length - 1; i >= 0; i--) 
   {
+
     inputs[i].addEventListener('change', 
     function () 
     {
@@ -388,10 +410,12 @@ function displayOnSelect(_targetID, _selectID)
       }
     }
     );
+
   }
+
 }
 
-function displayOnSelectItems(_targetID, _selectIDs)
+function displayOnSelectItems(_targetID, _selectIDs, _form = "Industry_Partner_Database")
 {
   if (_selectIDs.length > 0)
   {
@@ -421,6 +445,7 @@ function displayOnSelectItems(_targetID, _selectIDs)
       );
     }
   }
+
 }
 
 
@@ -492,6 +517,7 @@ displayOnSelectItems('PHD_degree_div', ['MS_wsu','MS_other']);
 displayOnSelect('PHD_other_school_div', 'PHD_other');
 displayOnSelectItems('PHD_year_div', ['PHD_wsu','PHD_other']);
 
+displayOnSelect('Recruitment_Retention_Event_Div', 'Involvement6');
 
 
 
