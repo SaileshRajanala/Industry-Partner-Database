@@ -477,6 +477,10 @@ validate('city', /^[a-zA-Z ]*$/,
   "In which city did you work?", 
   "Enter a valid city", "City is valid");
 
+validate('BS_year', /^\d{4}$/, 
+  "In which city did you work?", 
+  "Enter a valid city", "City is valid");
+
 
 sanitize('first_name');
 sanitize('last_name');
