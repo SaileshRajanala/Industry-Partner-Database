@@ -481,7 +481,6 @@ displayOnSelectItems('BS_year_div',
   ['college_education3','college_education4','college_education5']);
 
 displayOnSelect('have_MS_degree', 'college_education5');
-
 displayOnSelect('MS_other_school_div', 'MS_other');
 displayOnSelectItems('MS_field', ['MS_wsu','MS_other']);
 
@@ -489,9 +488,9 @@ displayOnSelect('MS_Engineering_Discipline_Div', 'MS_Engineering');
 
 displayOnSelectItems('MS_year_div', ['MS_wsu','MS_other']);
 
-displayOnSelectItems('have_PHD', ['MS_wsu','MS_other']);
-
-
+displayOnSelectItems('PHD_degree_div', ['MS_wsu','MS_other']);
+displayOnSelect('PHD_other_school_div', 'PHD_other');
+displayOnSelectItems('PHD_year_div', ['PHD_wsu','PHD_other']);
 
 
 
