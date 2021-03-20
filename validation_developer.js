@@ -550,7 +550,8 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
 
     true)) 
     {
-      id_error_message('message','Some entries are invalid');
+      // id_error_message('message','Some entries are invalid');
+      id_error_message('message','Form is incorrectly or incompletely filled');
       animate('message','errorMsgAnimation');
       return;
     }
@@ -762,7 +763,7 @@ displayOnSelect('BS_wsu_div', 'college_education5');
 displayOnSelect('BS_other_school_div', 'BS_other');
 
 // displayOnSelectItems('BS_field', ['BS_wsu','BS_other']);
-displayOnSelect('BS_field', 'college_education5');
+displayOnSelect('BS_field', 'college_education5'); // fixes hidden bug
 
 displayOnSelect('BS_Engineering_Discipline_Div', 'BS_Engineering');
 
@@ -770,6 +771,7 @@ displayOnSelectItems('college_degree_year_div',
   ['college_education3','college_education4','college_education5']);
 
 displayOnSelect('have_MS_degree', 'college_education5');
+displayOnSelectItems('MS_field', ['MS_wsu','MS_other']);
 displayOnSelect('MS_other_school_div', 'MS_other');
 displayOnSelectItems('MS_field', ['MS_wsu','MS_other']);
 
