@@ -522,8 +522,9 @@ function isSelected_childCheckBoxGroup(_checkedID, _target, _otherExists = false
 }
 
 
-function switchDiv(targetDiv, currentDiv)
-{
+function switchDiv(targetDiv, currentDiv, _button = "Next")
+{ 
+  if (_button == "Next")
   if (currentDiv == "Personal_Professional_Information")
   {
     if (!(
@@ -581,7 +582,16 @@ function switchDiv(targetDiv, currentDiv)
   } 
   else if (currentDiv == "Involvement_Opportunities")
   {
+    if (!(
+    // validity conditions below
+    isSelected('Involvement')   &&
 
+    true)) 
+    {
+      id_error_message('message','Form is incorrectly or incompletely filled');
+      animate('message','errorMsgAnimation');
+      return;
+    }
   }
 
     id_(currentDiv).style.display = 'none';
