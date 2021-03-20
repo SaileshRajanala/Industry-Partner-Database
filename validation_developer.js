@@ -489,7 +489,7 @@ displayOnSelect('MS_Engineering_Discipline_Div', 'MS_Engineering');
 
 displayOnSelectItems('MS_year_div', ['MS_wsu','MS_other']);
 
-
+displayOnSelectItems('have_PHD', ['MS_wsu','MS_other']);
 
 
 
