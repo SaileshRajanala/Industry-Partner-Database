@@ -584,7 +584,11 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
   {
     if (!(
     // validity conditions below
-    isSelected('Involvement')   &&
+    isSelected('Involvement')                                           &&
+    isSelected('Involvement_Level')                                     &&
+    isSelected_childCheckBoxGroup('Involvement6', 'Recruitment_Level')  &&
+    isSelected_childCheckBoxGroup('Involvement8', 'Mentor_Age')         &&
+    isSelected('Role_Model', true)                                      &&
 
     true)) 
     {
