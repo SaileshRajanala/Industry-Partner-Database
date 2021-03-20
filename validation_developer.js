@@ -518,6 +518,8 @@ displayOnSelect('PHD_other_school_div', 'PHD_other');
 displayOnSelectItems('PHD_year_div', ['PHD_wsu','PHD_other']);
 
 displayOnSelect('Recruitment_Retention_Event_Div', 'Involvement6');
+displayOnSelect('Mentor_Div', 'Involvement8');
+
 
 
 
