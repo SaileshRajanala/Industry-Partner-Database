@@ -473,6 +473,19 @@ function isFilled_childTextBox(_checkedID, _target, _regex = "")
     return true; // Dont worry case
 }
 
+function resetSelectionGroup(_name, _otherExists = false, _form = "Industry_Partner_Database")
+{
+  var _selectionElements = document.forms[_form].elements[_name];
+  var _type = _selectionElements[0].type;
+
+  for (var i = _selectionElements.length - 1; i >= 0; i--) 
+    if (_selectionElements[i].checked == true)
+      _selectionElements[i].checked = false;
+
+  if (_otherExists)
+     id_('other_' + _name + '_text').value = "";   
+}
+
 function isSelected_childRadioGroup(_checkedID, _target, _otherExists = false, _regex = "")
 {
   if (id_(_checkedID).checked)
