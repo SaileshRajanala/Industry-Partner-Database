@@ -898,6 +898,8 @@ higherOrderDisplayConstraint('MS_field_div',          'college_education5');
 higherOrderDisplayConstraint('MS_Eng_Discipline_div', 'college_education5');
 higherOrderDisplayConstraint('MS_year_div',           'college_education5');
 higherOrderDisplayConstraint('have_PHD_degree_div',   'college_education5');
+higherOrderDisplayConstraint('PHD_other_school_div',  'college_education5');
+higherOrderDisplayConstraint('PHD_year_div',          'college_education5');
 
 higherOrderDisplayConstraint_Items('MS_Eng_Discipline_div', ['MS_wsu', 'MS_other']);
 higherOrderDisplayConstraint_Items('PHD_other_school_div',  ['MS_wsu', 'MS_other']);
