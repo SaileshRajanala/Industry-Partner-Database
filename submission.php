@@ -39,7 +39,7 @@ function swapStylesheet(sheet, name) {
 
  require "./connect.php";
  require_once "./global.php";
- 
+
  $prefix         = $_POST["prefix"];
  $first_name     = $_POST["first_name"];
  $last_name      = $_POST["last_name"];
@@ -95,6 +95,7 @@ array_push($htmlFields1, $notes);
 
 $htmlFields = ["prefix"];
 
+array_push($htmlFields, "suffix");
 array_push($htmlFields, "first_name");
 array_push($htmlFields, "last_name");
 array_push($htmlFields, "email");
@@ -108,18 +109,9 @@ array_push($htmlFields, "notes");
 
 // Array to store all columns from SQL
 
-
-
-
-
-
-
-
-
-
-
 $tableColumns = ["Prefix"];
 
+array_push($tableColumns, "Suffix");
 array_push($tableColumns, "First_Name");
 array_push($tableColumns, "Last_Name");
 array_push($tableColumns, "Email");
