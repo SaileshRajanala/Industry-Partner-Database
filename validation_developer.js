@@ -592,8 +592,8 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isSelected_childRadioGroup('MS_wsu', 'MS_field', true)                         &&
     isSelected_childRadioGroup('MS_other', 'MS_field', true)                       &&
     isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Eng_Discipline', true)  &&
-    isSelected_childRadioGroup('MS_wsu', 'PHD_degree')                                  &&
-    isSelected_childRadioGroup('MS_other', 'PHD_degree')                                &&
+    isSelected_childRadioGroup('MS_wsu', 'have_PHD_degree')                                  &&
+    isSelected_childRadioGroup('MS_other', 'have_PHD_degree')                                &&
     isFilled_childTextBox('PHD_wsu', 'PHD_year')                                        &&
     isFilled_childTextBox('PHD_other', 'PHD_year')                                      &&
     isFilled_childTextBox('PHD_other', 'PHD_other_school')                              &&
@@ -793,7 +793,7 @@ displayOnSelect('MS_Eng_Discipline_Div', 'MS_Engineering');
 
 displayOnSelectItems('MS_year_div', ['MS_wsu','MS_other']);
 
-displayOnSelectItems('PHD_degree_div', ['MS_wsu','MS_other']);
+displayOnSelectItems('have_PHD_degree_div', ['MS_wsu','MS_other']);
 displayOnSelect('PHD_other_school_div', 'PHD_other');
 displayOnSelectItems('PHD_year_div', ['PHD_wsu','PHD_other']);
 
