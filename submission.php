@@ -203,10 +203,15 @@ echo "<br><br>";
 
 
 
-// $valueSchema = "'{$_REQUEST["prefix"]}'";
+$valueSchema = "'{$_POST["prefix"]}'";
 
-// for ($i = 1; $i < count($htmlFields); $i++)
-//   $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
+for ($i = 1; $i < count($htmlFields); $i++)
+{
+  if ( is_array($_POST[$htmlFields[$i]]) )
+    $valueSchema .= ", " . "'" . implode(",", $_POST[$htmlFields[$i]]) . "'";
+  else
+    $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
+}
 
 
 //Above was global php file data
@@ -217,13 +222,13 @@ $submission = FALSE;
 
 // Value Schema
 //$valueSchema = "'{$_POST["prefix"]}'";
-$valueSchema = "'{$prefix}'";
-str_replace("'", "\'", $prefix);
+// $valueSchema = "'{$prefix}'";
+// str_replace("'", "\'", $prefix);
 
-for ($i = 1; $i < count($htmlFields1); $i++)
-{
-  $valueSchema .= ", " . "'{$htmlFields[$i]}'";
-}
+// for ($i = 1; $i < count($htmlFields); $i++)
+// {
+//   $valueSchema .= ", " . "'{$htmlFields[$i]}'";
+// }
 
 
 $sql = "
@@ -283,7 +288,7 @@ if (mysqli_query($conn, $sql))
     {
       for ($i = 0; $i < count($tableColumns); $i++)
         echo "<tr><td>" . $tableColumns[$i] . "
-            </td><td> $htmlFields1[$i] </td></tr>";
+            </td><td> $htmlFields[$i] </td></tr>";
     }
 
     ?>
