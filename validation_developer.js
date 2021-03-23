@@ -720,7 +720,7 @@ function higherOrderDisplayConstraint(_targetDivID, _higherID, _form = "Industry
   var _type = document.forms[_form].elements[id_(_higherID).name][0].type;
   var inputs = document.forms[_form].elements[id_(_higherID).name];
 
-  _higherID.addEventListener('change', 
+  id_(_higherID).addEventListener('change', 
   function () 
   {
     
@@ -842,7 +842,5 @@ displayOnSelect('Mentor_Div', 'Involvement8');
 
 
 higherOrderDisplayConstraint('BS_Eng_Discipline_Div', 'college_education5');
-
-
 
 
