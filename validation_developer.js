@@ -684,6 +684,16 @@ function displayOnSelect(_targetID, _selectID, _form = "Industry_Partner_Databas
 
 }
 
+function resetInputs(_inputs)
+{
+    if (_inputs.length > 0) 
+    for (var i = _inputs.length - 1; i >= 0; i--) 
+      if (_inputs[i].type == 'checkbox' || _inputs[i].type == 'radio')
+          _inputs[i].checked = false;
+      else if (_inputs[i].type == 'text') 
+        _inputs[i].value = "";
+}
+
 // For Radio Buttons only
 function displayOnSelectItems(_targetID, _selectIDs, _form = "Industry_Partner_Database")
 {
@@ -710,8 +720,8 @@ function displayOnSelectItems(_targetID, _selectIDs, _form = "Industry_Partner_D
           }
         }
         
-        var _inputs = document.getElementById(_targetID).getElementsByTagName('input');
-        resetInputs(_inputs);
+        var _resetInputs = document.getElementById(_targetID).getElementsByTagName('input');
+        resetInputs(_resetInputs);
 
         id_(_targetID).style.display = "none";
       }
@@ -725,6 +735,7 @@ function higherOrderDisplayConstraint(_targetDivID, _higherID, _form = "Industry
 {
   var _type = document.forms[_form].elements[id_(_higherID).name][0].type;
   var inputs = document.forms[_form].elements[id_(_higherID).name];
+  var _resetInputs = document.getElementById(_targetDivID).getElementsByTagName('input');
 
   id_(_higherID).addEventListener('change', 
   function () 
@@ -737,7 +748,10 @@ function higherOrderDisplayConstraint(_targetDivID, _higherID, _form = "Industry
       function () 
       {
         if (!id_(_higherID).checked)
+        {
+          resetInputs(_resetInputs);
           id_(_targetDivID).style.display = "none";
+        }
       }
       );
 
@@ -750,7 +764,10 @@ function higherOrderDisplayConstraint(_targetDivID, _higherID, _form = "Industry
       function () 
       {
         if (inputs.value != id_(_higherID).value)
+        {
+          resetInputs(_resetInputs);
           id_(_targetDivID).style.display = "none";
+        }
       }
       );
 
@@ -759,14 +776,31 @@ function higherOrderDisplayConstraint(_targetDivID, _higherID, _form = "Industry
   });
 }
 
-function resetInputs(_inputs)
+// For Radio Buttons only
+function higherOrderDisplayConstraint_Items(_targetDivID, _higherIDs, _form = "Industry_Partner_Database")
 {
-    if (_inputs.length > 0) 
-    for (var i = _inputs.length - 1; i >= 0; i--) 
-      if (_inputs[i].type == 'checkbox' || _inputs[i].type == 'radio')
-          _inputs[i].checked = false;
-      else if (_inputs[i].type == 'text') 
-        _inputs[i].value = "";
+  if (_higherIDs.length > 0)
+  { 
+    var inputs = document.forms[_form].elements[id_(_higherIDs[0]).name];   
+    var _type = inputs[0].type;
+    var _resetInputs = document.getElementById(_targetDivID).getElementsByTagName('input');
+
+    for (var i = inputs.length - 1; i >= 0; i--) 
+    {
+      inputs[i].addEventListener('change', 
+      function () 
+      {
+
+        for (var j = _higherIDs.length - 1; j >= 0; j--) 
+          if (inputs.value == id_(_higherIDs[j]).value)        
+            return;
+
+        resetInputs(_resetInputs);
+        id_(_targetDivID).style.display = "none";
+      }
+      );
+    }
+  }
 }
 
 
@@ -856,8 +890,33 @@ displayOnSelect('Recruitment_Retention_Event_div', 'Involvement6');
 displayOnSelect('Mentor_div', 'Involvement8');
 
 
-
-higherOrderDisplayConstraint('BS_other_school_div', 'college_education5');
+higherOrderDisplayConstraint('BS_other_school_div',   'college_education5');
 higherOrderDisplayConstraint('BS_Eng_Discipline_div', 'college_education5');
+higherOrderDisplayConstraint('MS_other_school_div',   'college_education5');
+higherOrderDisplayConstraint('MS_field_div',          'college_education5');
+higherOrderDisplayConstraint('MS_Eng_Discipline_div', 'college_education5');
+higherOrderDisplayConstraint('MS_year_div',           'college_education5');
+higherOrderDisplayConstraint('have_PHD_degree_div',   'college_education5');
+
+higherOrderDisplayConstraint_Items('MS_Eng_Discipline_div', ['MS_wsu', 'MS_other']);
+higherOrderDisplayConstraint_Items('PHD_other_school_div',  ['MS_wsu', 'MS_other']);
+higherOrderDisplayConstraint_Items('PHD_year_div',          ['MS_wsu', 'MS_other']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
