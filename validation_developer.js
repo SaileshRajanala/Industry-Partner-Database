@@ -784,7 +784,7 @@ displayOnSelect('BS_Eng_Discipline_Div', 'BS_Engineering');
 displayOnSelectItems('college_degree_year_div', 
   ['college_education3','college_education4','college_education5']);
 
-displayOnSelect('have_MS_degree', 'college_education5');
+displayOnSelect('have_MS_degree_div', 'college_education5');
 displayOnSelectItems('MS_field', ['MS_wsu','MS_other']);
 displayOnSelect('MS_other_school_div', 'MS_other');
 displayOnSelectItems('MS_field', ['MS_wsu','MS_other']);
