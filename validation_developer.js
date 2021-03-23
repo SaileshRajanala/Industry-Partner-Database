@@ -591,7 +591,7 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isFilled_childTextBox('MS_other', 'MS_other_school')                                &&
     isSelected_childRadioGroup('MS_wsu', 'MS_field', true)                         &&
     isSelected_childRadioGroup('MS_other', 'MS_field', true)                       &&
-    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Engineering_Discipline', true)  &&
+    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Eng_Discipline', true)  &&
     isSelected_childRadioGroup('MS_wsu', 'PHD_degree')                                  &&
     isSelected_childRadioGroup('MS_other', 'PHD_degree')                                &&
     isFilled_childTextBox('PHD_wsu', 'PHD_year')                                        &&
@@ -766,7 +766,7 @@ sanitize('city');
 other("BS_field", 'Other Degree');
 other("BS_Eng_Discipline", 'Other Discipline');
 other("MS_field");
-other("MS_Engineering_Discipline");
+other("MS_Eng_Discipline");
 other("Role_Model");
 
 
@@ -789,7 +789,7 @@ displayOnSelectItems('MS_field_div', ['MS_wsu','MS_other']);
 displayOnSelect('MS_other_school_div', 'MS_other');
 displayOnSelectItems('MS_field_div', ['MS_wsu','MS_other']);
 
-displayOnSelect('MS_Engineering_Discipline_Div', 'MS_Engineering');
+displayOnSelect('MS_Eng_Discipline_Div', 'MS_Engineering');
 
 displayOnSelectItems('MS_year_div', ['MS_wsu','MS_other']);
 
