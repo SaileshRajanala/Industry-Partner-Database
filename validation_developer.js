@@ -584,7 +584,7 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isSelected_childRadioGroup('BS_wsu', 'BS_field', true)                              &&
     isSelected_childRadioGroup('BS_other', 'BS_field', true)                            &&
     isFilled_childTextBox('BS_other', 'BS_other_school')                                &&
-    isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Engineering_Discipline', true)  &&
+    isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Eng_Discipline', true)  &&
     isSelected_childRadioGroup('college_education5', 'haveMastersDegree')               &&
     isFilled_childTextBox('MS_wsu', 'MS_year')                                          &&
     isFilled_childTextBox('MS_other', 'MS_year')                                        &&
@@ -764,7 +764,7 @@ sanitize('city');
 
 
 other("BS_field", 'Other Degree');
-other("BS_Engineering_Discipline", 'Other Discipline');
+other("BS_Eng_Discipline", 'Other Discipline');
 other("mastersDegree");
 other("MS_Engineering_Discipline");
 other("Role_Model");
@@ -779,7 +779,7 @@ displayOnSelect('BS_other_school_div', 'BS_other');
 // displayOnSelectItems('BS_field_div', ['BS_wsu','BS_other']);
 displayOnSelect('BS_field_div', 'college_education5'); // fixes hidden bug
 
-displayOnSelect('BS_Engineering_Discipline_Div', 'BS_Engineering');
+displayOnSelect('BS_Eng_Discipline_Div', 'BS_Engineering');
 
 displayOnSelectItems('college_degree_year_div', 
   ['college_education3','college_education4','college_education5']);
