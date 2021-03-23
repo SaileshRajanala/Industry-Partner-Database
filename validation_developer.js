@@ -637,7 +637,7 @@ function displayOnSelect(_targetID, _selectID, _form = "Industry_Partner_Databas
   id_(_targetID).style.display = "none";
 
   var _type = document.forms[_form].elements[id_(_selectID).name][0].type;
-  var inputs = document.forms["Industry_Partner_Database"].elements[id_(_selectID).name];
+  var inputs = document.forms[_form].elements[id_(_selectID).name];
 
   if (_type == 'checkbox')
   {
@@ -681,13 +681,14 @@ function displayOnSelect(_targetID, _selectID, _form = "Industry_Partner_Databas
 
 }
 
+// For Radio Buttons only
 function displayOnSelectItems(_targetID, _selectIDs, _form = "Industry_Partner_Database")
 {
   if (_selectIDs.length > 0)
   {
     id_(_targetID).style.display = "none";
     
-    var inputs = document.forms["Industry_Partner_Database"].elements[id_(_selectIDs[0]).name];
+    var inputs = document.forms[_form].elements[id_(_selectIDs[0]).name];
 
     for (var i = inputs.length - 1; i >= 0; i--) 
     {
@@ -714,6 +715,43 @@ function displayOnSelectItems(_targetID, _selectIDs, _form = "Industry_Partner_D
 
 }
 
+function higherOrderDisplayConstraint(_targetDivID, _higherID, _form = "Industry_Partner_Database")
+{
+  var _type = document.forms[_form].elements[id_(_higherID).name][0].type;
+  var inputs = document.forms[_form].elements[id_(_higherID).name];
+
+  _higherID.addEventListener('change', 
+  function () 
+  {
+    
+    if (_type == 'checkbox') 
+    {
+
+      id_(_higherID).addEventListener('change', 
+      function () 
+      {
+        if (!id_(_higherID).checked)
+          id_(_targetDivID).style.display = "none";
+      }
+      );
+
+    }
+    else if (_type == 'radio') 
+    for (var i = inputs.length - 1; i >= 0; i--) 
+    {
+
+      inputs[i].addEventListener('change', 
+      function () 
+      {
+        if (inputs.value != id_(_higherID).value)
+          id_(_targetDivID).style.display = "none";
+      }
+      );
+
+    }
+
+  });
+}
 
 // FUNCTIONS CALLS BELOW
 
@@ -801,6 +839,9 @@ displayOnSelect('Recruitment_Retention_Event_Div', 'Involvement6');
 displayOnSelect('Mentor_Div', 'Involvement8');
 
 
+
+
+higherOrderDisplayConstraint('BS_Eng_Discipline_Div', 'college_education5');
 
 
 
