@@ -845,6 +845,8 @@ validate('city', /^[a-zA-Z ]*$/,
 //   "Enter a valid year", "Year is valid");
 
 
+
+
 sanitize('first_name');
 sanitize('last_name');
 //sanitize('employer');
@@ -852,11 +854,15 @@ sanitize('job_title');
 sanitize('city');
 
 
+
+
 other("BS_field", 'Other Degree');
 other("BS_Eng_Discipline", 'Other Discipline');
 other("MS_field");
 other("MS_Eng_Discipline");
 other("Role_Model");
+
+
 
 
 // displayOnSelectItems( TARGET, SELECTION );
@@ -881,6 +887,8 @@ displayOnSelectItems('PHD_year_div',      ['PHD_wsu','PHD_other']);
 
 displayOnSelect('Recruitment_Retention_Event_div', 'Involvement6');
 displayOnSelect('Mentor_div',                      'Involvement8');
+
+
 
 
 higherOrderDisplayConstraint('BS_other_school_div',   'college_education5');
