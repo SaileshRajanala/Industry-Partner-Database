@@ -902,17 +902,17 @@
 
       <li>
       <input type="radio" name="have_PHD_degree" 
-      id="PHD_wsu" value="Yes, from Wichita State University">
+      id="PHD_wsu" value="1">
       <label for="PHD_wsu">Yes, from Wichita State University</label>
       </li>
       <li>
       <input type="radio" name="have_PHD_degree" 
-      id="PHD_other" value="Yes, from another College/University">
+      id="PHD_other" value="2">
       <label for="PHD_other">Yes, from another College/University</label>
       </li>
       <li>
       <input type="radio" name="have_PHD_degree" 
-      id="PHD_no" value="No PHD Degree">
+      id="PHD_no" value="3">
       <label for="PHD_no">No</label>
       </li>
       </ul>
@@ -923,7 +923,7 @@
       <div class="singleBlock" id="PHD_other_school_div">
 
       <label>Please tell us which college/university you earned your Doctoral degree from:</label>
-      <input type="text" id="PHD_other_school" placeholder="University's Name">
+      <input type="text" id="PHD_other_school" name="PHD_other_school" placeholder="University's Name">
       
       </div>
 
@@ -941,7 +941,7 @@
       <div class="singleBlock">
 
       <label> If applicable, please list any areas of specialization that you are willing to share: </label>
-      <input type="text" name="special_degree" placeholder="eg. Fluid Mechanics">
+      <input type="text" id="special_degree" name="special_degree" placeholder="eg. Fluid Mechanics">
 
       </div>
       </div>
@@ -980,8 +980,8 @@
       <ul type="none" class="checkList">
 
       <li>
-      <input type="checkbox" id="Involvement1" name="Involvement" 
-      value="Advising a team of students on a project" required>
+      <input type="checkbox" id="Involvement1" name="Involvement[]" 
+      value="1" required>
 
       <label for="Involvement1">
         Advising a team of students on a project
@@ -989,8 +989,8 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement2" name="Involvement" 
-      value="Demonstrating a technical skill or area of expertise">
+      <input type="checkbox" id="Involvement2" name="Involvement[]" 
+      value="2">
 
       <label for="Involvement2">
         Demonstrating a technical skill or area of expertise
@@ -998,8 +998,8 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement3" name="Involvement" 
-      value="Facilitate tour of your company">
+      <input type="checkbox" id="Involvement3" name="Involvement[]" 
+      value="3">
 
       <label for="Involvement3">
         Facilitate tour of your company
@@ -1007,8 +1007,8 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement4" name="Involvement" 
-      value="Judging a competition">
+      <input type="checkbox" id="Involvement4" name="Involvement[]" 
+      value="4">
 
       <label for="Involvement4">
         Judging a competition
@@ -1016,8 +1016,8 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement5" name="Involvement" 
-      value="K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc">
+      <input type="checkbox" id="Involvement5" name="Involvement[]" 
+      value="5">
 
       <label for="Involvement5">
         K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc
@@ -1025,8 +1025,8 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement6" name="Involvement" 
-      value="One-Time Student Recruitment & Retention Event">
+      <input type="checkbox" id="Involvement6" name="Involvement[]" 
+      value="6">
 
       <label for="Involvement6">
         One-Time Student Recruitment & Retention Event
@@ -1034,8 +1034,8 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement7" name="Involvement" 
-      value="Research Partnership">
+      <input type="checkbox" id="Involvement7" name="Involvement[]" 
+      value="7">
 
       <label for="Involvement7">
         Research Partnership
@@ -1043,8 +1043,8 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement8" name="Involvement" 
-      value="Serving as a role model">
+      <input type="checkbox" id="Involvement8" name="Involvement[]" 
+      value="8">
 
       <label for="Involvement8">
         Serving as a role model
@@ -1052,8 +1052,8 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement9" name="Involvement" 
-      value="Teaching a concept">
+      <input type="checkbox" id="Involvement9" name="Involvement[]" 
+      value="9">
 
       <label for="Involvement9">
         Teaching a concept
@@ -1061,16 +1061,16 @@
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement10" name="Involvement" 
-      value="Tell your personal story as it relates to work in your field">
+      <input type="checkbox" id="Involvement10" name="Involvement[]" 
+      value="10">
 
       <label for="Involvement10">
         Tell your personal story as it relates to work in your field
       </li>
 
       <li>
-      <input type="checkbox" id="Involvement11" name="Involvement" 
-      value="I'm not interested in involvement at this time">
+      <input type="checkbox" id="Involvement11" name="Involvement[]" 
+      value="11">
 
       <label for="Involvement11">
         I'm not interested in involvement at this time
