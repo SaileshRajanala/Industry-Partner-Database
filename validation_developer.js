@@ -591,7 +591,7 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isFilled_childTextBox('MS_other', 'MS_other_school')                                &&
     isSelected_childRadioGroup('MS_wsu', 'MS_field', true)                              &&
     isSelected_childRadioGroup('MS_other', 'MS_field', true)                            &&
-    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Eng_Discipline', true)          &&
+    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Eng_Discipline[]', true)          &&
     isSelected_childRadioGroup('MS_wsu', 'have_PHD_degree')                             &&
     isSelected_childRadioGroup('MS_other', 'have_PHD_degree')                           &&
     isFilled_childTextBox('PHD_wsu', 'PHD_year')                                        &&
@@ -859,7 +859,7 @@ sanitize('city');
 other("BS_field", 'Other Degree');
 other("BS_Eng_Discipline[]", 'Other Discipline');
 other("MS_field");
-other("MS_Eng_Discipline");
+other("MS_Eng_Discipline[]", 'Other Discipline');
 other("Role_Model");
 
 
@@ -872,9 +872,9 @@ displayOnSelect('BS_school_div',             'college_education5');
 displayOnSelect('BS_field_div',              'college_education5'); 
 displayOnSelect('have_MS_degree_div',        'college_education5');
 displayOnSelect('BS_other_school_div',                 'BS_other');
-displayOnSelect('BS_Eng_Discipline_div',         'BS_Engineering');
+displayOnSelect('BS_Eng_Discipline[]_div',       'BS_Engineering');
 displayOnSelect('MS_other_school_div',                 'MS_other');
-displayOnSelect('MS_Eng_Discipline_div',         'MS_Engineering');
+displayOnSelect('MS_Eng_Discipline[]_div',       'MS_Engineering');
 displayOnSelect('PHD_other_school_div',               'PHD_other');
 
 displayOnSelectItems('college_degree_year_div', 
@@ -892,16 +892,16 @@ displayOnSelect('Mentor_div',                      'Involvement8');
 
 
 higherOrderDisplayConstraint('BS_other_school_div',   'college_education5');
-higherOrderDisplayConstraint('BS_Eng_Discipline_div', 'college_education5');
+higherOrderDisplayConstraint('BS_Eng_Discipline[]_div', 'college_education5');
 higherOrderDisplayConstraint('MS_other_school_div',   'college_education5');
 higherOrderDisplayConstraint('MS_field_div',          'college_education5');
-higherOrderDisplayConstraint('MS_Eng_Discipline_div', 'college_education5');
+higherOrderDisplayConstraint('MS_Eng_Discipline[]_div', 'college_education5');
 higherOrderDisplayConstraint('MS_year_div',           'college_education5');
 higherOrderDisplayConstraint('have_PHD_degree_div',   'college_education5');
 higherOrderDisplayConstraint('PHD_other_school_div',  'college_education5');
 higherOrderDisplayConstraint('PHD_year_div',          'college_education5');
 
-higherOrderDisplayConstraint_Items('MS_Eng_Discipline_div', ['MS_wsu', 'MS_other']);
+higherOrderDisplayConstraint_Items('MS_Eng_Discipline[]_div', ['MS_wsu', 'MS_other']);
 higherOrderDisplayConstraint_Items('PHD_other_school_div',  ['MS_wsu', 'MS_other']);
 higherOrderDisplayConstraint_Items('PHD_year_div',          ['MS_wsu', 'MS_other']);
 
