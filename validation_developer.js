@@ -769,6 +769,7 @@ other("MS_field");
 other("MS_Eng_Discipline");
 other("Role_Model");
 
+
 // displayOnSelectItems( TARGET, SELECTION );
 displayOnSelect('associates_degree_div', 'college_education3');
 displayOnSelect('technical_degree_div', 'college_education4');
@@ -776,8 +777,7 @@ displayOnSelect('technical_degree_div', 'college_education4');
 displayOnSelect('BS_school_div', 'college_education5');
 displayOnSelect('BS_other_school_div', 'BS_other');
 
-// displayOnSelectItems('BS_field_div', ['BS_wsu','BS_other']);
-displayOnSelect('BS_field_div', 'college_education5'); // fixes hidden bug
+displayOnSelect('BS_field_div', 'college_education5'); 
 
 displayOnSelect('BS_Eng_Discipline_Div', 'BS_Engineering');
 
