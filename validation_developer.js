@@ -834,7 +834,7 @@ displayOnSelect('BS_other_school_div', 'BS_other');
 
 displayOnSelect('BS_field_div', 'college_education5'); 
 
-displayOnSelect('BS_Eng_Discipline_Div', 'BS_Engineering');
+displayOnSelect('BS_Eng_Discipline_div', 'BS_Engineering');
 
 displayOnSelectItems('college_degree_year_div', 
   ['college_education3','college_education4','college_education5']);
@@ -844,7 +844,7 @@ displayOnSelectItems('MS_field_div', ['MS_wsu','MS_other']);
 displayOnSelect('MS_other_school_div', 'MS_other');
 displayOnSelectItems('MS_field_div', ['MS_wsu','MS_other']);
 
-displayOnSelect('MS_Eng_Discipline_Div', 'MS_Engineering');
+displayOnSelect('MS_Eng_Discipline_div', 'MS_Engineering');
 
 displayOnSelectItems('MS_year_div', ['MS_wsu','MS_other']);
 
@@ -852,12 +852,12 @@ displayOnSelectItems('have_PHD_degree_div', ['MS_wsu','MS_other']);
 displayOnSelect('PHD_other_school_div', 'PHD_other');
 displayOnSelectItems('PHD_year_div', ['PHD_wsu','PHD_other']);
 
-displayOnSelect('Recruitment_Retention_Event_Div', 'Involvement6');
-displayOnSelect('Mentor_Div', 'Involvement8');
+displayOnSelect('Recruitment_Retention_Event_div', 'Involvement6');
+displayOnSelect('Mentor_div', 'Involvement8');
 
 
 
-
-higherOrderDisplayConstraint('BS_Eng_Discipline_Div', 'college_education5');
+higherOrderDisplayConstraint('BS_other_school_div', 'college_education5');
+higherOrderDisplayConstraint('BS_Eng_Discipline_div', 'college_education5');
 
 
