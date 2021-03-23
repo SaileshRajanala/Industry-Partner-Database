@@ -609,12 +609,12 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
   {
     if (!(
     // validity conditions below
-    isSelected('Involvement[]')                                         &&
-    isSelected('Involvement_Level')                                     &&
-    isSelected_childCheckBoxGroup('Involvement6', 'Recruitment_Level')  &&
-    isSelected_childCheckBoxGroup('Involvement8', 'Mentor_Age')         &&
-    isSelected('Role_Model', true)                                      &&
-    isInputValid('Involvement_Notes')                                   &&
+    isSelected('Involvement[]')                                          &&
+    isSelected('Involvement_Level[]')                                    &&
+    isSelected_childCheckBoxGroup('Involvement6', 'Recruitment_Level[]') &&
+    isSelected_childCheckBoxGroup('Involvement8', 'Mentor_Age[]')        &&
+    isSelected('Role_Model[]', true)                                     &&
+    isInputValid('Involvement_Notes')                                    &&
 
     true)) 
     {
@@ -860,7 +860,7 @@ other("BS_field", 'Other Degree');
 other("BS_Eng_Discipline[]", 'Other Discipline');
 other("MS_field");
 other("MS_Eng_Discipline[]", 'Other Discipline');
-other("Role_Model");
+other("Role_Model[]");
 
 
 
