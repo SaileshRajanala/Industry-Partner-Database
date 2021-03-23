@@ -45,12 +45,12 @@ function swapStylesheet(sheet, name) {
  $last_name      = $_POST["last_name"];
  $email          = $_POST["email"];
  $phone_number   = $_POST["phone_number"];
- $college        = $_POST["college"];
- $current_status = $_POST["current_status"];
- $linkedin       = $_POST["linkedin"];
- $workplace      = $_POST["workplace"];
- $position       = $_POST["title"];
- $notes          = $_POST["notes"];
+ // $college        = $_POST["college"];
+ // $current_status = $_POST["current_status"];
+ // $linkedin       = $_POST["linkedin"];
+ // $workplace      = $_POST["workplace"];
+ // $position       = $_POST["title"];
+ // $notes          = $_POST["notes"];
 
 
 $char = array("'","<",">");
@@ -61,12 +61,12 @@ $replace = array("\'","&lt","&gt;");
  $last_name      = str_replace($char,$replace,$last_name);
  $email          = str_replace($char,$replace,$email);
  $phone_number   = str_replace($char,$replace,$phone_number);
- $college        = str_replace($char,$replace,$college);
- $current_status = str_replace($char,$replace,$current_status);
- $linkedin       = str_replace($char,$replace,$linkedin);
- $workplace      = str_replace($char,$replace,$workplace);
- $position       = str_replace($char,$replace,$position);
- $notes          = str_replace($char,$replace,$notes);
+ // $college        = str_replace($char,$replace,$college);
+ // $current_status = str_replace($char,$replace,$current_status);
+ // $linkedin       = str_replace($char,$replace,$linkedin);
+ // $workplace      = str_replace($char,$replace,$workplace);
+ // $position       = str_replace($char,$replace,$position);
+ // $notes          = str_replace($char,$replace,$notes);
 
 
 
@@ -77,12 +77,12 @@ array_push($htmlFields1, $first_name);
 array_push($htmlFields1, $last_name);
 array_push($htmlFields1, $email);
 array_push($htmlFields1, $phone_number);
-array_push($htmlFields1, $college);
-array_push($htmlFields1, $current_status);
-array_push($htmlFields1, $linkedin);
-array_push($htmlFields1, $workplace);
-array_push($htmlFields1, $position);
-array_push($htmlFields1, $notes);
+// array_push($htmlFields1, $college);
+// array_push($htmlFields1, $current_status);
+// array_push($htmlFields1, $linkedin);
+// array_push($htmlFields1, $workplace);
+// array_push($htmlFields1, $position);
+// array_push($htmlFields1, $notes);
 
 
 
@@ -100,12 +100,38 @@ array_push($htmlFields, "first_name");
 array_push($htmlFields, "last_name");
 array_push($htmlFields, "email");
 array_push($htmlFields, "phone_number");
-array_push($htmlFields, "college");
-array_push($htmlFields, "current_status");
-array_push($htmlFields, "linkedin");
-array_push($htmlFields, "workplace");
-array_push($htmlFields, "title");
-array_push($htmlFields, "notes");
+array_push($htmlFields, "employer");
+array_push($htmlFields, "job_title");
+array_push($htmlFields, "state");
+array_push($htmlFields, "city");
+array_push($htmlFields, "college_education");
+array_push($htmlFields, "associates_degree");
+array_push($htmlFields, "technical_degree");
+array_push($htmlFields, "college_degree_year");
+array_push($htmlFields, "BS_school");
+array_push($htmlFields, "BS_other_school");
+array_push($htmlFields, "BS_field");
+array_push($htmlFields, "other_BS_field");
+array_push($htmlFields, "BS_Eng_Discipline[]");
+array_push($htmlFields, "other_BS_Eng_Discipline[]");
+array_push($htmlFields, "have_MS_degree");
+array_push($htmlFields, "MS_other_school");
+array_push($htmlFields, "MS_year");
+array_push($htmlFields, "MS_field");
+array_push($htmlFields, "other_MS_field");
+array_push($htmlFields, "MS_Eng_Discipline[]");
+array_push($htmlFields, "other_MS_Eng_Discipline[]");
+array_push($htmlFields, "have_PHD_degree");
+array_push($htmlFields, "PHD_other_school");
+array_push($htmlFields, "PHD_year");
+array_push($htmlFields, "special_degree");
+array_push($htmlFields, "Involvement");
+array_push($htmlFields, "Involvement_Level[]");
+array_push($htmlFields, "Recruitment_Level[]");
+array_push($htmlFields, "Mentor_Age[]");
+array_push($htmlFields, "Role_Model[]");
+array_push($htmlFields, "other_Role_Model");
+array_push($htmlFields, "Involvement_Notes");
 
 // Array to store all columns from SQL
 
@@ -116,12 +142,46 @@ array_push($tableColumns, "First_Name");
 array_push($tableColumns, "Last_Name");
 array_push($tableColumns, "Email");
 array_push($tableColumns, "Phone_Number");
-array_push($tableColumns, "College");
-array_push($tableColumns, "Current_Status");
-array_push($tableColumns, "LinkedIn");
-array_push($tableColumns, "Workplace");
-array_push($tableColumns, "Title");
-array_push($tableColumns, "Notes");
+array_push($tableColumns, "Employer");
+array_push($tableColumns, "Job_Title");
+array_push($tableColumns, "State");
+array_push($tableColumns, "City");
+array_push($tableColumns, "College_Education");
+array_push($tableColumns, "Associates_Degree");
+array_push($tableColumns, "Technical_Degree");
+array_push($tableColumns, "College_Degree_Year");
+array_push($tableColumns, "BS_school");
+array_push($tableColumns, "BS_other_school");
+array_push($tableColumns, "BS_field");
+array_push($tableColumns, "other_BS_field");
+array_push($tableColumns, "BS_Eng_Discipline");
+array_push($tableColumns, "other_BS_Eng_Discipline");
+array_push($tableColumns, "have_MS_degree");
+array_push($tableColumns, "MS_other_school");
+array_push($tableColumns, "MS_year");
+array_push($tableColumns, "MS_field");
+array_push($tableColumns, "other_MS_field");
+array_push($tableColumns, "MS_Eng_Discipline");
+array_push($tableColumns, "other_MS_Eng_Discipline");
+array_push($tableColumns, "have_PHD_degree");
+array_push($tableColumns, "PHD_other_school");
+array_push($tableColumns, "PHD_year");
+array_push($tableColumns, "special_degree");
+array_push($tableColumns, "Involvement");
+array_push($tableColumns, "Involvement_Level");
+array_push($tableColumns, "Recruitment_Level");
+array_push($tableColumns, "Mentor_Age");
+array_push($tableColumns, "Role_Model");
+array_push($tableColumns, "other_Role_Model");
+array_push($tableColumns, "Involvement_Notes");
+
+
+
+$someValue  = $_POST["BS_Eng_Discipline"];
+
+
+
+
 
 // Insert Schema Automation below
 $insertSchema = "Prefix";
@@ -162,62 +222,6 @@ for ($i = 1; $i < count($htmlFields1); $i++)
 }
 
 
-//TESTinggg
-$checkValidity = true ;
-
- if(is_numeric($prefix)){
-        echo "Sorry, your Prefix cannot be a number <br>" ;
-        $checkValidity = false ;
-    }
-    // if(is_numeric($first_name)){
-    //     echo "Sorry, your First Name cannot be a number <br>" ;
-    //       $checkValidity = false ;
-    // }
-    if(!ctype_alpha($first_name)){
-        echo "Sorry, your First Name cannot be alphanumeric. <br>" ;
-          $checkValidity = false ;
-    }
-    // if(is_numeric($last_name)) {
-    //     echo "Sorry, your Last Name cannot be a number <br>" ;
-    //       $checkValidity = false ;
-    // }
-    if(!ctype_alpha($last_name)){
-        echo "Sorry, your Last Name cannot be alphanumeric. <br>" ;
-          $checkValidity = false ;
-    }
-    if(is_numeric($email)){
-        echo "Sorry, your Email cannot be a number <br>" ;
-          $checkValidity = false ;
-    }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-     echo  "Invalid email format </br>";
-     $checkValidity = false ;
-    }
-    if(!is_int((int)$phone_number) || strlen($phone_number) != 10){
-        echo "Please enter valid phone number <br>" ;
-          $checkValidity = false ;
-    }
-    if(is_numeric($college)){
-        echo "Sorry, your College cannot be a number <br>" ;
-          $checkValidity = false ;
-    } 
-    if(is_numeric($current_status)){
-        echo "Sorry, your Current Status cannot be a number <br>" ;
-          $checkValidity = false ;
-    } 
-    if(is_numeric($linkedin)){
-        echo "Sorry, your Linkedin cannot be a number <br>" ;
-          $checkValidity = false ;
-    }
-    if(is_numeric($workplace)){
-        echo "Sorry, your Workplace cannot be a number <br>" ;
-          $checkValidity = false ;
-    } 
-    if(is_numeric($position)){
-        echo "Sorry, your Position cannot be a number <br>" ;
-          $checkValidity = false ;
-    }
-  
-
 $sql = "
 
 INSERT INTO 
@@ -227,19 +231,14 @@ VALUES   (" . $valueSchema  . ");
 ";
 
    
-if($checkValidity){
- 
-
-if (mysqli_query($conn, $sql) and $checkValidity) 
+if (mysqli_query($conn, $sql)) 
 {
     
   $submission = TRUE;
  // echo " submitted";
-}elseif($checkValidity) {
+}else {
     
-     echo "Sorry some informations entered were not valid, Please go back and enter valid information. Thank You." ;
-  //echo "Error updating record: " . mysqli_error($conn);
-}
+  echo "Error :  " . mysqli_error($conn);
 }
   ?>
     
