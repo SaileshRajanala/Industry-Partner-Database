@@ -584,16 +584,16 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isSelected_childRadioGroup('BS_wsu', 'BS_field', true)                              &&
     isSelected_childRadioGroup('BS_other', 'BS_field', true)                            &&
     isFilled_childTextBox('BS_other', 'BS_other_school')                                &&
-    isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Eng_Discipline', true)  &&
-    isSelected_childRadioGroup('college_education5', 'have_MS_degree')               &&
+    isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Eng_Discipline', true)          &&
+    isSelected_childRadioGroup('college_education5', 'have_MS_degree')                  &&
     isFilled_childTextBox('MS_wsu', 'MS_year')                                          &&
     isFilled_childTextBox('MS_other', 'MS_year')                                        &&
     isFilled_childTextBox('MS_other', 'MS_other_school')                                &&
-    isSelected_childRadioGroup('MS_wsu', 'MS_field', true)                         &&
-    isSelected_childRadioGroup('MS_other', 'MS_field', true)                       &&
-    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Eng_Discipline', true)  &&
-    isSelected_childRadioGroup('MS_wsu', 'have_PHD_degree')                                  &&
-    isSelected_childRadioGroup('MS_other', 'have_PHD_degree')                                &&
+    isSelected_childRadioGroup('MS_wsu', 'MS_field', true)                              &&
+    isSelected_childRadioGroup('MS_other', 'MS_field', true)                            &&
+    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Eng_Discipline', true)          &&
+    isSelected_childRadioGroup('MS_wsu', 'have_PHD_degree')                             &&
+    isSelected_childRadioGroup('MS_other', 'have_PHD_degree')                           &&
     isFilled_childTextBox('PHD_wsu', 'PHD_year')                                        &&
     isFilled_childTextBox('PHD_other', 'PHD_year')                                      &&
     isFilled_childTextBox('PHD_other', 'PHD_other_school')                              &&
@@ -769,7 +769,7 @@ other("MS_field");
 other("MS_Eng_Discipline");
 other("Role_Model");
 
-
+// displayOnSelectItems( TARGET, SELECTION );
 displayOnSelect('associates_degree_div', 'college_education3');
 displayOnSelect('technical_degree_div', 'college_education4');
 
