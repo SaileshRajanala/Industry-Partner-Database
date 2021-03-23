@@ -552,6 +552,7 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
   {
     if (!(
     // validity conditions below
+    id_('prefix').value != ""                            &&
     isInputValid('first_name', /^[a-zA-Z]+$/)           &&
     isInputValid('last_name', /^[a-zA-Z]+$/)            &&
     isInputValid('email', /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)  &&
