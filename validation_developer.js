@@ -638,6 +638,7 @@ function displayOnSelect(_targetID, _selectID, _form = "Industry_Partner_Databas
 
   var _type = document.forms[_form].elements[id_(_selectID).name][0].type;
   var inputs = document.forms[_form].elements[id_(_selectID).name];
+  var _resetInputs = document.getElementById(_targetID).getElementsByTagName('input');
 
   if (_type == 'checkbox')
   {
@@ -652,6 +653,7 @@ function displayOnSelect(_targetID, _selectID, _form = "Industry_Partner_Databas
       }
       else
       {
+        resetInputs(_resetInputs);
         id_(_targetID).style.display = "none";
       } 
     }
@@ -672,6 +674,7 @@ function displayOnSelect(_targetID, _selectID, _form = "Industry_Partner_Databas
       }
       else
       {
+        resetInputs(_resetInputs);
         id_(_targetID).style.display = "none";
       }
     }
@@ -707,6 +710,9 @@ function displayOnSelectItems(_targetID, _selectIDs, _form = "Industry_Partner_D
           }
         }
         
+        var _inputs = document.getElementById(_targetID).getElementsByTagName('input');
+        resetInputs(_inputs);
+
         id_(_targetID).style.display = "none";
       }
       );
@@ -752,6 +758,17 @@ function higherOrderDisplayConstraint(_targetDivID, _higherID, _form = "Industry
 
   });
 }
+
+function resetInputs(_inputs)
+{
+    if (_inputs.length > 0) 
+    for (var i = _inputs.length - 1; i >= 0; i--) 
+      if (_inputs[i].type == 'checkbox' || _inputs[i].type == 'radio')
+          _inputs[i].checked = false;
+      else if (_inputs[i].type == 'text') 
+        _inputs[i].value = "";
+}
+
 
 // FUNCTIONS CALLS BELOW
 
