@@ -580,9 +580,9 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isFilled_childTextBox('college_education3', 'college_degree_year')                  && 
     isFilled_childTextBox('college_education4', 'college_degree_year')                  && 
     isFilled_childTextBox('college_education5', 'college_degree_year')                  &&
-    isSelected_childRadioGroup('college_education5', 'BS_school')                && 
-    isSelected_childRadioGroup('BS_wsu', 'BS_field', true)                       &&
-    isSelected_childRadioGroup('BS_other', 'BS_field', true)                     &&
+    isSelected_childRadioGroup('college_education5', 'BS_school')                       && 
+    isSelected_childRadioGroup('BS_wsu', 'BS_field', true)                              &&
+    isSelected_childRadioGroup('BS_other', 'BS_field', true)                            &&
     isFilled_childTextBox('BS_other', 'BS_other_school')                                &&
     isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Engineering_Discipline', true)  &&
     isSelected_childRadioGroup('college_education5', 'haveMastersDegree')               &&
