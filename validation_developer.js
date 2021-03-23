@@ -589,8 +589,8 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isFilled_childTextBox('MS_wsu', 'MS_year')                                          &&
     isFilled_childTextBox('MS_other', 'MS_year')                                        &&
     isFilled_childTextBox('MS_other', 'MS_other_school')                                &&
-    isSelected_childRadioGroup('MS_wsu', 'mastersDegree', true)                         &&
-    isSelected_childRadioGroup('MS_other', 'mastersDegree', true)                       &&
+    isSelected_childRadioGroup('MS_wsu', 'MS_field', true)                         &&
+    isSelected_childRadioGroup('MS_other', 'MS_field', true)                       &&
     isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Engineering_Discipline', true)  &&
     isSelected_childRadioGroup('MS_wsu', 'PHD_degree')                                  &&
     isSelected_childRadioGroup('MS_other', 'PHD_degree')                                &&
@@ -765,7 +765,7 @@ sanitize('city');
 
 other("BS_field", 'Other Degree');
 other("BS_Eng_Discipline", 'Other Discipline');
-other("mastersDegree");
+other("MS_field");
 other("MS_Engineering_Discipline");
 other("Role_Model");
 
