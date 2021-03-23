@@ -585,7 +585,7 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isSelected_childRadioGroup('BS_other', 'BS_field', true)                            &&
     isFilled_childTextBox('BS_other', 'BS_other_school')                                &&
     isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Eng_Discipline', true)  &&
-    isSelected_childRadioGroup('college_education5', 'haveMastersDegree')               &&
+    isSelected_childRadioGroup('college_education5', 'have_MS_degree')               &&
     isFilled_childTextBox('MS_wsu', 'MS_year')                                          &&
     isFilled_childTextBox('MS_other', 'MS_year')                                        &&
     isFilled_childTextBox('MS_other', 'MS_other_school')                                &&
