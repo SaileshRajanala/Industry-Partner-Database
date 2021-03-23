@@ -112,24 +112,24 @@ array_push($htmlFields, "BS_school");
 array_push($htmlFields, "BS_other_school");
 array_push($htmlFields, "BS_field");
 array_push($htmlFields, "other_BS_field");
-array_push($htmlFields, "BS_Eng_Discipline[]");
-array_push($htmlFields, "other_BS_Eng_Discipline[]");
+array_push($htmlFields, "BS_Eng_Discipline");
+array_push($htmlFields, "other_BS_Eng_Discipline");
 array_push($htmlFields, "have_MS_degree");
 array_push($htmlFields, "MS_other_school");
 array_push($htmlFields, "MS_year");
 array_push($htmlFields, "MS_field");
 array_push($htmlFields, "other_MS_field");
-array_push($htmlFields, "MS_Eng_Discipline[]");
-array_push($htmlFields, "other_MS_Eng_Discipline[]");
+array_push($htmlFields, "MS_Eng_Discipline");
+array_push($htmlFields, "other_MS_Eng_Discipline");
 array_push($htmlFields, "have_PHD_degree");
 array_push($htmlFields, "PHD_other_school");
 array_push($htmlFields, "PHD_year");
 array_push($htmlFields, "special_degree");
 array_push($htmlFields, "Involvement");
-array_push($htmlFields, "Involvement_Level[]");
-array_push($htmlFields, "Recruitment_Level[]");
-array_push($htmlFields, "Mentor_Age[]");
-array_push($htmlFields, "Role_Model[]");
+array_push($htmlFields, "Involvement_Level");
+array_push($htmlFields, "Recruitment_Level");
+array_push($htmlFields, "Mentor_Age");
+array_push($htmlFields, "Role_Model");
 array_push($htmlFields, "other_Role_Model");
 array_push($htmlFields, "Involvement_Notes");
 
@@ -177,10 +177,16 @@ array_push($tableColumns, "Involvement_Notes");
 
 
 
+
+echo print_r($_POST);
+echo "<br><br>";
+
+
 $someValue  = $_POST["BS_Eng_Discipline"];
+echo print_r($someValue);
 
-
-
+echo "<br><br>";
+echo "<br><br>";
 
 
 // Insert Schema Automation below
@@ -189,12 +195,10 @@ $insertSchema = "Prefix";
 for ($i = 1; $i < count($tableColumns); $i++)
   $insertSchema .= ", " . $tableColumns[$i];
 
-
-
-
-
-
-
+echo "INSERT_SCHEMA : <br><br>";
+echo $insertSchema;
+echo "<br><br>";
+echo "<br><br>";
 
 
 
@@ -229,6 +233,13 @@ Industry_Partner_Database (" . $insertSchema . ")
 VALUES   (" . $valueSchema  . ");
 
 ";
+
+echo "VALUE_SCHEMA : <br><br>";
+echo $valueSchema;
+echo "<br><br>";
+echo "<br><br>";
+
+
 
    
 if (mysqli_query($conn, $sql)) 
