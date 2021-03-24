@@ -88,11 +88,11 @@ body
 	transition: all 0.25s;
 }
 
-.summaryTable:hover
+/*.summaryTable:hover
 {
-	/*transform: scale(1.07);*/
+	transform: scale(1.07);
 	box-shadow: none;
-}
+}*/
 
 td
 {	

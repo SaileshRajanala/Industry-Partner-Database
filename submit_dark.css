@@ -88,14 +88,14 @@ body
 
 	transition: all 0.25s;
 }
-
+/*
 .summaryTable:hover
 {
-	/*border: 1px solid white;*/
-	/*transform: scale(1.07);*/
+	border: 1px solid white;
+	transform: scale(1.07);
 	box-shadow: none;
 	border: none;
-}
+}*/
 
 td
 {	
