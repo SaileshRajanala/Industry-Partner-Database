@@ -263,12 +263,12 @@ VALUES   (" . $valueSchema  . ");
 
    
 if (mysqli_query($conn, $sql)) 
-{
-    
+{   
   $submission = TRUE;
- // echo " submitted";
-}else {
-    
+  // echo " submitted";
+}
+else 
+{
   echo "Error :  " . mysqli_error($conn);
 }
   ?>
@@ -287,9 +287,9 @@ if (mysqli_query($conn, $sql))
   <?php 
 
     if ($submission)
-      echo "<div class=\"summary\">" ;
+      echo "<div class='summary'>" ;
     else 
-      echo " <div class=\"summary\" style=\"display:none;\">" ;
+      echo " <div class='summary' style='display:none;'>" ;
 
   ?>
 
