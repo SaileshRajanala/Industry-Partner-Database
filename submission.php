@@ -300,7 +300,7 @@ if (mysqli_query($conn, $sql))
         {
           ;
         }
-        else if ( is_array($_POST[$htmlFields[$i]]) )
+        else if ( is_array($_POST[$htmlFields[$i]]) && !empty($_POST[$htmlFields[$i]]) )
         {
           echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
         }
