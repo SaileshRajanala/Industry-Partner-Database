@@ -176,7 +176,53 @@ array_push($tableColumns, "other_Role_Model");
 array_push($tableColumns, "Involvement_Notes");
 
 
+$collegeEducation = ['No, I have not taken any college classes',
+                     'Yes, I have taken some college classes', 
+                     "Yes, I have an Associate's degree",
+                     "Yes, I have a Technical degree",
+                     "Yes, I have a Bachelor's degree",
+                     "I prefer not to answer"];
 
+$bsSchool = ['Yes, I did go to Wichita State University',
+             'No, I attended different university'];
+
+$degreeFields = ['Business', 'Education', 'Engineering', 
+                 'Health Professions', 'Liberal Arts',
+                 'Math', 'Science'];
+
+$engDisciplines = ['Aerospace Engineering', 'Applied Computing'
+                   'Biomedical Engineering', 'Chemical Engineering',
+                   'Civil Engineering', 'Computer Engineering'
+                   'Computer Science', 'Cybersecurity', 'Electrical Engineering'
+                   'Environmental Engineering', 'Engineering Management', 
+                   'Facilities Management', 'Industrial/Systems Engineering', 
+                   'Mechatronics', 'Mechanical Engineering', 
+                   'Product Design and Manufacturing Engineering'];
+
+$ms_phd_school = ['Yes, from Wichita State University', 
+                  'Yes, from another College/University', 'No'];
+
+$involvement = ['Advising a team of students on a project',
+                'Demonstrating a technical skill or area of expertise',
+                'Facilitate tour of your company',
+                'Judging a competition', 
+                'K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc',
+                'One-Time Student Recruitment & Retention Event',
+                'Research Partnership', 'Serving as a role model', 'Teaching a concept',
+                'Tell your personal story as it relates to work in your field',
+                "I'm not interested in involvement at this time"];
+
+$involvementLevels = ['A one-time event lasting 1 to 2 hours',
+                      'A day long event', 'A recurring relationship over a semester'];
+
+$recruitmentLevels = ['Elementary School', 'Middle School', 
+                      'High School', 'College/University'];
+
+$mentorAge = ['Elementry', 'Elementary School', 'Middle School', 
+                      'High School', 'Undergraduate', "Master's", "Doctoral"];
+
+$roleModels = ['First-generation college students', 'Female', 'African American', 
+               'Hispanic', 'Veterans'];
 
 // echo print_r($_POST);
 // echo "<br><br>";
@@ -314,15 +360,16 @@ else
         else if ( is_array($_POST[$htmlFields[$i]]) )
         {
           if ($_POST[$htmlFields[$i]][0] != "")
-          echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
+          echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+          implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
         }
         else
         {
-          echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . "{$_POST["" . $htmlFields[$i] . ""]}" . "</td></tr>";
+          echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+          "{$_POST["" . $htmlFields[$i] . ""]}" . "</td></tr>";
         }
       }
     }
-
 
     ?>
 
