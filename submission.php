@@ -190,7 +190,7 @@ $degreeFields = ['Business', 'Education', 'Engineering',
                  'Health Professions', 'Liberal Arts',
                  'Math', 'Science'];
 
-$engDisciplines = ['Aerospace Engineering', 'Applied Computing'
+$engDisciplines = ['Aerospace Engineering', 'Applied Computing',
                    'Biomedical Engineering', 'Chemical Engineering',
                    'Civil Engineering', 'Computer Engineering'
                    'Computer Science', 'Cybersecurity', 'Electrical Engineering'
