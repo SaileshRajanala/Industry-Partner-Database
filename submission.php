@@ -220,7 +220,12 @@ $roleModels = ['First-generation college students', 'Female', 'African American'
     return $bsSchool[$_POST[$htmlField] - 1];
 
   elseif ($htmlField == 'MS_field' || $htmlField == 'BS_field') 
-    return $degreeFields[$_POST[$htmlField] - 1];
+  {
+    if (!is_numeric($_POST[$htmlField]))
+      return $degreeFields[count($degreeFields) - 1];
+    else 
+      return $degreeFields[$_POST[$htmlField] - 1];
+  }
 
   elseif ($htmlField == 'BS_Eng_Discipline' || $htmlField == 'MS_Eng_Discipline' ||
           $htmlField == 'Involvement_Level' || $htmlField == 'Recruitment_Level' ||
