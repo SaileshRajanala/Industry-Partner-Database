@@ -176,7 +176,11 @@ array_push($tableColumns, "other_Role_Model");
 array_push($tableColumns, "Involvement_Notes");
 
 
-$collegeEducation = ['No, I have not taken any college classes',
+
+
+function optionValues($htmlField)
+{
+  $collegeEducation = ['No, I have not taken any college classes',
                      'Yes, I have taken some college classes', 
                      "Yes, I have an Associate's degree",
                      "Yes, I have a Technical degree",
@@ -192,8 +196,8 @@ $degreeFields = ['Business', 'Education', 'Engineering',
 
 $engDisciplines = ['Aerospace Engineering', 'Applied Computing',
                    'Biomedical Engineering', 'Chemical Engineering',
-                   'Civil Engineering', 'Computer Engineering'
-                   'Computer Science', 'Cybersecurity', 'Electrical Engineering'
+                   'Civil Engineering', 'Computer Engineering',
+                   'Computer Science', 'Cybersecurity', 'Electrical Engineering',
                    'Environmental Engineering', 'Engineering Management', 
                    'Facilities Management', 'Industrial/Systems Engineering', 
                    'Mechatronics', 'Mechanical Engineering', 
@@ -223,6 +227,33 @@ $mentorAge = ['Elementry', 'Elementary School', 'Middle School',
 
 $roleModels = ['First-generation college students', 'Female', 'African American', 
                'Hispanic', 'Veterans'];
+
+  if ($htmlField == 'college_education') 
+    return $collegeEducation[$_POST[$htmlField] - 1];
+
+  elseif ($htmlField == 'BS_school') 
+    return $bsSchool[$_POST[$htmlField] - 1];
+
+  elseif ($htmlField == 'MS_field' || $htmlField == 'BS_field') 
+    return $degreeFields[$_POST[$htmlField] - 1];
+
+  elseif ($htmlField == 'BS_Eng_Discipline' || $htmlField == 'MS_Eng_Discipline' ||
+          $htmlField == 'Involvement_Level' || $htmlField == 'Recruitment_Level' ||
+          $htmlField == 'Mentor_Age'        || $htmlField == 'Role_Model'        ||
+          $htmlField == 'Involvement') 
+    return implode(', ', $_POST[$htmlField]);
+
+  elseif ($htmlField == 'have_MS_degree' || $htmlField == 'have_PHD_degree') 
+    return $ms_phd_school[$_POST[$htmlField] - 1];
+
+  elseif ($htmlField == 'other_BS_Eng_Discipline' || 
+          $htmlField == 'other_MS_Eng_Discipline' ||
+          $htmlField == 'other_Role_Model') 
+    return $_POST[$htmlField][0];
+
+  else 
+    return "{$_POST["" . $htmlField . ""]}";
+}
 
 // echo print_r($_POST);
 // echo "<br><br>";
@@ -310,7 +341,7 @@ if (mysqli_query($conn, $sql))
 }
 else 
 {
-  echo "Error :  " . mysqli_error($conn);
+  echo "Error : " . mysqli_error($conn);
 }
   ?>
     
@@ -348,11 +379,11 @@ else
         { 
           ;
         }
-        else if ($_POST[$htmlFields[$i]] == "")
+        elseif ($_POST[$htmlFields[$i]] == "")
         {
           ;
         }
-        else if ( is_array($_POST[$htmlFields[$i]]) )
+        elseif ( is_array($_POST[$htmlFields[$i]]) )
         {
           if ($_POST[$htmlFields[$i]][0] != "")
           {
@@ -370,8 +401,10 @@ else
             //  }
             //  else 
             //  {
+               // echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+               // implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
                echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-               implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
+              optionValues($htmlFields[$i]) . "</td></tr>";
              // }
           }
 
@@ -380,16 +413,26 @@ else
         }
         else
         {
-          if ($htmlFields[$i] == 'college_education') 
-          {
+          // if ($htmlFields[$i] == 'college_education') 
+          // {
+          //   echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+          //   $collegeEducation[$_POST[$htmlFields[$i]] - 1] . "</td></tr>";
+          // }
+          // elseif ($htmlFields[$i] == 'BS_school')
+          // {
+          //   echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+          //   $bsSchool[$_POST[$htmlFields[$i]] - 1] . "</td></tr>";
+          // }
+          // elseif ($htmlFields[$i] == 'BS_field' || $htmlFields[$i] == 'MS_field')
+          // {
+          //   echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+          //   $degreeFields[$_POST[$htmlFields[$i]] - 1] . "</td></tr>";
+          // }
+          // else
+          // {
             echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-            $collegeEducation[$_POST[$htmlFields[$i]] - 1] . "</td></tr>";
-          }
-          else
-          {
-            echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-            "{$_POST["" . $htmlFields[$i] . ""]}" . "</td></tr>";
-          )
+            optionValues($htmlFields[$i]) . "</td></tr>";
+          //}
         }
       }
     }
