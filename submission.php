@@ -255,38 +255,12 @@ $roleModels = ['First-generation college students', 'Female', 'African American'
     return "{$_POST["" . $htmlField . ""]}";
 }
 
-// echo print_r($_POST);
-// echo "<br><br>";
-
-// echo "<br><br>other_BS_Eng_Discipline";
-// $someValue  = $_POST["other_BS_Eng_Discipline"];
-// echo print_r($someValue);
-// echo "<br><br>other_MS_Eng_Discipline";
-
-
-// $someValue  = $_POST["other_MS_Eng_Discipline"];
-// echo print_r($someValue);
-
-// echo "<br><br>other_Role_Model";
-
-// $someValue  = $_POST["other_Role_Model"];
-// echo print_r($someValue);
-
-
-// echo "<br><br>";
-// echo "<br><br>";
-
 
 // Insert Schema Automation below
 $insertSchema = "Prefix";
 
 for ($i = 1; $i < count($tableColumns); $i++)
   $insertSchema .= ", " . $tableColumns[$i];
-
-// echo "INSERT_SCHEMA : <br><br>";
-// echo $insertSchema;
-// echo "<br><br>";
-// echo "<br><br>";
 
 $valueSchema = "'{$_POST["prefix"]}'";
 
@@ -309,17 +283,6 @@ for ($i = 1; $i < count($htmlFields); $i++)
 // Submission variable
 $submission = FALSE;
 
-// Value Schema
-//$valueSchema = "'{$_POST["prefix"]}'";
-// $valueSchema = "'{$prefix}'";
-// str_replace("'", "\'", $prefix);
-
-// for ($i = 1; $i < count($htmlFields); $i++)
-// {
-//   $valueSchema .= ", " . "'{$htmlFields[$i]}'";
-// }
-
-
 $sql = "
 
 INSERT INTO 
@@ -328,16 +291,9 @@ VALUES   (" . $valueSchema  . ");
 
 ";
 
-// echo "VALUE_SCHEMA : <br><br>";
-// echo $valueSchema;
-// echo "<br><br>";
-// echo "<br><br>";
-
-   
 if (mysqli_query($conn, $sql)) 
 {   
   $submission = TRUE;
-  // echo " submitted";
 }
 else 
 {
