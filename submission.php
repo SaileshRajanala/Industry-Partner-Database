@@ -7,7 +7,7 @@
 
   <!-- CSS 3 (EXTERNAL) -->
   <link href="submit_dark.css" id="sS" rel="stylesheet" type="text/css">
-  <link href="mobile_dark.css" id="sS" rel="stylesheet" type="text/css">
+  <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
   <!-- Font (Google Fonts) -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
@@ -181,15 +181,20 @@ array_push($tableColumns, "Involvement_Notes");
 // echo print_r($_POST);
 // echo "<br><br>";
 
+// echo "<br><br>other_BS_Eng_Discipline";
+// $someValue  = $_POST["other_BS_Eng_Discipline"];
+// echo print_r($someValue);
+// echo "<br><br>other_MS_Eng_Discipline";
 
-$someValue  = $_POST["other_BS_Eng_Discipline"];
-echo print_r($someValue);
 
-$someValue  = $_POST["other_MS_Eng_Discipline"];
-echo print_r($someValue);
+// $someValue  = $_POST["other_MS_Eng_Discipline"];
+// echo print_r($someValue);
 
-$someValue  = $_POST["other_Role_Model"];
-echo print_r($someValue);
+// echo "<br><br>other_Role_Model";
+
+// $someValue  = $_POST["other_Role_Model"];
+// echo print_r($someValue);
+
 
 // echo "<br><br>";
 // echo "<br><br>";
@@ -306,8 +311,9 @@ if (mysqli_query($conn, $sql))
         {
           ;
         }
-        else if ( is_array($_POST[$htmlFields[$i]]) && !empty($_POST[$htmlFields[$i]]) )
+        else if ( is_array($_POST[$htmlFields[$i]]) )
         {
+          if ($_POST[$htmlFields[$i]][0] != "")
           echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
         }
         else
