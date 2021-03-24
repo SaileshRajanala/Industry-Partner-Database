@@ -182,8 +182,14 @@ array_push($tableColumns, "Involvement_Notes");
 // echo "<br><br>";
 
 
-// $someValue  = $_POST["BS_Eng_Discipline"];
-// echo print_r($someValue);
+$someValue  = $_POST["other_BS_Eng_Discipline"];
+echo print_r($someValue);
+
+$someValue  = $_POST["other_MS_Eng_Discipline"];
+echo print_r($someValue);
+
+$someValue  = $_POST["other_Role_Model"];
+echo print_r($someValue);
 
 // echo "<br><br>";
 // echo "<br><br>";
