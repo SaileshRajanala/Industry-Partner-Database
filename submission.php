@@ -178,15 +178,15 @@ array_push($tableColumns, "Involvement_Notes");
 
 
 
-echo print_r($_POST);
-echo "<br><br>";
+// echo print_r($_POST);
+// echo "<br><br>";
 
 
-$someValue  = $_POST["BS_Eng_Discipline"];
-echo print_r($someValue);
+// $someValue  = $_POST["BS_Eng_Discipline"];
+// echo print_r($someValue);
 
-echo "<br><br>";
-echo "<br><br>";
+// echo "<br><br>";
+// echo "<br><br>";
 
 
 // Insert Schema Automation below
@@ -195,10 +195,10 @@ $insertSchema = "Prefix";
 for ($i = 1; $i < count($tableColumns); $i++)
   $insertSchema .= ", " . $tableColumns[$i];
 
-echo "INSERT_SCHEMA : <br><br>";
-echo $insertSchema;
-echo "<br><br>";
-echo "<br><br>";
+// echo "INSERT_SCHEMA : <br><br>";
+// echo $insertSchema;
+// echo "<br><br>";
+// echo "<br><br>";
 
 
 
@@ -212,7 +212,7 @@ for ($i = 1; $i < count($htmlFields); $i++)
   else if ($_POST[$htmlFields[$i]] == "")
     $valueSchema .= ",''";
   else if ( is_array($_POST[$htmlFields[$i]]) )
-    $valueSchema .= ", " . "'" . implode(',', $_POST[$htmlFields[$i]]) . "'";
+    $valueSchema .= ", " . "'" . implode(', ', $_POST[$htmlFields[$i]]) . "'";
   else
     $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
 }
@@ -243,10 +243,10 @@ VALUES   (" . $valueSchema  . ");
 
 ";
 
-echo "VALUE_SCHEMA : <br><br>";
-echo $valueSchema;
-echo "<br><br>";
-echo "<br><br>";
+// echo "VALUE_SCHEMA : <br><br>";
+// echo $valueSchema;
+// echo "<br><br>";
+// echo "<br><br>";
 
 
 
@@ -291,9 +291,26 @@ if (mysqli_query($conn, $sql))
     if ($submission)
     {
       for ($i = 0; $i < count($tableColumns); $i++)
-        echo "<tr><td>" . $tableColumns[$i] . "
-            </td><td> " . "'{$_POST["" . $htmlFields[$i] . ""]}'" . "</td></tr>";
+      {
+        if (!isset($_POST[$htmlFields[$i]]))
+        { 
+          ;
+        }
+        else if ($_POST[$htmlFields[$i]] == "")
+        {
+          ;
+        }
+        else if ( is_array($_POST[$htmlFields[$i]]) )
+        {
+          echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
+        }
+        else
+        {
+          echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . "{$_POST["" . $htmlFields[$i] . ""]}" . "</td></tr>";
+        }
+      }
     }
+
 
     ?>
 
