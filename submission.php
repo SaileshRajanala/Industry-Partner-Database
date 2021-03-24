@@ -292,7 +292,7 @@ if (mysqli_query($conn, $sql))
     {
       for ($i = 0; $i < count($tableColumns); $i++)
         echo "<tr><td>" . $tableColumns[$i] . "
-            </td><td> $htmlFields[$i] </td></tr>";
+            </td><td> " . "'{$_POST["" . $htmlFields[$i] . ""]}'" . "</td></tr>";
     }
 
     ?>
