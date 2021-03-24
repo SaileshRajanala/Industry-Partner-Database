@@ -177,7 +177,7 @@ $bsSchool = ['Yes, I did go to Wichita State University',
 
 $degreeFields = ['Business', 'Education', 'Engineering', 
                  'Health Professions', 'Liberal Arts',
-                 'Math', 'Science'];
+                 'Math', 'Science', 'Other'];
 
 $engDisciplines = ['Aerospace Engineering', 'Applied Computing',
                    'Biomedical Engineering', 'Chemical Engineering',
@@ -186,7 +186,7 @@ $engDisciplines = ['Aerospace Engineering', 'Applied Computing',
                    'Environmental Engineering', 'Engineering Management', 
                    'Facilities Management', 'Industrial/Systems Engineering', 
                    'Mechatronics', 'Mechanical Engineering', 
-                   'Product Design and Manufacturing Engineering'];
+                   'Product Design and Manufacturing Engineering', 'Other'];
 
 $ms_phd_school = ['Yes, from Wichita State University', 
                   'Yes, from another College/University', 'No'];
@@ -211,7 +211,7 @@ $mentorAge = ['Elementry', 'Elementary School', 'Middle School',
                       'High School', 'Undergraduate', "Master's", "Doctoral"];
 
 $roleModels = ['First-generation college students', 'Female', 'African American', 
-               'Hispanic', 'Veterans'];
+               'Hispanic', 'Veterans', 'Other'];
 
   if ($htmlField == 'college_education') 
     return $collegeEducation[$_POST[$htmlField] - 1];
