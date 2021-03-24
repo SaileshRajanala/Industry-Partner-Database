@@ -90,7 +90,7 @@ body
 
 .summaryTable:hover
 {
-	transform: scale(1.07);
+	/*transform: scale(1.07);*/
 	box-shadow: none;
 }
 
