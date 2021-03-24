@@ -343,52 +343,14 @@ else
         {
           if ($_POST[$htmlFields[$i]][0] != "")
           {
-            // if ($htmlFields[$i] == 'college_education') 
-            // {
-            
-            //    $values = '';
-            //    $optionNums = $_POST[$htmlFields[$i]];
-
-            //    for ($index=0; $index < ; $index++) 
-            //    { 
-            //       $collegeEducation[]
-            //    }
-
-            //  }
-            //  else 
-            //  {
-               // echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-               // implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
-               echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+              echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
               optionValues($htmlFields[$i]) . "</td></tr>";
-             // }
           }
-
-
-          
         }
         else
         {
-          // if ($htmlFields[$i] == 'college_education') 
-          // {
-          //   echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-          //   $collegeEducation[$_POST[$htmlFields[$i]] - 1] . "</td></tr>";
-          // }
-          // elseif ($htmlFields[$i] == 'BS_school')
-          // {
-          //   echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-          //   $bsSchool[$_POST[$htmlFields[$i]] - 1] . "</td></tr>";
-          // }
-          // elseif ($htmlFields[$i] == 'BS_field' || $htmlFields[$i] == 'MS_field')
-          // {
-          //   echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-          //   $degreeFields[$_POST[$htmlFields[$i]] - 1] . "</td></tr>";
-          // }
-          // else
-          // {
             echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
             optionValues($htmlFields[$i]) . "</td></tr>";
-          //}
         }
       }
     }
