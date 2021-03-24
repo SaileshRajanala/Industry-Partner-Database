@@ -257,9 +257,6 @@ for ($i = 1; $i < count($tableColumns); $i++)
 // echo "<br><br>";
 // echo "<br><br>";
 
-
-
-
 $valueSchema = "'{$_POST["prefix"]}'";
 
 for ($i = 1; $i < count($htmlFields); $i++)
@@ -304,8 +301,6 @@ VALUES   (" . $valueSchema  . ");
 // echo $valueSchema;
 // echo "<br><br>";
 // echo "<br><br>";
-
-
 
    
 if (mysqli_query($conn, $sql)) 
@@ -360,13 +355,41 @@ else
         else if ( is_array($_POST[$htmlFields[$i]]) )
         {
           if ($_POST[$htmlFields[$i]][0] != "")
-          echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-          implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
+          {
+            // if ($htmlFields[$i] == 'college_education') 
+            // {
+            
+            //    $values = '';
+            //    $optionNums = $_POST[$htmlFields[$i]];
+
+            //    for ($index=0; $index < ; $index++) 
+            //    { 
+            //       $collegeEducation[]
+            //    }
+
+            //  }
+            //  else 
+            //  {
+               echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+               implode(', ', $_POST[$htmlFields[$i]]) . "</td></tr>";
+             // }
+          }
+
+
+          
         }
         else
         {
-          echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-          "{$_POST["" . $htmlFields[$i] . ""]}" . "</td></tr>";
+          if ($htmlFields[$i] == 'college_education') 
+          {
+            echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+            $collegeEducation[$_POST[$htmlFields[$i]] - 1] . "</td></tr>";
+          }
+          else
+          {
+            echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
+            "{$_POST["" . $htmlFields[$i] . ""]}" . "</td></tr>";
+          )
         }
       }
     }
