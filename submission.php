@@ -207,8 +207,10 @@ $valueSchema = "'{$_POST["prefix"]}'";
 
 for ($i = 1; $i < count($htmlFields); $i++)
 {
-  if ( is_array($_POST[$htmlFields[$i]]) )
-    $valueSchema .= ", " . "'" . implode(",", $_POST[$htmlFields[$i]]) . "'";
+  if ($_POST[$htmlFields[$i]] == "")
+    $valueSchema .= ",''";
+  else if ( is_array($_POST[$htmlFields[$i]]) )
+    $valueSchema .= ", " . "'" . implode(',', $_POST[$htmlFields[$i]]) . "'";
   else
     $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
 }
