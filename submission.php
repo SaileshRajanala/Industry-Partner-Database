@@ -61,12 +61,6 @@ $replace = array("\'","&lt","&gt;");
  $last_name      = str_replace($char,$replace,$last_name);
  $email          = str_replace($char,$replace,$email);
  $phone_number   = str_replace($char,$replace,$phone_number);
- // $college        = str_replace($char,$replace,$college);
- // $current_status = str_replace($char,$replace,$current_status);
- // $linkedin       = str_replace($char,$replace,$linkedin);
- // $workplace      = str_replace($char,$replace,$workplace);
- // $position       = str_replace($char,$replace,$position);
- // $notes          = str_replace($char,$replace,$notes);
 
 
 
@@ -77,15 +71,6 @@ array_push($htmlFields1, $first_name);
 array_push($htmlFields1, $last_name);
 array_push($htmlFields1, $email);
 array_push($htmlFields1, $phone_number);
-// array_push($htmlFields1, $college);
-// array_push($htmlFields1, $current_status);
-// array_push($htmlFields1, $linkedin);
-// array_push($htmlFields1, $workplace);
-// array_push($htmlFields1, $position);
-// array_push($htmlFields1, $notes);
-
-
-
 
 
 
@@ -290,6 +275,8 @@ Industry_Partner_Database (" . $insertSchema . ")
 VALUES   (" . $valueSchema  . ");
 
 ";
+
+// echo $sql . '<br><br><br>';
 
 if (mysqli_query($conn, $sql)) 
 {   
