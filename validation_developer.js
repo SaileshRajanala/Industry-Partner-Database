@@ -552,15 +552,16 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
   {
     if (!(
     // validity conditions below
-    id_('prefix').value != ""                            &&
-    isInputValid('first_name', /^[a-zA-Z]+$/)           &&
-    isInputValid('last_name', /^[a-zA-Z]+$/)            &&
+    id_('prefix').value != ""                                      &&
+    //isInputValid('suffix', /^[a-zA-Z0-9-.'][a-zA-Z0-9 -.']*$/)     &&
+    isInputValid('first_name', /^[a-zA-Z][a-zA-Z -']*$/)           &&
+    isInputValid('last_name', /^[a-zA-Z][a-zA-Z -']*$/)            &&
     isInputValid('email', /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)  &&
-    isInputValid('phone_number', /^\d{10}$/)            &&
-    isInputValid('employer', /^[a-zA-Z][a-zA-Z ]*$/)    &&
-    isInputValid('job_title', /^[a-zA-Z ]*$/)           &&
-    isInputValid('city', /^[a-zA-Z ]*$/)                && 
-    id_('state').value != ""                            &&
+    //isInputValid('phone_number', /^\d{10}$/)                       &&
+    //isInputValid('employer', /.*/)                                 &&
+    //isInputValid('job_title', /.*/)                                &&
+    //isInputValid('city', /.*/)                                     && 
+    //id_('state').value != ""                                       &&
 
     true)) 
     {
@@ -805,32 +806,33 @@ function higherOrderDisplayConstraint_Items(_targetDivID, _higherIDs, _form = "I
 
 
 // FUNCTIONS CALLS BELOW
+// validate('suffix', /^[a-zA-Z0-9-.'][a-zA-Z0-9 -.']*$/, 'Please enter your Suffix', 
+//   'Enter a valid suffix', 'Suffix is Valid');
 
+validate('first_name', /^[a-zA-Z][a-zA-Z -']*$/, 'Please enter your First Name', 
+  'Enter a valid name', 'First Name is Valid');
 
-validate('first_name', /^[a-zA-Z]+$/, 'Please enter your First Name', 
-  'Enter only alphabets', 'First Name is Valid');
-
-validate('last_name', /^[a-zA-Z]+$/, 'Please enter your Last Name', 
-  'Enter only alphabets', 'Last Name is Valid');
+validate('last_name', /^[a-zA-Z][a-zA-Z -']*$/, 'Please enter your Last Name', 
+  'Enter a valid name', 'Last Name is Valid');
 
 validate('email', 
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i, 
   'Please enter your Email address', 'Enter a valid email', 'Email is Valid');
 
-validate('phone_number', /^\d{10}$/, 'Enter your 10-digit Phone Number', 
-  'Enter a valid U.S. Phone Number', 'Phone Number is Valid');
+// validate('phone_number', /^\d{10}$/, 'Enter your 10-digit Phone Number', 
+//   'Enter a valid U.S. Phone Number', 'Phone Number is Valid');
 
-validate('employer', /^[a-zA-Z][a-zA-Z ]*$/, 
-  "Please enter your Employer's Name", 
-  "Enter Employer's First & Last Name", "Employer's Name is valid");
+// validate('employer', /.*$/, 
+//   "Please enter your Employer's Name", 
+//   "Enter Employer's Name", "Employer's Name is valid");
 
-validate('job_title', /^[a-zA-Z ]*$/, 
-  "Please enter your Job Title", 
-  "Enter a valid Job Title", "Job Title is valid");
+// validate('job_title', /.*$/, 
+//   "Please enter your Job Title", 
+//   "Enter a valid Job Title", "Job Title is valid");
 
-validate('city', /^[a-zA-Z ]*$/, 
-  "In which city do you work?", 
-  "Enter a valid city", "City is valid");
+// validate('city', /.*$/, 
+//   "In which city do you work?", 
+//   "Enter a valid city", "City is valid");
 
 // validate('college_degree_year', /^\d{4}$/, 
 //   "What year did you earn your degree?", 
