@@ -518,7 +518,7 @@ else
 
   <h2>Here's your Summary.</h2>
 
-  <table class="summaryTable">
+  <table class="summaryTable" style="box-shadow: none">
     
     <?php
 
