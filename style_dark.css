@@ -189,7 +189,7 @@ input
 
 input:hover
 {
-    border: 2px solid white; 
+    border: 0.1em solid white; 
 }
 
 input:focus, textarea:focus
