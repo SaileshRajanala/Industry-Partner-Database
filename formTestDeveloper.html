@@ -200,7 +200,7 @@
           }
         }*/
 
-        @-webkit-keyframes slideDown
+        @keyframes slideDown
         {
           0% 
           {
@@ -216,7 +216,7 @@
           }
         }
 
-        @-webkit-keyframes minimize
+        @keyframes minimize
         {
           0%
           {
@@ -224,7 +224,26 @@
           }
         }
 
-        @keyframes slideDown
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) 
+{
+    @keyframes slideDown
+        {
+          0% 
+          {
+           
+          }
+        }
+
+        @keyframes minimize
+        {
+          0%
+          {
+            margin-bottom: 15%;
+          }
+        }
+}
+
+        /*@keyframes slideDown
         {
           0% 
           {
@@ -241,7 +260,7 @@
           {
             margin-bottom: 15%;
           }
-        }
+        }*/
 
         @keyframes maximize
         {
