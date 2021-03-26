@@ -200,7 +200,7 @@
           }
         }*/
 
-        @keyframes slideDown
+        @-webkit-keyframes slideDown
         {
           0% 
           {
@@ -213,6 +213,25 @@
           50%
           {
             transform: scale(1.15);
+          }
+        }
+
+        @-webkit-keyframes minimize
+        {
+          0%
+          {
+            margin-bottom: 15%;
+          }
+        }
+
+        @keyframes slideDown
+        {
+          0% 
+          {
+            border-radius: 5em;
+            transform: translateY(5em);
+            opacity: 0;
+            margin-bottom: -15%;
           }
         }
 
