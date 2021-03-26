@@ -228,7 +228,7 @@ function sanitize(_id)
     if ((event.keyCode >=  48 && event.keyCode <=  90) ||
         (event.keyCode >= 186 && event.keyCode <= 222) ||
          event.keyCode ==  32 || event.keyCode ==   8)  
-      if (input != "") 
+      if (input != "" && input.charAt(0) === input.charAt(0).toLowerCase()) 
       {
         input = capitalizeStringAt(input, 0);
 
