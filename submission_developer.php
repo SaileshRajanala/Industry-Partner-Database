@@ -500,11 +500,15 @@ $submission = FALSE;
 
 // ';
 
-$value_Schema = "";
+$value_Schema = "'" . $_POST['prefix'] . "'";
 
-for ($i=0; $i < count($_POST); $i++) 
+for ($i=1; $i < count($htmlFields); $i++) 
 { 
-  if (is_array($_POST[$htmlFields[$i]])) 
+  if (!isset($_POST[$htmlFields[$i]]))
+  {
+    $value_Schema .= ", ''"; 
+  }
+  else if (is_array($_POST[$htmlFields[$i]])) 
   {
     $value_Schema .= ", '" . htmlentities(implode("', '", $_POST[$htmlFields[$i]]), ENT_COMPAT) . "'";
   }
@@ -518,13 +522,13 @@ $sql = "
 
 INSERT INTO 
 Industry_Partner_Database (" . $insertSchema . ")
-VALUES   ('" . $value_Schema . ");
+VALUES   (" . $value_Schema . ");
 
 ";
 
 echo "VALUE _SCHEMA : " . $value_Schema . '<br><br><br>';
 
-echo "SQL  : " .$sql . '<br><br><br>';
+echo "SQL  : " . $sql . '<br><br><br>';
 
 if (mysqli_query($conn, $sql)) 
 {   
