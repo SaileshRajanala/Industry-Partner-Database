@@ -152,7 +152,6 @@ $recruitmentLevels = ['Elementary School',
                       'College/University'];
 
 $mentorAge = ['Elementry', 
-              'Elementary School', 
               'Middle School', 
               'High School', 
               'Undergraduate', 
@@ -186,7 +185,7 @@ array_push($values, htmlentities($_POST["job_title"], ENT_QUOTES));
 array_push($values, htmlentities($_POST["state"], ENT_QUOTES));
 array_push($values, htmlentities($_POST["city"], ENT_QUOTES));
 
-if (isset($_POST["college_education"]) && is_array($_POST["college_education"]))
+if (isset($_POST["college_education"]))
   array_push($values, 
   htmlentities($collegeEducation[$_POST["college_education"] - 1], ENT_QUOTES));
 else
@@ -196,7 +195,7 @@ array_push($values, htmlentities($_POST["associates_degree"], ENT_QUOTES));
 array_push($values, htmlentities($_POST["technical_degree"], ENT_QUOTES));
 array_push($values, htmlentities($_POST["college_degree_year"], ENT_QUOTES));
 
-if (isset($_POST["BS_school"]) && is_array($_POST["BS_school"]))
+if (isset($_POST["BS_school"]))
   array_push($values, 
   htmlentities($bsSchool[$_POST["BS_school"] - 1], ENT_QUOTES));
 else
@@ -204,12 +203,19 @@ else
 
 array_push($values, htmlentities($_POST["BS_other_school"], ENT_QUOTES)); 
 
-if (isset($_POST["BS_field"]) && is_numeric($_POST["BS_field"]))
-  array_push($values, 
-   htmlentities($Fields[$_POST["BS_field"] - 1], ENT_QUOTES));
+
+if (isset($_POST["BS_field"]))
+{ 
+  if (is_numeric($_POST["BS_field"]))
+    array_push($values, htmlentities($Fields[$_POST["BS_field"] - 1], ENT_QUOTES));
+  else
+    array_push($values, htmlentities($Fields[count($Fields) - 1], ENT_QUOTES));
+}
 else
-  array_push($values, 
-    htmlentities($Fields[count($Fields) - 1], ENT_QUOTES));
+{
+  array_push($values, "");
+}
+
 
 if (isset($_POST["other_BS_field"]) && is_array($_POST["other_BS_field"]))
   array_push($values, 
@@ -218,10 +224,22 @@ else
   array_push($values, "");
 
 if (isset($_POST["BS_Eng_Discipline"]) && is_array($_POST["BS_Eng_Discipline"]))
-  array_push($values, 
-    htmlentities(implode(', ', $_POST["BS_Eng_Discipline"]), ENT_QUOTES));
+{
+  $bsValue = $engDisciplines[ $_POST["BS_Eng_Discipline"][0] - 1];
+
+  for ($i=1; $i < count($_POST["BS_Eng_Discipline"]); $i++)
+  { 
+    if (is_numeric($_POST["BS_Eng_Discipline"][$i]))
+      $bsValue .= ', ' . $engDisciplines[ $_POST["BS_Eng_Discipline"][$i] - 1];
+    else
+      $bsValue .= ', ' . $engDisciplines[count($engDisciplines) - 1];
+  }
+  
+  array_push($values, htmlentities($bsValue, ENT_QUOTES));
+}
 else
   array_push($values, "");
+
 
 if (isset($_POST["other_BS_Eng_Discipline"]) && is_array($_POST["other_BS_Eng_Discipline"]))
   array_push($values, 
@@ -229,7 +247,7 @@ if (isset($_POST["other_BS_Eng_Discipline"]) && is_array($_POST["other_BS_Eng_Di
 else
   array_push($values, "");
 
-if (isset($_POST["have_MS_degree"]) && is_array($_POST["have_MS_degree"]))
+if (isset($_POST["have_MS_degree"]))
   array_push($values, 
   htmlentities($ms_phd_school[$_POST["have_MS_degree"] - 1], ENT_QUOTES));
 else
@@ -239,12 +257,19 @@ array_push($values, htmlentities($_POST["MS_other_school"], ENT_QUOTES));
 
 array_push($values, htmlentities($_POST["MS_year"], ENT_QUOTES));
 
-if (isset($_POST["MS_field"]) && is_numeric($_POST["MS_field"]))
-  array_push($values, 
-   htmlentities($Fields[$_POST["MS_field"] - 1], ENT_QUOTES));
+
+if (isset($_POST["MS_field"]))
+{ 
+  if (is_numeric($_POST["MS_field"]))
+    array_push($values, htmlentities($Fields[$_POST["MS_field"] - 1], ENT_QUOTES));
+  else
+    array_push($values, htmlentities($Fields[count($Fields) - 1], ENT_QUOTES));
+}
 else
-  array_push($values, 
-    htmlentities($Fields[count($Fields) - 1], ENT_QUOTES));
+{
+  array_push($values, "");
+}
+
 
 if (isset($_POST["other_MS_field"]) && is_array($_POST["other_MS_field"]))
   array_push($values, 
@@ -252,19 +277,32 @@ if (isset($_POST["other_MS_field"]) && is_array($_POST["other_MS_field"]))
 else
   array_push($values, "");
 
-if (isset($_POST["MS_Eng_Discipline"]) && isset($_POST["MS_Eng_Discipline"]) && is_array($_POST["MS_Eng_Discipline"]))
+if (isset($_POST["MS_Eng_Discipline"]) && is_array($_POST["MS_Eng_Discipline"]))
   array_push($values, 
     htmlentities(implode(', ', $_POST["MS_Eng_Discipline"]), ENT_QUOTES));
 else
   array_push($values, "");
 
-if (isset($_POST["other_MS_Eng_Discipline"]) && is_array($_POST["other_MS_Eng_Discipline"]))
-  array_push($values, 
-    htmlentities(implode(', ', $_POST["other_MS_Eng_Discipline"]), ENT_QUOTES));
+
+if (isset($_POST["MS_Eng_Discipline"]) && is_array($_POST["MS_Eng_Discipline"]))
+{
+  $msValue = $engDisciplines[ $_POST["MS_Eng_Discipline"][0] - 1];
+
+  for ($i=1; $i < count($_POST["MS_Eng_Discipline"]); $i++)
+  { 
+    if (is_numeric($_POST["MS_Eng_Discipline"][$i]))
+      $msValue .= ', ' . $engDisciplines[ $_POST["MS_Eng_Discipline"][$i] - 1];
+    else
+      $msValue .= ', ' . $engDisciplines[count($engDisciplines) - 1];
+  }
+  
+  array_push($values, htmlentities($msValue, ENT_QUOTES));
+}
 else
   array_push($values, "");
 
-if (isset($_POST["have_PHD_degree"]) && is_array($_POST["have_PHD_degree"]))
+
+if (isset($_POST["have_PHD_degree"]))
   array_push($values, 
   htmlentities($ms_phd_school[$_POST["have_PHD_degree"] - 1], ENT_QUOTES));
 else
@@ -277,35 +315,77 @@ array_push($values, htmlentities($_POST["PHD_year"], ENT_QUOTES));
 array_push($values, htmlentities($_POST["special_degree"], ENT_QUOTES));
 
 
-if (isset($_POST["Involvement_Level"]) && is_array($_POST["Involvement_Level"]))
-  array_push($values, 
-    htmlentities(implode(', ', $_POST["Involvement"]), ENT_QUOTES));
+
+
+if (isset($_POST["Involvement"]) && is_array($_POST["Involvement"]))
+{
+  $involvementValue = $involvement[ $_POST["Involvement"][0] - 1];
+
+  for ($i=1; $i < count($_POST["Involvement"]); $i++) 
+    $involvementValue .= ', ' .$involvement[$_POST["Involvement"][$i] - 1];
+
+  array_push($values, htmlentities($involvementValue, ENT_QUOTES));
+}
 else
   array_push($values, "");
 
+
 if (isset($_POST["Involvement_Level"]) && is_array($_POST["Involvement_Level"]))
-  array_push($values, 
-    htmlentities(implode(', ', $_POST["Involvement_Level"]), ENT_QUOTES));
+{
+  $involvementLevelsValue = $involvementLevels[ $_POST["Involvement_Level"][0] - 1];
+
+  for ($i=1; $i < count($_POST["Involvement_Level"]); $i++) 
+    $involvementLevelsValue .= ', ' .$involvementLevels[$_POST["Involvement_Level"][$i] - 1];
+
+  array_push($values, htmlentities($involvementLevelsValue, ENT_QUOTES));
+}
 else
   array_push($values, "");
+
 
 if (isset($_POST["Recruitment_Level"]) && is_array($_POST["Recruitment_Level"]))
-  array_push($values, 
-    htmlentities(implode(', ', $_POST["Recruitment_Level"]), ENT_QUOTES));
+{
+  $recruitmentLevelsValue = $recruitmentLevels[ $_POST["Recruitment_Level"][0] - 1];
+
+  for ($i=1; $i < count($_POST["Recruitment_Level"]); $i++) 
+    $recruitmentLevelsValue .= ', ' . $recruitmentLevels[ $_POST["Recruitment_Level"][$i] - 1];
+
+  array_push($values, htmlentities($recruitmentLevelsValue, ENT_QUOTES));
+}
 else
   array_push($values, "");
+
 
 if (isset($_POST["Mentor_Age"]) && is_array($_POST["Mentor_Age"]))
-  array_push($values, 
-    htmlentities(implode(', ', $_POST["Mentor_Age"]), ENT_QUOTES));
+{
+  $mentorAgeValue = $mentorAge[ $_POST["Mentor_Age"][0] - 1];
+
+  for ($i=1; $i < count($_POST["Mentor_Age"]); $i++) 
+    $mentorAgeValue .= ', ' . $mentorAge[ $_POST["Mentor_Age"][$i] - 1];
+
+  array_push($values, htmlentities($mentorAgeValue, ENT_QUOTES));
+}
 else
   array_push($values, "");
 
+
 if (isset($_POST["Role_Model"]) && is_array($_POST["Role_Model"]))
-  array_push($values, 
-    htmlentities(implode(', ', $_POST["Role_Model"]), ENT_QUOTES));
+{
+  $roleModelsValue = $roleModels[ $_POST["Role_Model"][0] - 1];
+
+  for ($i=1; $i < count($_POST["Role_Model"]); $i++)
+  { 
+    if (is_numeric($_POST["Role_Model"][$i]))
+      $roleModelsValue .= ', ' . $roleModels[ $_POST["Role_Model"][$i] - 1];
+    else
+      $roleModelsValue .= ', ' . $roleModels[count($roleModels) - 1];
+  }
+  
+  array_push($values, htmlentities($roleModelsValue, ENT_QUOTES));
+}
 else
   array_push($values, "");
+
 
 if (isset($_POST["other_Role_Model"]) && is_array($_POST["other_Role_Model"]))
   array_push($values, 
@@ -507,14 +587,20 @@ for ($i=1; $i < count($htmlFields); $i++)
   if (!isset($_POST[$htmlFields[$i]]))
   {
     $value_Schema .= ", ''"; 
+
+    //echo '<br>' . $htmlFields[$i] . ' : <br><br>' . ", ''" . '<br><br>';
   }
   else if (is_array($_POST[$htmlFields[$i]])) 
   {
-    $value_Schema .= ", '" . htmlentities(implode("', '", $_POST[$htmlFields[$i]]), ENT_COMPAT) . "'";
+    $value_Schema .= ", '" . htmlentities(implode(', ', $_POST[$htmlFields[$i]]), ENT_COMPAT) . "'";
+
+    //echo '<br>' . $htmlFields[$i] . ' : <br><br>' . ", '" . htmlentities(implode(', ', $_POST[$htmlFields[$i]]), ENT_COMPAT) . "'" . '<br><br>';
   }
   else
   {
-    $value_Schema .= ", '" . htmlentities($_POST[$htmlFields[$i]], ENT_COMPAT) . "'";;
+    $value_Schema .= ", '" . htmlentities($_POST[$htmlFields[$i]], ENT_COMPAT) . "'";
+
+    //echo '<br>' . $htmlFields[$i] . ' : <br><br>' . ", '" . htmlentities($_POST[$htmlFields[$i]], ENT_COMPAT) . "'" . '<br><br>';
   }
 }
 
@@ -526,9 +612,9 @@ VALUES   (" . $value_Schema . ");
 
 ";
 
-echo "VALUE _SCHEMA : " . $value_Schema . '<br><br><br>';
+// echo "VALUE _SCHEMA : " . $value_Schema . '<br><br><br>';
 
-echo "SQL  : " . $sql . '<br><br><br>';
+// echo "SQL  : " . $sql . '<br><br><br>';
 
 if (mysqli_query($conn, $sql)) 
 {   
