@@ -277,12 +277,6 @@ if (isset($_POST["other_MS_field"]) && is_array($_POST["other_MS_field"]))
 else
   array_push($values, "");
 
-if (isset($_POST["MS_Eng_Discipline"]) && is_array($_POST["MS_Eng_Discipline"]))
-  array_push($values, 
-    htmlentities(implode(', ', $_POST["MS_Eng_Discipline"]), ENT_QUOTES));
-else
-  array_push($values, "");
-
 
 if (isset($_POST["MS_Eng_Discipline"]) && is_array($_POST["MS_Eng_Discipline"]))
 {
@@ -298,6 +292,13 @@ if (isset($_POST["MS_Eng_Discipline"]) && is_array($_POST["MS_Eng_Discipline"]))
   
   array_push($values, htmlentities($msValue, ENT_QUOTES));
 }
+else
+  array_push($values, "");
+
+
+if (isset($_POST["other_MS_Eng_Discipline"]) && is_array($_POST["other_MS_Eng_Discipline"]))
+  array_push($values, 
+    htmlentities(implode(', ', $_POST["other_MS_Eng_Discipline"]), ENT_QUOTES));
 else
   array_push($values, "");
 
