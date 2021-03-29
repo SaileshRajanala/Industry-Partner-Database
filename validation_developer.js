@@ -956,9 +956,6 @@ displayOnSelectItems('PHD_year_div',      ['PHD_wsu','PHD_other']);
 displayOnSelect('Recruitment_Retention_Event_div', 'Involvement6');
 displayOnSelect('Mentor_div',                      'Involvement8');
 
-
-
-
 higherOrderDisplayConstraint('BS_other_school_div',   'college_education5');
 higherOrderDisplayConstraint('BS_Eng_Discipline[]_div', 'college_education5');
 higherOrderDisplayConstraint('MS_other_school_div',   'college_education5');
@@ -970,8 +967,8 @@ higherOrderDisplayConstraint('PHD_other_school_div',  'college_education5');
 higherOrderDisplayConstraint('PHD_year_div',          'college_education5');
 
 higherOrderDisplayConstraint_Items('MS_Eng_Discipline[]_div', ['MS_wsu', 'MS_other']);
-higherOrderDisplayConstraint_Items('PHD_other_school_div',  ['MS_wsu', 'MS_other']);
-higherOrderDisplayConstraint_Items('PHD_year_div',          ['MS_wsu', 'MS_other']);
+higherOrderDisplayConstraint_Items('PHD_other_school_div',    ['MS_wsu', 'MS_other']);
+higherOrderDisplayConstraint_Items('PHD_year_div',            ['MS_wsu', 'MS_other']);
 
 
 // id_('Involvement11').addEventListener('change', function() 
@@ -981,9 +978,35 @@ higherOrderDisplayConstraint_Items('PHD_year_div',          ['MS_wsu', 'MS_other
 //   id_('Involvement11').checked = true;
 // });
 
+// function lastOption()
+// {
+// var inputs = document.forms["Industry_Partner_Database"].elements['Involvement[]'];
 
+// for (var i = inputs.length - 1; i >= 0; i--) 
+// {
+//   inputs[i].addEventListener('change', 
+//   function () 
+//   {
+//     if (id_('Involvement11').checked) 
+//     {
+//       resetSelectionGroup('Involvement[]');
+//       id_('Involvement11').checked = true;
+//       id_('Involvement_Level_div').style.display = "none";
 
+//       return;
+//     }
+//     else
+//     {
+//       id_('Involvement11').checked = false;
+//       id_('Involvement_Level_div').style.display = "block";
+//     }
 
+//   }
+//   );
+// }
+// }
+
+// lastOption();
 
 
 
