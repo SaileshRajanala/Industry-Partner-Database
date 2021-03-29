@@ -544,6 +544,62 @@ function isSelected_childCheckBoxGroup(_checkedID, _target, _otherExists = false
   }
 }
 
+function validateYear(_id)
+{
+ 
+  var d = new Date();
+  var currentYear = d.getFullYear();
+
+  id_(_id).addEventListener('keyup', function() 
+  {
+    if (id_(_id).value != "")
+    if (!isNaN(Number(id_(_id).value))) 
+    {
+      if (Number(id_(_id).value) > currentYear   || 
+          Number(id_(_id).value) < (currentYear - 70))
+      {
+        id_error_message('message', "Invalid year entered.");
+        animate('message','errorMsgAnimation');
+      }
+      else
+      {
+        id_message('message', "Industry Partner Form");
+      }
+    }
+    else
+    {
+      id_error_message('message', "Invalid year entered.");
+      animate('message','errorMsgAnimation');
+    }
+
+  });
+}
+
+function isYearValid(_id)
+{
+  var d = new Date();
+  var currentYear = d.getFullYear();
+
+  if (id_(_id).value != "")
+  {
+    if (!isNaN(Number(id_(_id).value))) 
+    {
+      if (Number(id_(_id).value) > currentYear   || 
+          Number(id_(_id).value) < (currentYear - 70))
+      {
+        return false;
+      }
+      else
+      {
+        return true;
+      }
+    }
+    return false;
+  }
+  else
+    return true; // important as the noInput is handled by different func()
+}
+
 
 function switchDiv(targetDiv, currentDiv, _button = "Next")
 { 
@@ -585,19 +641,24 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isSelected_childRadioGroup('BS_wsu', 'BS_field', true)                              &&
     isSelected_childRadioGroup('BS_other', 'BS_field', true)                            &&
     isFilled_childTextBox('BS_other', 'BS_other_school')                                &&
-    isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Eng_Discipline[]', true)          &&
+    isSelected_childCheckBoxGroup('BS_Engineering', 'BS_Eng_Discipline[]', true)        &&
     isSelected_childRadioGroup('college_education5', 'have_MS_degree')                  &&
     isFilled_childTextBox('MS_wsu', 'MS_year')                                          &&
     isFilled_childTextBox('MS_other', 'MS_year')                                        &&
     isFilled_childTextBox('MS_other', 'MS_other_school')                                &&
     isSelected_childRadioGroup('MS_wsu', 'MS_field', true)                              &&
     isSelected_childRadioGroup('MS_other', 'MS_field', true)                            &&
-    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Eng_Discipline[]', true)          &&
+    isSelected_childCheckBoxGroup('MS_Engineering', 'MS_Eng_Discipline[]', true)        &&
     isSelected_childRadioGroup('MS_wsu', 'have_PHD_degree')                             &&
     isSelected_childRadioGroup('MS_other', 'have_PHD_degree')                           &&
     isFilled_childTextBox('PHD_wsu', 'PHD_year')                                        &&
     isFilled_childTextBox('PHD_other', 'PHD_year')                                      &&
     isFilled_childTextBox('PHD_other', 'PHD_other_school')                              &&
+
+    // Below conditions only for validating year
+    isYearValid('college_degree_year') && 
+    isYearValid('MS_year')             && 
+    isYearValid('PHD_year')            &&
 
     true)) 
     {
@@ -846,7 +907,12 @@ validate('email',
 //   "What year did you earn your degree?", 
 //   "Enter a valid year", "Year is valid");
 
+validateYear('college_degree_year');                                  
+validateYear('MS_year');                                         
+validateYear('PHD_year');                                         
 
+// validate('college_degree_year', /^\d{4}$/, 'Enter Year of Graduation', 
+//   'Enter a valid Year', 'Year is Valid');
 
 
 sanitize('first_name');
