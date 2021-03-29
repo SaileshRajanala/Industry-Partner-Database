@@ -974,10 +974,12 @@ higherOrderDisplayConstraint_Items('PHD_other_school_div',  ['MS_wsu', 'MS_other
 higherOrderDisplayConstraint_Items('PHD_year_div',          ['MS_wsu', 'MS_other']);
 
 
+// id_('Involvement11').addEventListener('change', function() 
+// {
 
-
-
-
+//   resetSelectionGroup('Involvement[]');
+//   id_('Involvement11').checked = true;
+// });
 
 
 
