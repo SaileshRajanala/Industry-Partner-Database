@@ -5,15 +5,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Industry Partner Database</title>
-    <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
 
-    <link href="output_style.css" id="oS" rel="stylesheet" type="text/css">
+    <!-- CSS 3 EXTERNAL -->
+    <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
+    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
+    <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
+    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
+    <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
+
+    <!-- CSS FOR ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- ICONS SCRIPT -->
+    <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
-  
-  </head>
+
+    <!-- JavaScript (INTERNAL) -->
+    <script>
+
+    var d = new Date();
+
+    function swapStylesheet(sheet, name) 
+    {
+        document.getElementById(name).setAttribute('href', sheet);
+    }
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        swapStylesheet("request_bright.css", "rS");
+        swapStylesheet("test_bright.css", "tS");
+        swapStylesheet("export_bright.css", "eS");
+        swapStylesheet("help_bright.css", "hS");
+        swapStylesheet("mobile_bright.css", "mS");
+    }
+    else
+    {
+        swapStylesheet("request_dark.css", "rS");
+        swapStylesheet("test_dark.css", "tS");
+        swapStylesheet("export_dark.css", "eS");
+        swapStylesheet("help_dark.css", "hS");
+        swapStylesheet("mobile_dark.css", "mS");
+    }
+
+  </script>
+</head>
 
   <body>
     
@@ -23,36 +61,32 @@
 
       <h1 class="dashboardTitle"> Today's Entries </h1>
 
-    <div class="contact">
+<div style="background-color: white" entrypair="35">
 
-      <p>Sailesh Rajanala</p>
-      <p>Contact Info.</p>
-      <br>
-      Email : sailesh@gmail.com
-      <br>
-      Phone : +1 316-409-9541
-      
-    </div>
+  <h2 class="previewTitle">
+    Mr. Sailesh Rajanala 
+    <i class="far fa-address-card" style="float:right;margin-right:4%;" aria-hidden="true"></i>
+  </h2>
 
-    <div class="contact">
-      asdm
-      <br>
-      <br>
-    </div>
-
-    <div class="contact">
-      asdm
-      <br>
-      <br>
-    </div>
-
-    <div class="contact">
-      asdm
-      <br>
-      <br>
-    </div>
-
+  <div class="previewSection">CEO
+    <br><br>
+    Sailesh Constructions
+    <br><br>
+    LinkedIn : SaileshRajanala
+    <br><br>
+    Current Status : Employed
   </div>
+
+  <div class="previewSection"> Notes 
+    <i style="float:right;" class="far fa-sticky-note" aria-hidden="true"></i> 
+    <br><br>
+    Hi! I would like to get involved with university events and help recruit new employees for my business. I do have many projects that are suitable for Seniors majoring in Architecture to learn real life experience. I am looking forward to be involving in with the university. 
+
+Thank you.
+</div>
+
+<div class="previewSection"><i class="far fa-envelope" aria-hidden="true"></i>  Email : <a class="emailLink" href="mailto:sailesh@rajanala.com">sailesh@rajanala.com</a><br><br><i class="fas fa-phone-alt" aria-hidden="true"></i> Phone : 1234567890<br><br><i class="far fa-clock" aria-hidden="true"></i> Timestamp : 2020-11-10 17:17:14</div></div>
+   
 
   </body>
 
