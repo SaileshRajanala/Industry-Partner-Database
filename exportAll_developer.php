@@ -18,7 +18,7 @@ if (!$conn)
 
     $result = $conn->query($sql);
 
-    $file_ending = "xls";
+    $file_ending = "xlsx";
 
     header("Content-Type: application/xls");    
     header("Content-Disposition: attachment; filename=$filename.xls");  
@@ -26,6 +26,21 @@ if (!$conn)
     header("Expires: 0");
 
     $flag = false;
+
+    include './prerequisites.php';
+    global $htmlFields, 
+           $tableColumns, 
+           $insertSchema, 
+           $collegeEducation,
+           $bsSchool,
+           $Fields,
+           $engDisciplines,
+           $ms_phd_school,
+           $involvement,
+           $involvementLevels,
+           $recruitmentLevels,
+           $mentorAge,
+           $roleModels;
 
     while ($row = $result->fetch_assoc()) 
     {
@@ -35,17 +50,25 @@ if (!$conn)
             $flag = true;
         }
 
-        $copy = array_values($row);
+        $keys   = array_keys($row);
 
-        for ($i=0; $i < count($copy); $i++) 
+        $values = array_values($row);
+
+        for ($i=0; $i < count($values); $i++) 
         { 
-            $copy[$i] = str_replace("\r\n", "", $copy[$i]);
-            $copy[$i] = str_replace("\r\t", "", $copy[$i]);
-            $copy[$i] = str_replace("\n", "", $copy[$i]);
-            $copy[$i] = str_replace("\t", "", $copy[$i]);
+            if ($keys[$i] == 'College_Education') 
+                $values[$i] = $collegeEducation[$values[$i] - 1];
+
+
+            $values[$i] = str_replace("\r\n", "", $values[$i]);
+            $values[$i] = str_replace("\r\t", "", $values[$i]);
+            $values[$i] = str_replace("\n", "", $values[$i]);
+            $values[$i] = str_replace("\t", "", $values[$i]);
+
+            $values[$i] = html_entity_decode($values[$i], ENT_QUOTES);
         }
 
-        echo implode("\t", $copy) . "\r\n";
+        echo implode("\t", $values) . "\r\n";
     }
 
 ?>
