@@ -72,7 +72,7 @@ body
   padding: 4%;
   /* background-image: linear-gradient(147deg, yellow, aqua); */
   margin: 0;
-  border-radius: 4em;
+  border-radius: 3em;
   /*background-image: url('worlds.png');*/
   background-color: white;
 
@@ -709,18 +709,19 @@ textarea::selection, input[type='text']::selection
 
 #welcomeDiv
 {
-  box-shadow: none;
+  /*box-shadow: none;
   padding: 0%;
   display: block;
 
-  background-color: transparent;
+  background-color: transparent;*/
+  padding: 3%;
 }
 
 #welcomeFormSection
 {
-  background-color: rgb(234,234,234,0.4);
-  backdrop-filter: blur(0.5em);
-  -webkit-backdrop-filter: blur(0.5em);
+  /*background-color: rgb(234,234,234,0.4);*/
+  /*backdrop-filter: blur(0.5em);
+  -webkit-backdrop-filter: blur(0.5em);*/
 }
 
 /********* DEV ************/

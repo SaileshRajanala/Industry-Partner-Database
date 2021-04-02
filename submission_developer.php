@@ -8,9 +8,12 @@
   <!-- CSS 3 (EXTERNAL) -->
   <link href="submit_dark.css" id="sS" rel="stylesheet" type="text/css">
   <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
+
   <!-- Font (Google Fonts) -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" 
+  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" 
+  rel="stylesheet">
 
   <!-- JavaScript (INTERNAL) -->
   <script>
