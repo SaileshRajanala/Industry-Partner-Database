@@ -713,7 +713,7 @@
         for (var i = exportIcons.length - 1; i >= 0; i--) {
           exportIcons[i].src = "download_bright.png";
         }
-        document.getElementById('helpHelpButton').style.backgroundColor = "red";
+        //document.getElementById('helpHelpButton').style.backgroundColor = "red";
     }
     else
     {
@@ -729,7 +729,7 @@
           exportIcons[i].src = "download_dark.png";
         }
 
-        document.getElementById('helpButton').style.color = "white";
+        //document.getElementById('helpButton').style.color = "white";
     }
 
     </script>

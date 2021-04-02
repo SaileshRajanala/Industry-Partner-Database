@@ -163,7 +163,6 @@
           require_once "./global.php";
           require_once "./prerequisites.php";
 
-          
 
           $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
           
@@ -193,7 +192,7 @@
 
               echo "<td>" . $row["First_Name"] . " " . $row["Last_Name"]  . "</td>";
 
-              echo "<td>" . $row["Workplace"] . "</td>";
+              echo "<td>" . $row["Employer"] . "</td>";
 
               echo "<td>" . $row["Job_Title"] . "</td>";
 
@@ -263,7 +262,7 @@
 
               echo "<td>" . $row["First_Name"] . " " . $row["Last_Name"]  . "</td>";
 
-              echo "<td>" . $row["Workplace"] . "</td>";
+              echo "<td>" . $row["Employer"] . "</td>";
 
               echo "<td>" . $row["Job_Title"] . "</td>";
 
@@ -313,7 +312,7 @@
 
         $o = 0;
 
-  if ($result->num_rows > 0) 
+    if ($result->num_rows > 0) 
     while($row = $result->fetch_assoc()) 
     {
       if($row["Prefix"] != "")
@@ -321,10 +320,10 @@
         echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
 
         echo "<h2 class=\"previewTitle\">";
-        echo $row["Prefix"] . 
+        echo $row["Prefix"]     . ' ' . 
              $row["First_Name"] . ' ' . 
              $row["Last_Name"]  . ' ' . 
-             $row["Suffix"] . 
+             $row["Suffix"]     . ' ' . 
              ' <i class="far fa-address-card" style="float:right;margin-right:4%;"></i></h2>';
 
         echo '<div class="previewSection">';
@@ -924,7 +923,7 @@
         for (var i = exportIcons.length - 1; i >= 0; i--) {
           exportIcons[i].src = "download_bright.png";
         }
-        document.getElementById('helpHelpButton').style.backgroundColor = "red";
+        //document.getElementById('helpHelpButton').style.backgroundColor = "red";
     }
     else
     {
@@ -940,7 +939,7 @@
           exportIcons[i].src = "download_dark.png";
         }
 
-        document.getElementById('helpButton').style.color = "white";
+        //document.getElementById('helpButton').style.color = "white";
     }
 
     </script>
