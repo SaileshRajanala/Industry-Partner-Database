@@ -322,7 +322,7 @@ global $htmlFields,
           elseif ($row["BS_school"] == 2)
             $BS_SCHOOL .= $row['BS_other_school'];
 
-          $recordPreviews .= $BS_SCHOOL . '</div>';
+          $recordPreviews .= $BS_SCHOOL . '</div><br><br>';
 
 
 
@@ -330,8 +330,6 @@ global $htmlFields,
 
           if ($row['have_MS_degree'] == 1 || $row['have_MS_degree'] == 2)
           {
-             $recordPreviews .= "<br><br>";
-
              $MS_SCHOOL = "";
 
              if ($row['have_MS_degree'] == 1)
@@ -373,13 +371,13 @@ global $htmlFields,
             if ($MS_DISCIPLINES != "")
               $recordPreviews .= "<br><br>";
 
-            $recordPreviews .= $MS_SCHOOL . '</div>';
+            $recordPreviews .= $MS_SCHOOL . '</div><br><br>';
           }
 
 
           if ($row['have_PHD_degree'] == 1 || $row['have_PHD_degree'] == 2)
           {
-            $recordPreviews .= "<br><br><div class='previewBlock'>";
+            $recordPreviews .= "<div class='previewBlock'>";
 
              $PHD_SCHOOL = "";
 
