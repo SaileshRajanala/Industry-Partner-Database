@@ -346,22 +346,9 @@
         echo '</div>';
 
 
-        // if (isset($row["College_Education"])) 
-        // {
-        //   echo '<div class="previewSection"> Notes <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
-        // }
-
+        // Education
         echo "<div class='previewSection'>";
 
-        if ($row["College_Education"] == '1') 
-        {
-          echo "";
-        }
-
-        if ($row["College_Education"] == '2') 
-        {
-          echo "";
-        }
 
         if ($row["College_Education"] == '3') 
         {
@@ -377,15 +364,7 @@
 
         if ($row["College_Education"] == '5') 
         {
-          $Fields = ['Business', 
-                     'Education', 
-                     'Engineering', 
-                     'Health Professions', 
-                     'Liberal Arts',
-                     'Math', 
-                     'Science', 
-                     'Other'];
-
+    
           $BS_FIELD = "";
 
           if (is_numeric($row["BS_field"])) 
@@ -396,24 +375,7 @@
           echo "<b>Bachelor's Degree</b> <br>" . 
                 $BS_FIELD . ", " . $row["College_Degree_Year"] . '<br><br>';
 
-          $engDisciplines = ['Aerospace Engineering', 
-                             'Applied Computing',
-                             'Biomedical Engineering', 
-                             'Chemical Engineering',
-                             'Civil Engineering', 
-                             'Computer Engineering',
-                             'Computer Science', 
-                             'Cybersecurity', 
-                             'Electrical Engineering',
-                             'Environmental Engineering', 
-                             'Engineering Management', 
-                             'Facilities Management', 
-                             'Industrial/Systems Engineering', 
-                             'Mechatronics', 
-                             'Mechanical Engineering', 
-                             'Product Design and Manufacturing Engineering', 
-                             'Other'];
-
+  
           $BS_DISCIPLINES = "";
 
          
@@ -434,18 +396,142 @@
 
           echo $BS_DISCIPLINES;
           
+          if ($BS_DISCIPLINES != "") 
+            echo "<br><br>";    
+
+          $BS_SCHOOL = "";
+
+          if ($row["BS_school"] == 1)
+            $BS_SCHOOL .= "Wichita State University";
+          elseif ($row["BS_school"] == 2)
+            $BS_SCHOOL .= $row['BS_other_school'];
+
+          echo $BS_SCHOOL;
 
 
 
 
 
+          if ($row['have_MS_degree'] == 1 || $row['have_MS_degree'] == 2)
+          {
+             echo "<br><br>";
+
+             $MS_SCHOOL = "";
+
+             if ($row['have_MS_degree'] == 1)
+                $MS_SCHOOL .= "Wichita State University";
+             elseif ($row['have_MS_degree'] == 2)
+                $MS_SCHOOL .= $row['MS_other_school'];
+
+            $MS_FIELD = "";
+
+            if (is_numeric($row["MS_field"])) 
+              $MS_FIELD = $Fields[intval($row["MS_field"]) - 1];
+            else
+              $MS_FIELD = $row["other_MS_field"];
+
+            echo "<b>Master's Degree</b> <br>" . 
+                  $MS_FIELD . ", " . $row["MS_year"] . '<br><br>';
+
+    
+            $MS_DISCIPLINES = "";
+
+           
+            $arr = explode(', ', $row['MS_Eng_Discipline']);
+
+            if (is_numeric($arr[0])) 
+              $MS_DISCIPLINES .= $engDisciplines[$arr[0] - 1];
+            else
+                $MS_DISCIPLINES .= $row['other_MS_Eng_Discipline'];
+
+            for ($i=1; $i < count($arr); $i++) 
+            { 
+              if (is_numeric($arr[$i])) 
+                $MS_DISCIPLINES .= ', ' . $engDisciplines[$arr[$i] - 1];
+              else
+                $MS_DISCIPLINES .= ', ' . $row['other_MS_Eng_Discipline'];
+            }
+
+            echo $MS_DISCIPLINES;
+            
+            if ($MS_DISCIPLINES != "")
+              echo "<br><br>";
+
+            echo $MS_SCHOOL;
+          }
 
 
+
+
+
+          if ($row['have_PHD_degree'] == 1 || $row['have_PHD_degree'] == 2)
+          {
+            echo "<br><br>";
+
+             $PHD_SCHOOL = "";
+
+             if ($row['have_PHD_degree'] == 1)
+                $PHD_SCHOOL .= "Wichita State University";
+             elseif ($row['have_PHD_degree'] == 2)
+                $PHD_SCHOOL .= $row['PHD_other_school'];
+
+             echo "<b>PHD Degree</b> <br>" . 
+                  $row["PHD_year"] . '<br><br>';
+
+             echo $PHD_SCHOOL . '<br><br>';
+          }
         } // option 5 end
+
+
+        echo "<b>Areas of Specialization</b> <br>" . $row["special_degree"];
 
         echo "</div>";
 
 
+        // Involvement Opportunities
+        echo '<div class="previewSection">';
+
+        echo "<b>Involvement</b> <br><br>";
+
+        $INVOLVEMENT = "";
+
+        $arr = explode(', ', $row['Involvement']);
+
+        if (is_numeric($arr[0])) 
+          $INVOLVEMENT .= $involvement[$arr[0] - 1];
+
+        for ($i=1; $i < count($arr); $i++) 
+          if (is_numeric($arr[$i])) 
+            $INVOLVEMENT .= ', <br>' . $involvement[$arr[$i] - 1];
+
+        echo $INVOLVEMENT;
+
+        echo "<br><br>";
+
+
+
+
+        echo "<b>Involvement Level</b> <br><br>";
+
+        $INVOLVEMENT_LEVEL = "";
+
+        $arr = explode(', ', $row['Involvement_Level']);
+
+        if (is_numeric($arr[0])) 
+          $INVOLVEMENT_LEVEL .= $involvementLevels[$arr[0] - 1];
+
+        for ($i=1; $i < count($arr); $i++) 
+          if (is_numeric($arr[$i])) 
+            $INVOLVEMENT_LEVEL .= ', <br>' . $involvementLevels[$arr[$i] - 1];
+
+        echo $INVOLVEMENT_LEVEL;
+
+        echo "<br><br>";
+
+
+
+
+        echo "</div>";
 
 
         
