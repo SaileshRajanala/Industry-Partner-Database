@@ -227,7 +227,7 @@
 
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
 
-              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
+              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-18000) . "</td>";
      
               echo "</tr>";
             }
@@ -294,7 +294,7 @@
 
               echo "<td>" . $row["Job_Title"] . "</td>";
 
-              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
+              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-18000) . "</td>";
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
     
               echo "</tr>";
@@ -310,7 +310,7 @@
 
           <?php
 
-          $sql = "SELECT * FROM Contacts";
+          $sql = "SELECT * FROM Industry_Partner_Database";
 
           $result = $conn->query($sql);
 
