@@ -389,7 +389,7 @@
           $BS_FIELD = "";
 
           if (is_numeric($row["BS_field"])) 
-            $BS_FIELD = $Fields[$row["BS_field"]];
+            $BS_FIELD = $Fields[intval($row["BS_field"]) - 1];
           else
             $BS_FIELD = $row["other_BS_field"];
 
@@ -416,12 +416,24 @@
 
           $BS_DISCIPLINES = "";
 
-          if (is_array($row['BS_Eng_Discipline']))
-          {
-            $arr = explode(', ', $row['BS_Eng_Discipline']);
+         
+          $arr = explode(', ', $row['BS_Eng_Discipline']);
 
-            echo $arr;
+          if (is_numeric($arr[0])) 
+            $BS_DISCIPLINES .= $engDisciplines[$arr[0] - 1];
+          else
+              $BS_DISCIPLINES .= $row['other_BS_Eng_Discipline'];
+
+          for ($i=1; $i < count($arr); $i++) 
+          { 
+            if (is_numeric($arr[$i])) 
+              $BS_DISCIPLINES .= ', ' . $engDisciplines[$arr[$i] - 1];
+            else
+              $BS_DISCIPLINES .= ', ' . $row['other_BS_Eng_Discipline'];
           }
+
+          echo $BS_DISCIPLINES;
+          
 
 
 
