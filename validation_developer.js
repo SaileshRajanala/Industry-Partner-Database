@@ -608,10 +608,10 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
   {
     if (!(
     // validity conditions below
-    id_('prefix').value != ""                                      &&
+    id_('prefix').value != ""                                        &&
     //isInputValid('suffix', /^[a-zA-Z0-9-.'][a-zA-Z0-9 -.']*$/)     &&
-    isInputValid('first_name', /^[a-zA-Z][a-zA-Z -']*$/)           &&
-    isInputValid('last_name', /^[a-zA-Z][a-zA-Z -']*$/)            &&
+    isInputValid('first_name', /^[a-zA-Z-'][a-zA-Z -']*$/)           &&
+    isInputValid('last_name', /^[a-zA-Z-'][a-zA-Z -']*$/)            &&
     isInputValid('email', /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)  &&
     //isInputValid('phone_number', /^\d{10}$/)                       &&
     //isInputValid('employer', /.*/)                                 &&
@@ -870,10 +870,10 @@ function higherOrderDisplayConstraint_Items(_targetDivID, _higherIDs, _form = "I
 // validate('suffix', /^[a-zA-Z0-9-.'][a-zA-Z0-9 -.']*$/, 'Please enter your Suffix', 
 //   'Enter a valid suffix', 'Suffix is Valid');
 
-validate('first_name', /^[a-zA-Z][a-zA-Z -']*$/, 'Please enter your First Name', 
+validate('first_name', /^[a-zA-Z-'][a-zA-Z -']*$/, 'Please enter your First Name', 
   'Enter a valid name', 'First Name is Valid');
 
-validate('last_name', /^[a-zA-Z][a-zA-Z -']*$/, 'Please enter your Last Name', 
+validate('last_name', /^[a-zA-Z-'][a-zA-Z -']*$/, 'Please enter your Last Name', 
   'Enter a valid name', 'Last Name is Valid');
 
 validate('email', 
