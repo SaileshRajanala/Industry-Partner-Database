@@ -475,8 +475,8 @@
              elseif ($row['have_PHD_degree'] == 2)
                 $PHD_SCHOOL .= $row['PHD_other_school'];
 
-             echo "<b>PHD Degree</b> <br>" . 
-                  $row["PHD_year"] . '<br><br>';
+             echo "<b>PHD Degree</b>," . 
+                  $row["PHD_year"] . '<br>';
 
              echo $PHD_SCHOOL . '<br><br>';
           }
@@ -527,6 +527,32 @@
         echo $INVOLVEMENT_LEVEL;
 
         echo "<br><br>";
+
+
+
+        if ($row['Recruitment_Level'] != "") 
+        {
+          $arr = explode(', ', $row['Recruitment_Level']);
+
+          if (count($arr) == 1)
+            echo "<b>Age Level of students preferred for a Recruitment or Retention Event</b><br><br>";
+          else
+              echo "<b>Age Levels of students preferred for a Recruitment or Retention Event</b><br><br>";
+
+          $RECRUITMENT_LEVEL = "";
+
+          if (is_numeric($arr[0])) 
+            $RECRUITMENT_LEVEL .= $recruitmentLevels[$arr[0] - 1];
+
+          for ($i=1; $i < count($arr); $i++) 
+            if (is_numeric($arr[$i])) 
+              $RECRUITMENT_LEVEL .= ', <br>' . $recruitmentLevels[$arr[$i] - 1];
+
+          echo $RECRUITMENT_LEVEL;
+
+          echo "<br><br>";
+        }
+        
 
 
 
