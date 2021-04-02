@@ -114,7 +114,7 @@
 
       <h1>Export everything</h1>
 
-      <form action="exportAll.php" method="POST">
+      <form action="exportAll_developer.php" method="POST">
           <label>Download as </label>
           <input type="fileName" id="fileName" name="fileName" placeholder="Industry Data">
 
