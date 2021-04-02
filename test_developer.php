@@ -163,7 +163,6 @@
           require_once "./global.php";
           require_once "./prerequisites.php";
 
-
           $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
           
           $result = $conn->query($sql);
@@ -352,17 +351,28 @@
         //   echo '<div class="previewSection"> Notes <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
         // }
 
+        echo "<div class='previewSection'>";
+
+        if ($row["College_Education"] == '1') 
+        {
+          echo "";
+        }
+
+        if ($row["College_Education"] == '2') 
+        {
+          echo "";
+        }
 
         if ($row["College_Education"] == '3') 
         {
-          echo "<div class='previewSection'> <b>Associate's Degree</b> <br>" . 
-          $row["Associates_Degree"] . ", " . $row["College_Degree_Year"] . '</div>';
+          echo "<b>Associate's Degree</b> <br>" . 
+          $row["Associates_Degree"] . ", " . $row["College_Degree_Year"];
         }
 
         if ($row["College_Education"] == '4') 
         {
-          echo "<div class='previewSection'> <b>Technical Degree</b> <br>" . 
-          $row["Technical_Degree"] . ", " . $row["College_Degree_Year"] . '</div>';
+          echo "<b>Technical Degree</b> <br>" . 
+          $row["Technical_Degree"] . ", " . $row["College_Degree_Year"];
         }
 
         if ($row["College_Education"] == '5') 
@@ -381,9 +391,9 @@
           if (is_numeric($row["BS_field"])) 
             $BS_FIELD = $Fields[$row["BS_field"]];
           else
-            $BS_FIELD = $Fields[$row["other_BS_field"]];
+            $BS_FIELD = $row["other_BS_field"];
 
-          echo "<div class='previewSection'> <b>Bachelor's Degree</b> <br>" . 
+          echo "<b>Bachelor's Degree</b> <br>" . 
                 $BS_FIELD . ", " . $row["College_Degree_Year"] . '<br><br>';
 
           $engDisciplines = ['Aerospace Engineering', 
@@ -419,9 +429,9 @@
 
 
 
-        }
+        } // option 5 end
 
-
+        echo "</div>";
 
 
 
