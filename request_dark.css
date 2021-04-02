@@ -239,7 +239,7 @@ td
   box-shadow: 0em 1em 1em rgb(4,4,4);
 }
 
-.previewSection
+.noShadow
 {
   box-shadow: none;
 }

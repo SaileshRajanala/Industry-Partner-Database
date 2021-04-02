@@ -245,7 +245,7 @@ td
   box-shadow: 0em 1em 1em rgb(200,200,200);
 }
 
-.previewSection
+.noShadow
 {
   box-shadow: none;
 }
