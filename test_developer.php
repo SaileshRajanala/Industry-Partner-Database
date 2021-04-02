@@ -526,12 +526,16 @@
 
         echo $INVOLVEMENT_LEVEL;
 
-        echo "<br><br>";
+
+
+
 
 
 
         if ($row['Recruitment_Level'] != "") 
         {
+          echo "<br><br>";
+
           $arr = explode(', ', $row['Recruitment_Level']);
 
           if (count($arr) == 1)
@@ -550,13 +554,14 @@
 
           echo $RECRUITMENT_LEVEL;
 
-          echo "<br><br>";
         }
         
 
 
         if ($row['Mentor_Age'] != "") 
         {
+          echo "<br><br>";
+
           $arr = explode(', ', $row['Mentor_Age']);
 
           if (count($arr) == 1)
@@ -580,6 +585,8 @@
 
         if ($row['Role_Model'] != "") 
         {
+          echo "<br><br>";
+
           $arr = explode(', ', $row['Role_Model']);
 
           echo "<b>Prefers to serve as a Role Model for </b><br><br>";
@@ -605,11 +612,10 @@
 
         echo "</div>";
 
-
         
-        if (isset($row["Notes"])) 
+        if ($row["Involvement_Notes"] != "") 
         {
-          echo '<div class="previewSection"> Notes <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
+          echo '<div class="previewSection"> Involvement Notes <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Involvement_Notes"] . '</div>';
         }
 
         echo '<div class="previewSection"><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
