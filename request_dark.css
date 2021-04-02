@@ -9,11 +9,18 @@
 	color: white;
 	background-color: transparent;
 	transition: all 0.25s;
+	text-decoration: none;
+	padding: 0.5%;
+	padding-left: 2%;
+	padding-right: 2%;
+	border-radius: 5em;
+	box-shadow: 0em 0em 0.5em black;
 }
 
 .emailLink:hover
 {
-	color: aqua;
+	color: black;
+	background-color: white;
 	text-decoration: none;
 }
 
