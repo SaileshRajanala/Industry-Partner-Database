@@ -18,9 +18,14 @@
     <!-- ICONS SCRIPT -->
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
+
     <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 
     <!-- JavaScript (INTERNAL) -->
     <script>
@@ -50,6 +55,32 @@
     }
 
   </script>
+
+  <style type="text/css">
+    
+    .previewSectionTitle, .previewTitle
+    {
+      font-family: 'Julius Sans One', sans-serif;
+      font-size: 150%;
+    }
+
+    .previewBlock
+    {
+      padding: 4%;
+     
+      
+      /*background-color: rgb(35,35,35);*/
+      border-radius: 1.5em;
+      box-shadow: 0em 1em 1em rgb(4,4,4);
+    }
+
+    .previewSection
+    {
+      box-shadow: none;
+    }
+
+  </style>
+
 
   </head>
 
@@ -166,7 +197,6 @@
           $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
           
           $result = $conn->query($sql);
-          $o = 0;
 
         if ($result->num_rows > 0)
         {
@@ -198,7 +228,6 @@
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
 
               echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
-               $o++;
      
               echo "</tr>";
             }
@@ -267,7 +296,6 @@
 
               echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
               // echo "<td><button class=\"uiButton\">Details ></button></td>";
-               $o++;
     
               echo "</tr>";
             }
@@ -333,7 +361,7 @@
 
 
 
-    
+
 
     <script type="text/javascript">
 
