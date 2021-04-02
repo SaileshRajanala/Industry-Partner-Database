@@ -268,32 +268,6 @@ else
 
 array_push($values, htmlentities($_POST["Involvement_Notes"], ENT_QUOTES));
 
-
-// for ($i=0; $i < count($values); $i++) 
-// { 
-//   echo "<br><br>" . $values[$i] . "<br><br>";
-// }
-
-// Insert Schema Automation below
-$insertSchema = "Prefix";
-
-for ($i = 1; $i < count($tableColumns); $i++)
-  $insertSchema .= ", " . $tableColumns[$i];
-
-// $valueSchema = "'{$_POST["prefix"]}'";
-
-// for ($i = 1; $i < count($htmlFields); $i++)
-// {
-//   if (!isset($_POST[$htmlFields[$i]]))
-//     $valueSchema .= ",''";
-//   else if ($_POST[$htmlFields[$i]] == "")
-//     $valueSchema .= ",''";
-//   else if ( is_array($_POST[$htmlFields[$i]]) )
-//     $valueSchema .= ", " . "'" . implode(', ', $_POST[$htmlFields[$i]]) . "'";
-//   else
-//     $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
-// }
-
 // Submission variable
 $submission = FALSE;
 
@@ -333,7 +307,7 @@ if (mysqli_query($conn, $sql))
 }
 else 
 {
-  echo "Error : " . mysqli_error($conn);
+  echo "Error : <br><br>" . mysqli_error($conn);
 }
   ?>
     
@@ -367,27 +341,11 @@ else
     {
       for ($i = 0; $i < count($tableColumns); $i++)
       {
-      //   if (!isset($_POST[$htmlFields[$i]]))
-      //   { 
-      //     ;
-      //   }
-      //   elseif ($_POST[$htmlFields[$i]] == "")
-      //   {
-      //     ;
-      //   }
-      //   elseif ( is_array($_POST[$htmlFields[$i]]) )
-      //   {
           if ($values[$i] != "")
           {
-              echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-              $values[$i] . "</td></tr>";
+              echo "<tr><td>" . $tableColumns[$i] . 
+              "</td><td> " .  $values[$i] . "</td></tr>";
           }
-        // }
-        // else
-        // {
-        //     echo "<tr><td>" . $tableColumns[$i] . "</td><td> " . 
-        //     optionValues($htmlFields[$i]) . "</td></tr>";
-        // }
       }
     }
 

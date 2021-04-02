@@ -83,7 +83,6 @@ array_push($tableColumns, "other_Role_Model");
 array_push($tableColumns, "Involvement_Notes");
 
 
-
 $collegeEducation = ['No, I have not taken any college classes',
                      'Yes, I have taken some college classes', 
                      "Yes, I have an Associate's degree",
@@ -159,5 +158,11 @@ $roleModels = ['First-generation college students',
                'Hispanic', 
                'Veterans', 
                'Other'];
+
+// Insert Schema Automation below
+$insertSchema = "Prefix";
+
+for ($i = 1; $i < count($tableColumns); $i++)
+  $insertSchema .= ", " . $tableColumns[$i];
 
 ?>

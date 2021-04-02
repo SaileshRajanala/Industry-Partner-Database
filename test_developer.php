@@ -161,6 +161,9 @@
 
           require "./connect.php";
           require_once "./global.php";
+          require_once "./prerequisites.php";
+
+          
 
           $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
           
