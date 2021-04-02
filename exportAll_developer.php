@@ -56,8 +56,83 @@ if (!$conn)
 
         for ($i=0; $i < count($values); $i++) 
         { 
-            if ($keys[$i] == 'College_Education') 
+            if ($keys[$i] == 'College_Education')
+              if (is_numeric($values[$i]))
                 $values[$i] = $collegeEducation[$values[$i] - 1];
+
+            if ($keys[$i] == 'BS_school')
+              if (is_numeric($values[$i]))
+                $values[$i] = $bsSchool[$values[$i] - 1];
+
+            if ($keys[$i] == 'BS_field')
+              if (is_numeric($values[$i]))
+                $values[$i] = $Fields[$values[$i] - 1];
+
+            if ($keys[$i] == 'BS_Eng_Discipline')
+            {
+                  $BS_DISCIPLINES = "";
+
+                  $arr = explode(', ', $values[$i]);
+
+                  if (is_numeric($arr[0])) 
+                    $BS_DISCIPLINES .= $engDisciplines[$arr[0] - 1];
+                  else
+                    $BS_DISCIPLINES .= $arr[0];
+
+                  for ($j=1; $j < count($arr); $j++) 
+                  { 
+                    if (is_numeric($arr[$j])) 
+                      $BS_DISCIPLINES .= ', ' . $engDisciplines[$arr[$j] - 1];
+                    else
+                      $BS_DISCIPLINES .= ', ' . $arr[$j];
+                  }
+
+                  $values[$i] = $BS_DISCIPLINES;
+            }
+                
+
+
+
+
+
+            if ($keys[$i] == 'have_MS_degree')
+              if (is_numeric($values[$i]))
+                $values[$i] = $ms_phd_school[$values[$i] - 1];
+
+            if ($keys[$i] == 'MS_field')
+              if (is_numeric($values[$i]))
+                $values[$i] = $Fields[$values[$i] - 1];
+
+            if ($keys[$i] == 'MS_Eng_Discipline')
+            {
+                  $MS_DISCIPLINES = "";
+
+                  $arr = explode(', ', $values[$i]);
+
+                  if (is_numeric($arr[0])) 
+                    $MS_DISCIPLINES .= $engDisciplines[$arr[0] - 1];
+                  else
+                    $MS_DISCIPLINES .= $arr[0];
+
+                  for ($j=1; $j < count($arr); $j++) 
+                  { 
+                    if (is_numeric($arr[$j])) 
+                      $MS_DISCIPLINES .= ', ' . $engDisciplines[$arr[$j] - 1];
+                    else
+                      $MS_DISCIPLINES .= ', ' . $arr[$j];
+                  }
+
+                  $values[$i] = $MS_DISCIPLINES;
+            }
+
+
+
+
+
+
+            if ($keys[$i] == 'have_PHD_degree')
+              if (is_numeric($values[$i]))
+                $values[$i] = $ms_phd_school[$values[$i] - 1];
 
 
             $values[$i] = str_replace("\r\n", "", $values[$i]);
