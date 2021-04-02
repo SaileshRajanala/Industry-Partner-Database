@@ -389,14 +389,14 @@ global $htmlFields,
                 $PHD_SCHOOL .= $row['PHD_other_school'];
 
              $recordPreviews .= "<span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>" . 
-                  $row["PHD_year"] . '<br>';
+                  $row["PHD_year"] . '<br><br>';
 
              $recordPreviews .= '<i class="fas fa-university"></i> ' . $PHD_SCHOOL . '</div><br><br>';
           }
         } // option 5 end
 
 
-        $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br>" . $row["special_degree"] . '</div>';
+        $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>" . $row["special_degree"] . '</div>';
 
         $recordPreviews .= "</div>";
 
