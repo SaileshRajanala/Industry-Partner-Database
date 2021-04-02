@@ -135,6 +135,48 @@ if (!$conn)
                 $values[$i] = $ms_phd_school[$values[$i] - 1];
 
 
+
+
+            if ($keys[$i] == 'Involvement')
+            {
+                  $INVOLVEMENT = "";
+
+                  $arr = explode(', ', $values[$i]);
+
+                  if (is_numeric($arr[0])) 
+                    $INVOLVEMENT .= $involvement[$arr[0] - 1];
+
+                  for ($j=1; $j < count($arr); $j++) 
+                  { 
+                    if (is_numeric($arr[$j])) 
+                      $INVOLVEMENT .= ', ' . $involvement[$arr[$j] - 1];
+                  }
+
+                  $values[$i] = $INVOLVEMENT;
+            }
+
+
+
+            if ($keys[$i] == 'Involvement_Level')
+            {
+                  $INVOLVEMENT_LEVEL = "";
+
+                  $arr = explode(', ', $values[$i]);
+
+                  if (is_numeric($arr[0])) 
+                    $INVOLVEMENT_LEVEL .= $involvementLevels[$arr[0] - 1];
+
+                  for ($j=1; $j < count($arr); $j++) 
+                  { 
+                    if (is_numeric($arr[$j])) 
+                      $INVOLVEMENT_LEVEL .= ', ' . $involvementLevels[$arr[$j] - 1];
+                  }
+
+                  $values[$i] = $INVOLVEMENT_LEVEL;
+            }
+
+
+
             $values[$i] = str_replace("\r\n", "", $values[$i]);
             $values[$i] = str_replace("\r\t", "", $values[$i]);
             $values[$i] = str_replace("\n", "", $values[$i]);
