@@ -233,7 +233,7 @@ global $htmlFields,
                            $row["First_Name"] . ' ' . 
                            $row["Last_Name"]  . ' ' . 
                            $row["Suffix"]     . ' ' . 
-             ' <i class="far fa-address-card" style="float:right;margin-right:4%;"></i></h2>';
+             ' <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2>';
 
         if (($row["Job_Title"] != "") ||
             ($row["Employer"] != "")  ||
@@ -243,20 +243,22 @@ global $htmlFields,
         {
             $recordPreviews .= '<div class="previewSection">';
 
-            $recordPreviews .= $row["Job_Title"] . '<br>';
-            $recordPreviews .= $row["Employer"] . '<br>';
+            if ($row["Job_Title"] != "") 
+              $recordPreviews .= $row["Job_Title"] . '<br>';
+
+            $recordPreviews .= $row["Employer"] . '<br><br>';
 
             if (($row["City"] != "") && ($row["State"] != "")) 
             {
-              $recordPreviews .= $row["City"] . ', ' . $row["State"];
+              $recordPreviews .= '<i class="fas fa-map-marker-alt"></i> ' . $row["City"] . ', ' . $row["State"];
             }
             elseif (!($row["City"] != "") && ($row["State"] != ""))
             {
-              $recordPreviews .= $row["State"];
+              $recordPreviews .= '<i class="fas fa-map-marker-alt"></i> ' . $row["State"];
             }
             elseif (($row["City"] != "") && !($row["State"] != ""))
             {
-              $recordPreviews .= $row["City"];
+              $recordPreviews .= '<i class="fas fa-map-marker-alt"></i> ' . $row["City"];
             }
 
             $recordPreviews .= '</div>';
@@ -525,7 +527,9 @@ global $htmlFields,
           $recordPreviews .= '<div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Involvement_Notes"] . '</div>';
         }
 
-        $recordPreviews .= '<div class="previewSection"><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
+        $recordPreviews .= '<div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br>' . 
+        '<i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
 
         if (isset($row["Phone_Number"])) 
         {
