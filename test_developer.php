@@ -56,32 +56,6 @@
 
   </script>
 
-  <style type="text/css">
-    
-    .previewSectionTitle, .previewTitle
-    {
-      font-family: 'Julius Sans One', sans-serif;
-      font-size: 150%;
-    }
-
-    .previewBlock
-    {
-      padding: 4%;
-     
-      
-      /*background-color: rgb(35,35,35);*/
-      border-radius: 1.5em;
-      box-shadow: 0em 1em 1em rgb(4,4,4);
-    }
-
-    .previewSection
-    {
-      box-shadow: none;
-    }
-
-  </style>
-
-
   </head>
 
   <body>

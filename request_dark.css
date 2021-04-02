@@ -1,3 +1,9 @@
+::selection
+{
+	color: black;
+	background-color: white;
+}
+
 .emailLink
 {
 	color: white;
@@ -217,6 +223,25 @@ td
 	margin-top: 2%;
 	margin-bottom: 2%;
 	box-shadow: 0px 0px 13px black;
+}
+
+.previewSectionTitle, .previewTitle
+{
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 150%;
+}
+
+.previewBlock
+{
+  padding: 4%;
+   
+  border-radius: 1.5em;
+  box-shadow: 0em 1em 1em rgb(4,4,4);
+}
+
+.previewSection
+{
+  box-shadow: none;
 }
 
 .noPreview::-webkit-scrollbar 
