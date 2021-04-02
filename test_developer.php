@@ -299,10 +299,12 @@
 
     </div>
 
+
+
+
+
+
     <!-- Previews -->
-
-
-
     <?php
 
       $previews = printRecordPreviews(
@@ -317,137 +319,21 @@
 
     <?php
 
-      $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC";
+       $previews = printRecordPreviews(
 
-        $result = $conn->query($sql);
+        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-06:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-06:00')) ORDER BY Timestamp DESC"
 
-  if ($result->num_rows > 0) 
-    while($row = $result->fetch_assoc()) 
-    {
-      echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
+        );
 
-        echo "<h2 class=\"previewTitle\">";
-        echo $row["Prefix"] . 
-             $row["First_Name"] . ' ' . 
-             $row["Last_Name"]  . ' ' . 
-             $row["Suffix"] . 
-             ' <i class="far fa-address-card" style="float:right;margin-right:4%;"></i></h2>';
-
-        echo '<div class="previewSection">';
-
-        echo $row["Job_Title"] . '<br>';
-        echo $row["Employer"] . '<br>';
-
-        if (isset($row["City"]) && isset($row["State"])) 
-        {
-          echo $row["City"] . ', ' . $row["State"];
-        }
-        elseif (!isset($row["City"]) && isset($row["State"]))
-        {
-          echo $row["State"];
-        }
-        elseif (isset($row["City"]) && !isset($row["State"]))
-        {
-          echo $row["City"];
-        }
-
-        echo '</div>';
-
-
-        // if (isset($row["College_Education"])) 
-        // {
-        //   echo '<div class="previewSection"> Notes <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
-        // }
-
-
-        if ($row["College_Education"] == '3') 
-        {
-          echo "<div class='previewSection'> <b>Associate's Degree</b> <br>" . 
-          $row["Associates_Degree"] . ", " . $row["College_Degree_Year"] . '</div>';
-        }
-
-        if ($row["College_Education"] == '4') 
-        {
-          echo "<div class='previewSection'> <b>Technical Degree</b> <br>" . 
-          $row["Technical_Degree"] . ", " . $row["College_Degree_Year"] . '</div>';
-        }
-
-        if ($row["College_Education"] == '5') 
-        {
-          $Fields = ['Business', 
-                     'Education', 
-                     'Engineering', 
-                     'Health Professions', 
-                     'Liberal Arts',
-                     'Math', 
-                     'Science', 
-                     'Other'];
-
-          $BS_FIELD = "";
-
-          if (is_numeric($row["BS_field"])) 
-            $BS_FIELD = $Fields[$row["BS_field"]];
-          else
-            $BS_FIELD = $Fields[$row["other_BS_field"]];
-
-          echo "<div class='previewSection'> <b>Bachelor's Degree</b> <br>" . 
-                $BS_FIELD . ", " . $row["College_Degree_Year"] . '<br><br>';
-
-          $engDisciplines = ['Aerospace Engineering', 
-                             'Applied Computing',
-                             'Biomedical Engineering', 
-                             'Chemical Engineering',
-                             'Civil Engineering', 
-                             'Computer Engineering',
-                             'Computer Science', 
-                             'Cybersecurity', 
-                             'Electrical Engineering',
-                             'Environmental Engineering', 
-                             'Engineering Management', 
-                             'Facilities Management', 
-                             'Industrial/Systems Engineering', 
-                             'Mechatronics', 
-                             'Mechanical Engineering', 
-                             'Product Design and Manufacturing Engineering', 
-                             'Other'];
-
-          $BS_DISCIPLINES = "";
-
-          if (is_array($row['BS_Eng_Discipline']))
-          {
-            $arr = explode(', ', $row['BS_Eng_Discipline']);
-
-            echo $arr;
-          }
-
-
-
-
-
-
-
-        }
-    
-        if (isset($row["Notes"])) 
-        {
-          echo '<div class="previewSection"> Notes <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
-        }
-
-        echo '<div class="previewSection"><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
-
-        if (isset($row["Phone_Number"])) 
-        {
-          echo '<i class="fas fa-phone-alt"></i> Phone : ' . $row["Phone_Number"] . '<br><br>';
-        }
-
-        echo '<i class="far fa-clock"></i> Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
-
-        echo '</div></div>';
-        $o++;
-      
-   }
+      echo $previews;
 
     ?>
+
+
+
+
+
+    
 
     <script type="text/javascript">
 
