@@ -35,143 +35,11 @@ function swapStylesheet(sheet, name) {
 
 <body style="font-family: 'Quicksand'">
 
-  <?php
+<?php
 
- require "./connect.php";
- require_once "./global.php";
-
-
-$htmlFields = ["prefix"];
-
-array_push($htmlFields, "suffix");
-array_push($htmlFields, "first_name");
-array_push($htmlFields, "last_name");
-array_push($htmlFields, "email");
-array_push($htmlFields, "phone_number");
-array_push($htmlFields, "employer");
-array_push($htmlFields, "job_title");
-array_push($htmlFields, "state");
-array_push($htmlFields, "city");
-array_push($htmlFields, "college_education");
-array_push($htmlFields, "associates_degree");
-array_push($htmlFields, "technical_degree");
-array_push($htmlFields, "college_degree_year");
-array_push($htmlFields, "BS_school");
-array_push($htmlFields, "BS_other_school");
-array_push($htmlFields, "BS_field");
-array_push($htmlFields, "other_BS_field");
-array_push($htmlFields, "BS_Eng_Discipline");
-array_push($htmlFields, "other_BS_Eng_Discipline");
-array_push($htmlFields, "have_MS_degree");
-array_push($htmlFields, "MS_other_school");
-array_push($htmlFields, "MS_year");
-array_push($htmlFields, "MS_field");
-array_push($htmlFields, "other_MS_field");
-array_push($htmlFields, "MS_Eng_Discipline");
-array_push($htmlFields, "other_MS_Eng_Discipline");
-array_push($htmlFields, "have_PHD_degree");
-array_push($htmlFields, "PHD_other_school");
-array_push($htmlFields, "PHD_year");
-array_push($htmlFields, "special_degree");
-array_push($htmlFields, "Involvement");
-array_push($htmlFields, "Involvement_Level");
-array_push($htmlFields, "Recruitment_Level");
-array_push($htmlFields, "Mentor_Age");
-array_push($htmlFields, "Role_Model");
-array_push($htmlFields, "other_Role_Model");
-array_push($htmlFields, "Involvement_Notes");
-
-
-
-
-
-
-
-
-
-$collegeEducation = ['No, I have not taken any college classes',
-                     'Yes, I have taken some college classes', 
-                     "Yes, I have an Associate's degree",
-                     "Yes, I have a Technical degree",
-                     "Yes, I have a Bachelor's degree",
-                     "I prefer not to answer"];
-
-$bsSchool = ['Yes, I did go to Wichita State University',
-             'No, I attended different university'];
-
-$Fields = ['Business', 
-           'Education', 
-           'Engineering', 
-           'Health Professions', 
-           'Liberal Arts',
-           'Math', 
-           'Science', 
-           'Other'];
-
-$engDisciplines = ['Aerospace Engineering', 
-                   'Applied Computing',
-                   'Biomedical Engineering', 
-                   'Chemical Engineering',
-                   'Civil Engineering', 
-                   'Computer Engineering',
-                   'Computer Science', 
-                   'Cybersecurity', 
-                   'Electrical Engineering',
-                   'Environmental Engineering', 
-                   'Engineering Management', 
-                   'Facilities Management', 
-                   'Industrial/Systems Engineering', 
-                   'Mechatronics', 
-                   'Mechanical Engineering', 
-                   'Product Design and Manufacturing Engineering', 
-                   'Other'];
-
-$ms_phd_school = ['Yes, from Wichita State University', 
-                  'Yes, from another College/University', 
-                  'No'];
-
-$involvement = ['Advising a team of students on a project',
-                'Demonstrating a technical skill or area of expertise',
-                'Facilitate tour of your company',
-                'Judging a competition', 
-                'K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc',
-                'One-Time Student Recruitment & Retention Event',
-                'Research Partnership', 
-                'Serving as a role model', 
-                'Teaching a concept',
-                'Tell your personal story as it relates to work in your field',
-                "I'm not interested in involvement at this time"];
-
-$involvementLevels = ['A one-time event lasting 1 to 2 hours',
-                      'A day long event', 
-                      'A recurring relationship over a semester'];
-
-$recruitmentLevels = ['Elementary School', 
-                      'Middle School', 
-                      'High School', 
-                      'College/University'];
-
-$mentorAge = ['Elementry', 
-              'Middle School', 
-              'High School', 
-              'Undergraduate', 
-              "Master's", 
-              "Doctoral"];
-
-$roleModels = ['First-generation college students', 
-               'Female', 
-               'African American', 
-               'Hispanic', 
-               'Veterans', 
-               'Other'];
-
-
-
-
-
-
-
-
+require "./connect.php";
+require_once "./global.php";
+require_once "./prerequisites.php";
 
 $values = [htmlentities($_POST["prefix"], ENT_QUOTES)];
 
@@ -302,6 +170,10 @@ if (isset($_POST["other_MS_Eng_Discipline"]) && is_array($_POST["other_MS_Eng_Di
 else
   array_push($values, "");
 
+print_r($values);
+echo "<br><br>";
+print_r(htmlentities(implode(', ', $_POST["other_MS_Eng_Discipline"]), ENT_QUOTES));
+echo "<br><br>";
 
 if (isset($_POST["have_PHD_degree"]))
   array_push($values, 
@@ -402,184 +274,28 @@ array_push($values, htmlentities($_POST["Involvement_Notes"], ENT_QUOTES));
 //   echo "<br><br>" . $values[$i] . "<br><br>";
 // }
 
-
-
-
-
-
-
-
-// Array to store all columns from SQL
-
-$tableColumns = ["Prefix"];
-
-array_push($tableColumns, "Suffix");
-array_push($tableColumns, "First_Name");
-array_push($tableColumns, "Last_Name");
-array_push($tableColumns, "Email");
-array_push($tableColumns, "Phone_Number");
-array_push($tableColumns, "Employer");
-array_push($tableColumns, "Job_Title");
-array_push($tableColumns, "State");
-array_push($tableColumns, "City");
-array_push($tableColumns, "College_Education");
-array_push($tableColumns, "Associates_Degree");
-array_push($tableColumns, "Technical_Degree");
-array_push($tableColumns, "College_Degree_Year");
-array_push($tableColumns, "BS_school");
-array_push($tableColumns, "BS_other_school");
-array_push($tableColumns, "BS_field");
-array_push($tableColumns, "other_BS_field");
-array_push($tableColumns, "BS_Eng_Discipline");
-array_push($tableColumns, "other_BS_Eng_Discipline");
-array_push($tableColumns, "have_MS_degree");
-array_push($tableColumns, "MS_other_school");
-array_push($tableColumns, "MS_year");
-array_push($tableColumns, "MS_field");
-array_push($tableColumns, "other_MS_field");
-array_push($tableColumns, "MS_Eng_Discipline");
-array_push($tableColumns, "other_MS_Eng_Discipline");
-array_push($tableColumns, "have_PHD_degree");
-array_push($tableColumns, "PHD_other_school");
-array_push($tableColumns, "PHD_year");
-array_push($tableColumns, "special_degree");
-array_push($tableColumns, "Involvement");
-array_push($tableColumns, "Involvement_Level");
-array_push($tableColumns, "Recruitment_Level");
-array_push($tableColumns, "Mentor_Age");
-array_push($tableColumns, "Role_Model");
-array_push($tableColumns, "other_Role_Model");
-array_push($tableColumns, "Involvement_Notes");
-
-
-
-
-function optionValues($htmlField)
-{
-  $collegeEducation = ['No, I have not taken any college classes',
-                     'Yes, I have taken some college classes', 
-                     "Yes, I have an Associate's degree",
-                     "Yes, I have a Technical degree",
-                     "Yes, I have a Bachelor's degree",
-                     "I prefer not to answer"];
-
-$bsSchool = ['Yes, I did go to Wichita State University',
-             'No, I attended different university'];
-
-$degreeFields = ['Business', 'Education', 'Engineering', 
-                 'Health Professions', 'Liberal Arts',
-                 'Math', 'Science', 'Other'];
-
-$engDisciplines = ['Aerospace Engineering', 'Applied Computing',
-                   'Biomedical Engineering', 'Chemical Engineering',
-                   'Civil Engineering', 'Computer Engineering',
-                   'Computer Science', 'Cybersecurity', 'Electrical Engineering',
-                   'Environmental Engineering', 'Engineering Management', 
-                   'Facilities Management', 'Industrial/Systems Engineering', 
-                   'Mechatronics', 'Mechanical Engineering', 
-                   'Product Design and Manufacturing Engineering', 'Other'];
-
-$ms_phd_school = ['Yes, from Wichita State University', 
-                  'Yes, from another College/University', 'No'];
-
-$involvement = ['Advising a team of students on a project',
-                'Demonstrating a technical skill or area of expertise',
-                'Facilitate tour of your company',
-                'Judging a competition', 
-                'K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc',
-                'One-Time Student Recruitment & Retention Event',
-                'Research Partnership', 'Serving as a role model', 'Teaching a concept',
-                'Tell your personal story as it relates to work in your field',
-                "I'm not interested in involvement at this time"];
-
-$involvementLevels = ['A one-time event lasting 1 to 2 hours',
-                      'A day long event', 'A recurring relationship over a semester'];
-
-$recruitmentLevels = ['Elementary School', 'Middle School', 
-                      'High School', 'College/University'];
-
-$mentorAge = ['Elementry', 'Elementary School', 'Middle School', 
-                      'High School', 'Undergraduate', "Master's", "Doctoral"];
-
-$roleModels = ['First-generation college students', 'Female', 'African American', 
-               'Hispanic', 'Veterans', 'Other'];
-
-  if ($htmlField == 'college_education') 
-    return $collegeEducation[$_POST[$htmlField] - 1];
-
-  elseif ($htmlField == 'BS_school') 
-    return $bsSchool[$_POST[$htmlField] - 1];
-
-  elseif ($htmlField == 'MS_field' || $htmlField == 'BS_field') 
-  {
-    if (!is_numeric($_POST[$htmlField]))
-      return $degreeFields[count($degreeFields) - 1];
-    else 
-      return $degreeFields[$_POST[$htmlField] - 1];
-  }
-
-  elseif ($htmlField == 'BS_Eng_Discipline' || $htmlField == 'MS_Eng_Discipline' ||
-          $htmlField == 'Involvement_Level' || $htmlField == 'Recruitment_Level' ||
-          $htmlField == 'Mentor_Age'        || $htmlField == 'Role_Model'        ||
-          $htmlField == 'Involvement') 
-    return implode(', ', $_POST[$htmlField]);
-
-  elseif ($htmlField == 'have_MS_degree' || $htmlField == 'have_PHD_degree') 
-    return $ms_phd_school[$_POST[$htmlField] - 1];
-
-  elseif ($htmlField == 'other_BS_Eng_Discipline' || 
-          $htmlField == 'other_MS_Eng_Discipline' ||
-          $htmlField == 'other_Role_Model') 
-    return $_POST[$htmlField][0];
-
-  else 
-    return "{$_POST["" . $htmlField . ""]}";
-}
-
-
 // Insert Schema Automation below
 $insertSchema = "Prefix";
 
 for ($i = 1; $i < count($tableColumns); $i++)
   $insertSchema .= ", " . $tableColumns[$i];
 
-$valueSchema = "'{$_POST["prefix"]}'";
+// $valueSchema = "'{$_POST["prefix"]}'";
 
-for ($i = 1; $i < count($htmlFields); $i++)
-{
-  if (!isset($_POST[$htmlFields[$i]]))
-    $valueSchema .= ",''";
-  else if ($_POST[$htmlFields[$i]] == "")
-    $valueSchema .= ",''";
-  else if ( is_array($_POST[$htmlFields[$i]]) )
-    $valueSchema .= ", " . "'" . implode(', ', $_POST[$htmlFields[$i]]) . "'";
-  else
-    $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
-}
-
-
-//Above was global php file data
-
+// for ($i = 1; $i < count($htmlFields); $i++)
+// {
+//   if (!isset($_POST[$htmlFields[$i]]))
+//     $valueSchema .= ",''";
+//   else if ($_POST[$htmlFields[$i]] == "")
+//     $valueSchema .= ",''";
+//   else if ( is_array($_POST[$htmlFields[$i]]) )
+//     $valueSchema .= ", " . "'" . implode(', ', $_POST[$htmlFields[$i]]) . "'";
+//   else
+//     $valueSchema .= ", " . "'{$_POST["" . $htmlFields[$i] . ""]}'";
+// }
 
 // Submission variable
 $submission = FALSE;
-
-// $sql = "
-
-// INSERT INTO 
-// Industry_Partner_Database (" . $insertSchema . ")
-// VALUES   (" . $valueSchema  . ");
-
-// ";
-
-// Good PUSH 1 _____############################## (working)
-// $sql = '
-
-// INSERT INTO 
-// Industry_Partner_Database (' . $insertSchema . ')
-// VALUES   ("' . implode('", "', $values)  . '");
-
-// ';
 
 $value_Schema = "'" . $_POST['prefix'] . "'";
 
@@ -588,20 +304,14 @@ for ($i=1; $i < count($htmlFields); $i++)
   if (!isset($_POST[$htmlFields[$i]]))
   {
     $value_Schema .= ", ''"; 
-
-    //echo '<br>' . $htmlFields[$i] . ' : <br><br>' . ", ''" . '<br><br>';
   }
   else if (is_array($_POST[$htmlFields[$i]])) 
   {
-    $value_Schema .= ", '" . htmlentities(implode(', ', $_POST[$htmlFields[$i]]), ENT_COMPAT) . "'";
-
-    //echo '<br>' . $htmlFields[$i] . ' : <br><br>' . ", '" . htmlentities(implode(', ', $_POST[$htmlFields[$i]]), ENT_COMPAT) . "'" . '<br><br>';
+    $value_Schema .= ", '" . htmlentities(implode(', ', $_POST[$htmlFields[$i]]), ENT_QUOTES) . "'";
   }
   else
   {
-    $value_Schema .= ", '" . htmlentities($_POST[$htmlFields[$i]], ENT_COMPAT) . "'";
-
-    //echo '<br>' . $htmlFields[$i] . ' : <br><br>' . ", '" . htmlentities($_POST[$htmlFields[$i]], ENT_COMPAT) . "'" . '<br><br>';
+    $value_Schema .= ", '" . htmlentities($_POST[$htmlFields[$i]], ENT_QUOTES) . "'";
   }
 }
 
