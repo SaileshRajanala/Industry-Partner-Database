@@ -18,10 +18,10 @@ if (!$conn)
 
     $result = $conn->query($sql);
 
-    $file_ending = "xlsx";
+    $file_ending = "xls";
 
-    header("Content-Type: application/xls");    
-    header("Content-Disposition: attachment; filename=$filename.xls");  
+    header("Content-Type: application/" . $file_ending);    
+    header("Content-Disposition: attachment; filename=$filename." . $file_ending);  
     header("Pragma: no-cache"); 
     header("Expires: 0");
 
