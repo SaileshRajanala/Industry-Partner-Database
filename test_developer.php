@@ -475,7 +475,7 @@
              elseif ($row['have_PHD_degree'] == 2)
                 $PHD_SCHOOL .= $row['PHD_other_school'];
 
-             echo "<b>PHD Degree</b>," . 
+             echo "<b>PHD Degree</b><br>" . 
                   $row["PHD_year"] . '<br>';
 
              echo $PHD_SCHOOL . '<br><br>';
@@ -553,6 +553,30 @@
           echo "<br><br>";
         }
         
+
+
+        if ($row['Mentor_Age'] != "") 
+        {
+          $arr = explode(', ', $row['Mentor_Age']);
+
+          if (count($arr) == 1)
+            echo "<b>Mentors Students of Age Level </b><br><br>";
+          else
+              echo "<b>Mentors Students of Age Levels </b><br><br>";
+
+          $MENTOR_AGE = "";
+
+          if (is_numeric($arr[0])) 
+            $MENTOR_AGE .= $mentorAge[$arr[0] - 1];
+
+          for ($i=1; $i < count($arr); $i++) 
+            if (is_numeric($arr[$i])) 
+              $MENTOR_AGE .= ', <br>' . $mentorAge[$arr[$i] - 1];
+
+          echo $MENTOR_AGE;
+
+          echo "<br><br>";
+        }
 
 
 
