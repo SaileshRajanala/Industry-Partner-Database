@@ -263,7 +263,7 @@ global $htmlFields,
         }
 
         // Education
-        $recordPreviews .= "<div class='previewSection noShadow'>";
+        $recordPreviews .= "<div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span>";
 
 
         if ($row["College_Education"] == '3') 
@@ -400,7 +400,7 @@ global $htmlFields,
 
 
         // Involvement Opportunities
-        $recordPreviews .= '<div class="previewSection noShadow">';
+        $recordPreviews .= '<div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span>';
 
         $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>";
 
