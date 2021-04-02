@@ -268,13 +268,13 @@ global $htmlFields,
 
         if ($row["College_Education"] == '3') 
         {
-          $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Associate's Degree</b></span> <br>" . 
+          $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Associate's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>" . 
           $row["Associates_Degree"] . ", " . $row["College_Degree_Year"] . '</div><br><br>';
         }
 
         if ($row["College_Education"] == '4') 
         {
-          $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Technical Degree</b></span> <br>" . 
+          $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Technical Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>" . 
           $row["Technical_Degree"] . ", " . $row["College_Degree_Year"] . '</div><br><br>';
         }
 
@@ -288,7 +288,7 @@ global $htmlFields,
           else
             $BS_FIELD = $row["other_BS_field"];
 
-          $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span> <br>" . 
+          $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>" . 
                 $BS_FIELD . ", " . $row["College_Degree_Year"] . '<br><br>';
 
   
@@ -346,7 +346,7 @@ global $htmlFields,
             else
               $MS_FIELD = $row["other_MS_field"];
 
-            $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span> <br>" . 
+            $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>" . 
                   $MS_FIELD . ", " . $row["MS_year"] . '<br><br>';
 
     
@@ -377,7 +377,6 @@ global $htmlFields,
           }
 
 
-
           if ($row['have_PHD_degree'] == 1 || $row['have_PHD_degree'] == 2)
           {
             $recordPreviews .= "<br><br><div class='previewBlock'>";
@@ -389,7 +388,7 @@ global $htmlFields,
              elseif ($row['have_PHD_degree'] == 2)
                 $PHD_SCHOOL .= $row['PHD_other_school'];
 
-             $recordPreviews .= "<span class='previewSectionTitle'><b>PHD Degree</b></span><br>" . 
+             $recordPreviews .= "<span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>" . 
                   $row["PHD_year"] . '<br>';
 
              $recordPreviews .= $PHD_SCHOOL . '</div><br><br>';
@@ -397,7 +396,7 @@ global $htmlFields,
         } // option 5 end
 
 
-        $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span> <br>" . $row["special_degree"] . '</div>';
+        $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br>" . $row["special_degree"] . '</div>';
 
         $recordPreviews .= "</div>";
 
@@ -405,7 +404,7 @@ global $htmlFields,
         // Involvement Opportunities
         $recordPreviews .= '<div class="previewSection">';
 
-        $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span> <br><br>";
+        $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>";
 
         $INVOLVEMENT = "";
 
@@ -424,7 +423,7 @@ global $htmlFields,
 
         if ($row['Involvement_Level'] != "") 
         {
-          $recordPreviews .= "<br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span> <br><br>";
+          $recordPreviews .= "<br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>";
 
           $INVOLVEMENT_LEVEL = "";
 
@@ -452,9 +451,9 @@ global $htmlFields,
           $arr = explode(', ', $row['Recruitment_Level']);
 
           if (count($arr) == 1)
-            $recordPreviews .= "<span class='previewSectionTitle'><b>Age Level of students preferred for Recruitment or Retention Events</b></span><br><br>";
+            $recordPreviews .= "<span class='previewSectionTitle'><b>Age Level of students preferred for Recruitment or Retention Events</b></span><i style='float:right' class='fas fa-user-plus'></i><br><br>";
           else
-              $recordPreviews .= "<span class='previewSectionTitle'><b>Age Levels of students preferred for Recruitment or Retention Events</b></span><br><br>";
+              $recordPreviews .= "<span class='previewSectionTitle'><b>Age Levels of students preferred for Recruitment or Retention Events</b></span><i style='float:right' class='fas fa-user-plus'></i><br><br>";
 
           $RECRUITMENT_LEVEL = "";
 
@@ -477,9 +476,9 @@ global $htmlFields,
           $arr = explode(', ', $row['Mentor_Age']);
 
           if (count($arr) == 1)
-            $recordPreviews .= "<span class='previewSectionTitle'><b>Mentors Students of Age Level </b></span><br><br>";
+            $recordPreviews .= "<span class='previewSectionTitle'><b>Mentors Students of Age Level </b></span><i style='float:right' class='fas fa-hands-helping'></i><br><br>";
           else
-              $recordPreviews .= "<span class='previewSectionTitle'><b>Mentors Students of Age Levels </b></span><br><br>";
+            $recordPreviews .= "<span class='previewSectionTitle'><b>Mentors Students of Age Levels </b></span><i style='float:right' class='fas fa-hands-helping'></i><br><br>";
 
           $MENTOR_AGE = "";
 
@@ -493,7 +492,7 @@ global $htmlFields,
           $recordPreviews .= $MENTOR_AGE . '</div>';
         }
 
-
+        
 
         if ($row['Role_Model'] != "") 
         {
@@ -501,7 +500,7 @@ global $htmlFields,
 
           $arr = explode(', ', $row['Role_Model']);
 
-          $recordPreviews .= "<span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><br><br>";
+          $recordPreviews .= "<span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>";
 
           $ROLE_MODEL = "";
 
