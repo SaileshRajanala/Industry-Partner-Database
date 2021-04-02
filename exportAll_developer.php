@@ -177,6 +177,68 @@ if (!$conn)
 
 
 
+
+            if ($keys[$i] == 'Recruitment_Level')
+            {
+                  $RECRUITMENTMENT_LEVEL = "";
+
+                  $arr = explode(', ', $values[$i]);
+
+                  if (is_numeric($arr[0])) 
+                    $RECRUITMENTMENT_LEVEL .= $recruitmentLevels[$arr[0] - 1];
+
+                  for ($j=1; $j < count($arr); $j++) 
+                  { 
+                    if (is_numeric($arr[$j])) 
+                      $RECRUITMENTMENT_LEVEL .= ', ' . $recruitmentLevels[$arr[$j] - 1];
+                  }
+
+                  $values[$i] = $RECRUITMENTMENT_LEVEL;
+            }
+
+
+            if ($keys[$i] == 'Mentor_Age')
+            {
+                  $MENTOR_AGE = "";
+
+                  $arr = explode(', ', $values[$i]);
+
+                  if (is_numeric($arr[0])) 
+                    $MENTOR_AGE .= $mentorAge[$arr[0] - 1];
+
+                  for ($j=1; $j < count($arr); $j++) 
+                  { 
+                    if (is_numeric($arr[$j])) 
+                      $MENTOR_AGE .= ', ' . $mentorAge[$arr[$j] - 1];
+                  }
+
+                  $values[$i] = $MENTOR_AGE;
+            }
+
+
+            if ($keys[$i] == 'Role_Model')
+            {
+                  $ROLE_MODEL = "";
+
+                  $arr = explode(', ', $values[$i]);
+
+                  if (is_numeric($arr[0])) 
+                    $ROLE_MODEL .= $roleModels[$arr[0] - 1];
+                  else
+                    $ROLE_MODEL .= $arr[0];
+
+                  for ($j=1; $j < count($arr); $j++) 
+                  { 
+                    if (is_numeric($arr[$j])) 
+                      $ROLE_MODEL .= ', ' . $roleModels[$arr[$j] - 1];
+                    else
+                      $ROLE_MODEL .= ', ' . $arr[$j];
+                  }
+
+                  $values[$i] = $ROLE_MODEL;
+            }
+
+
             $values[$i] = str_replace("\r\n", "", $values[$i]);
             $values[$i] = str_replace("\r\t", "", $values[$i]);
             $values[$i] = str_replace("\n", "", $values[$i]);
