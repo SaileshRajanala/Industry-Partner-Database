@@ -324,7 +324,7 @@ global $htmlFields,
           elseif ($row["BS_school"] == 2)
             $BS_SCHOOL .= $row['BS_other_school'];
 
-          $recordPreviews .= $BS_SCHOOL . '</div><br><br>';
+          $recordPreviews .= '<i class="fas fa-university"></i> ' . $BS_SCHOOL . '</div><br><br>';
 
 
 
@@ -373,7 +373,7 @@ global $htmlFields,
             if ($MS_DISCIPLINES != "")
               $recordPreviews .= "<br><br>";
 
-            $recordPreviews .= $MS_SCHOOL . '</div><br><br>';
+            $recordPreviews .= '<i class="fas fa-university"></i> ' . $MS_SCHOOL . '</div><br><br>';
           }
 
 
@@ -391,7 +391,7 @@ global $htmlFields,
              $recordPreviews .= "<span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>" . 
                   $row["PHD_year"] . '<br>';
 
-             $recordPreviews .= $PHD_SCHOOL . '</div><br><br>';
+             $recordPreviews .= '<i class="fas fa-university"></i> ' . $PHD_SCHOOL . '</div><br><br>';
           }
         } // option 5 end
 
