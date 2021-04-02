@@ -96,7 +96,12 @@ else
 
 if (isset($_POST["BS_Eng_Discipline"]) && is_array($_POST["BS_Eng_Discipline"]))
 {
-  $bsValue = $engDisciplines[ $_POST["BS_Eng_Discipline"][0] - 1];
+  $bsValue = "";
+
+  if (is_numeric($_POST["BS_Eng_Discipline"][0]))
+    $bsValue .= $engDisciplines[ $_POST["BS_Eng_Discipline"][0] - 1];
+  else
+    $bsValue .= $engDisciplines[count($engDisciplines) - 1];
 
   for ($i=1; $i < count($_POST["BS_Eng_Discipline"]); $i++)
   { 
@@ -151,7 +156,12 @@ else
 
 if (isset($_POST["MS_Eng_Discipline"]) && is_array($_POST["MS_Eng_Discipline"]))
 {
-  $msValue = $engDisciplines[ $_POST["MS_Eng_Discipline"][0] - 1];
+  $msValue = "";
+
+  if (is_numeric($_POST["MS_Eng_Discipline"][0]))
+    $msValue .= $engDisciplines[ $_POST["MS_Eng_Discipline"][0] - 1];
+  else
+    $msValue .= $engDisciplines[count($engDisciplines) - 1];
 
   for ($i=1; $i < count($_POST["MS_Eng_Discipline"]); $i++)
   { 
@@ -241,7 +251,12 @@ else
 
 if (isset($_POST["Role_Model"]) && is_array($_POST["Role_Model"]))
 {
-  $roleModelsValue = $roleModels[ $_POST["Role_Model"][0] - 1];
+  $roleModelsValue = "";
+
+  if (is_numeric($_POST["Role_Model"][0]))
+    $roleModelsValue .= $roleModels[ $_POST["Role_Model"][0] - 1];
+  else
+    $roleModelsValue .= $roleModels[count($roleModels) - 1];
 
   for ($i=1; $i < count($_POST["Role_Model"]); $i++)
   { 
