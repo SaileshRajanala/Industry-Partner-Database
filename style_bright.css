@@ -197,6 +197,7 @@ input:focus
   background-color: black;
   color: white; 
   box-shadow: none;
+  border-color: black;
 }
 
 input[type="submit"]
