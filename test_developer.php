@@ -535,9 +535,9 @@
           $arr = explode(', ', $row['Recruitment_Level']);
 
           if (count($arr) == 1)
-            echo "<b>Age Level of students preferred for a Recruitment or Retention Event</b><br><br>";
+            echo "<b>Age Level of students preferred for Recruitment or Retention Events</b><br><br>";
           else
-              echo "<b>Age Levels of students preferred for a Recruitment or Retention Event</b><br><br>";
+              echo "<b>Age Levels of students preferred for Recruitment or Retention Events</b><br><br>";
 
           $RECRUITMENT_LEVEL = "";
 
