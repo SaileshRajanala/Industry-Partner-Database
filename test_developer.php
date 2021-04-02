@@ -546,7 +546,7 @@
 
           for ($i=1; $i < count($arr); $i++) 
             if (is_numeric($arr[$i])) 
-              $RECRUITMENT_LEVEL .= ', <br>' . $recruitmentLevels[$arr[$i] - 1];
+              $RECRUITMENT_LEVEL .= ', ' . $recruitmentLevels[$arr[$i] - 1];
 
           echo $RECRUITMENT_LEVEL;
 
@@ -571,14 +571,36 @@
 
           for ($i=1; $i < count($arr); $i++) 
             if (is_numeric($arr[$i])) 
-              $MENTOR_AGE .= ', <br>' . $mentorAge[$arr[$i] - 1];
+              $MENTOR_AGE .= ', ' . $mentorAge[$arr[$i] - 1];
 
           echo $MENTOR_AGE;
 
           echo "<br><br>";
         }
 
+        if ($row['Role_Model'] != "") 
+        {
+          $arr = explode(', ', $row['Role_Model']);
 
+          echo "<b>Prefers to serve as a Role Model for </b><br><br>";
+
+          $ROLE_MODEL = "";
+
+          if (is_numeric($arr[0])) 
+            $ROLE_MODEL .= $roleModels[$arr[0] - 1];
+          else
+            $ROLE_MODEL .= $row['other_Role_Model'];
+
+          for ($i=1; $i < count($arr); $i++) 
+            if (is_numeric($arr[$i])) 
+              $ROLE_MODEL .= ', ' . $roleModels[$arr[$i] - 1];
+            else
+              $ROLE_MODEL .= ', ' . $row['other_Role_Model'];
+
+          echo $ROLE_MODEL;
+
+          echo "<br><br>";
+        }
 
 
         echo "</div>";
