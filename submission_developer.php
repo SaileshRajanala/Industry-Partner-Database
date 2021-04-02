@@ -170,10 +170,6 @@ if (isset($_POST["other_MS_Eng_Discipline"]) && is_array($_POST["other_MS_Eng_Di
 else
   array_push($values, "");
 
-print_r($values);
-echo "<br><br>";
-print_r(htmlentities(implode(', ', $_POST["other_MS_Eng_Discipline"]), ENT_QUOTES));
-echo "<br><br>";
 
 if (isset($_POST["have_PHD_degree"]))
   array_push($values, 
@@ -186,8 +182,6 @@ array_push($values, htmlentities($_POST["PHD_other_school"], ENT_QUOTES));
 array_push($values, htmlentities($_POST["PHD_year"], ENT_QUOTES));
 
 array_push($values, htmlentities($_POST["special_degree"], ENT_QUOTES));
-
-
 
 
 if (isset($_POST["Involvement"]) && is_array($_POST["Involvement"]))
