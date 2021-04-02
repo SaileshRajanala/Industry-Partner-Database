@@ -78,7 +78,7 @@ body
   z-index: 1;
   /*display: none;*/
   /*margin-top: 100%;*/
-  /*box-shadow: 0px 0px 25px black;*/
+  box-shadow: 0em 0em 2em black;
 
   /* new */
   animation-name: formDivLaunch;
