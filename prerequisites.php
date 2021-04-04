@@ -265,6 +265,11 @@ global $htmlFields,
         }
 
         // Education
+        if ($row["College_Education"] == '3' ||
+            $row["College_Education"] == '4' ||
+            $row["College_Education"] == '5' ||
+            $row["special_degree"]    != ""  ||
+            false) 
         $recordPreviews .= "<div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br>";
 
 
@@ -395,11 +400,12 @@ global $htmlFields,
           }
         } // option 5 end
 
+        if ($row['special_degree'] != "") 
+        { 
+          $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>" . $row["special_degree"] . '</div>';
 
-        $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>" . $row["special_degree"] . '</div>';
-
-        $recordPreviews .= "</div>";
-
+          $recordPreviews .= "</div>";
+        }
 
         // Involvement Opportunities
         $recordPreviews .= '<div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br>';
