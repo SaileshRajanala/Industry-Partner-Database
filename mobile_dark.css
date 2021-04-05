@@ -24,9 +24,9 @@ body
 	font-family: 'QuickSand';
 
 	animation-name: blurOut;
-  	animation-delay: 1s;
-  	animation-fill-mode: both;
-  	animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  animation-duration: 0.5s;
 }
 
 @-webkit-keyframes blurOut
@@ -634,7 +634,7 @@ tr:hover
 
 #homeNavButton
 {
-  font-size: large;
+  font-size: larger;
 }
 
 .navLabel
