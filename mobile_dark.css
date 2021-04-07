@@ -1,19 +1,6 @@
 @media only screen and (max-width: 1000px) 
 {
 
-.emailLink
-{
-	color: white;
-	background-color: transparent;
-	transition: all 0.25s;
-}
-
-.emailLink:hover
-{
-	color: aqua;
-	text-decoration: none;
-}
-
 body
 {
 	margin: 0;
@@ -22,6 +9,8 @@ body
 	background-color: black;
 	font-size: large;
 	font-family: 'QuickSand';
+
+  background-size: contain;
 
 	animation-name: blurOut;
   animation-delay: 1s;

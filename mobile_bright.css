@@ -10,6 +10,8 @@ body
 	font-size: large;
 	font-family: 'QuickSand';
 
+	background-size: contain;
+
 	animation-name: blurOut;
   	animation-delay: 1s;
   	animation-fill-mode: both;
