@@ -172,6 +172,12 @@ tr:active
 	background-color: white;
 }
 
+tr::selection
+{
+	background-color: transparent;
+	color: inherit;
+}
+
 td
 {
 	width: 22.5%;
@@ -185,6 +191,12 @@ td
  	overflow: hidden;
  	text-overflow: ellipsis;
  	white-space: nowrap;
+}
+
+td::selection
+{
+	background-color: inherit;
+	color: inherit;
 }
 
 .noPreview
