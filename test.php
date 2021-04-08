@@ -743,3 +743,4 @@
   </body>
   
   </html>
+  <script src='wallpaper.js'></script>
