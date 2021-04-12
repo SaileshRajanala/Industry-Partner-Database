@@ -185,10 +185,10 @@
         background-color: rgb(13,13,13);
         padding: 1%;
 
-        margin-top: 2%;
-        margin-bottom: 2%;
+        margin-top: 3%;
+        margin-bottom: 3%;
 
-        border-radius: 2em;
+        border-radius: 1.5em;
       }
 
     </style>
