@@ -3,7 +3,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Industry Partner Database</title>
+    <title>Search Results</title>
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
@@ -18,14 +18,9 @@
     <!-- ICONS SCRIPT -->
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
-
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 
     <!-- JavaScript (INTERNAL) -->
     <script>
@@ -63,14 +58,15 @@
     <button class="uiButtonOff" id="close" onclick="closePreview()"> 
       Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
     </button>
-
     <div id="layer"></div>
-    
+  
     <!-- Top Bar Arc Structure -->
-    <div id="topBar">
+      <div id="topBar">
 
-        <form method="POST" action="test.php">
-        <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+      <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+            
+           <form method="POST" action="test.php">
+          <button type="submit" class="linkB" id="homeNavButton" style="float: left">
            Industry Partner Database</button>
          </form>
 
@@ -83,17 +79,12 @@
           <button id="exportNavButton" class="linkB" style="float: right">
             <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
 
-          <button id="searchNavButton" class="linkB" style="float: right">
-            <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
+          <!-- <button id="searchNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button> -->
 
-    </div>
+      </div>
 
-    <!-- TOP BAR MOBILE START -->
-      <!-- <script type="text/javascript" src="topBarMobileScript.js"></script> -->
-      <!-- TOP BAR MOBILE END -->
-      
-      <!-- SEARCH BAR -->
-      <form name="searchForm" action="search.php" method="POST">
+     <form name="searchForm" action="" method="post"> 
 
           <div id="searchBarDiv">
              
@@ -101,32 +92,37 @@
               <i class="fa fa-search"></i>
             </button>
             
-            <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
-            
+            <input type="text" name="searchBar" id="searchBar" placeholder="Search..."
+            value="<?php if (isset($_POST["searchBar"])) echo $_POST['searchBar'] ?>">
+          
           </div>
 
      </form>
-
 
      <!-- EXPORT DIV START -->
 
     <div id="exportDiv" class="alertDiv">
 
-      <h1>Export everything</h1>
+      <h1>Export Search Results for "<?php if (isset($_POST["searchBar"])) echo $_POST['searchBar'] ?>"</h1>
 
-      <form action="exportAll_developer.php" method="POST">
+      <form action="exportSearch.php" method="POST">
           <label>Download as </label>
           <input type="fileName" id="fileName" name="fileName" placeholder="Industry Data">
-
+          <input style="display: none;" type="text" name="searchContent" id="searchContent">
           <button class="downloadButton" type="submit">
            <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i>
          </button>
       </form>
+
+      <!-- <form action="exportAll.php" method="POST">
+          <label>or Export all records ?</label>
+          <button class="downloadButton" type="submit"><img class=downloadIcon 
+            id="downloadImg" src="download_bright.png"></button>
+      </form> -->
       
     </div>
 
     <script type="text/javascript">
-
     var d = new Date();
     var downloadIcons = document.getElementsByClassName("downloadIcon");
 
@@ -147,150 +143,172 @@
 
     <!-- EXPORT DIV END -->
 
+    <!-- SEARCH EXPORT SCRIPT START -->
+
+    <script type="text/javascript">
+
+    var x = document.getElementById("searchBar");
+    var y = document.getElementById("searchContent");
+    var z = document.getElementById("fileName");
+    
+    function myFunction() 
+    {
+      y.value = x.value;
+      z.value = x.value;
+    }
+
+    myFunction(); // when page is ready
+
+    document.getElementById("searchBar").addEventListener("keyup", myFunction);
+
+    </script>
+
+    <!-- SEARCH EXPORT SCRIPT END -->
+
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT START -->
     <script type="text/javascript" src="exportScript.js"></script>
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT END -->
 
-    <div class="dashboard">
+     <div class="dashboard"></div>
+    <!-- SEARCH SECTION -->
 
-        <div class="widget" id="todaySummary">
-          <h1 class="widgetTitle" id="greeting"></h1>
-        <!-- TODAY PHP SCRIPT START -->
+     <div  id="searchResultsDiv">
+        
+        <div class="widget">
 
           <?php
-          
           global $o;
-          global $newEntriesToday;
-
-          $newEntriesToday = False;
-
           require "./connect.php";
           require_once "./global.php";
           require_once "./prerequisites.php";
 
-          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC";
-          
-          $result = $conn->query($sql);
+          if (isset($_POST["searchBar"]))
+          {
+            $sql = "
 
-        if ($result->num_rows > 0)
-        {
-          $newEntriesToday = True; // There are new entries for the day.
+          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Contacts WHERE False " .
 
-          echo '<p style="margin-left: 2.5%"><b>';
-          echo $result->num_rows;
+          'OR UPPER(First_Name)     LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Last_Name)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Email)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Phone_Number)   LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(College)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Current_Status) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .  
 
-          if ($result->num_rows == 1) 
-            echo '</b> new entry today.</p>';
-          else
-            echo '</b> new entries today.</p>';
-          
-          echo '<h1 class="widgetTitle">Today\'s Entries</h1>';
-
-          echo printRecords($sql);
-        }
-        else // No entries for today
-        {
-          echo '<p style="margin-left: 2.5%">No new entries yet, today.</p>';
-        }
-
-        ?>
-
-      <!-- TODAY PHP SCRIPT END -->
-      </div>
-
-      <!-- GREETING SCRIPT START -->
-        <script type="text/javascript">
-          
-          d = new Date();
-
-          if (d.getHours() >= 18)
-            document.getElementById('greeting').innerHTML = "Good Evening! <i class='fas fa-moon'></i>";
-          else if (d.getHours() >= 12)
-            document.getElementById('greeting').innerHTML = "Good Afternoon! <i class='fas fa-sun'></i>";
-          else if (d.getHours() >= 3)
-            document.getElementById('greeting').innerHTML = "Good Morning! <i class='fas fa-sun'></i>";
-          else
-            document.getElementById('greeting').innerHTML = "Good Night! <i class='fas fa-moon'></i>";
-
-        </script>
-        <!-- GREETING SCRIPT END -->
-
-        <!-- OLDER ENTRIES -->
-
-        <?php
-
-          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC";
+          " ORDER BY Timestamp DESC         
+    
+          ";
 
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) 
           {
-            echo "<div class='widget'>";
-            echo '<h1 class="widgetTitle">';
-
-            if ($newEntriesToday) 
-              echo 'Older Entries <i class="far fa-calendar-alt"></i>';
+            if ($result->num_rows == 1) 
+              echo '<h2 class="widgetTitle"> 1 Search Result for "' . $_POST["searchBar"] . '"</h2>';
             else
-              echo "All Entries <i class='far fa-list-alt'></i>";
+              echo '<h2 class="widgetTitle">' . $result->num_rows . ' Search Results for "' . $_POST["searchBar"] . '"</h2>';
 
-            echo "</h1>";
-
-            echo printRecords($sql);
-
-            echo "</div>";
+            echo '<table class="dataTable">';
           }
-        ?>    
+          else
+            echo '<h2 class="widgetTitle">Sorry, no results found for "' . $_POST["searchBar"] . '"</h2>';
 
-      <div class="widget">
+          if ($result->num_rows > 0) 
+          while($row = $result->fetch_assoc()) 
+          {
+            if($row["Prefix"] != "")
+            {
+              echo "<tr previewPair={$o}>";
 
-        <h1 class="widgetTitle">Information <i class='fas fa-info-circle'></i></h1>
+              echo "<td>" . $row["First_Name"] . " " . $row["Last_Name"]  . "</td>";
 
-          <?php
+              echo "<td>" . $row["Workplace"] . "</td>";
 
-          $sql = "SELECT * FROM Industry_Partner_Database";
+              echo "<td>" . $row["Title"] . "</td>";
 
-          $result = $conn->query($sql);
+              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
+              // echo "<td><button class=\"uiButton\">Details ></button></td>";
+               $o++;
+    
+              echo "</tr>";
+            }
+          }
+          // else
+          //   echo "No results found";
 
-          echo "<p style='margin-left: 2.5%'>Total number of records = <b>";
-          echo $result->num_rows;
-          echo "</b>";
+          }
+
 
           ?>
 
-          <p style='margin-left: 2.5%'>Version <b>4.7 RS</b></p>
-          <p style='margin-left: 2.5%'>Copyright <i class='far fa-copyright'></i> 2020-2021. <b>Team Lotus.</b> </p>
-
+        </table>
+        
       </div>
 
-    </div>
+       </div>
 
+      <!-- RESULTS PREVIEW -->
 
+      <?php
 
+      if (isset($_POST["searchBar"]))
+      {
 
+      $sql = "
 
+          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Contacts WHERE False " .
 
-    <!-- Previews -->
-    <?php
+          'OR UPPER(First_Name)     LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Last_Name)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Email)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Phone_Number)   LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(College)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Current_Status) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " . 
 
-      echo printRecordPreviews(
+          " ORDER BY Timestamp DESC           
+        
+          ";
 
-        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC"
+        $result = $conn->query($sql);
 
-      );
+  if ($result->num_rows > 0) 
+    while($row = $result->fetch_assoc()) 
+    {
+      if($row["Prefix"] != "")
+      {
+        echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
 
-      echo printRecordPreviews(
+        echo "<h2 class=\"previewTitle\">";
+        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . ' <i class="far fa-address-card" style="float:right;margin-right:4%;"></i></h2>';
 
-        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC"
+        echo '<div class="previewSection">';
+        echo $row["Title"] . '<br><br>';
+        echo $row["Workplace"] . '<br><br>';
+        echo 'LinkedIn : ' . $row["LinkedIn"] . '<br><br>';
+        echo 'Current Status : ' . $row["Current_Status"] . '</div>';
+    
+        echo '<div class="previewSection"> Notes <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
 
-        );
+        echo '<div class="previewSection"><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
+        echo '<i class="fas fa-phone-alt"></i> Phone : ' . $row["Phone_Number"] . '<br><br>';
+        echo '<i class="far fa-clock"></i> Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
+
+        echo '</div></div>';
+
+        $o++;
+      }
+   }
+ }
 
     ?>
-
-
-
-
-
-
 
     <script type="text/javascript">
 
@@ -363,14 +381,65 @@
 
             currentRow.onclick = createClickHandler(currentRow, rowIndex);
             rowIndex++;
-        }  
-    }
-    </script>
+        }
+      
+  }
+    </script>   
 
-    <!-- SEARCH SCRIPT -->
-    <script type="text/javascript" src="searchBarScript.js"></script>
+ <!-- SEARCH BAR GRAPHIC SCRIPT -->
+ <script type="text/javascript">
 
-    <!-- HELP DIV START -->
+  var d = new Date();
+    
+    document.getElementById('searchBar').onfocus = function() 
+    {
+      if (d.getHours() >= 6 && d.getHours() < 18)
+      {  
+        document.getElementById("searchBarDiv").style.backgroundColor = 'black';
+        //document.getElementById("searchBarDiv").style.boxShadow = "none";
+        document.getElementById("searchButtonIcon").style.boxShadow = "none";
+      }
+      else
+      {
+        document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+      }
+
+      document.getElementById("searchBarDiv").style.padding = '0.7%';
+      document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
+      document.getElementById("searchBarDiv").style.margin = '-0.7%';
+      document.getElementById("searchBarDiv").style.marginRight = '1.3%';
+    };
+
+    // CrossBrowserCompatible Method for FocusOut below
+    document.getElementById('searchBar').addEventListener("focusout", onFocusOff);
+
+    function onFocusOff() 
+    {
+      if (d.getHours() >= 6 && d.getHours() < 18)
+      {  
+        document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+        //document.getElementById("searchBarDiv").style.boxShadow = "0px 13px 26px rgb(200,200,200)";
+        document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
+      }
+      else
+      {
+        document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
+      }
+      document.getElementById("searchBarDiv").style.padding = '0%';
+      document.getElementById("searchBarDiv").style.margin = '0%';
+    };
+
+ </script>
+
+ <script type="text/javascript">
+   document.body.style.animation = 'none';
+   document.getElementById('topBar').style.animation = 'none';
+   document.getElementById('searchResultsDiv').style.animationName = 'toplaunch';
+   document.getElementById('searchResultsDiv').style.animationDelay = '0s';
+   document.getElementById('searchResultsDiv').style.animationDuration = '0.5s';
+ </script>
+
+ <!-- HELP DIV START -->
 
     <div id="helpDiv">
 
@@ -632,7 +701,7 @@
         for (var i = exportIcons.length - 1; i >= 0; i--) {
           exportIcons[i].src = "download_bright.png";
         }
-        //document.getElementById('helpHelpButton').style.backgroundColor = "red";
+        document.getElementById('helpHelpButton').style.backgroundColor = "red";
     }
     else
     {
@@ -648,7 +717,7 @@
           exportIcons[i].src = "download_dark.png";
         }
 
-        //document.getElementById('helpButton').style.color = "white";
+        document.getElementById('helpButton').style.color = "white";
     }
 
     </script>
@@ -660,6 +729,3 @@
     <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
 
   </body>
-  
-  </html>
-  <script src='wallpaper.js'></script>

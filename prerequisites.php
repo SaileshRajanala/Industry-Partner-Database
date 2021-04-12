@@ -181,18 +181,46 @@ for ($i = 1; $i < count($tableColumns); $i++)
 
 
 
+function printRecords($sql)
+{
+  include './connect.php';
 
+  global $htmlFields, 
+       $tableColumns, 
+       $insertSchema;
 
+  $records = "";
 
+  $result = $conn->query($sql);
 
+  if ($result->num_rows > 0) 
+  {
+    $records .= '<table class="dataTable">';
+            
+    while($row = $result->fetch_assoc()) 
+    {
+      if($row["Prefix"] != "")
+      {
+        $records .= "<tr>";
 
+        $records .= "<td>" . $row["First_Name"] . " " . $row["Last_Name"]  . "</td>";
 
+        $records .= "<td>" . $row["Employer"] . "</td>";
 
+        $records .= "<td>" . $row["Job_Title"] . "</td>";
 
+        $records .= "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-18000) . "</td>";
 
+        $records .= "</tr>";
+      }
+    }
 
+    $records .= "</table>";
+  }
 
+  return $records;
 
+}
 
 
 function printRecordPreviews($sql)
