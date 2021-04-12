@@ -214,14 +214,14 @@
 #searchResultsDiv
 {
 	background-color: transparent;
-	border-radius: 47px;
+	/*border-radius: 47px;*/
 	overflow-y: scroll;
-	padding: 1%;
+	padding: 4%;
 	position: fixed;
-	height: 67%;
-	left: 5%;
-	bottom: 4%;
-	width: 88%;
+	height: 60%;
+	left: 0%;
+	bottom: 0%;
+	width: 92%;
 	margin: 0;
 
 	box-shadow: none;
@@ -240,11 +240,11 @@
   scrollbar-width: none;  /* Firefox */
 }
 
-#searchResultsDiv .widget
+/*#searchResultsDiv .widget
 {
 	box-shadow: none;
 }
-
+*/
 #searchButton
 {
 	top: 13%;
