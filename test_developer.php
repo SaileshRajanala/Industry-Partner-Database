@@ -184,15 +184,15 @@
 
           if (rand(0,2) == 0)
           {
-            $happyEmote = ' &nbsp<i class="far fa-smile"></i>';
+            $happyEmote = ' &nbsp<i class="fas fa-smile"></i>';
           }
           elseif (rand(0,2) == 1)
           {
-            $happyEmote = ' &nbsp<i class="far fa-smile-wink"></i>';
+            $happyEmote = ' &nbsp<i class="fas fa-smile-wink"></i>';
           }
           else
           {
-            $happyEmote = ' &nbsp<i class="far fa-smile-beam"></i>';           
+            $happyEmote = ' &nbsp<i class="fas fa-smile-beam"></i>';           
           }
 
 
@@ -212,12 +212,12 @@
           if (rand(0,1) == 0) // random cry or sad face
           {
             echo '<p style="margin-left: 2.5%">No new entries yet, today.' . 
-            '&nbsp <i class="far fa-frown"></i></p>';
+            '&nbsp <i class="fas fa-frown"></i></p>';
           }
           else
           {
             echo '<p style="margin-left: 2.5%">No new entries yet, today.' . 
-            '&nbsp <i class="far fa-sad-tear"></i></p>';
+            '&nbsp <i class="fas fa-sad-tear"></i></p>';
           }
         }
 
@@ -232,13 +232,25 @@
           d = new Date();
 
           if (d.getHours() >= 18)
-            document.getElementById('greeting').innerHTML = "Good Evening! &nbsp<i class='fas fa-moon'></i>";
+          {
+            document.getElementById('greeting').innerHTML = "Good Evening!" + 
+            " &nbsp<i class='fas fa-moon'></i>";
+          }
           else if (d.getHours() >= 12)
-            document.getElementById('greeting').innerHTML = "Good Afternoon! &nbsp<i class='fas fa-sun'></i>";
+          {
+            document.getElementById('greeting').innerHTML = "Good Afternoon!" + 
+            " &nbsp<i class='fas fa-sun'></i>";
+          }
           else if (d.getHours() >= 3)
-            document.getElementById('greeting').innerHTML = "Good Morning! &nbsp<i class='fas fa-sun'></i>";
+          {
+            document.getElementById('greeting').innerHTML = "Good Morning!" + 
+            " &nbsp<i class='fas fa-sun'></i>";
+          }
           else
-            document.getElementById('greeting').innerHTML = "Good Night! &nbsp<i class='fas fa-moon'></i>";
+          {
+            document.getElementById('greeting').innerHTML = "Good Night!" + 
+            " &nbsp<i class='fas fa-moon'></i>";
+          }
 
         </script>
         <!-- GREETING SCRIPT END -->

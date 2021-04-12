@@ -169,7 +169,10 @@ for ($i = 1; $i < count($tableColumns); $i++)
 
 
 
-
+// function randomFrom($randomThings)
+// {
+//   return $randomThings[rand(0, count($randomThings) - 1)];
+// }
 
 
 
