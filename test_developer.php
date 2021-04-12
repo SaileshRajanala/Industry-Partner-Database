@@ -184,22 +184,22 @@
 
           if (rand(0,2) == 0)
           {
-            $happyEmote = '<i class="far fa-smile"></i>';
+            $happyEmote = ' &nbsp<i class="far fa-smile"></i>';
           }
           elseif (rand(0,2) == 1)
           {
-            $happyEmote = '<i class="far fa-smile-wink"></i>';
+            $happyEmote = ' &nbsp<i class="far fa-smile-wink"></i>';
           }
           else
           {
-            $happyEmote = '<i class="far fa-smile-beam"></i>';           
+            $happyEmote = ' &nbsp<i class="far fa-smile-beam"></i>';           
           }
 
 
           if ($result->num_rows == 1) 
-            echo '</b> new entry today.' . " " . $happyEmote . '</p>';
+            echo '</b> new entry today.' . $happyEmote . '</p>';
           else
-            echo '</b> new entries today.' . " " . $happyEmote . '</p>';
+            echo '</b> new entries today.' . $happyEmote . '</p>';
           
           echo '<h1 class="widgetTitle">Today\'s Entries' . 
                ' <i class="fas fa-user-plus"></i></h1>';
@@ -211,11 +211,13 @@
 
           if (rand(0,1) == 0) // random cry or sad face
           {
-            echo '<p style="margin-left: 2.5%">No new entries yet, today. <i class="far fa-frown"></i></p>';
+            echo '<p style="margin-left: 2.5%">No new entries yet, today.' . 
+            '&nbsp <i class="far fa-frown"></i></p>';
           }
           else
           {
-            echo '<p style="margin-left: 2.5%">No new entries yet, today. <i class="far fa-sad-tear"></i></p>';
+            echo '<p style="margin-left: 2.5%">No new entries yet, today.' . 
+            '&nbsp <i class="far fa-sad-tear"></i></p>';
           }
         }
 
@@ -230,13 +232,13 @@
           d = new Date();
 
           if (d.getHours() >= 18)
-            document.getElementById('greeting').innerHTML = "Good Evening! <i class='fas fa-moon'></i>";
+            document.getElementById('greeting').innerHTML = "Good Evening! &nbsp<i class='fas fa-moon'></i>";
           else if (d.getHours() >= 12)
-            document.getElementById('greeting').innerHTML = "Good Afternoon! <i class='fas fa-sun'></i>";
+            document.getElementById('greeting').innerHTML = "Good Afternoon! &nbsp<i class='fas fa-sun'></i>";
           else if (d.getHours() >= 3)
-            document.getElementById('greeting').innerHTML = "Good Morning! <i class='fas fa-sun'></i>";
+            document.getElementById('greeting').innerHTML = "Good Morning! &nbsp<i class='fas fa-sun'></i>";
           else
-            document.getElementById('greeting').innerHTML = "Good Night! <i class='fas fa-moon'></i>";
+            document.getElementById('greeting').innerHTML = "Good Night! &nbsp<i class='fas fa-moon'></i>";
 
         </script>
         <!-- GREETING SCRIPT END -->
@@ -255,9 +257,9 @@
             echo '<h1 class="widgetTitle">';
 
             if ($newEntriesToday) 
-              echo 'Older Entries <i class="far fa-calendar-alt"></i>';
+              echo 'Older Entries &nbsp<i class="far fa-calendar-alt"></i>';
             else
-              echo "All Entries <i class='far fa-list-alt'></i>";
+              echo "All Entries &nbsp<i class='far fa-list-alt'></i>";
 
             echo "</h1>";
 
@@ -269,7 +271,7 @@
 
       <div class="widget">
 
-        <h1 class="widgetTitle">Information <i class='fas fa-info-circle'></i></h1>
+        <h1 class="widgetTitle">Information &nbsp<i class='fas fa-info-circle'></i></h1>
 
           <?php
 
