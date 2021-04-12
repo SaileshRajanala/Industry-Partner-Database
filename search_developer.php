@@ -70,7 +70,7 @@
 
       <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
             
-           <form method="POST" action="test.php">
+           <form method="POST" action="test_developer.php">
           <button type="submit" class="linkB" id="homeNavButton" style="float: left">
            Industry Partner Database</button>
          </form>
@@ -317,7 +317,7 @@
     
 
  <!-- SEARCH BAR GRAPHIC SCRIPT -->
- 
+
  <script type="text/javascript">
 
   var d = new Date();
