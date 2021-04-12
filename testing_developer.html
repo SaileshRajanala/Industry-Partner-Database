@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Industry Partner Database</title>
+
+    <!-- CSS 3 EXTERNAL -->
+    <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
+    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
+    <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
+    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
+    <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
+
+    <!-- CSS FOR ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- ICONS SCRIPT -->
+    <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
+
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+
+    <!-- JavaScript (INTERNAL) -->
+    <script>
+
+    var d = new Date();
+
+    function swapStylesheet(sheet, name) 
+    {
+        document.getElementById(name).setAttribute('href', sheet);
+    }
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        swapStylesheet("request_bright.css", "rS");
+        swapStylesheet("test_bright.css", "tS");
+        swapStylesheet("export_bright.css", "eS");
+        swapStylesheet("help_bright.css", "hS");
+        swapStylesheet("mobile_bright.css", "mS");
+    }
+    else
+    {
+        swapStylesheet("request_dark.css", "rS");
+        swapStylesheet("test_dark.css", "tS");
+        swapStylesheet("export_dark.css", "eS");
+        swapStylesheet("help_dark.css", "hS");
+        swapStylesheet("mobile_dark.css", "mS");
+    }
+
+  </script>
+
+  </head>
+
+  <body>
+
+    <button class="uiButtonOff" id="close" onclick="closePreview()"> 
+      Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
+    </button>
+
+    <div id="layer"></div>
+    
+    <!-- Top Bar Arc Structure -->
+    <div id="topBar">
+
+        <form method="POST" action="test.php">
+        <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+           Industry Partner Database</button>
+         </form>
+
+          <button id="helpNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
+
+          <!-- <button class="linkB" style="float: right">
+            Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
+
+          <button id="exportNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
+
+          <button id="searchNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
+
+    </div>
+
+    <!-- TOP BAR MOBILE START -->
+      <!-- <script type="text/javascript" src="topBarMobileScript.js"></script> -->
+      <!-- TOP BAR MOBILE END -->
+      
+      <!-- SEARCH BAR -->
+      <form name="searchForm" action="search_developer.php" method="POST">
+
+          <div id="searchBarDiv">
+             
+            <button id="searchButtonIcon" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+            
+            <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
+            
+          </div>
+
+     </form>
+
+
+     <!-- EXPORT DIV START -->
+
+    <div id="exportDiv" class="alertDiv">
+
+      <h1>Export everything</h1>
+
+      <form action="exportAll_developer.php" method="POST">
+          <label>Download as </label>
+          <input type="fileName" id="fileName" name="fileName" placeholder="Industry Data">
+
+          <button class="downloadButton" type="submit">
+           <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i>
+         </button>
+      </form>
+      
+    </div>
+
+    <script type="text/javascript">
+
+    var d = new Date();
+    var downloadIcons = document.getElementsByClassName("downloadIcon");
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        for (var i = downloadIcons.length - 1; i >= 0; i--) {
+          downloadIcons[i].src = "download_bright.png";
+        }
+    }
+    else
+    {
+        for (var i = downloadIcons.length - 1; i >= 0; i--) {
+          downloadIcons[i].src = "download_dark.png";
+        }    
+    }
+
+    </script>
+
+    <!-- EXPORT DIV END -->
+
+    <!-- EXPORT DIV FUNCTIONALITY SCRIPT START -->
+    <script type="text/javascript" src="exportScript.js"></script>
+    <!-- EXPORT DIV FUNCTIONALITY SCRIPT END -->
+
+    <div class="dashboard">
+
+        <div class="widget" id="todaySummary">
+          <h1 class="widgetTitle" id="greeting"></h1>
+        <!-- TODAY PHP SCRIPT START -->
+
+          
+<p style="margin-left: 2.5%"><b>1</b> new entry today.</p><h1 class="widgetTitle">Today's Entries</h1><table class="dataTable"><tr><td>Jhin Khada</td><td>League Of Magic</td><td>Marksman</td><td>2021-04-12 00:00:24</td></tr></table>
+      <!-- TODAY PHP SCRIPT END -->
+      </div>
+
+      <!-- GREETING SCRIPT START -->
+        <script type="text/javascript">
+          
+          d = new Date();
+
+          if (d.getHours() >= 18)
+            document.getElementById('greeting').innerHTML = "Good Evening! <i class='fas fa-moon'></i>";
+          else if (d.getHours() >= 12)
+            document.getElementById('greeting').innerHTML = "Good Afternoon! <i class='fas fa-sun'></i>";
+          else if (d.getHours() >= 3)
+            document.getElementById('greeting').innerHTML = "Good Morning! <i class='fas fa-sun'></i>";
+          else
+            document.getElementById('greeting').innerHTML = "Good Night! <i class='fas fa-moon'></i>";
+
+        </script>
+        <!-- GREETING SCRIPT END -->
+
+        <!-- OLDER ENTRIES -->
+
+        <div class='widget'><h1 class="widgetTitle">Older Entries <i class="far fa-calendar-alt"></i></h1><table class="dataTable"><tr><td>A A</td><td></td><td></td><td>2021-04-04 15:53:34</td></tr><tr><td>Sailesh Rajanala</td><td>Sailesh Rajanala Industries</td><td>Chief Executive Officer</td><td>2021-04-04 15:48:05</td></tr><tr><td>Nancy Kumari Karki </td><td>IndustryPartner</td><td>Research Analyst</td><td>2021-04-03 14:13:25</td></tr><tr><td>Mira Thapa</td><td>MedicalScience</td><td>Nurse</td><td>2021-04-02 14:27:09</td></tr><tr><td>Von Kong Dan Don &#039;Declan</td><td></td><td></td><td>2021-04-02 14:13:19</td></tr><tr><td>Linda Mary Powell</td><td>Horizon Architects</td><td>Coordinator</td><td>2021-04-02 13:18:00</td></tr><tr><td>Von L&#039;Presidente</td><td>Yara Inc.</td><td>MVP</td><td>2021-04-02 12:58:47</td></tr><tr><td>Eivor Jora</td><td>Origins &amp; Odyssey</td><td>Game Designer</td><td>2021-04-02 00:52:31</td></tr><tr><td>Jake Dragon Lake</td><td></td><td></td><td>2021-04-01 23:04:26</td></tr><tr><td>Jhin Khada</td><td>League of FOUR Inc.</td><td>Marksman</td><td>2021-04-01 21:47:54</td></tr><tr><td>Sailesh Rajanala</td><td>WSU</td><td>Supplemental Instruction Leader</td><td>2021-04-01 19:58:11</td></tr></table></div>    
+
+      <div class="widget">
+
+        <h1 class="widgetTitle">Information <i class='fas fa-info-circle'></i></h1>
+
+          <p style='margin-left: 2.5%'>Total number of records = <b>12</b>
+          <p style='margin-left: 2.5%'>Version <b>4.7 RS</b></p>
+          <p style='margin-left: 2.5%'>Copyright <i class='far fa-copyright'></i> 2020-2021. <b>Team Lotus.</b> </p>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- Previews -->
+    <div class="noPreview"><h2 class="previewTitle">Mr. Jhin Khada   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Marksman<br>League Of Magic<br><br><i class="fas fa-map-marker-alt"></i> Albama, CO</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2021<br><br>Applied Computing, Chemical Engineering, Computer Engineering<br><br><i class="fas fa-university"></i> University of Chicago</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Math, 2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Nope</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Demonstrating a technical skill or area of expertise, <br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Tell your personal story as it relates to work in your field</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>First-generation college students, African American</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>haha</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:jk@m.com">jk@m.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 2213112311<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-12 00:00:24</div></div><div class="noPreview"><h2 class="previewTitle">Ms. A A   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>I'm not interested in involvement at this time</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>-</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>nope</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:a@h.com">a@h.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : <br><br><i class="far fa-clock"></i> Timestamp : 2021-04-04 15:53:34</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Sailesh Rajanala   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Chief Executive Officer<br>Sailesh Rajanala Industries<br><br><i class="fas fa-map-marker-alt"></i> Wichita, KS</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2021<br><br>Computer Science, Web Designing<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Web Design/Development, UI/UX Development</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Advising a team of students on a project, <br>Demonstrating a technical skill or area of expertise, <br>Judging a competition, <br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Serving as a role model, <br>Teaching a concept, <br>Tell your personal story as it relates to work in your field</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours, <br>A day long event, <br>A recurring relationship over a semester</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Mentors Students of Age Levels </b></span><i style='float:right' class='fas fa-hands-helping'></i><br><br>High School, Undergraduate</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Web Designers</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>I want to perform.</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:sailesh4444@gmail.com">sailesh4444@gmail.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 4444777777<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-04 15:48:05</div></div><div class="noPreview"><h2 class="previewTitle">Dr. Nancy Kumari Karki    <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Research Analyst<br>IndustryPartner<br><br><i class="fas fa-map-marker-alt"></i> Centreville, GA</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2014<br><br>Biomedical Engineering, Chemical Engineering<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2018<br><br>Biomedical Engineering, Chemical Engineering<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>2020<br><br><i class="fas fa-university"></i> Virginia Tech</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>medical Science</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Advising a team of students on a project</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Female</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>Thanks </div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:nancy.karki@gmail.com">nancy.karki@gmail.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 316789987<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-03 14:13:25</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Mira Thapa   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Nurse<br>MedicalScience<br><br><i class="fas fa-map-marker-alt"></i> Pokhara, ID</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Health Professions, 2018<br><br><i class="fas fa-university"></i> University of Pokhara</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Health and Science</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Teaching a concept</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours, <br>A recurring relationship over a semester</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Female, Asian</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>Directly and Indirectly. </div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:mirs.thapa25@gmail.com">mirs.thapa25@gmail.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 316789877<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-02 14:27:09</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Von Kong Dan Don &#039;Declan   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Science, 2020<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Web Designing</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Facilitate tour of your company, <br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Research Partnership, <br>Serving as a role model, <br>Tell your personal story as it relates to work in your field</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours, <br>A day long event</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Mentors Students of Age Level </b></span><i style='float:right' class='fas fa-hands-helping'></i><br><br>Elementry</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Veterans</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>I like to propose a Senior Design Project.</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:s@g.edu">s@g.edu</a><br><br><i class="fas fa-phone-alt"></i> Phone : 1231231121<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-02 14:13:19</div></div><div class="noPreview"><h2 class="previewTitle">Ms. Linda Mary Powell Jr.  <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Coordinator<br>Horizon Architects<br><br><i class="fas fa-map-marker-alt"></i> St. Cloud, MN</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 1995<br><br>Civil Engineering, management<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Math, 2000<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>2005<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Computer Science</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Tell your personal story as it relates to work in your field</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A recurring relationship over a semester</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>First-generation college students, African American</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>I want to offer a senior design project.</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:powell@gmail.com">powell@gmail.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 1230984567<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-02 13:18:00</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Von L&#039;Presidente Jr.  <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">MVP<br>Yara Inc.<br><br><i class="fas fa-map-marker-alt"></i> Nora Island</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Science, 2000<br><br><i class="fas fa-university"></i> Yara University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Health Professions, 2002<br><br><i class="fas fa-university"></i> Yara University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Hunting</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Tell your personal story as it relates to work in your field</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A day long event</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Female, Veterans</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>Yara</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:s@e.com">s@e.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 12221312111<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-02 12:58:47</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Eivor Jora Jr.  <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Game Designer<br>Origins &amp; Odyssey<br><br><i class="fas fa-map-marker-alt"></i> Montreal, CO</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>haha, 2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2021<br><br>yoyo<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>no idea</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Judging a competition, <br>Serving as a role model</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Mentors Students of Age Level </b></span><i style='float:right' class='fas fa-hands-helping'></i><br><br>Middle School</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Canadians</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>LOL</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:bayek@ac.com">bayek@ac.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 1231231121<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-02 00:52:31</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Jake Dragon Lake Mastrreert  <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Dragon Taming</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>One-Time Student Recruitment & Retention Event</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A day long event</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Age Levels of students preferred for Recruitment or Retention Events</b></span><i style='float:right' class='fas fa-user-plus'></i><br><br>Elementary School, Middle School, High School, College/University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>First-generation college students, Hispanic, Veterans, Dragons</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>YEA!</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:j@d.com">j@d.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 12312312312<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-01 23:04:26</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Jhin Khada Jr.  <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Marksman<br>League of FOUR Inc.<br><br><i class="fas fa-map-marker-alt"></i> Ionia, AR</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2017<br><br>Aerospace Engineering, Applied Computing, Biomedical Engineering, Computer Engineering, Computer Science, Cybersecurity, Facilities Management, Product Design and Manufacturing Engineering, Web Design and Development<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2019<br><br>Aerospace Engineering, Engineering Management, Robotics<br><br><i class="fas fa-university"></i> Wakanda State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Sniping</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Advising a team of students on a project, <br>Demonstrating a technical skill or area of expertise, <br>Facilitate tour of your company, <br>Judging a competition, <br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Teaching a concept</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A day long event, <br>A recurring relationship over a semester</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Female, Hispanic, Support</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>I am a fictional character and I love 4!</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:jhin@khada.com">jhin@khada.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 4444774444<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-01 21:47:54</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Sailesh Rajanala Jr.  <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Supplemental Instruction Leader<br>WSU<br><br><i class="fas fa-map-marker-alt"></i> Wichita, KS</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Web Designing, 2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2022<br><br>Applied Computing, Chemical Engineering, Civil Engineering, Computer Engineering, Computer Science, don&#039;t know lol<br><br><i class="fas fa-university"></i> Kansas State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>2024<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Web Development</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Advising a team of students on a project, <br>Facilitate tour of your company, <br>Judging a competition, <br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>First-generation college students</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>noised asd</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:sailesh555@live.com">sailesh555@live.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 1231231123<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-01 19:58:11</div></div>
+
+
+
+
+
+
+    <script type="text/javascript">
+
+      var scroll_Y = 0;
+
+      function previewDiv(i)
+      { 
+        targets = document.getElementsByClassName('noPreview');
+
+        for (var k = 0; k < targets.length; k++) 
+          if (i == k)
+          {
+            scroll_Y = window.scrollY;
+
+            //document.getElementsByClassName('widget')[0].style.opacity = "0";
+            document.getElementsByClassName('dashboard')[0].style.position = "fixed";
+            document.getElementsByClassName('dashboard')[0].style.width = "84%";
+
+            targets[i].classList.add('preview');
+
+            document.getElementById('layer').style.display = 'block';
+
+            document.getElementById('close').classList.add('uiButtonOn');
+            document.getElementById('close').classList.remove('uiButtonOff');
+          }
+      }
+
+      function closePreview()
+      {
+        targets = document.getElementsByClassName('noPreview');
+
+        for (var k = 0; k < targets.length; k++) 
+            targets[k].classList.remove('preview');
+
+          //document.getElementsByClassName('widget')[0].style.opacity = "1";
+          document.getElementsByClassName('dashboard')[0].style.position = "relative";
+          document.getElementsByClassName('dashboard')[0].style.width = "92%";
+
+          window.scrollTo(0, scroll_Y);
+          document.getElementById('layer').style.display = 'none';
+
+          document.getElementById('close').classList.add('uiButtonOff');
+          document.getElementById('close').classList.remove('uiButtonOn');
+      }
+      
+      // entries = document.getElementsByTagName('tr');
+
+      // for (var k = 0; k < entries.length; k++)
+      //   entries[k].onmousedown = function() {previewDiv(k)};
+
+      var rowIndex = 0;
+
+      var tables = document.getElementsByClassName("dataTable");
+
+      for (var f = 0; f < tables.length; f++) 
+      { 
+        var rows = tables[f].getElementsByTagName("tr");
+      
+         for (var i = 0; i < rows.length; i++) 
+         {
+            var currentRow = tables[f].rows[i];
+
+            var createClickHandler = function(row, rowIndex) 
+            {
+              return function() 
+              {
+                previewDiv(rowIndex);
+              };
+            };
+
+            currentRow.onclick = createClickHandler(currentRow, rowIndex);
+            rowIndex++;
+        }  
+    }
+    </script>
+
+    <!-- SEARCH SCRIPT -->
+    <script type="text/javascript" src="searchBarScript.js"></script>
+
+    <!-- HELP DIV START -->
+
+    <div id="helpDiv">
+
+      <h1>Help?</h1>
+
+      <div class="helpArticle">
+
+        <h2>Navigating Around < > </h2>
+        
+        <ul>
+          <li>You can always return <b>home</b> by clicking the <br><br>
+            <b>"Industry Partner Database"</b> <br><br> 
+            link on the top middle of the screen
+          </li>
+            <br>
+
+          <li>
+            You can click on a record to access its full details
+            <br>
+            
+            <br>
+            You can click the <b>(X)</b> button to dismiss a record's preview
+          </li>
+          <br>
+
+          <li>
+            You can use the <b>Search Icon</b> on the top right corner to search for records.
+            <br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+          
+          <li>
+            You can use the <b>Download Icon</b> on the top left corner to export data.
+            <br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            You can click the <b>Close Icon</b> to dismis either Search or Export operations.
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+        </ul>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Search?</h2>
+        
+        <p></p>
+
+        <ul>
+          <li>To start a search, click the <b>Search Icon</b> on the top right corner<br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the search operation, click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To search for something, type it in the <b>Search Bar</b> <br><br> 
+            Click the <b>Search Icon</b> <br><b>
+            or </b><br> 
+            Press the <b>"Enter"</b> key
+          </li>
+          <br>
+
+          <li>To go back and view all records, click the <br><br>
+            <b>"Industry Partner Database"</b> <br><br> 
+            link on the top middle of the screen
+          </li>
+          <br>
+
+        </ul>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Export all records?</h2>
+
+        <p>
+          You can download data 
+          as an Excel Spreadsheet 
+          <br><br> 
+          Format : <b>.xls</b>
+        </p>
+
+        <ul>
+          <li>
+          To export all data,<br> click the <b>Downlaod Icon</b> on the top left corner<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the export operation,<br> click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           By default, the downloaded file is named as 
+           <br><br>
+           <b>"Industry Data.xls"</b>
+           <br><br>
+           You can rename it by typing the desired file name in the text box
+          </li>
+          <br>
+
+          <li>
+            Click the <b>Downlaod Icon</b> to download the file<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+        </ul>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Export only Search Results?</h2>
+        
+        <p>
+          You can download data 
+          as an Excel Spreadsheet 
+          <br><br> 
+          Format : <b>.xls</b>
+        </p>
+
+        <ul>
+
+          <li>
+          To export only the search data, <br> you need to perform a search by clicking the <b>Search Icon</b> on the top right corner<br><br>
+            <img class="helpSearchIcon" src="search_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           To export the search resutls,<br> click the <b>Downlaod Icon</b> on the top left corner<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+            To dismiss the export operation,<br> click the <b>Close Icon</b>
+            <br><br>
+            <img class="helpCloseIcon" src="close_bright.png" width="35px">
+          </li>
+          <br>
+
+          <li>
+           To rename the download file, <br>type the desired file name in the text box
+          </li>
+          <br>
+
+          <li>
+            Click the <b>Downlaod Icon</b> to download the file<br><br>
+            <img class="helpDownloadIcon" src="download_bright.png" width="35px">
+          </li>
+          <br>
+
+        </ul>
+
+      </div>
+
+      <div class="helpArticle" id="fontSizeHelpArticle">
+
+        <h2>Font Size?</h2>
+
+        <ul>
+          <li>
+           On a Mac, 
+           <br><br>
+           Use "Command" <b>+</b> "+" to Increase Font Size.
+           <br><br>
+           Use "Command" <b>+</b> "-" to Decrease Font Size.
+          </li>
+          <br>
+
+          <li>
+           On Windows, 
+           <br><br>
+           Use "CTRL" <b>+</b> "+" to Increase Font Size.
+           <br><br>
+           Use "CTRL" <b>+</b> "-" to Decrease Font Size.
+           <br><br>
+           You can also hold <b>"CTRL"</b> and scroll the <b>"Mouse Wheel"</b> to adjust the Font Size.
+          </li>
+          <br>
+        </ul>
+
+      </div>
+
+      <div class="helpArticle" id="displayHelpArticle">
+
+        <h2>Display?</h2>
+        <h2>Can't differentiate between elements?</h2>
+        
+        <p>Please make sure the <b>Contrast</b> Setting of your display is around 50%</p>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Dismiss Help?</h2>
+
+        To dismiss Help, click on <span id="helpHelpButton" style="padding: 2.5%;padding-top:  1%;padding-bottom: 1%;margin: 1%;color: white;background-color: darkred;border-radius: 0.5em;font-size: x-large;">X</span> button on the top left of the screen
+        <br><br>
+
+      </div>
+
+      <div class="helpArticle">
+
+        <h2>Need more help?</h2>
+
+        Contact Support 
+        <br><br>
+        <a class="helpEmailLink" href="mailto:support@lotus.com">Team Lotus</a>
+        <br><br>
+
+      </div>
+
+    </div>
+
+    <!-- HELP DIV END -->
+
+    <!-- HELP DIV ICON SWITCH SCRIPT START -->
+
+    <script type="text/javascript">
+    
+    var d = new Date();
+
+    searchIcons = document.getElementsByClassName("helpSearchIcon");
+    exportIcons = document.getElementsByClassName("helpDownloadIcon");
+    closeIcons = document.getElementsByClassName("helpCloseIcon");
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        for (var i = searchIcons.length - 1; i >= 0; i--) {
+          searchIcons[i].src = "search_bright.png";
+        }
+
+        for (var i = closeIcons.length - 1; i >= 0; i--) {
+          closeIcons[i].src = "close_bright.png";
+        }
+
+        for (var i = exportIcons.length - 1; i >= 0; i--) {
+          exportIcons[i].src = "download_bright.png";
+        }
+        //document.getElementById('helpHelpButton').style.backgroundColor = "red";
+    }
+    else
+    {
+        for (var i = searchIcons.length - 1; i >= 0; i--) {
+          searchIcons[i].src = "search_dark.png";
+        }
+
+        for (var i = closeIcons.length - 1; i >= 0; i--) {
+          closeIcons[i].src = "close_dark.png";
+        }
+
+        for (var i = exportIcons.length - 1; i >= 0; i--) {
+          exportIcons[i].src = "download_dark.png";
+        }
+
+        //document.getElementById('helpButton').style.color = "white";
+    }
+
+    </script>
+
+    <!-- HELP DIV ICON SWITCH SCRIPT END -->
+
+    <!-- HELP DIV FUNCTIONALITY SCRIPT START -->
+    <script type="text/javascript" src="helpScript.js"></script>
+    <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
+
+  <div style="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;"><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website&utm_content=footer_img"><img src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png" alt="www.000webhost.com"></a></div><script>function getCookie(t){for(var e=t+"=",n=decodeURIComponent(document.cookie).split(";"),o=0;o<n.length;o++){for(var i=n[o];" "==i.charAt(0);)i=i.substring(1);if(0==i.indexOf(e))return i.substring(e.length,i.length)}return""}getCookie("hostinger")&&(document.cookie="hostinger=;expires=Thu, 01 Jan 1970 00:00:01 GMT;",location.reload());var wordpressAdminBody=document.getElementsByClassName("wp-admin")[0],notification=document.getElementsByClassName("notice notice-success is-dismissible"),hostingerLogo=document.getElementsByClassName("hlogo"),mainContent=document.getElementsByClassName("notice_content")[0];if(null!=wordpressAdminBody&&notification.length>0&&null!=mainContent){var googleFont=document.createElement("link");googleFontHref=document.createAttribute("href"),googleFontRel=document.createAttribute("rel"),googleFontHref.value="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700",googleFontRel.value="stylesheet",googleFont.setAttributeNode(googleFontHref),googleFont.setAttributeNode(googleFontRel);var css="@media only screen and (max-width: 576px) {#main_content {max-width: 320px !important;} #main_content h1 {font-size: 30px !important;} #main_content h2 {font-size: 40px !important; margin: 20px 0 !important;} #main_content p {font-size: 14px !important;} #main_content .content-wrapper {text-align: center !important;}} @media only screen and (max-width: 781px) {#main_content {margin: auto; justify-content: center; max-width: 445px;}} @media only screen and (max-width: 1325px) {.web-hosting-90-off-image-wrapper {position: absolute; max-width: 95% !important;} .notice_content {justify-content: center;} .web-hosting-90-off-image {opacity: 0.3;}} @media only screen and (min-width: 769px) {.notice_content {justify-content: space-between;} #main_content {margin-left: 5%; max-width: 445px;} .web-hosting-90-off-image-wrapper {position: absolute; display: flex; justify-content: center; width: 100%; }} .web-hosting-90-off-image {max-width: 90%;} .content-wrapper {min-height: 454px; display: flex; flex-direction: column; justify-content: center; z-index: 5} .notice_content {display: flex; align-items: center;} * {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;} .upgrade_button_red_sale{box-shadow: 0 2px 4px 0 rgba(255, 69, 70, 0.2); max-width: 350px; border: 0; border-radius: 3px; background-color: #ff4546 !important; padding: 15px 55px !important; font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; color: #ffffff;} .upgrade_button_red_sale:hover{color: #ffffff !important; background: #d10303 !important;}",style=document.createElement("style"),sheet=window.document.styleSheets[0];style.styleSheet?style.styleSheet.cssText=css:style.appendChild(document.createTextNode(css)),document.getElementsByTagName("head")[0].appendChild(style),document.getElementsByTagName("head")[0].appendChild(googleFont);var button=document.getElementsByClassName("upgrade_button_red")[0],link=button.parentElement;link.setAttribute("href","https://www.hostinger.com/hosting-starter-offer?utm_source=000webhost&utm_medium=panel&utm_campaign=000-wp"),link.innerHTML='<button class="upgrade_button_red_sale">Go for it</button>',(notification=notification[0]).setAttribute("style","padding-bottom: 0; padding-top: 5px; background-color: #040713; background-size: cover; background-repeat: no-repeat; color: #ffffff; border-left-color: #040713;"),notification.className="notice notice-error is-dismissible";var mainContentHolder=document.getElementById("main_content");mainContentHolder.setAttribute("style","padding: 0;"),hostingerLogo[0].remove();var h1Tag=notification.getElementsByTagName("H1")[0];h1Tag.className="000-h1",h1Tag.innerHTML="Black Friday Prices",h1Tag.setAttribute("style",'color: white; font-family: "Roboto", sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase;');var h2Tag=document.createElement("H2");h2Tag.innerHTML="Get 90% Off!",h2Tag.setAttribute("style",'color: white; margin: 10px 0 15px 0; font-family: "Roboto", sans-serif; font-size: 60px; font-weight: 700; line-height: 1;'),h1Tag.parentNode.insertBefore(h2Tag,h1Tag.nextSibling);var paragraph=notification.getElementsByTagName("p")[0];paragraph.innerHTML="Get Web Hosting for $0.99/month + SSL Certificate for FREE!",paragraph.setAttribute("style",'font-family: "Roboto", sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 15px;');var list=notification.getElementsByTagName("UL")[0];list.remove();var org_html=mainContent.innerHTML,new_html='<div class="content-wrapper">'+mainContent.innerHTML+'</div><div class="web-hosting-90-off-image-wrapper"><img class="web-hosting-90-off-image" src="https://cdn.000webhost.com/000webhost/promotions/bf-2020-wp-inject-img.png"></div>';mainContent.innerHTML=new_html;var saleImage=mainContent.getElementsByClassName("web-hosting-90-off-image")[0]}</script></body>
+  
+  </html>
+  <script src='wallpaper.js'></script>
