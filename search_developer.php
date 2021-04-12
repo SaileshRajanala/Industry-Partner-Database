@@ -313,10 +313,11 @@
 
   <!-- Preview SCRIPT -->
 
-  <script type="previewScript.js"></script>
+  <script type="text/javascript" src="previewScript.js"></script>
     
 
  <!-- SEARCH BAR GRAPHIC SCRIPT -->
+ 
  <script type="text/javascript">
 
   var d = new Date();
