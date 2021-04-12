@@ -577,7 +577,7 @@ global $htmlFields,
 
           $arr = explode(', ', $row['Role_Model']);
 
-          $recordPreviews .= "<span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>";
+          $recordPreviews .= "<span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i class='fas fa-users'></i><br><br>";
 
           $ROLE_MODEL = "";
 

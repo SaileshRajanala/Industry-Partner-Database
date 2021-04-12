@@ -155,10 +155,126 @@
 
         <div class="widget" id="todaySummary">
           <h1 class="widgetTitle" id="greeting"></h1>
+
+          <style type="text/css">
+        
+        #searchSuggestionsDiv
+        {
+            display: block;
+
+            background-color: rgb(25,25,25);
+
+            position: fixed;
+
+            border-radius: 1em;
+
+            padding: 1%;
+
+            width: 50%;
+            left: 24%;
+            top: 22.5%;
+
+            z-index: 4;
+
+            box-shadow: 0em 0em 4em black;
+
+        }
+
+        .searchSuggestion
+        {
+            border-radius: 0.5em;
+            padding: 1%;
+            padding-left: 2%;
+            padding-right: 2%;
+
+            margin-top: 0.5%;
+            margin-bottom: 0.5%;
+
+            border: none;
+
+            width: 100%;
+            font-size: 100%;
+            text-align: left;
+
+            font-family: 'Quicksand';
+
+            background-color: rgb(25,25,25);
+            color: white;
+            transition: all 0.25s;
+        }
+
+        .searchSuggestion:hover
+        {
+            background-color: rgb(47,47,47);
+            color: white;
+            cursor: pointer;
+        }
+
+        .searchSuggestion:active
+        {
+            transform: scale(0.97);
+            background-color: white;
+            color: black;
+            border-radius: 5em;
+/*
+            animation-name: upNatomic;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;*/
+        }
+
+
+        @keyframes upNatomic
+        {
+            0% 
+            {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            80% 
+            {
+                transform: translateY(-10em);
+                opacity: 1;
+            }
+
+            100% 
+            {
+                transform: translateY(-10em);
+                opacity: 0.5;
+            }
+        }
+
+        .searchSuggestion span
+        {
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+
+
+        .searchSuggestion::selection
+        {
+            color: inherit;
+            background-color: inherit;
+        }
+
+</style>
+
         <!-- TODAY PHP SCRIPT START -->
 
           
-<p style="margin-left: 2.5%"><b>1</b> new entry today.</p><h1 class="widgetTitle">Today's Entries</h1><table class="dataTable"><tr><td>Jhin Khada</td><td>League Of Magic</td><td>Marksman</td><td>2021-04-12 00:00:24</td></tr></table>
+<p style="margin-left: 2.5%">
+  <b>1</b> new entry today.
+</p>
+
+
+<h1 class="widgetTitle">Search Suggestions</h1>
+
+
+
+
+
+
+<h1 class="widgetTitle">Today's Entries</h1><table class="dataTable"><tr><td>Jhin Khada</td><td>League Of Magic</td><td>Marksman</td><td>2021-04-12 00:00:24</td></tr></table>
       <!-- TODAY PHP SCRIPT END -->
       </div>
 
@@ -201,8 +317,9 @@
 
 
     <!-- Previews -->
-    <div class="noPreview"><h2 class="previewTitle">Mr. Jhin Khada   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Marksman<br>League Of Magic<br><br><i class="fas fa-map-marker-alt"></i> Albama, CO</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2021<br><br>Applied Computing, Chemical Engineering, Computer Engineering<br><br><i class="fas fa-university"></i> University of Chicago</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Math, 2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Nope</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Demonstrating a technical skill or area of expertise, <br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Tell your personal story as it relates to work in your field</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>First-generation college students, African American</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>haha</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
-        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:jk@m.com">jk@m.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 2213112311<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-12 00:00:24</div></div><div class="noPreview"><h2 class="previewTitle">Ms. A A   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>I'm not interested in involvement at this time</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>-</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>nope</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+    <div class="noPreview"><h2 class="previewTitle">Mr. Jhin Khada   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Marksman<br>League Of Magic<br><br><i class="fas fa-map-marker-alt"></i> Albama, CO</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2021<br><br>Applied Computing, Chemical Engineering, Computer Engineering<br><br><i class="fas fa-university"></i> University of Chicago</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Math, 2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>2021<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Nope</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Demonstrating a technical skill or area of expertise, <br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Tell your personal story as it relates to work in your field</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><br><br><i class='fas fa-users'></i> First-generation college students, African American</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>haha</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
+        <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:jk@m.com">jk@m.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 2213112311<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-12 00:00:24</div></div><div class="noPreview"><h2 class="previewTitle">Ms. A A   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>I'm not interested in involvement at this time</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 
+          style='float:right' class='fas fa-users'></i><br><br>-</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>nope</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
         <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:a@h.com">a@h.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : <br><br><i class="far fa-clock"></i> Timestamp : 2021-04-04 15:53:34</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Sailesh Rajanala   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Chief Executive Officer<br>Sailesh Rajanala Industries<br><br><i class="fas fa-map-marker-alt"></i> Wichita, KS</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2021<br><br>Computer Science, Web Designing<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Web Design/Development, UI/UX Development</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Advising a team of students on a project, <br>Demonstrating a technical skill or area of expertise, <br>Judging a competition, <br>K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc, <br>Serving as a role model, <br>Teaching a concept, <br>Tell your personal story as it relates to work in your field</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours, <br>A day long event, <br>A recurring relationship over a semester</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Mentors Students of Age Levels </b></span><i style='float:right' class='fas fa-hands-helping'></i><br><br>High School, Undergraduate</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Web Designers</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>I want to perform.</div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
         <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:sailesh4444@gmail.com">sailesh4444@gmail.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 4444777777<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-04 15:48:05</div></div><div class="noPreview"><h2 class="previewTitle">Dr. Nancy Kumari Karki    <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Research Analyst<br>IndustryPartner<br><br><i class="fas fa-map-marker-alt"></i> Centreville, GA</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2014<br><br>Biomedical Engineering, Chemical Engineering<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Engineering, 2018<br><br>Biomedical Engineering, Chemical Engineering<br><br><i class="fas fa-university"></i> Wichita State University</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>2020<br><br><i class="fas fa-university"></i> Virginia Tech</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>medical Science</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Advising a team of students on a project</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Female</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>Thanks </div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
         <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:nancy.karki@gmail.com">nancy.karki@gmail.com</a><br><br><i class="fas fa-phone-alt"></i> Phone : 316789987<br><br><i class="far fa-clock"></i> Timestamp : 2021-04-03 14:13:25</div></div><div class="noPreview"><h2 class="previewTitle">Mr. Mira Thapa   <i class="fas fa-user-tie" style="float:right;margin-right:4%;"></i></h2><div class="previewSection">Nurse<br>MedicalScience<br><br><i class="fas fa-map-marker-alt"></i> Pokhara, ID</div><div class='previewSection noShadow'><span class='previewSectionTitle'>Education Experience</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Bachelor's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>Health Professions, 2018<br><br><i class="fas fa-university"></i> University of Pokhara</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>Health and Science</div></div><div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement</b></span><i style='float:right;' class='far fa-handshake'></i><br><br>Teaching a concept</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Involvement Level</b></span><i style='float:right;' class='fas fa-glass-cheers'></i> <br><br>A one-time event lasting 1 to 2 hours, <br>A recurring relationship over a semester</div><br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Prefers to serve as a Role Model for </b></span><i 'float:right' class='fas fa-users'></i><br><br>Female, Asian</div></div><div class="previewSection"> <span class="previewSectionTitle">Involvement Notes</span> <i style="float:right;" class="far fa-sticky-note"></i> <br><br>Directly and Indirectly. </div><div class="previewSection"><span class="previewSectionTitle">Contact Info</span> 
