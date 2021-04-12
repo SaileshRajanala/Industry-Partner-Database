@@ -200,6 +200,11 @@
 
             $keyWords = explode(' ', $searchBarTextValue);
 
+            // Searches only unique keywords
+             $keyWords = array_map('strtolower',$keyWords);
+             $keyWords = array_unique($keyWords);
+             $keyWords = array_values($keyWords);
+
             global $sql;
             $sql = "
 
@@ -312,7 +317,7 @@
       {  
         document.getElementById("searchBarDiv").style.backgroundColor = 'black';
         //document.getElementById("searchBarDiv").style.boxShadow = "none";
-        document.getElementById("searchButtonIcon").style.boxShadow = "none";
+        // document.getElementById("searchButtonIcon").style.boxShadow = "none";
       }
       else
       {
@@ -334,7 +339,7 @@
       {  
         document.getElementById("searchBarDiv").style.backgroundColor = 'white';
         //document.getElementById("searchBarDiv").style.boxShadow = "0px 13px 26px rgb(200,200,200)";
-        document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
+        // document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
       }
       else
       {

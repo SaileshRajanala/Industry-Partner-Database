@@ -35,7 +35,7 @@ function onFocusOff()
   {  
     document.getElementById("searchBarDiv").style.backgroundColor = 'white';
     //document.getElementById("searchBarDiv").style.boxShadow = "0px 13px 26px rgb(200,200,200)";
-    document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
+    //document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
   }
   else
   {
