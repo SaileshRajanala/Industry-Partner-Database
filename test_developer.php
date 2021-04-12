@@ -69,7 +69,7 @@
     <!-- Top Bar Arc Structure -->
     <div id="topBar">
 
-        <form method="POST" action="test.php">
+        <form method="POST" action="test_developer.php">
         <button type="submit" class="linkB" id="homeNavButton" style="float: left">
            Industry Partner Database</button>
          </form>
