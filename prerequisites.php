@@ -181,6 +181,49 @@ for ($i = 1; $i < count($tableColumns); $i++)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function printRecords($sql)
 {
   include './connect.php';
@@ -578,5 +621,83 @@ global $htmlFields,
 
    return $recordPreviews;
  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Search Prerequisites
+
+
+function getSearchConditionsFor($keyword)
+{
+  return  'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(Last_Name)               LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(Email)                   LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(Phone_Number)            LIKE UPPER(' . "'%{$keyword}%') " .
+
+          'OR UPPER(Employer)                LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(Job_Title)               LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(State)                   LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(City)                    LIKE UPPER(' . "'%{$keyword}%') " .
+
+          'OR UPPER(College_Degree_Year)     LIKE UPPER(' . "'%{$keyword}%') " .
+
+          'OR UPPER(BS_other_school)         LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(other_BS_field)          LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(other_BS_Eng_Discipline) LIKE UPPER(' . "'%{$keyword}%') " .
+
+          'OR UPPER(MS_other_school)         LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(MS_year)                 LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(other_MS_field)          LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(other_MS_Eng_Discipline) LIKE UPPER(' . "'%{$keyword}%') " .
+
+          'OR UPPER(PHD_other_school)        LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(PHD_year)                LIKE UPPER(' . "'%{$keyword}%') " .
+
+          'OR UPPER(special_degree)          LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(other_Role_Model)        LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(Involvement_Notes)       LIKE UPPER(' . "'%{$keyword}%') ";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 

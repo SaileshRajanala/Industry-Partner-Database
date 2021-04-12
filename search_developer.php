@@ -177,6 +177,22 @@
      <div class="dashboard"></div>
     <!-- SEARCH SECTION -->
 
+
+    <style type="text/css">
+      
+      .filterSearchResult
+      {
+        background-color: rgb(13,13,13);
+        padding: 1%;
+
+        margin-top: 2%;
+        margin-bottom: 2%;
+
+        border-radius: 2em;
+      }
+
+    </style>
+
      <div  id="searchResultsDiv">
         
         <div class="widget">
@@ -185,19 +201,20 @@
           require "./connect.php";
           require_once "./global.php";
           require_once "./prerequisites.php";
+          global $searchBarTextValue, $keyWords;
           
           // UNIVERSAL SEARCH
           if (isset($_POST["searchBar"]))
           {
-            $searchKeyWord = htmlentities($_POST["searchBar"], ENT_QUOTES);
+            $searchBarTextValue = htmlentities($_POST["searchBar"], ENT_QUOTES);
 
             // Makes sure only one whitespace between words
-            $searchKeyWord = preg_replace('/\s+/', ' ', $searchKeyWord);
+            $searchBarTextValue = preg_replace('/\s+/', ' ', $searchBarTextValue);
 
             // Removes spaces at the front and back
-            $searchKeyWord = trim($searchKeyWord);
+            $searchBarTextValue = trim($searchBarTextValue);
 
-            $keyWords = explode(' ', $searchKeyWord);
+            $keyWords = explode(' ', $searchBarTextValue);
 
             global $sql;
             $sql = "
@@ -206,44 +223,11 @@
 
           for ($i = 0; $i < count($keyWords); $i++)
           {
-          $sql .= 
-
-          'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(Last_Name)               LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(Email)                   LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(Phone_Number)            LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-
-          'OR UPPER(Employer)                LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(Job_Title)               LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(State)                   LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(City)                    LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-
-          'OR UPPER(College_Degree_Year)     LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-
-          'OR UPPER(BS_other_school)         LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(other_BS_field)          LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(other_BS_Eng_Discipline) LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-
-          'OR UPPER(MS_other_school)         LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(MS_year)                 LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(other_MS_field)          LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(other_MS_Eng_Discipline) LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-
-          'OR UPPER(PHD_other_school)        LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(PHD_year)                LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-
-          'OR UPPER(special_degree)          LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(other_Role_Model)        LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-          'OR UPPER(Involvement_Notes)       LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
-
-          "OR False ";
+            // Universal Search Results
+            $sql .= getSearchConditionsFor($keyWords[$i]);
           }
 
-          $sql .= " ORDER BY Timestamp DESC         
-    
-          ";
+          $sql .= " ORDER BY Timestamp DESC ";
 
           // echo "<br>";echo "<br>";echo "<br>";
           // echo $sql;
@@ -255,16 +239,56 @@
           {
             if ($result->num_rows == 1) 
               echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
-              $_POST["searchBar"] . '"</h2>';
+              $searchBarTextValue . '"</h2>';
             else
               echo '<h2 class="widgetTitle">' . $result->num_rows . 
-              ' Search Results for "' . $_POST["searchBar"] . '"</h2>';
+              ' Search Results for "' . $searchBarTextValue . '"</h2>';
 
             echo printRecords($sql);
+
+
+
+            // Prints Filtered Content
+            if (count($keyWords) > 1)
+            for ($i = 0; $i < count($keyWords); $i++)
+            {
+
+              // GENERATE SQL SEARCH QUERY
+              $keyword_sql = "
+
+              SELECT DISTINCT " . $insertSchema . 
+              ", Timestamp FROM Industry_Partner_Database WHERE False "; 
+
+              $keyword_sql .= getSearchConditionsFor($keyWords[$i]);
+
+              $keyword_sql .= " ORDER BY Timestamp DESC ";
+
+              // echo "<br>";echo "<br>";echo "<br>";
+              // echo $keyword_sql;
+              // echo "<br>";echo "<br>";echo "<br>";
+
+              $result = $conn->query($keyword_sql);
+
+              echo "<div class=\"filterSearchResult\">";
+
+              if ($result->num_rows == 1) 
+                echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
+                $keyWords[$i] . '"</h2>';
+              else
+                echo '<h2 class="widgetTitle">' . $result->num_rows . 
+                ' Search Results for "' . $keyWords[$i] . '"</h2>';
+
+              echo printRecords($keyword_sql);
+
+              echo '</div>';
+
+            }
+
+
           }
           else
             echo '<h2 class="widgetTitle">Sorry, no results found for "' . 
-            $_POST["searchBar"] . '"</h2>';
+            $searchBarTextValue . '"</h2>';
           }
 
 
