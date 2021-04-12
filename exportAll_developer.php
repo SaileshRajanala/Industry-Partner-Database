@@ -1,8 +1,16 @@
 <?php
+
+/*
 $server   =            "localhost"; 
 $user     = "id15084806_teamlotus";  
 $password =     "SlZ}Df1?-NeUt?>/";    
-$filename =        "Industry Data";    
+$filename =        "Industry Data";   
+*/
+
+$server   = "mysprod.wichita.edu";
+$user     =     "wpaccessibility";
+$password =     "wpaccessibility"; 
+$filename =       "Industry Data";   
 
 if (isset($_POST["fileName"]) && $_POST["fileName"] != "") 
 {
