@@ -18,9 +18,14 @@
     <!-- ICONS SCRIPT -->
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
-    <!-- Font -->
+   <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+
 
     <!-- JavaScript (INTERNAL) -->
     <script>
@@ -186,66 +191,43 @@
           {
             $sql = "
 
-          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Contacts WHERE False " .
+          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE False " .
 
-          'OR UPPER(First_Name)     LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Last_Name)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Email)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Phone_Number)   LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(College)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Current_Status) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .  
+          'OR UPPER(First_Name)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Last_Name)         LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Email)             LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Phone_Number)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Involvement_Notes) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
 
           " ORDER BY Timestamp DESC         
     
           ";
 
+          // echo "<br>";echo "<br>";echo "<br>";
+          // echo $sql;
+          // echo "<br>";echo "<br>";echo "<br>";
+
           $result = $conn->query($sql);
 
-          if ($result->num_rows > 0) 
+          if ($result) 
           {
             if ($result->num_rows == 1) 
-              echo '<h2 class="widgetTitle"> 1 Search Result for "' . $_POST["searchBar"] . '"</h2>';
+              echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
+              $_POST["searchBar"] . '"</h2>';
             else
-              echo '<h2 class="widgetTitle">' . $result->num_rows . ' Search Results for "' . $_POST["searchBar"] . '"</h2>';
+              echo '<h2 class="widgetTitle">' . $result->num_rows . 
+              ' Search Results for "' . $_POST["searchBar"] . '"</h2>';
 
-            echo '<table class="dataTable">';
+            echo printRecords($sql);
           }
           else
-            echo '<h2 class="widgetTitle">Sorry, no results found for "' . $_POST["searchBar"] . '"</h2>';
-
-          if ($result->num_rows > 0) 
-          while($row = $result->fetch_assoc()) 
-          {
-            if($row["Prefix"] != "")
-            {
-              echo "<tr previewPair={$o}>";
-
-              echo "<td>" . $row["First_Name"] . " " . $row["Last_Name"]  . "</td>";
-
-              echo "<td>" . $row["Workplace"] . "</td>";
-
-              echo "<td>" . $row["Title"] . "</td>";
-
-              echo "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600) . "</td>";
-              // echo "<td><button class=\"uiButton\">Details ></button></td>";
-               $o++;
-    
-              echo "</tr>";
-            }
-          }
-          // else
-          //   echo "No results found";
-
+            echo '<h2 class="widgetTitle">Sorry, no results found for "' . 
+            $_POST["searchBar"] . '"</h2>';
           }
 
 
           ?>
 
-        </table>
         
       </div>
 
@@ -260,53 +242,21 @@
 
       $sql = "
 
-          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Contacts WHERE False " .
+          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE False " .
 
-          'OR UPPER(First_Name)     LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Last_Name)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Email)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Phone_Number)   LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(College)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Current_Status) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Workplace)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(LinkedIn)       LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Notes)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
-          'OR UPPER(Title)          LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " . 
+          'OR UPPER(First_Name)        LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Last_Name)         LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Email)             LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Phone_Number)      LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
+          'OR UPPER(Involvement_Notes) LIKE UPPER(' . "'%{$_POST["searchBar"]}%') " .
 
-          " ORDER BY Timestamp DESC           
-        
+          " ORDER BY Timestamp DESC         
+    
           ";
 
-        $result = $conn->query($sql);
 
-  if ($result->num_rows > 0) 
-    while($row = $result->fetch_assoc()) 
-    {
-      if($row["Prefix"] != "")
-      {
-        echo "<div class=\"noPreview\" entryPair=\"{$o}\">";
-
-        echo "<h2 class=\"previewTitle\">";
-        echo $row["Prefix"] . '. ' . $row["First_Name"] . ' ' . $row["Last_Name"] . ' <i class="far fa-address-card" style="float:right;margin-right:4%;"></i></h2>';
-
-        echo '<div class="previewSection">';
-        echo $row["Title"] . '<br><br>';
-        echo $row["Workplace"] . '<br><br>';
-        echo 'LinkedIn : ' . $row["LinkedIn"] . '<br><br>';
-        echo 'Current Status : ' . $row["Current_Status"] . '</div>';
-    
-        echo '<div class="previewSection"> Notes <i style="float:right;" class="far fa-sticky-note"></i> <br><br>' . $row["Notes"] . '</div>';
-
-        echo '<div class="previewSection"><i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
-        echo '<i class="fas fa-phone-alt"></i> Phone : ' . $row["Phone_Number"] . '<br><br>';
-        echo '<i class="far fa-clock"></i> Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-21600);
-
-        echo '</div></div>';
-
-        $o++;
+       echo printRecordPreviews($sql); 
       }
-   }
- }
 
     ?>
 
@@ -729,3 +679,5 @@
     <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
 
   </body>
+
+  <script type="text/javascript" src="wallpaper.js"></script>

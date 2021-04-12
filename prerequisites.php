@@ -193,7 +193,7 @@ function printRecords($sql)
 
   $result = $conn->query($sql);
 
-  if ($result->num_rows > 0) 
+  if ($result) // check if not empty
   {
     $records .= '<table class="dataTable">';
             
@@ -249,7 +249,7 @@ global $htmlFields,
 
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) 
+    if ($result) 
     while($row = $result->fetch_assoc()) 
     {
       if($row["Prefix"] != "")

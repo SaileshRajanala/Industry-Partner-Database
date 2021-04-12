@@ -93,7 +93,7 @@
       <!-- TOP BAR MOBILE END -->
       
       <!-- SEARCH BAR -->
-      <form name="searchForm" action="search.php" method="POST">
+      <form name="searchForm" action="search_developer.php" method="POST">
 
           <div id="searchBarDiv">
              

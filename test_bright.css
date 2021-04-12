@@ -170,6 +170,12 @@
 /*	background-color: white;
 */}
 
+#searchBar::selection
+{
+    color: black;
+    background-color: white;
+}
+
 .icon, .iconActive
 {
 	width: 1.5em;

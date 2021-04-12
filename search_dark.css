@@ -82,6 +82,12 @@
 	background-color: white;
 }
 
+#searchBar::selection
+{
+    color: white;
+    background-color: black;
+}
+
 .icon, .iconActive
 {
 	width: 1.5em;
@@ -164,5 +170,7 @@
 {
 	transform: scale(0.7);
 }
+
+
 
 /*----------------------------------------------------------------*/

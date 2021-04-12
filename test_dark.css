@@ -58,6 +58,12 @@
 	margin: -0%;
 }
 
+#searchBar::selection
+{
+    color: white;
+    background-color: black;
+}
+
 #searchButtonIcon
 {
 	background-color: rgb(44,44,44);
