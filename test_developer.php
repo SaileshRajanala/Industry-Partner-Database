@@ -179,18 +179,44 @@
           echo '<p style="margin-left: 2.5%"><b>';
           echo $result->num_rows;
 
-          if ($result->num_rows == 1) 
-            echo '</b> new entry today.</p>';
+
+          $happyEmote = "";
+
+          if (rand(0,2) == 0)
+          {
+            $happyEmote = '<i class="far fa-smile"></i>';
+          }
+          elseif (rand(0,2) == 1)
+          {
+            $happyEmote = '<i class="far fa-smile-wink"></i>';
+          }
           else
-            echo '</b> new entries today.</p>';
+          {
+            $happyEmote = '<i class="far fa-smile-beam"></i>';           
+          }
+
+
+          if ($result->num_rows == 1) 
+            echo '</b> new entry today.' . " " . $happyEmote . '</p>';
+          else
+            echo '</b> new entries today.' . " " . $happyEmote . '</p>';
           
-          echo '<h1 class="widgetTitle">Today\'s Entries</h1>';
+          echo '<h1 class="widgetTitle">Today\'s Entries' . 
+               ' <i class="fas fa-user-plus"></i></h1>';
 
           echo printRecords($sql);
         }
         else // No entries for today
         {
-          echo '<p style="margin-left: 2.5%">No new entries yet, today.</p>';
+
+          if (rand(0,1) == 0) // random cry or sad face
+          {
+            echo '<p style="margin-left: 2.5%">No new entries yet, today. <i class="far fa-frown"></i></p>';
+          }
+          else
+          {
+            echo '<p style="margin-left: 2.5%">No new entries yet, today. <i class="far fa-sad-tear"></i></p>';
+          }
         }
 
         ?>
