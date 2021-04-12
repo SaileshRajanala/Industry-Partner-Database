@@ -74,16 +74,16 @@ body
 
 .dashboard
 {
-	padding: 1%;
-	margin: 1%;
-	width: 96%;
+	padding: 2%;
+	margin: 2%;
+	width: 92%;
   margin-top: 30%;
 	position: relative;
 
 	animation-name: toplaunch;
-  	animation-delay: 0.5s;
-  	animation-fill-mode: both;
-  	animation-duration: 0.5s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+  animation-duration: 0.5s;
 }
 
 .widget
