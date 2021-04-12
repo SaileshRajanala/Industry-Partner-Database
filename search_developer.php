@@ -182,51 +182,66 @@
         <div class="widget">
 
           <?php
-          global $o;
           require "./connect.php";
           require_once "./global.php";
           require_once "./prerequisites.php";
-
+          
+          // UNIVERSAL SEARCH
           if (isset($_POST["searchBar"]))
           {
             $searchKeyWord = htmlentities($_POST["searchBar"], ENT_QUOTES);
 
+            // Makes sure only one whitespace between words
+            $searchKeyWord = preg_replace('/\s+/', ' ', $searchKeyWord);
+
+            // Removes spaces at the front and back
+            $searchKeyWord = trim($searchKeyWord);
+
+            $keyWords = explode(' ', $searchKeyWord);
+
+            global $sql;
             $sql = "
 
-          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE False " .
+          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE False "; 
 
-          'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Last_Name)               LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Email)                   LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Phone_Number)            LIKE UPPER(' . "'%{$searchKeyWord}%') " .
+          for ($i = 0; $i < count($keyWords); $i++)
+          {
+          $sql .= 
 
-          'OR UPPER(Employer)                LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Job_Title)               LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(State)                   LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(City)                    LIKE UPPER(' . "'%{$searchKeyWord}%') " .
+          'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(Last_Name)               LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(Email)                   LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(Phone_Number)            LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
 
-          'OR UPPER(College_Degree_Year)     LIKE UPPER(' . "'%{$searchKeyWord}%') " .
+          'OR UPPER(Employer)                LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(Job_Title)               LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(State)                   LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(City)                    LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
 
-          'OR UPPER(BS_other_school)         LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_BS_field)          LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_BS_Eng_Discipline) LIKE UPPER(' . "'%{$searchKeyWord}%') " .
+          'OR UPPER(College_Degree_Year)     LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
 
-          'OR UPPER(MS_other_school)         LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(MS_year)                 LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_MS_field)          LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_MS_Eng_Discipline) LIKE UPPER(' . "'%{$searchKeyWord}%') " .
+          'OR UPPER(BS_other_school)         LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(other_BS_field)          LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(other_BS_Eng_Discipline) LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
 
-          'OR UPPER(PHD_other_school)        LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(PHD_year)                LIKE UPPER(' . "'%{$searchKeyWord}%') " .
+          'OR UPPER(MS_other_school)         LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(MS_year)                 LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(other_MS_field)          LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(other_MS_Eng_Discipline) LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
 
-          'OR UPPER(special_degree)          LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_Role_Model)        LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Involvement_Notes)       LIKE UPPER(' . "'%{$searchKeyWord}%') " .
+          'OR UPPER(PHD_other_school)        LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(PHD_year)                LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
 
+          'OR UPPER(special_degree)          LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(other_Role_Model)        LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
+          'OR UPPER(Involvement_Notes)       LIKE UPPER(' . "'%{$keyWords[$i]}%') " .
 
-          " ORDER BY Timestamp DESC         
+          "OR False ";
+          }
+
+          $sql .= " ORDER BY Timestamp DESC         
     
           ";
 
@@ -266,48 +281,6 @@
 
       if (isset($_POST["searchBar"]))
       {
-
-      $searchKeyWord = htmlentities($_POST["searchBar"], ENT_QUOTES);
-
-            $sql = "
-
-          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE False " .
-
-          'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Last_Name)               LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Email)                   LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Phone_Number)            LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-
-          'OR UPPER(Employer)                LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Job_Title)               LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(State)                   LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(City)                    LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-
-          'OR UPPER(College_Degree_Year)     LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-
-          'OR UPPER(BS_other_school)         LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_BS_field)          LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_BS_Eng_Discipline) LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-
-          'OR UPPER(MS_other_school)         LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(MS_year)                 LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_MS_field)          LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_MS_Eng_Discipline) LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-
-          'OR UPPER(PHD_other_school)        LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(PHD_year)                LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-
-          'OR UPPER(special_degree)          LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(other_Role_Model)        LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-          'OR UPPER(Involvement_Notes)       LIKE UPPER(' . "'%{$searchKeyWord}%') " .
-
-
-          " ORDER BY Timestamp DESC         
-    
-          ";
-
        echo printRecordPreviews($sql); 
       }
 
