@@ -177,22 +177,6 @@
      <div class="dashboard"></div>
     <!-- SEARCH SECTION -->
 
-
-    <style type="text/css">
-      
-      .filterSearchResult
-      {
-        background-color: rgb(13,13,13);
-        padding: 1%;
-
-        margin-top: 3%;
-        margin-bottom: 3%;
-
-        border-radius: 1.5em;
-      }
-
-    </style>
-
      <div  id="searchResultsDiv">
         
         <div class="widget">
