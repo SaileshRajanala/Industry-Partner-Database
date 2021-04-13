@@ -650,9 +650,23 @@ function searchArrayForKeyword($arr, $keyword)
 {
   global $optionArray;
 
+  global $htmlFields, 
+         $tableColumns, 
+         $insertSchema, 
+         $collegeEducation,
+         $bsSchool,
+         $Fields,
+         $engDisciplines,
+         $ms_phd_school,
+         $involvement,
+         $involvementLevels,
+         $recruitmentLevels,
+         $mentorAge,
+         $roleModels;
+
   for ($i = 0; $i < count($arr); $i++)
   {
-    if (str_contains(strtolower($arr[$i]), strtolower($keyword))) 
+    if (strpos(strtolower($arr[$i]), strtolower($keyword)) !== false) 
     {
       if (strtolower($arr[$i]) == "other")
         array_push($optionArray, "other");
@@ -675,38 +689,41 @@ function searchArrayForKeyword($arr, $keyword)
 
 function getSearchConditionsFor($keyword)
 {
-  $searchConditions .=  'OR UPPER(Prefix)    LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(Last_Name)               LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(Email)                   LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(Phone_Number)            LIKE UPPER(' . "'%{$keyword}%') " .
+  global $searchConditions, $options;
 
-          'OR UPPER(Employer)                LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(Job_Title)               LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(State)                   LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(City)                    LIKE UPPER(' . "'%{$keyword}%') " .
+  $searchConditions .=  
+          'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(Last_Name)               LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(Email)                   LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(Phone_Number)            LIKE UPPER(' . "'%{$keyword}%') \n" .
 
-          'OR UPPER(Associates_Degree)       LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(Technical_Degree)        LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(Employer)                LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(Job_Title)               LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(State)                   LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(City)                    LIKE UPPER(' . "'%{$keyword}%') \n" .
 
-          'OR UPPER(College_Degree_Year)     LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(Associates_Degree)       LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(Technical_Degree)        LIKE UPPER(' . "'%{$keyword}%') \n" .
 
-          'OR UPPER(BS_other_school)         LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(other_BS_field)          LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(other_BS_Eng_Discipline) LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(College_Degree_Year)     LIKE UPPER(' . "'%{$keyword}%') \n" .
 
-          'OR UPPER(MS_other_school)         LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(MS_year)                 LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(other_MS_field)          LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(other_MS_Eng_Discipline) LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(BS_other_school)         LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(other_BS_field)          LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(other_BS_Eng_Discipline) LIKE UPPER(' . "'%{$keyword}%') \n" .
 
-          'OR UPPER(PHD_other_school)        LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(PHD_year)                LIKE UPPER(' . "'%{$keyword}%') " .
+          'OR UPPER(MS_other_school)         LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(MS_year)                 LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(other_MS_field)          LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(other_MS_Eng_Discipline) LIKE UPPER(' . "'%{$keyword}%') \n" .
 
-          'OR UPPER(special_degree)          LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(other_Role_Model)        LIKE UPPER(' . "'%{$keyword}%') " .
-          'OR UPPER(Involvement_Notes)       LIKE UPPER(' . "'%{$keyword}%') ";
+          'OR UPPER(PHD_other_school)        LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(PHD_year)                LIKE UPPER(' . "'%{$keyword}%') \n" .
+
+          'OR UPPER(special_degree)          LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(other_Role_Model)        LIKE UPPER(' . "'%{$keyword}%') \n" .
+          'OR UPPER(Involvement_Notes)       LIKE UPPER(' . "'%{$keyword}%') \n";
 
   global $htmlFields, 
          $tableColumns, 
@@ -726,7 +743,7 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(College_Education) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(College_Education) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -734,7 +751,7 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(BS_school) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(BS_school) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -742,8 +759,8 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(BS_field) LIKE UPPER(' . "'%{$options[$i]}%') ";
-    $searchConditions .= 'OR UPPER(MS_field) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(BS_field) LIKE UPPER(' . "'%{$options[$i]}%') \n";
+    $searchConditions .= 'OR UPPER(MS_field) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -751,8 +768,8 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(BS_Eng_Discipline) LIKE UPPER(' . "'%{$options[$i]}%') ";
-    $searchConditions .= 'OR UPPER(MS_Eng_Discipline) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(BS_Eng_Discipline) LIKE UPPER(' . "'%{$options[$i]}%') \n";
+    $searchConditions .= 'OR UPPER(MS_Eng_Discipline) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -760,8 +777,8 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(have_MS_degree) LIKE UPPER(' . "'%{$options[$i]}%') ";
-    $searchConditions .= 'OR UPPER(have_PHD_degree) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(have_MS_degree) LIKE UPPER(' . "'%{$options[$i]}%') \n";
+    $searchConditions .= 'OR UPPER(have_PHD_degree) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -769,7 +786,7 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(Involvement) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(Involvement) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -777,7 +794,7 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(Involvement_Level) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(Involvement_Level) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -785,7 +802,7 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(Recruitment_Level) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(Recruitment_Level) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -793,7 +810,7 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(Mentor_Age) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(Mentor_Age) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
 
@@ -801,16 +818,17 @@ function getSearchConditionsFor($keyword)
 
   for ($i=0; $i < count($options); $i++) 
   { 
-    $searchConditions .= 'OR UPPER(Role_Model) LIKE UPPER(' . "'%{$options[$i]}%') ";
+    $searchConditions .= 'OR UPPER(Role_Model) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
+  echo "SEARCH CONDITIONS :::::: \n\n" . $searchConditions;
 
   return $searchConditions;
 }
 
 
 
-
+getSearchConditionsFor("a");
 
 
 
