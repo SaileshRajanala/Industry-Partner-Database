@@ -210,17 +210,15 @@
 
           SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE False "; 
 
-          for ($i = 0; $i < count($keyWords); $i++)
-          {
-            // Universal Search Results
-            $sql .= getSearchConditionsFor($keyWords[$i]);
-          }
+          // for ($i = 0; $i < count($keyWords); $i++)
+          // {
+          //   // Universal Search Results
+          //   $sql .= getSearchConditionsFor($keyWords[$i]);
+          // }
+
+          $sql .= getSearchConditionsFor($searchBarTextValue);
 
           $sql .= " ORDER BY Timestamp DESC ";
-
-          // echo "<br>";echo "<br>";echo "<br>";
-          // echo $sql;
-          // echo "<br>";echo "<br>";echo "<br>";
 
           $result = $conn->query($sql);
 
@@ -253,7 +251,7 @@
               $keyword_sql .= " ORDER BY Timestamp DESC ";
 
               // echo "<br>";echo "<br>";echo "<br>";
-              // echo $keyword_sql;
+              // echo "KEYWORD SQL <br><br>" . $keyword_sql;
               // echo "<br>";echo "<br>";echo "<br>";
 
               $result = $conn->query($keyword_sql);

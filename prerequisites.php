@@ -691,13 +691,14 @@ function searchArrayForKeyword($arr, $keyword)
 
 function getSearchConditionsFor($keyword)
 {
-  global $searchConditions, $options;
-
   $searchConditions .=  
           'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(Last_Name)               LIKE UPPER(' . "'%{$keyword}%') \n" .
+
+          'OR UPPER(CONCAT(Prefix, " ", First_Name, " ", Last_Name, " ", Suffix)) LIKE UPPER(' . "'%{$keyword}%') \n" .
+
           'OR UPPER(Email)                   LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(Phone_Number)            LIKE UPPER(' . "'%{$keyword}%') \n" .
 
