@@ -664,6 +664,8 @@ function searchArrayForKeyword($arr, $keyword)
          $mentorAge,
          $roleModels;
 
+  $optionArray = [];       
+
   for ($i = 0; $i < count($arr); $i++)
   {
     if (strpos(strtolower($arr[$i]), strtolower($keyword)) !== false) 
@@ -671,7 +673,7 @@ function searchArrayForKeyword($arr, $keyword)
       if (strtolower($arr[$i]) == "other")
         array_push($optionArray, "other");
       else
-        array_push($optionArray, $i);
+        array_push($optionArray, $i + 1);
     }
   }
 
@@ -828,7 +830,7 @@ function getSearchConditionsFor($keyword)
 
 
 
-getSearchConditionsFor("a");
+//getSearchConditionsFor("a");
 
 
 
