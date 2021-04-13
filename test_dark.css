@@ -291,6 +291,50 @@
 	border-radius: 1.5em;
 }
 
+.exportSearchLink
+{
+  font-family: 'Quicksand';
+
+  padding: 1%;
+  margin: 1%; 
+  font-size: x-large;
+  border-radius: 5em;
+  border: 0.1em solid transparent;
+  color: white;
+  background-color: rgb(35,35,35);
+  padding-left: 2%;
+  padding-right: 2%;
+
+  margin-top: 2%; 
+
+  width: 98%;
+
+  transition: all 0.25s;
+}
+
+.exportSearchLink:hover
+{
+  border: 0.1em solid white;
+  cursor: pointer;
+}
+
+.exportSearchLink:active
+{
+  background-color: white;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*----------------------------------------------------------------*/
 
 #searchSuggestionsDiv
@@ -391,3 +435,6 @@
     color: inherit;
     background-color: inherit;
 }
+
+
+

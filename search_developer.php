@@ -56,45 +56,6 @@
 
   </script>
 
-
-
-  <style type="text/css">
-    
-    .exportSearchLink
-    {
-      font-family: 'Quicksand';
-
-      padding: 1%;
-      font-size: x-large;
-      border-radius: 5em;
-      border: 0.1em solid transparent;
-      color: white;
-      background-color: black;
-      padding-left: 2%;
-      padding-right: 2%;
-
-      width: 100%;
-
-      transition: all 0.25s;
-    }
-
-    .exportSearchLink:hover
-    {
-      border: 0.1em solid white;
-      cursor: pointer;
-    }
-
-    .exportSearchLink:active
-    {
-      background-color: white;
-      color: black;
-    }
-
-  </style>
-
-
-
-
   </head>
 
   <body>
