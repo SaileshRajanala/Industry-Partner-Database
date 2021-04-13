@@ -309,7 +309,7 @@ VALUES   (" . $value_Schema . ");
 
 ";
 
-echo $sql;
+// echo $sql;
 
 // echo "VALUE _SCHEMA : " . $value_Schema . '<br><br><br>';
 
