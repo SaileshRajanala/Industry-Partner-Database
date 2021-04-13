@@ -309,6 +309,8 @@ VALUES   (" . $value_Schema . ");
 
 ";
 
+echo $sql;
+
 // echo "VALUE _SCHEMA : " . $value_Schema . '<br><br><br>';
 
 // echo "SQL  : " . $sql . '<br><br><br>';
