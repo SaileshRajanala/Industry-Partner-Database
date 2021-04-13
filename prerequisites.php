@@ -865,7 +865,7 @@ function exportSearchLink($keyword)
 {
   return '<form method="post" action="exportSearch_developer.php">
           <button type="submit" name="keyword" value="' . $keyword . '" class="exportSearchLink"> Export Search Results for ' . $keyword
-           . ' <i class="fas fa-arrow-circle-right"></i>
+           . '&nbsp <i class="fas fa-arrow-circle-right"></i>
           </button>
           </form>';
 }

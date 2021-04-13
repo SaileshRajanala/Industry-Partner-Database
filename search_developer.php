@@ -236,9 +236,9 @@
             if ($result->num_rows != 0) 
               echo exportSearchLink($searchBarTextValue);
 
-
+            if ($result->num_rows == 0) 
             // Prints Filtered Content
-            if (count($keyWords) > 1)
+            if (count($keyWords) >= 1)
             for ($i = 0; $i < count($keyWords); $i++)
             {
 
