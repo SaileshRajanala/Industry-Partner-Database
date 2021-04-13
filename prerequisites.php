@@ -823,7 +823,7 @@ function getSearchConditionsFor($keyword)
     $searchConditions .= 'OR UPPER(Role_Model) LIKE UPPER(' . "'%{$options[$i]}%') \n";
   }
 
-  echo "SEARCH CONDITIONS :::::: \n\n" . $searchConditions;
+  //echo "SEARCH CONDITIONS :::::: \n\n" . $searchConditions;
 
   return $searchConditions;
 }
