@@ -10,6 +10,7 @@ $filename =        "Industry Data";
 $server   = "mysprod.wichita.edu";
 $user     =     "wpaccessibility";
 $password =     "wpaccessibility"; 
+$database =     "wpaccessibility";
 $filename =       "Industry Data";   
 
 if (isset($_POST["fileName"]) && $_POST["fileName"] != "") 
@@ -19,7 +20,7 @@ if (isset($_POST["fileName"]) && $_POST["fileName"] != "")
 
 $sql = "SELECT * FROM Industry_Partner_Database";
 
-$conn = mysqli_connect($server, $user, $password, "id15084806_main_database");
+$conn = mysqli_connect($server, $user, $password, $database);
 
 if (!$conn) 
   die("Connection failed: " . mysqli_connect_error());

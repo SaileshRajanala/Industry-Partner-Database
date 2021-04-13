@@ -202,7 +202,7 @@
             echo '</b> new entries today.' . $happyEmote . '</p>';
           
           echo '<h1 class="widgetTitle">Today\'s Entries' . 
-               ' <i class="fas fa-user-plus"></i></h1>';
+               '&nbsp <i class="fas fa-user-plus"></i></h1>';
 
           echo printRecords($sql);
         }
