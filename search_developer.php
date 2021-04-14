@@ -299,7 +299,7 @@
        echo printRecordPreviews($sql); 
       }
 
-    ?>
+      ?>
 
 
   <!-- Preview SCRIPT -->
