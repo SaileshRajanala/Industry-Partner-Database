@@ -185,7 +185,10 @@
           require "./connect.php";
           require_once "./global.php";
           require_once "./prerequisites.php";
-          global $searchBarTextValue, $keyWords;
+
+          global $searchBarTextValue, $keyWords, $previewsQueries;
+
+          $previewsQueries = [];
           
           // UNIVERSAL SEARCH
           if (isset($_POST["searchBar"]))
@@ -231,10 +234,15 @@
               echo '<h2 class="widgetTitle">' . $result->num_rows . 
               ' Search Results for "' . $searchBarTextValue . '"</h2>';
 
+
+
             echo printRecords($sql);
+            array_push($previewsQueries, $sql);
 
             if ($result->num_rows != 0) 
               echo exportSearchLink($searchBarTextValue);
+
+
 
             if ($result->num_rows == 0) 
             // Prints Filtered Content
@@ -268,13 +276,18 @@
                 echo '<h2 class="widgetTitle">' . $result->num_rows . 
                 ' Search Results for "' . $keyWords[$i] . '"</h2>';
 
+
+
               echo printRecords($keyword_sql);
+              array_push($previewsQueries, $keyword_sql);
 
               if ($result->num_rows != 0) 
                 echo exportSearchLink($keyWords[$i]);
 
-              echo '</div>';
 
+
+
+              echo '</div>';
             }
 
 
@@ -295,9 +308,17 @@
 
       <?php
 
-      if (isset($_POST["searchBar"]))
+      // if (isset($_POST["searchBar"]))
+      // {
+      //  echo printRecordPreviews($sql); 
+      // }
+
+      if (count($previewsQueries) > 0) 
       {
-       echo printRecordPreviews($sql); 
+        for ($i = 0; $i < count($previewsQueries); $i++)
+        {
+          echo printRecordPreviews($previewsQueries[$i]); 
+        }
       }
 
       ?>
