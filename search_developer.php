@@ -238,7 +238,8 @@
 
             if ($result->num_rows == 0) 
             // Prints Filtered Content
-            if (count($keyWords) >= 1)
+            if (count($keyWords) > 1 || 
+               (count($keyWords) == 1 && $searchBarTextValue != $keyWords[0]))
             for ($i = 0; $i < count($keyWords); $i++)
             {
 
