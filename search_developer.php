@@ -114,6 +114,38 @@
       margin-bottom: 24%;
     }
 
+    .filterSearchExportLink
+    {
+      font-size: inherit;
+      background-color: inherit;
+      color: inherit;
+      border: none;
+
+      margin-left: -2%;
+      padding-left: 2%;
+
+      margin-right: 1%;
+      padding-right: 1%;
+
+      border-radius: 1em;
+
+      font-family: 'Quicksand';
+
+      transition: all 0.25s;
+    }
+
+    .filterSearchExportLink:hover
+    {
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+
+    .filterSearchExportLink:active
+    {
+      transform: scale(0.97);
+    }
+
   </style>
 
 
@@ -291,12 +323,49 @@
           {
             echo "<div class=\"filterSearchResult primaryFilterDiv\">";
 
+
             if ($result->num_rows == 1) 
-              echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
-              $searchBarTextValue . '"</h2>';
+            {
+              echo '<h2 class="widgetTitle">
+
+              <form method="post" action="exportSearch_developer.php">
+
+              <button type="submit" name="keyword" value="'. $searchBarTextValue . '" 
+              class="filterSearchExportLink">
+                ' . $result->num_rows . ' Search Result for ' . $searchBarTextValue . '
+                 &nbsp<i class="fas fa-arrow-circle-right"></i>
+              </button>
+              </form>
+
+              </h2>';
+            }
+            elseif ($result->num_rows != 0) 
+            {
+              echo '<h2 class="widgetTitle">
+
+              <form method="post" action="exportSearch_developer.php">
+
+              <button type="submit" name="keyword" value="'. $searchBarTextValue . '" 
+              class="filterSearchExportLink">
+                ' . $result->num_rows . ' Search Results for ' . $searchBarTextValue . '
+                 &nbsp<i class="fas fa-arrow-circle-right"></i>
+              </button>
+              </form>
+
+              </h2>';
+            }
             else
+            {
               echo '<h2 class="widgetTitle">' . $result->num_rows . 
               ' Search Results for "' . $searchBarTextValue . '"</h2>';
+            }
+
+            // if ($result->num_rows == 1) 
+            //   echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
+            //   $searchBarTextValue . '"</h2>';
+            // else
+            //   echo '<h2 class="widgetTitle">' . $result->num_rows . 
+            //   ' Search Results for "' . $searchBarTextValue . '"</h2>';
 
 
 
@@ -335,12 +404,53 @@
 
               echo "<div class=\"filterSearchResult\">";
 
+
+
               if ($result->num_rows == 1) 
-                echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
-                $keyWords[$i] . '"</h2>';
+              {
+                echo '<h2 class="widgetTitle">
+
+                <form method="post" action="exportSearch_developer.php">
+
+                <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
+                class="filterSearchExportLink">
+                  ' . $result->num_rows . ' Search Result for ' . $keyWords[$i] . '
+                   &nbsp<i class="fas fa-arrow-circle-right"></i>
+                </button>
+                </form>
+
+                </h2>';
+              }
+              elseif ($result->num_rows != 0) 
+              {
+                echo '<h2 class="widgetTitle">
+
+                <form method="post" action="exportSearch_developer.php">
+
+                <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
+                class="filterSearchExportLink">
+                  ' . $result->num_rows . ' Search Results for ' . $keyWords[$i] . '
+                   &nbsp<i class="fas fa-arrow-circle-right"></i>
+                </button>
+                </form>
+
+                </h2>';
+              }
               else
+              {
                 echo '<h2 class="widgetTitle">' . $result->num_rows . 
                 ' Search Results for "' . $keyWords[$i] . '"</h2>';
+              }
+
+
+
+              // if ($result->num_rows == 1) 
+              //   echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
+              //   $keyWords[$i] . '"</h2>';
+              // else
+              //   echo '<h2 class="widgetTitle">' . $result->num_rows . 
+              //   ' Search Results for "' . $keyWords[$i] . '"</h2>';
+
 
 
 
