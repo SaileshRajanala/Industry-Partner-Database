@@ -59,12 +59,13 @@
 
   <style type="text/css">
     
-    .widgetTitle
+    .filterSearchResult .widgetTitle
     {
       background-color: inherit;
 
       position: sticky;
       position: -webkit-sticky;
+      top: 0%;
 
       z-index: 1;
 
@@ -75,16 +76,42 @@
 
       padding-left: 3%;
       padding-right: 3%;
-
-      top: -13%;
     }
 
     .primaryFilterDiv
     {
       background-color: inherit;
-      /*margin-top: -2%;*/
       margin: 0%;
       padding: 0%;
+    }
+
+    #searchResultsDiv
+    {
+      background-color: transparent;
+      
+      border-radius: 2em;
+      border-bottom-left-radius: 0em;
+      border-bottom-right-radius: 0em;
+
+      overflow-y: scroll;
+      padding: 0%;
+
+      position: fixed;
+      height: 74%;
+      left: 4%;
+      bottom: 0%;
+
+      width: 92%;
+      margin: 0;
+
+      box-shadow: none;
+
+      z-index: 1;
+    }
+
+    #searchResultsDiv .widget
+    {
+      margin-bottom: 24%;
     }
 
   </style>
