@@ -344,7 +344,7 @@
 
   position: sticky;
   position: -webkit-sticky;
-  top: 0%;
+  top: -0.4%;
 
   z-index: 1;
 
