@@ -56,6 +56,41 @@
 
   </script>
 
+
+  <style type="text/css">
+    
+    .widgetTitle
+    {
+      background-color: inherit;
+
+      position: sticky;
+      position: -webkit-sticky;
+
+      z-index: 1;
+
+      padding: 1%;
+      margin: 0%;
+      margin-top: 1%;
+      margin-bottom: 1%;
+
+      padding-left: 3%;
+      padding-right: 3%;
+
+      top: -13%;
+    }
+
+    .primaryFilterDiv
+    {
+      background-color: inherit;
+      /*margin-top: -2%;*/
+      margin: 0%;
+      padding: 0%;
+    }
+
+  </style>
+
+
+
   </head>
 
   <body>
@@ -227,6 +262,8 @@
 
           if ($result) 
           {
+            echo "<div class=\"filterSearchResult primaryFilterDiv\">";
+
             if ($result->num_rows == 1) 
               echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
               $searchBarTextValue . '"</h2>';
@@ -241,6 +278,8 @@
 
             if ($result->num_rows != 0) 
               echo exportSearchLink($searchBarTextValue);
+
+            echo '</div>';
 
 
 
