@@ -214,20 +214,26 @@
 
 #searchResultsDiv
 {
-	background-color: transparent;
-	/*border-radius: 47px;*/
-	overflow-y: scroll;
-	padding: 4%;
-	position: fixed;
-	height: 60%;
-	left: 0%;
-	bottom: 0%;
-	width: 92%;
-	margin: 0;
+  background-color: transparent;
+  
+  border-radius: 2em;
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
 
-	box-shadow: none;
+  overflow-y: scroll;
+  padding: 0%;
 
-	z-index: 1;
+  position: fixed;
+  height: 74%;
+  left: 4%;
+  bottom: 0%;
+
+  width: 92%;
+  margin: 0;
+
+  box-shadow: none;
+
+  z-index: 1;
 }
 
 #searchResultsDiv::-webkit-scrollbar 
@@ -245,6 +251,11 @@
 {
 	box-shadow: none;
 }*/
+
+#searchResultsDiv .widget
+{
+  margin-bottom: 24%;
+}
 
 #searchButton
 {
@@ -327,6 +338,63 @@
   color: white;
 }
 
+.filterSearchResult .widgetTitle
+{
+  background-color: inherit;
+
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0%;
+
+  z-index: 1;
+
+  padding: 1%;
+  margin: 0%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.primaryFilterDiv
+{
+  background-color: inherit;
+  margin: 0%;
+  padding: 0%;
+}
+
+.filterSearchExportLink
+{
+  font-size: inherit;
+  background-color: inherit;
+  color: inherit;
+  border: none;
+
+  margin-left: -2%;
+  padding-left: 2%;
+
+  margin-right: 1%;
+  padding-right: 1%;
+
+  border-radius: 1em;
+
+  font-family: 'Quicksand';
+
+  transition: all 0.25s;
+}
+
+.filterSearchExportLink:hover
+{
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.filterSearchExportLink:active
+{
+  transform: scale(0.97);
+}
 
 
 
