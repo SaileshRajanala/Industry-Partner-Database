@@ -273,13 +273,11 @@
             //   echo '<h2 class="widgetTitle">' . $result->num_rows . 
             //   ' Search Results for "' . $searchBarTextValue . '"</h2>';
 
-
-
             echo printRecords($sql);
             array_push($previewsQueries, $sql);
 
-            if ($result->num_rows != 0) 
-              echo exportSearchLink($searchBarTextValue);
+            // if ($result->num_rows != 0) 
+            //   echo exportSearchLink($searchBarTextValue);
 
             echo '</div>';
 
@@ -349,7 +347,6 @@
               }
 
 
-
               // if ($result->num_rows == 1) 
               //   echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
               //   $keyWords[$i] . '"</h2>';
@@ -358,16 +355,11 @@
               //   ' Search Results for "' . $keyWords[$i] . '"</h2>';
 
 
-
-
               echo printRecords($keyword_sql);
               array_push($previewsQueries, $keyword_sql);
 
-              if ($result->num_rows != 0) 
-                echo exportSearchLink($keyWords[$i]);
-
-
-
+              // if ($result->num_rows != 0) 
+              //   echo exportSearchLink($keyWords[$i]);
 
               echo '</div>';
             }
