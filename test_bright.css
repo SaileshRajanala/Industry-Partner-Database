@@ -349,7 +349,9 @@
   z-index: 1;
 
   padding: 1%;
-  margin: 0%;
+
+  margin: -0.5%; /*different in dark mode*/
+
   margin-top: 1%;
   margin-bottom: 1%;
 
