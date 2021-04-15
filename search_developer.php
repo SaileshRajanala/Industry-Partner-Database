@@ -401,7 +401,8 @@
   <script type="text/javascript" src="previewScript.js"></script>
     
   <!-- SEARCH BAR GRAPHIC SCRIPT -->
-  <script type="text/javascript" src="searchBarScript.js"></script>
+  <script type="text/javascript" src="searchBar_Graphic.js"></script>
+
 
  <script type="text/javascript">
    document.body.style.animation = 'none';

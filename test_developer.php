@@ -327,12 +327,20 @@
     ?>
 
 
+
+
+
     <!-- PREVIEW SCRIPT -->
     <script type="text/javascript" src="previewScript.js"></script>
     
 
     <!-- SEARCH SCRIPT -->
-    <script type="text/javascript" src="searchBarScript.js"></script>
+    <script type="text/javascript" src="searchBar_Graphic.js"></script>
+    <script type="text/javascript" src="searchBar_Functionality.js"></script>
+
+
+
+
 
     <!-- HELP DIV START -->
 
