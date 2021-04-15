@@ -397,57 +397,11 @@
 
       ?>
 
-
   <!-- Preview SCRIPT -->
-
   <script type="text/javascript" src="previewScript.js"></script>
     
-
- <!-- SEARCH BAR GRAPHIC SCRIPT -->
-
- <script type="text/javascript">
-
-  var d = new Date();
-    
-    document.getElementById('searchBar').onfocus = function() 
-    {
-      if (d.getHours() >= 6 && d.getHours() < 18)
-      {  
-        document.getElementById("searchBarDiv").style.backgroundColor = 'black';
-        //document.getElementById("searchBarDiv").style.boxShadow = "none";
-        // document.getElementById("searchButtonIcon").style.boxShadow = "none";
-      }
-      else
-      {
-        document.getElementById("searchBarDiv").style.backgroundColor = 'white';
-      }
-
-      document.getElementById("searchBarDiv").style.padding = '0.7%';
-      document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
-      document.getElementById("searchBarDiv").style.margin = '-0.7%';
-      document.getElementById("searchBarDiv").style.marginRight = '1.3%';
-    };
-
-    // CrossBrowserCompatible Method for FocusOut below
-    document.getElementById('searchBar').addEventListener("focusout", onFocusOff);
-
-    function onFocusOff() 
-    {
-      if (d.getHours() >= 6 && d.getHours() < 18)
-      {  
-        document.getElementById("searchBarDiv").style.backgroundColor = 'white';
-        //document.getElementById("searchBarDiv").style.boxShadow = "0px 13px 26px rgb(200,200,200)";
-        // document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
-      }
-      else
-      {
-        document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
-      }
-      document.getElementById("searchBarDiv").style.padding = '0%';
-      document.getElementById("searchBarDiv").style.margin = '0%';
-    };
-
- </script>
+  <!-- SEARCH BAR GRAPHIC SCRIPT -->
+  <script type="text/javascript" src="searchBarScript.js"></script>
 
  <script type="text/javascript">
    document.body.style.animation = 'none';
