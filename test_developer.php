@@ -179,18 +179,19 @@
           echo '<p style="margin-left: 2.5%"><b>';
           echo $result->num_rows;
 
+          $randomNumber = rand(0,3);
 
           $happyEmote = "";
 
-          if (rand(0,3) == 0)
+          if ($randomNumber == 0)
           {
             $happyEmote = ' &nbsp<i class="fas fa-smile"></i>';
           }
-          elseif (rand(0,3) == 1)
+          elseif ($randomNumber == 1)
           {
             $happyEmote = ' &nbsp<i class="fas fa-smile-wink"></i>';
           }
-          elseif (rand(0,3) == 2)
+          elseif ($randomNumber == 2)
           {
             $happyEmote = ' &nbsp<i class="far fa-laugh-wink"></i>';
           }
@@ -212,11 +213,13 @@
         }
         else // No entries for today
         {
-          if (rand(0,2) == 0) // random cry or sad face
+          $randomNumber = rand(0,2);
+
+          if ($randomNumber == 0) // random cry or sad face
           {
             $sadEmote = '<i class="fas fa-frown"></i>';
           }
-          elseif (rand(0,2) == 1)
+          elseif ($randomNumber == 1)
           {
             $sadEmote = '<i class="fas fa-sad-tear"></i>';
           }
