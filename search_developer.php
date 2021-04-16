@@ -318,7 +318,7 @@
 
                 <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
                 class="filterSearchExportLink">
-                  ' . $result->num_rows . ' Search Result for ' . $keyWords[$i] . '
+                  ' . $result->num_rows . ' Search Result for "' . $keyWords[$i] . '"
                    &nbsp<i class="fas fa-arrow-circle-right"></i>
                 </button>
                 </form>
@@ -333,7 +333,7 @@
 
                 <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
                 class="filterSearchExportLink">
-                  ' . $result->num_rows . ' Search Results for ' . $keyWords[$i] . '
+                  ' . $result->num_rows . ' Search Results for "' . $keyWords[$i] . '"
                    &nbsp<i class="fas fa-arrow-circle-right"></i>
                 </button>
                 </form>
