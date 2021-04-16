@@ -182,13 +182,17 @@
 
           $happyEmote = "";
 
-          if (rand(0,2) == 0)
+          if (rand(0,3) == 0)
           {
             $happyEmote = ' &nbsp<i class="fas fa-smile"></i>';
           }
-          elseif (rand(0,2) == 1)
+          elseif (rand(0,3) == 1)
           {
             $happyEmote = ' &nbsp<i class="fas fa-smile-wink"></i>';
+          }
+          elseif (rand(0,3) == 2)
+          {
+            $happyEmote = ' &nbsp<i class="far fa-laugh-wink"></i>';
           }
           else
           {
