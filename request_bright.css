@@ -266,6 +266,12 @@ td::selection
   box-shadow: 0em 1em 1em rgb(200,200,200);
 }
 
+.previewSection .previewBlock 
+{
+  background-color: rgb(243,243,243);
+  box-shadow: none;
+}
+
 .noShadow
 {
   box-shadow: none;
