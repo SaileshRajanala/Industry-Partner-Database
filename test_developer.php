@@ -212,17 +212,21 @@
         }
         else // No entries for today
         {
-
-          if (rand(0,1) == 0) // random cry or sad face
+          if (rand(0,2) == 0) // random cry or sad face
           {
-            echo '<p style="margin-left: 2.5%">No new entries yet, today.' . 
-            '&nbsp <i class="fas fa-frown"></i></p>';
+            $sadEmote = '<i class="fas fa-frown"></i>';
+          }
+          elseif (rand(0,2) == 1)
+          {
+            $sadEmote = '<i class="fas fa-sad-tear"></i>';
           }
           else
           {
-            echo '<p style="margin-left: 2.5%">No new entries yet, today.' . 
-            '&nbsp <i class="fas fa-sad-tear"></i></p>';
+            $sadEmote = '<i class="fas fa-frown-open"></i>';
           }
+
+          echo '<p style="margin-left: 2.5%">No new entries yet, today.' . 
+          '&nbsp ' . $sadEmote . '</p>';
         }
 
         ?>
