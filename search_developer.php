@@ -81,7 +81,7 @@
           <!-- <button class="linkB" style="float: right">
             Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
 
-          <button id="exportNavButton" class="linkB" style="float: right">
+          <button id="exportNavButton" class="linkB" style="float: right;display: none">
             <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
 
           <!-- <button id="searchNavButton" class="linkB" style="float: right">
