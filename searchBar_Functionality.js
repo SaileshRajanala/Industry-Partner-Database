@@ -59,6 +59,10 @@ searchNavButton.onclick = function()
       {
           searchBar.style.display = 'none';
       }
+      else
+      {
+        document.getElementById("searchBar").focus();
+      }
     }
 
   );
