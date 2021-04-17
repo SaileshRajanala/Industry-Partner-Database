@@ -71,8 +71,11 @@
       <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
             
            <form method="POST" action="test_developer.php">
-          <button type="submit" class="linkB" id="homeNavButton" style="float: left">
-           Industry Partner Database</button>
+          <!-- <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+           Industry Partner Database</button> -->
+
+           <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+            <i class="fas fa-chevron-circle-left"></i> Back </button>
          </form>
 
           <button id="helpNavButton" class="linkB" style="float: right">
