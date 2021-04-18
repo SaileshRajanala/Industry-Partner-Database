@@ -274,6 +274,40 @@ reqAdminNames();
 
 ?>
 
+<!-- Top Bar Arc Structure -->
+<div id="topBar">
+
+<!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+    
+   <form method="POST" action="test_developer.php">
+  <!-- <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+   Industry Partner Database</button> -->
+
+   <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+    <i class="fas fa-chevron-circle-left"></i> Back </button>
+ </form>
+
+  <form method="POST" action="logout.php">
+   <button type="submit" class="linkB" style="float: right">
+      <span class="navLabel">Sign Out</span> 
+    <i class="fas fa-sign-out-alt"></i>          
+   </button>
+  </form>
+
+  <button id="helpNavButton" class="linkB" style="float: right">
+    <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
+
+  <!-- <button class="linkB" style="float: right">
+    Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
+
+  <button id="exportNavButton" class="linkB" style="float: right;display: none">
+    <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
+
+
+  <!-- <button id="searchNavButton" class="linkB" style="float: right">
+    <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button> -->
+
+</div>
 
 <div class="dashboard">
 
