@@ -4,10 +4,16 @@ session_start();
 include 'connect.php';
 include 'functions.php';
 
+$user_data = check_login($conn);
+
 if(!isset($_SESSION['user_id']))
 {
-  	die('Sorry ' . $_SESSION['email'] . 
+	if (isset($_SESSION['email']))
+  		die('Sorry ' . $_SESSION['email'] . 
   		', You dont have enough rights access to this page') ;
+  	else
+  		die('Sorry, ' . 
+  		' You dont have enough rights access to this page') ;
 }
 
 ?>
@@ -193,10 +199,7 @@ body
 					<input type="password" name="userPassword2" required>
 				</div>
 				
-			</div>
-				
-			</div>
-			
+			</div>	
 
 			<div class="prevNextDiv">
 			<button type="submit" class="submitButton changePasswordButton" 
@@ -206,7 +209,9 @@ body
 			</div>
 
 			</div>
-		</form>
+
+		</div>
+	</form>
 		<br>
 
 	</div>
