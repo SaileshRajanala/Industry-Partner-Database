@@ -691,6 +691,8 @@ function searchArrayForKeyword($arr, $keyword)
 
 function getSearchConditionsFor($keyword)
 {
+  global $searchConditions;
+
   $searchConditions .=  
           'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$keyword}%') \n" .
