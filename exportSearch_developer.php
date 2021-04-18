@@ -14,7 +14,7 @@ $filename =        "Industry Data";
 // $password =     "wpaccessibility"; 
 // $database =     "wpaccessibility";
 
-$filename =       "Industry Data";    
+$filename = "Industry Data";    
 
 $sql = "SELECT * FROM Contacts";
 

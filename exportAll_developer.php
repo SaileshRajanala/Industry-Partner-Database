@@ -14,6 +14,8 @@ $filename =        "Industry Data";
 // $password =     "wpaccessibility"; 
 // $database =     "wpaccessibility";
 
+$filename = "Industry Data"; 
+
 if (isset($_POST["fileName"]) && $_POST["fileName"] != "") 
 {
     $filename = $_POST["fileName"];
