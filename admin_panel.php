@@ -337,12 +337,12 @@ reqAdminNames();
 				</div>
 
 				<div class="normalBlock noHover">
-					<label>Is Admin?<br>
-						<span style="color: red">(Not recommended)</span></label>
+					<label>Is Admin?</label>
 					<select name="isAdmin" required>
 						<option value="7">No (Can't Add/Remove Users)</option>
 						<option value="4">Yes (Can Add/Remove Users)</option>
 					</select>
+					<span style="color: red">(Not recommended)</span>
 
 				</div>
 				
