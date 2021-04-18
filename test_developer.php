@@ -326,12 +326,12 @@
 
             <h1 class="widgetTitle">Admin Panel &nbsp<i class="fas fa-users-cog"></i></h1>
 
-              <form action="account_setting.php" method="POST" target="_blank">
+              <form action="account_setting.php" method="POST">
               <button class="linkB" style="margin-left: 2.5%">
               <i class="fas fa-wrench"></i>&nbsp Change Password</button>
               </form>
               <br>
-              <form action="admin_panel.php" method="POST" target="_blank">
+              <form action="admin_panel.php" method="POST">
               <button class="linkB" style="margin-left: 2.5%">
               <i class="fas fa-wrench"></i>&nbsp Add or Remove Users</button>
               </form>
@@ -347,7 +347,7 @@
 
             <h1 class="widgetTitle">Account Settings &nbsp<i class="fas fa-users-cog"></i></h1>
 
-              <form action="account_setting.php" method="POST" target="_blank">
+              <form action="account_setting.php" method="POST">
               <button class="linkB" style="margin-left: 2.5%">
               <i class="fas fa-wrench"></i>&nbsp Change Password</button>
               </form>
