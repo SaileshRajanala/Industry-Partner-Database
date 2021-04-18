@@ -220,7 +220,7 @@ reqAdminNames();
 
 		"'" . $_POST['userName'] . "'" . "," . 
 		"'" . $_POST['userEmail'] . "'" . "," .
-		"'" . 'password' . "'" . "," .
+		"'" . 'password' . "'" . "," . 			// default password
 		"'" . $_POST['isAdmin'] . "'" . "," .
 		"'" . $_POST['department'] . "'" .
 
