@@ -316,8 +316,11 @@
 
         <?php
 
-
-        echo 
+        if(isset($_SESSION['admin']))
+        {
+          if($_SESSION['admin'] == 4)
+          {
+            echo 
 
             '<div class="widget">
 
@@ -327,33 +330,33 @@
               <button class="linkB" style="margin-left: 2.5%">
               <i class="fas fa-wrench"></i>&nbsp Change Password</button>
               </form>
-              <br>';
-
-        if(isset($_SESSION['admin']))
-        {
-          if($_SESSION['admin'] == 4)
-          {
-            echo 
-
-            '
+              <br>
               <form action="admin_panel.php" method="POST">
               <button class="linkB" style="margin-left: 2.5%">
               <i class="fas fa-wrench"></i>&nbsp Add or Remove Users</button>
               </form>
+              <br>
 
-              <br>';
+            </div>';
+          }
+          else
+          {
+            echo 
 
-            
+            '<div class="widget">
 
+            <h1 class="widgetTitle">Account Settings &nbsp<i class="fas fa-users-cog"></i></h1>
 
-            // <form action="admin_panel.php" method="POST">
-            //     <button style="margin-left: 2.5%" type="submit" class="linkB">
-            //       Access Admin Panel <i class="fas fa-chevron-circle-right"></i>
-            //     </button>
-            //   </form>
+              <form action="account_setting.php" method="POST">
+              <button class="linkB" style="margin-left: 2.5%">
+              <i class="fas fa-wrench"></i>&nbsp Change Password</button>
+              </form>
+              <br>
+
+            </div>';
           }
         }
-        echo '</div>';
+
 
         ?>
 
