@@ -1,4 +1,7 @@
 <?php
+
+include "./connect.php";
+
 /*
 $server   =            "localhost"; 
 $user     = "id15084806_teamlotus";  
@@ -6,10 +9,11 @@ $password =     "SlZ}Df1?-NeUt?>/";
 $filename =        "Industry Data";   
 */
 
-$server   = "mysprod.wichita.edu";
-$user     =     "wpaccessibility";
-$password =     "wpaccessibility"; 
-$database =     "wpaccessibility";
+// $server   = "mysprod.wichita.edu";
+// $user     =     "wpaccessibility";
+// $password =     "wpaccessibility"; 
+// $database =     "wpaccessibility";
+
 $filename =       "Industry Data";    
 
 $sql = "SELECT * FROM Contacts";
