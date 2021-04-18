@@ -71,49 +71,53 @@ body
 	font-family: 'Quicksand';
 }
 
-.container
+.removeButton
 {
-    position: absolute;
-    height: 200px;
-    width: 400px;
-    margin: -300px 0 0 -200px;
-    top: 50%;
-    left: 50%;
-}
-.container h1{
-	font-family: "Sofia", sans-serif;
-}
-#emailFrame {
-	height: 500px;
-    width: 400px;
-	background:#e95;
-	border:5px solid red;
-   
+	color: red;
+	background-color: transparent;
+
+	text-decoration: none;
+
+	padding: 1%;
+	padding-right: 6%;
+	padding-left: 6%;
+	
+	float: right;
+
+	transition: all 0.25s;
 }
 
-#emailFrame .eachEmail
+.removeButton:hover
 {
-	background: #5deb5b ;
-	 padding: 1px;
-	margin:0px;
-	height:50px;
-	width:380px;
-	margin-left:10px;
-	margin-top:4px;
-	border-radius: 5px;
+	color: white;
+	background-color: red;
 }
-#emailFrame p
+
+.addUserButton
 {
-	position: relative;
-	 font-size:1.5em;
-	 text-align: center;
-	text-align: center;
-	vertical-align: middle;
-	line-height: 0px; 
+	color: aqua;
+	background-color: black;
+}
+
+.addUserButton:hover
+{
+	color: black;
+	background-color: aqua;
 }
 
 </style>
 <script>
+
+// function removeButtonHTML(i)
+// {
+// 	return '<form action=""> ' + 
+// 			'<button type="submit" class="removeButton" ' +
+// 			'name="removeUser" value="' + myObj[i] + '"> ' +
+// 				'Remove &nbsp<i class="fas fa-user-minus"></i> ' +
+// 			'</button> ' +
+// 		'</form> '
+// }
+
 function reqAdminNames() 
 {
   var xhttp;
@@ -145,11 +149,33 @@ function reqAdminNames()
 	    	 {
 	    	 	if(i == 0)
 	    	 	{
-	   				total = start.concat(tdStart,myObj[i],tdEnd,tdStart,myObj[i+1],tdEnd,tdStart,myObj[i+2],tdEnd,end);
+	   				total = start.concat(tdStart,myObj[i],tdEnd,tdStart,myObj[i+1],tdEnd,tdStart,myObj[i+2],tdEnd,tdStart,
+
+
+	   					'<form action="" method="POST"> ' + 
+						'<button type="submit" class="removeButton" ' +
+						'name="removeUser" value="' + myObj[i + 1] + '"> ' +
+							'Remove &nbsp<i class="fas fa-user-minus"></i> ' +
+						'</button> ' +
+						'</form> '
+
+
+	   					,tdEnd,end);
 	   			}
 	   			else
 	   			{
-	   				total = total.concat(start,tdStart,myObj[i],tdEnd,tdStart,myObj[i+1],tdEnd,tdStart,myObj[i+2],tdEnd,end);
+	   				total = total.concat(start,tdStart,myObj[i],tdEnd,tdStart,myObj[i+1],tdEnd,tdStart,myObj[i+2],tdEnd,tdStart,
+
+
+	   					'<form action="" method="POST"> ' + 
+						'<button type="submit" class="removeButton" ' +
+						'name="removeUser" value="' + myObj[i + 1] + '"> ' +
+							'Remove &nbsp<i class="fas fa-user-minus"></i> ' +
+						'</button> ' +
+						'</form> '
+
+
+	   					,tdEnd,end);
 	   			}
 
 	   			i = i + 3;
@@ -226,6 +252,26 @@ reqAdminNames();
 		}
 	}
 
+	if (isset($_POST['removeUser'])) 
+	{
+		$sql = "
+
+		DELETE FROM
+		main 
+		WHERE Email = " . "'" . $_POST['removeUser'] . "'
+
+		";
+
+		if (mysqli_query($conn, $sql)) 
+		{
+		  echo "<div class='widget' style='text-align:center;color:aqua;margin-left:8%;margin-bottom:0%;margin-right:8%;'>User deleted successfully!</div>";
+		}	
+		else
+		{
+		   echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error deleting User.</div>";
+		}
+	}
+
 ?>
 
 
@@ -256,7 +302,7 @@ reqAdminNames();
 					<input type="text" name="department" required>
 				</div>
 
-				<div class="normalBlock">
+				<div class="normalBlock noHover">
 					<label>Is Admin?</label>
 					<select name="isAdmin" required style="">
 						<option value="4">Yes (Can Add/Remove Users)</option>
@@ -268,7 +314,7 @@ reqAdminNames();
 			
 
 			<div class="prevNextDiv">
-			<button type="submit" class="submitButton" style="float: right;">
+			<button type="submit" class="submitButton addUserButton" style="float: right;">
 				Add user &nbsp<i class="fas fa-user-plus"></i>
 			</button>
 			</div>
@@ -276,12 +322,6 @@ reqAdminNames();
 			</div>
 		</form>
 		<br>
-
-		<!-- <form action="">
-			<button type="submit" class="linkB">
-				Remove user &nbsp<i class="fas fa-user-minus"></i>
-			</button>
-		</form> -->
 
 	</div>
 	
