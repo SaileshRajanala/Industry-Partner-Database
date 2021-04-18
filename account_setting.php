@@ -4,13 +4,10 @@ session_start();
 include 'connect.php';
 include 'functions.php';
 
-if(isset($_SESSION['admin']))
+if(!isset($_SESSION['user_id']))
 {
-   	if($_SESSION['admin'] != 4)
-   	{
-  		die('Sorry ' . $_SESSION['email'] . 
-  		' You dont have enough rights access to this page') ;
-  	}
+  	die('Sorry ' . $_SESSION['email'] . 
+  		', You dont have enough rights access to this page') ;
 }
 
 ?>
