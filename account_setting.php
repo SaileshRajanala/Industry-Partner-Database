@@ -72,16 +72,18 @@ body
 .removeButton
 {
 	color: red;
+	border-radius: 5em;
+	border: none;
+	box-shadow: none;
 	background-color: transparent;
-
 	text-decoration: none;
-
+	font-size: x-large;
 	padding: 1%;
+	margin: 0%;
+	transform: scale(1);
 	padding-right: 6%;
 	padding-left: 6%;
-	
 	float: right;
-
 	transition: all 0.25s;
 }
 
@@ -89,6 +91,19 @@ body
 {
 	color: white;
 	background-color: red;
+	cursor: pointer;
+}
+
+.addUserButton
+{
+	color: aqua;
+	background-color: black;
+}
+
+.addUserButton:hover
+{
+	color: black;
+	background-color: aqua;
 }
 
 .changePasswordButton
