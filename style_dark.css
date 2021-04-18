@@ -488,7 +488,7 @@ textarea:hover
   border-bottom-left-radius: 0em;
 }*/
 
-button
+.prevNextDiv button
 {
   padding: 1%;
   padding-left: 2.5%;
@@ -506,7 +506,7 @@ button
   transition: all 0.25s;
 }
 
- button:hover
+ .prevNextDiv button:hover
  {
    background-color: white;
    color: black;
@@ -515,14 +515,14 @@ button
    cursor: pointer;
  }
 
- button:active
+ .prevNextDiv button:active
  {
   background-color: white;
   color: black;
   transform: scale(0.9);
  }
 
- button:disabled
+ .prevNextDiv button:disabled
  {
     box-shadow: none;
     cursor: not-allowed;
