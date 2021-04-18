@@ -185,7 +185,8 @@ tr::selection
 
 td
 {
-	width: 22.5%;
+	/*width: 22.5%;*/
+	width: 23%;
 	background-color: transparent;
 	padding: 1%;
 
