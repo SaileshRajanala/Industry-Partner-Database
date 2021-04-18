@@ -1,3 +1,11 @@
+<?php session_start();
+
+  include("connect.php");
+  include("functions.php");
+
+  $user_data = check_login($conn);
+?>
+
 <!DOCTYPE html>
   <head>
 
@@ -73,6 +81,17 @@
         <button type="submit" class="linkB" id="homeNavButton" style="float: left">
            Industry Partner Database</button>
          </form>
+
+         
+
+         <form method="POST" action="logout.php">
+           <button type="submit" class="linkB" style="float: right">
+              <span class="navLabel">Sign Out</span> 
+            <i class="fas fa-sign-out-alt"></i>          
+           </button>
+          </form>
+
+
 
           <button id="helpNavButton" class="linkB" style="float: right">
             <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
