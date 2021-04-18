@@ -35,7 +35,7 @@ if(!isset($_SESSION['user_id']))
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
     <!-- JavaScript (INTERNAL) -->
-    <!-- <script>
+    <script>
 
     var d = new Date();
 
@@ -59,25 +59,14 @@ if(!isset($_SESSION['user_id']))
         swapStylesheet("mobile_dark.css", "mS");
     }
 
-  </script> -->
+  </script>
 
 
 <style>
 
 body 
 {
-	margin: 0;
-	border: 0;
-	padding: 4%;
-
-	background-image: url('stars.png'); 
-	background-attachment: fixed;
-	background-size: cover;
-	background-repeat: no-repeat;
-
-	color: white;
-	font-size: x-large;
-	font-family: 'Quicksand';
+	padding: 0%;
 }
 
 .removeButton
@@ -182,12 +171,19 @@ body
 
 <div class="dashboard">
 
-	<div class="widget" style="padding: 4%; margin: 4%;background-color: transparent;">
+	<div class="widget" style="padding: 4%; margin: 4%; background-color: transparent;box-shadow: none;">
 		
 
 		<form action="" method="POST">
-			<div class="formSection" style="padding: 4%;background-color: rgb(25,25,25);">
-				<h1 class="widgetTitle" style="margin-left: 4%;margin-right: 4%">Change Password</h1>
+
+			<div class="formSection" style="padding: 4%;">
+
+				<h1 class="widgetTitle" style="margin-left: 4%;margin-right: 4%">
+
+				Change Password &nbsp<i class="fas fa-cogs"></i>
+
+				</h1>
+
 			<div class="sideByside">
 				<div class="normalBlock">
 					<label>Password</label>
