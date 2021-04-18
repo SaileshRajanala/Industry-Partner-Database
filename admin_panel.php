@@ -44,14 +44,40 @@ $query = "select Email from main " ;
 	<link rel="preconnect" href="https://fonts.gstatic.com"> 
   	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-  	<link rel="stylesheet" type="text/css" href="test_dark.css">
-  	<link rel="stylesheet" type="text/css" href="request_dark.css">
-  	<link rel="stylesheet" type="text/css" href="style_dark.css">
-
+  	<link rel="stylesheet" type="text/css" id="tS" href="test_dark.css">
+  	<link rel="stylesheet" type="text/css" id="rS" href="request_dark.css">
+  	<link rel="stylesheet" type="text/css" id="fS" href="style_dark.css">
+  	<link rel="stylesheet" type="text/css" id="mS" href="mobile_dark.css">
 
   	<!-- ICONS SCRIPT -->
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
+    <!-- JavaScript (INTERNAL) -->
+    <!-- <script>
+
+    var d = new Date();
+
+    function swapStylesheet(sheet, name) 
+    {
+        document.getElementById(name).setAttribute('href', sheet);
+    }
+
+    if (d.getHours() >= 6 && d.getHours() < 18)
+    {  
+        swapStylesheet("request_bright.css", "rS");
+        swapStylesheet("test_bright.css", "tS");
+        swapStylesheet("style_bright.css", "fS");
+        swapStylesheet("mobile_bright.css", "mS");
+    }
+    else
+    {
+        swapStylesheet("request_dark.css", "rS");
+        swapStylesheet("test_dark.css", "tS");
+        swapStylesheet("style_dark.css", "fS");
+        swapStylesheet("mobile_dark.css", "mS");
+    }
+
+  </script> -->
 
 <style>
 
