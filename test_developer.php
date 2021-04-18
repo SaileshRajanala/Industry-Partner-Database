@@ -311,6 +311,38 @@
           }
         ?>    
 
+        
+
+
+        <?php
+
+        if(isset($_SESSION['admin']))
+        {
+          if($_SESSION['admin'] == 4)
+          {
+            echo 
+
+            '<div class="widget">
+
+            <h1 class="widgetTitle">Admin Panel &nbsp<i class="fas fa-users-cog"></i></h1>
+
+              <p style="margin-left: 2.5%"><i class="fas fa-cogs"></i>&nbsp Change Controls</p>
+              <p style="margin-left: 2.5%"><i class="fas fa-cogs"></i>&nbsp Add or Remove Users</p>
+
+              <form action="admin_panel.php" method="POST">
+                <button style="margin-left: 2.5%" type="submit" class="linkB">
+                  Access Admin Panel <i class="fas fa-chevron-circle-right"></i>
+                </button>
+              </form>
+              <br><br>
+
+            </div>';
+          }
+        }
+
+        ?>
+
+
       <div class="widget">
 
         <h1 class="widgetTitle">Information &nbsp<i class='fas fa-info-circle'></i></h1>
@@ -333,10 +365,6 @@
       </div>
 
     </div>
-
-
-
-
 
 
     <!-- Previews -->
