@@ -334,7 +334,7 @@
                   Access Admin Panel <i class="fas fa-chevron-circle-right"></i>
                 </button>
               </form>
-              <br><br>
+              <br>
 
             </div>';
           }
