@@ -693,7 +693,7 @@ function getSearchConditionsFor($keyword)
 {
   global $searchConditions;
 
-  $searchConditions .=  
+  $searchConditions =  
           'OR UPPER(Prefix)                  LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(Suffix)                  LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(First_Name)              LIKE UPPER(' . "'%{$keyword}%') \n" .
