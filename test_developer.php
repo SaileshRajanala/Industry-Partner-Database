@@ -328,12 +328,12 @@
 
               <form action="account_setting.php" method="POST">
               <button class="linkB" style="margin-left: 2.5%">
-              <i class="fas fa-wrench"></i>&nbsp  Change Controls</button>
+              <i class="fas fa-wrench"></i>&nbsp Change Password</button>
               </form>
               <br>
               <form action="admin_panel.php" method="POST">
               <button class="linkB" style="margin-left: 2.5%">
-              <i class="fas fa-wrench"></i>&nbsp  Add or Remove Users</button>
+              <i class="fas fa-wrench"></i>&nbsp Add or Remove Users</button>
               </form>
 
               <br>
