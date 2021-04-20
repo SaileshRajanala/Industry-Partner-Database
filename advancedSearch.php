@@ -201,6 +201,10 @@
           require "./connect.php";
           require_once "./global.php";
           require_once "./prerequisites.php";
+
+          global $previewsQueries;
+          
+          $previewsQueries = [];
           
           // UNIVERSAL SEARCH
           if (isset($_POST["advancedSearchButton"]))
