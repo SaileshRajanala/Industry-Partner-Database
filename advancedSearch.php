@@ -207,35 +207,15 @@
           $previewsQueries = [];
           
           // UNIVERSAL SEARCH
-          if (isset($_POST["searchBar"]))
+          if (isset($_POST["advancedSearchButton"]))
           {
-            $searchBarTextValue = htmlentities($_POST["searchBar"], ENT_QUOTES);
-
-            // Makes sure only one whitespace between words
-            $searchBarTextValue = preg_replace('/\s+/', ' ', $searchBarTextValue);
-
-            // Removes spaces at the front and back
-            $searchBarTextValue = trim($searchBarTextValue);
-
-            $keyWords = explode(' ', $searchBarTextValue);
-
-            // Searches only unique keywords
-             $keyWords = array_map('strtolower',$keyWords);
-             $keyWords = array_unique($keyWords);
-             $keyWords = array_values($keyWords);
 
             global $sql;
             $sql = "
 
-          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE False "; 
+          SELECT DISTINCT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database";
 
-          // for ($i = 0; $i < count($keyWords); $i++)
-          // {
-          //   // Universal Search Results
-          //   $sql .= getSearchConditionsFor($keyWords[$i]);
-          // }
-
-          $sql .= getSearchConditionsFor($searchBarTextValue);
+          $sql .= $_POST["advancedSearchButton"];
 
           $sql .= " ORDER BY Timestamp DESC ";
 
@@ -296,90 +276,6 @@
             //   echo exportSearchLink($searchBarTextValue);
 
             echo '</div>';
-
-
-
-            if ($result->num_rows == 0) 
-            // Prints Filtered Content
-            if (count($keyWords) > 1 || 
-               (count($keyWords) == 1 && $searchBarTextValue != $keyWords[0]))
-            for ($i = 0; $i < count($keyWords); $i++)
-            {
-
-              // GENERATE SQL SEARCH QUERY
-              $keyword_sql = "
-
-              SELECT DISTINCT " . $insertSchema . 
-              ", Timestamp FROM Industry_Partner_Database WHERE False "; 
-
-              $keyword_sql .= getSearchConditionsFor($keyWords[$i]);
-
-              $keyword_sql .= " ORDER BY Timestamp DESC ";
-
-              // echo "<br>";echo "<br>";echo "<br>";
-              // echo "KEYWORD SQL <br><br>" . $keyword_sql;
-              // echo "<br>";echo "<br>";echo "<br>";
-
-              $result = $conn->query($keyword_sql);
-
-              echo "<div class=\"filterSearchResult\">";
-
-
-
-              if ($result->num_rows == 1) 
-              {
-                echo '<h2 class="widgetTitle">
-
-                <form method="post" action="exportSearch_developer.php">
-
-                <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
-                class="filterSearchExportLink">
-                  ' . $result->num_rows . ' Search Result for "' . $keyWords[$i] . '"
-                   &nbsp<i class="fas fa-arrow-circle-right"></i>
-                </button>
-                </form>
-
-                </h2>';
-              }
-              elseif ($result->num_rows != 0) 
-              {
-                echo '<h2 class="widgetTitle">
-
-                <form method="post" action="exportSearch_developer.php">
-
-                <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
-                class="filterSearchExportLink">
-                  ' . $result->num_rows . ' Search Results for "' . $keyWords[$i] . '"
-                   &nbsp<i class="fas fa-arrow-circle-right"></i>
-                </button>
-                </form>
-
-                </h2>';
-              }
-              else
-              {
-                echo '<h2 class="widgetTitle">' . $result->num_rows . 
-                ' Search Results for "' . $keyWords[$i] . '"</h2>';
-              }
-
-
-              // if ($result->num_rows == 1) 
-              //   echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
-              //   $keyWords[$i] . '"</h2>';
-              // else
-              //   echo '<h2 class="widgetTitle">' . $result->num_rows . 
-              //   ' Search Results for "' . $keyWords[$i] . '"</h2>';
-
-
-              echo printRecords($keyword_sql);
-              array_push($previewsQueries, $keyword_sql);
-
-              // if ($result->num_rows != 0) 
-              //   echo exportSearchLink($keyWords[$i]);
-
-              echo '</div>';
-            }
-
 
           }
           else
