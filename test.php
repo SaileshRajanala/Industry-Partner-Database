@@ -1,3 +1,12 @@
+<?php session_start();
+
+	include("connect.php");
+	include("functions.php");
+
+	$user_data = check_login($conn);
+	//echo session_id();
+?>
+
 <!DOCTYPE html>
   <head>
 
