@@ -227,7 +227,7 @@
 
               <form method="post" action="exportAdvancedSearch.php">
 
-              <button type="submit" name="keyword" value="'. $_POST["advancedSearchButton"] 
+              <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
               . '" class="filterSearchExportLink">
                 ' . $result->num_rows . ' Search Results  
                  &nbsp<i class="fas fa-arrow-circle-right"></i>
@@ -242,7 +242,7 @@
 
               <form method="post" action="exportAdvancedSearch.php">
 
-              <button type="submit" name="keyword" value="'. $_POST["advancedSearchButton"] 
+              <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
               . '" class="filterSearchExportLink">
                 ' . $result->num_rows . ' Search Results 
                  &nbsp<i class="fas fa-arrow-circle-right"></i>
