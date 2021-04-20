@@ -12,8 +12,8 @@ if(isset($_SESSION['admin']))
    
    header('Location: admin_panel.php');
 }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -28,11 +28,12 @@ if(isset($_SESSION['admin']))
 
 <div class="login_form">
 <h1>Login For Admins</h1><br><br>
-<form action="admin-process.php" method="POST">
+<form action="login_process.php" method="POST">
   <label for="email">Email:</label><br><br>
-  <input type="email" id="email" name="email" placeholder="example@example.com"><br><br>
+  <input type="email" id="email" name="emailAdmin" placeholder="example@example.com" ><br><br>
   <label for="password">Password:</label><br><br>
-  <input type="password" id="password" name="password" placeholder=""><br><br>
+  <input type="password" id="password" name="passwordAdmin" placeholder=""><br><br>
+  <div class="errorMsg" style="color:red; position: absolute;"><p><?php if(isset($_SESSION['error'])){ echo $_SESSION['error'] ; unset($_SESSION['error']) ; } ?></p> </div>
   <button type="submit" name="submit">Submit</button>
 </form>
 </div>

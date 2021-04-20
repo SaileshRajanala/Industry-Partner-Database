@@ -14,7 +14,7 @@
 
     //     for (var i = closeIcons.length - 1; i >= 0; i--) {
     //       closeIcons[i].src = "close_bright.png";
-    //     }
+    //     } 
 
     //     for (var i = exportIcons.length - 1; i >= 0; i--) {
     //       exportIcons[i].src = "download_bright.png";

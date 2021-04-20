@@ -71,7 +71,7 @@ $query = "select Email from main " ;
     <!-- JavaScript (INTERNAL) -->
     <script>
 
-    var d = new Date();
+    var d = new Date(); 
 
     function swapStylesheet(sheet, name) 
     {

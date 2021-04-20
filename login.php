@@ -23,7 +23,7 @@ if(!empty($_SESSION['user_id'])){
 
 <div class="login_form">
   
-<h1>Welcome</h1>
+<h1>Welcome</h1> 
 <br><br>
 
 <form action="login_process.php" method="POST">
@@ -38,6 +38,7 @@ if(!empty($_SESSION['user_id'])){
   <input type="password" id="password" name="password" placeholder="">
   <br><br>
 
+  <div class="errorMsg" style="color:red; position: absolute;"><p><?php if(isset($_SESSION['error'])){ echo $_SESSION['error'] ; unset($_SESSION['error']) ; } ?></p> </div>
   <button type="submit" name="submit">Submit</button>
 
 </form>

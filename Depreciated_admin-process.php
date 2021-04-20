@@ -2,7 +2,7 @@
 session_start();
 
 include 'connect.php' ;
-include 'functions.php' ;
+include 'functions.php' ; 
 
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 
-		//$user_name = $_POST['user_name'];
+		//$user_name = $_POST['user_name']; 
 		//$password = $_POST['password'];
 
 		if(!empty($email) && !empty($password) && !is_numeric($email))

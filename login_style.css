@@ -137,7 +137,9 @@ body
   cursor: pointer;
 }
 
-
+.errorMsg {
+ color: red;
+}
 
 
 /* .main_form 

@@ -5,17 +5,25 @@ include 'connect.php' ;
 include 'functions.php' ;
 
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
+if($_SERVER['REQUEST_METHOD'] == "POST" && (isset( $_POST['email']) || isset($_POST['password']) || isset($_POST['emailAdmin']) || isset($_POST['passwordAdmin']))){
+		$reqUser = " " ;
 		//something was posted
+
+		if(isset( $_POST['email']) || isset($_POST['password'])){
 		$email = $_POST['email'];
 		$password = $_POST['password'];
+			//echo "test" ;
+			$reqUser = "instructorUser";
+		}elseif(isset($_POST['emailAdmin']) || isset($_POST['passwordAdmin'])){
+		$email = $_POST['emailAdmin'];
+		$password = $_POST['passwordAdmin'];
+		$reqUser = "adminUser";
+		}
 
 		//$user_name = $_POST['user_name'];
 		//$password = $_POST['password'];
 
-		if(!empty($email) && !empty($password) && !is_numeric($email))
-		{
+		if(!empty($email) && !empty($password) && !is_numeric($email)){
 
 			//read from database
 			$query = "select * from main where Email = '$email' limit 1";
@@ -43,11 +51,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 				}
 			}
 			
-			echo "wrong username or password!";
-		}else
-		{
-			echo "wrong username or password!";
+			$_SESSION['error'] =  "Wrong username or password!" ;
+				if($reqUser == "instructorUser"){
+			header('location: login.php');
+				}else{
+				header('location: admin.php');
+				}
+      
+    }else{
+        $_SESSION['error'] =  "Wrong username or password!" ;
+	        if($reqUser == "instructorUser"){
+			header('location: login.php');
+				}else{
+				header('location: admin.php');
+				}
 		}
+	}else{
+		$_SESSION['error'] =  "Wrong username or password!" ;
 	}
+
+
+
 
 ?>
