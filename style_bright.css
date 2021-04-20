@@ -90,7 +90,7 @@ body
 .formSection
 { 
   background-color: white;
-  box-shadow: 0px 0px 25px rgb(200,200,200);
+  /*box-shadow: 0px 0px 25px rgb(200,200,200);*/
   
   margin: 4%;
   padding: 2%;
