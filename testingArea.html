@@ -77,7 +77,7 @@
 			padding: 1%;
 		}
 
-		.addRuleButton, .removeRuleButton
+		.addRuleButton, .removeRuleButton, .advancedSearchButton
 		{
 			font-family: 'Quicksand';
 			background-color: transparent;
@@ -99,7 +99,13 @@
 			color: red;
 		}
 
-		.addRuleButton:hover, .removeRuleButton:hover
+		.advancedSearchButton
+		{
+			color: white;
+			border-color: white;
+		}
+
+		.addRuleButton:hover, .removeRuleButton:hover, .advancedSearchButton:hover
 		{
 			border-color: lime;
 			cursor: pointer;
@@ -110,16 +116,29 @@
 			border-color: red;
 		}
 
+		.advancedSearchButton:hover
+		{
+			background-color: white;
+			border-color: transparent;
+			color: black;
+		}
+
 		.addRuleButton:active, .removeRuleButton:active 
 		{
 			background-color: lime;
 			color: black;
+			transform: scale(0.9);
 		}
 
 		.removeRuleButton:active
 		{
 			background-color: red;
 			color: white;
+		}
+
+		.advancedSearchButton:active
+		{
+			transform: scale(0.9);
 		}
 
 	</style>
@@ -163,9 +182,9 @@
 					Add <i class="fas fa-plus-circle"></i>
 				</button>
 
-				<!-- <button type="button" class="removeRuleButton">
-					Remove <i class="fas fa-minus-circle"></i>
-				</button> -->
+				<button type="button" class="advancedSearchButton">
+					Search <i class="fab fa-sistrix"></i>
+				</button>
 				
 			</div>
 
