@@ -74,6 +74,18 @@ function class_(_class)
   return document.getElementsByClassName(_class);
 }
 
+function animate(_element, _animationClass)
+{
+  _element.classList.add(_animationClass);
+
+  // Code below is necessary for animation on request.
+  _element.addEventListener("animationend", 
+  function() 
+  {
+    _element.classList.remove(_animationClass);            
+  }
+  );
+}
 
 function addRule(targetDivId = "searchConditionsDiv")
 {
@@ -157,13 +169,6 @@ function addRule(targetDivId = "searchConditionsDiv")
   searchCondition.append(keywordTextField);
 
 
-  // var _button = document.createElement('button');
-  // _button.setAttribute('type', 'button');
-  // _button.classList.add('addRuleButton');
-  // _button.innerHTML = 'Add <i class="fas fa-plus-circle"></i>';
-
-  // searchCondition.append(_button);
-
   var _button = document.createElement('button');
   _button.setAttribute('type', 'button');
   _button.classList.add('removeRuleButton');
@@ -179,6 +184,8 @@ function addRule(targetDivId = "searchConditionsDiv")
     _button.parentElement.parentElement.removeChild(searchCondition);
 
   });
+
+  animate(searchCondition, 'appendAnimation');
 
   // var ruleHTML = '<div class="searchCondition">\n\n' + 
 
@@ -240,16 +247,6 @@ function manageRules()
 
     });
   }
-
-  // for (var i = removeButtons.length - 1; i >= 0; i--) 
-  // {
-  //   removeButtons[i].addEventListener("click", function() 
-  //   {
-  
-  //     removeButtons[i].parentNode.parentNode.removeChild(removeButtons[i].parentNode);
-  
-  //   });
-  // }
 }
 
 
