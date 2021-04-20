@@ -193,7 +193,7 @@
      <div class="dashboard"></div>
     <!-- SEARCH SECTION -->
 
-     <div id="searchResultsDiv">
+     <div id="searchResultsDiv" class="advancedSearchResults">
         
         <div class="widget">
 
@@ -203,7 +203,7 @@
           require_once "./prerequisites.php";
 
           global $previewsQueries;
-          
+
           $previewsQueries = [];
           
           // UNIVERSAL SEARCH
