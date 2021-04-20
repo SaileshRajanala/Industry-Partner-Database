@@ -105,7 +105,7 @@
 
       </div>
 
-     <form name="searchForm" action="" method="post"> 
+     <!-- <form name="searchForm" action="" method="post"> 
 
           <div id="searchBarDiv">
              
@@ -118,7 +118,7 @@
           
           </div>
 
-     </form>
+     </form> -->
 
      <!-- EXPORT DIV START -->
 

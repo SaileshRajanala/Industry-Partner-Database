@@ -236,7 +236,7 @@ function manageRules()
 
 function generateSearchCondition(conditionalconnection, tableColumn, operation, keyword)
 {
-  var searchCondition = " " + conditionalconnection + " " + tableColumn + " ";
+  var searchCondition = " " + conditionalconnection + " UPPER(" + tableColumn + ") ";
 
   if (operation == "=")
   {
@@ -244,19 +244,19 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
   }
   else // CONTAINS, STARTS WITH, ENDS WITH
   {
-    searchCondition += " LIKE ";
+    searchCondition += " LIKE UPPER(";
 
     if (operation == "CONTAINS")
     {
-      searchCondition += " '%" + keyword + "%' ";
+      searchCondition += " '%" + keyword + "%') ";
     }
     else if (operation == "STARTS WITH")
     {
-      searchCondition += " '" + keyword + "%' ";
+      searchCondition += " '" + keyword + "%') ";
     }
     else if (operation == "ENDS WITH")
     {
-      searchCondition += " '%" + keyword + "' ";
+      searchCondition += " '%" + keyword + "') ";
     }
   }
 
@@ -282,6 +282,7 @@ function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
   }
 
   id_('answer').innerHTML = searchConditions;
+  id_('advancedSearchButton').setAttribute('value', searchConditions);
 }
 
 function generateRulesOnUserInput(form = 'advancedSearchForm')
