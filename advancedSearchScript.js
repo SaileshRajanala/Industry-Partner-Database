@@ -259,6 +259,8 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
       searchCondition += " '%" + keyword + "' ";
     }
   }
+
+  return searchCondition;
 }
 
 function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
@@ -269,20 +271,43 @@ function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
   var keywords = document.forms[form].getElementsByClassName('keywordTextField');
   
   var searchConditions = 
-  generateSearchCondition('WHERE', selectors[0].value, selectors[1].value, keywords[0]);
+  generateSearchCondition('WHERE', selectors[0].value, selectors[1].value, keywords[0].value);
 
   for (let i = 1; i < keywords.length; i++) 
   {
-    searchConditions = generateSearchCondition(selectors[3 * i + 0].value,  // There are
-                                               selectors[3 * i + 1].value,  // 3 selectors
-                                               selectors[3 * i + 2].value,  // per row
-                                               keywords[i]);
+    searchConditions += generateSearchCondition(selectors[3 * i - 1].value,  // There are
+                                                selectors[3 * i + 0].value,  // 3 selectors
+                                                selectors[3 * i + 1].value,  // per row
+                                                keywords[i].value);
   }
 
   id_('answer').innerHTML = searchConditions;
 }
 
+function generateRulesOnUserInput(form = 'advancedSearchForm')
+{
+  var formElements = document.forms[form].elements;
 
+  var selectors = document.forms[form].getElementsByClassName('selector');
+  var keywords = document.forms[form].getElementsByClassName('keywordTextField');
+
+  for (let index = 0; index < selectors.length; index++) 
+  {
+    selectors.addEventListener('change', function() 
+    {
+      generate_MySQL_Search_Rules(form);
+    })
+  }
+
+  for (let index = 0; index < keywords.length; index++) 
+  {
+    keywords.addEventListener('keyup', function() 
+    {
+      generate_MySQL_Search_Rules(form);
+    })
+  }
+
+}
 
 
 
@@ -301,6 +326,10 @@ function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
 
 manageRules();
 
+id_('advancedSearchButton').addEventListener('click', function() 
+{
+  generate_MySQL_Search_Rules();
+});
 
 
 

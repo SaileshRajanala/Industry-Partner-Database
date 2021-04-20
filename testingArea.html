@@ -77,7 +77,7 @@
 			padding: 1%;
 		}
 
-		.addRuleButton, .removeRuleButton, .advancedSearchButton
+		.addRuleButton, .removeRuleButton, #advancedSearchButton
 		{
 			font-family: 'Quicksand';
 			background-color: transparent;
@@ -99,13 +99,13 @@
 			color: red;
 		}
 
-		.advancedSearchButton
+		#advancedSearchButton
 		{
 			color: white;
 			border-color: white;
 		}
 
-		.addRuleButton:hover, .removeRuleButton:hover, .advancedSearchButton:hover
+		.addRuleButton:hover, .removeRuleButton:hover, #advancedSearchButton:hover
 		{
 			border-color: lime;
 			cursor: pointer;
@@ -116,7 +116,7 @@
 			border-color: red;
 		}
 
-		.advancedSearchButton:hover
+		#advancedSearchButton:hover
 		{
 			background-color: white;
 			border-color: transparent;
@@ -136,7 +136,7 @@
 			color: white;
 		}
 
-		.advancedSearchButton:active
+		#advancedSearchButton:active
 		{
 			transform: scale(0.9);
 		}
@@ -203,7 +203,7 @@
 					Add <i class="fas fa-plus-circle"></i>
 				</button>
 
-				<button type="button" class="advancedSearchButton">
+				<button type="button" id="advancedSearchButton">
 					Search <i class="fab fa-sistrix"></i>
 				</button>
 				
@@ -213,7 +213,7 @@
 	</div>
 </form>
 		
-	<div id="answer"></div>
+	<div id="answer" style="color: white"></div>
 
 <script type="text/javascript" src="advancedSearchScript.js"></script>
 
