@@ -168,17 +168,17 @@ function addRule(targetDivId = "searchConditionsDiv")
   _button.setAttribute('type', 'button');
   _button.classList.add('removeRuleButton');
   _button.innerHTML = 'Remove <i class="fas fa-minus-circle"></i>';
-
-  _button.addEventListener("click", function() 
-  {
-
-    removeButtons[i].parentNode.parentNode.removeChild(removeButtons[i].parentNode);
-
-  });
   
   searchCondition.append(_button);
 
   searchConditionsDiv.append(searchCondition);
+
+  _button.addEventListener("click", function() 
+  {
+
+    _button.parentElement.parentElement.removeChild(searchCondition);
+
+  });
 
   // var ruleHTML = '<div class="searchCondition">\n\n' + 
 
