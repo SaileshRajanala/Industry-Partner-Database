@@ -236,7 +236,7 @@ function manageRules()
 
 function generateSearchCondition(conditionalconnection, tableColumn, operation, keyword)
 {
-  var searchCondition = " " + conditionalconnection + " UPPER(" + tableColumn + ") ";
+  var searchCondition = " " + conditionalconnection + " UPPER( " + tableColumn + " ) ";
 
   if (operation == "=")
   {
@@ -248,15 +248,15 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
 
     if (operation == "CONTAINS")
     {
-      searchCondition += " '%" + keyword + "%') ";
+      searchCondition += " '%" + keyword + "%' ) ";
     }
     else if (operation == "STARTS WITH")
     {
-      searchCondition += " '" + keyword + "%') ";
+      searchCondition += " '" + keyword + "%' ) ";
     }
     else if (operation == "ENDS WITH")
     {
-      searchCondition += " '%" + keyword + "') ";
+      searchCondition += " '%" + keyword + "' ) ";
     }
   }
 
