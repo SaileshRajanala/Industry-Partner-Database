@@ -31,7 +31,7 @@ if (!$conn)
 //     }
 // }
     
-$filename = $_POST["keyword"];  
+$filename = "Advanced Search Results";  
 
 
 
