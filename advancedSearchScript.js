@@ -249,6 +249,66 @@ function manageRules()
   }
 }
 
+function generateSearchCondition(conditionalconnection, tableColumn, operation, keyword)
+{
+  var searchCondition = " " + conditionalconnection + " " + tableColumn + " ";
+
+  if (operation == "=")
+  {
+    searchCondition += " = '" + keyword + "' ";
+  }
+  else // CONTAINS, STARTS WITH, ENDS WITH
+  {
+    searchCondition += " LIKE ";
+
+    if (operation == "CONTAINS")
+    {
+      searchCondition += " '%" + keyword + "%' ";
+    }
+    else if (operation == "STARTS WITH")
+    {
+      searchCondition += " '" + keyword + "%' ";
+    }
+    else if (operation == "ENDS WITH")
+    {
+      searchCondition += " '%" + keyword + "' ";
+    }
+  }
+}
+
+function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
+{
+  var formElements = document.forms[form].elements;
+
+  var selectors = document.forms[form].getElementsByClassName('selector');
+  var keywords = document.forms[form].getElementsByClassName('keywordTextField');
+  
+  var searchConditions = 
+  generateSearchCondition('WHERE', selectors[0].value, selectors[1].value, keywords[0]);
+
+  for (let i = 1; i < keywords.length; i++) 
+  {
+    searchConditions = generateSearchCondition(selectors[3 * i + 0].value,  // There are
+                                               selectors[3 * i + 1].value,  // 3 selectors
+                                               selectors[3 * i + 2].value,  // per row
+                                               keywords[i]);
+  }
+
+  id_('answer').innerHTML = searchConditions;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
