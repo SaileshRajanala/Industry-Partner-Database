@@ -104,6 +104,7 @@ body
 
 .removeButton
 {
+	font-family: 'Quicksand';
 	color: red;
 	border-radius: 5em;
 	border: none;
@@ -129,6 +130,7 @@ body
 
 .addUserButton
 {
+	font-family: 'Quicksand';
 	color: aqua;
 	background-color: black;
 }
@@ -382,7 +384,7 @@ reqAdminNames();
 						<option value="7">No (Can't Add/Remove Users)</option>
 						<option value="4">Yes (Can Add/Remove Users)</option>
 					</select>
-					<span style="color: red">(Not recommended)</span>
+					<!-- <span style="color: red">(Not recommended)</span> -->
 
 				</div>
 				

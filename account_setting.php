@@ -71,6 +71,7 @@ body
 
 .removeButton
 {
+	font-family: 'Quicksand';
 	color: red;
 	border-radius: 5em;
 	border: none;
@@ -96,6 +97,7 @@ body
 
 .addUserButton
 {
+	font-family: 'Quicksand';
 	color: aqua;
 	background-color: black;
 }
@@ -108,6 +110,7 @@ body
 
 .changePasswordButton
 {
+	font-family: 'Quicksand';
 	color: aqua;
 	background-color: black;
 }
