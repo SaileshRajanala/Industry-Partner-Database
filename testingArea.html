@@ -28,12 +28,6 @@
 			margin-bottom: -0.25%;
 		}
 
-		.keywordTextField::selection
-		{
-			color: white;
-			background-color: black;
-		}
-
 		.keywordTextField, .selector
 		{
 			font-family: 'Quicksand';
@@ -167,88 +161,23 @@
 			cursor: text;
 		}
 
-		.stickyElement
-		{
-			position: sticky;
-			position: -webkit-sticky;
-
-			top: 0%;
-			z-index: 4;
-
-			background-color: transparent;
-			-webkit-backdrop-filter: blur(1em);
-			backdrop-filter: blur(1em);
-		}
-
-		#pageTitle::selection
-		{
-			color: inherit;
-			background-color: inherit;
-		}
-
-		#pageTitle
-		{
-			color: white;
-			font-family: 'QuickSand';
-			padding: 2%;
-			font-size: 400%;
-
-			display: inline-block;
-
-			background: linear-gradient(to right, rgb(13,13,13), white, rgb(47,47,47));
-			
-			-webkit-background-clip: text;
-			background-clip: text;
-
-			-webkit-text-fill-color: transparent;
-			text-fill-color: transparent;
-		}
-
-		.blackOutAnimation
-		{
-			animation-name: blackOutKeyframes;
-			animation-duration: 1s;
-			animation-delay: 0.5s;
-			animation-fill-mode: both;
-		}
-
-		@keyframes blackOutKeyframes
-		{
-			0%
-			{
-				opacity: 0%;
-			}
-		}
-
-		::selection
-		{
-			color: black;
-			background-color: white;
-		}
-
-
-
 	</style>
 
 	<div class="notification">
 		
 	</div>
 
-		<div>
-			<h1 id="pageTitle" class="blackOutAnimation">
-				Advanced Search &nbsp <i class="fab fa-sistrix" style="float: right;"></i>
-			</h1>
-		</div>
+
 	
 
 		<form name="advancedSearchForm" method="POST" 
 			  action="advancedSearch.php" target="_blank">
 
-		<div id="advancedSearchDiv" class="blackOutAnimation">
+		<div id="advancedSearchDiv">
 
 			<div id="searchConditionsDiv">
 
-				<div class="searchCondition stickyElement">
+				<div class="searchCondition">
 
 				<!-- <select name="conditionalConnection" class="selector">
 

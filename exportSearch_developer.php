@@ -16,6 +16,8 @@ $filename =        "Industry Data";
 
 $filename = "Industry Data";    
 
+$sql = "SELECT * FROM Contacts";
+
 $conn = mysqli_connect($server, $user, $password, $database);
 
 if (!$conn) 

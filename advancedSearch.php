@@ -105,7 +105,7 @@
 
       </div>
 
-     <form name="searchForm" action="" method="post" style="display: none;"> 
+     <!-- <form name="searchForm" action="" method="post"> 
 
           <div id="searchBarDiv">
              
@@ -118,7 +118,7 @@
           
           </div>
 
-     </form>
+     </form> -->
 
      <!-- EXPORT DIV START -->
 
@@ -193,7 +193,7 @@
      <div class="dashboard"></div>
     <!-- SEARCH SECTION -->
 
-     <div id="searchResultsDiv" class="advancedSearchResults">
+     <div  id="searchResultsDiv">
         
         <div class="widget">
 
@@ -202,7 +202,7 @@
           require_once "./global.php";
           require_once "./prerequisites.php";
 
-          global $previewsQueries;
+          global $searchBarTextValue, $keyWords, $previewsQueries;
 
           $previewsQueries = [];
           
@@ -225,15 +225,16 @@
           {
             echo "<div class=\"filterSearchResult primaryFilterDiv\">";
 
+
             if ($result->num_rows == 1) 
             {
               echo '<h2 class="widgetTitle">
 
-              <form method="post" action="exportAdvancedSearch.php">
+              <form method="post" action="exportSearch_developer.php">
 
-              <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
-              . '" class="filterSearchExportLink">
-                ' . $result->num_rows . ' Search Results  
+              <button type="submit" name="keyword" value="'. $searchBarTextValue . '" 
+              class="filterSearchExportLink">
+                ' . $result->num_rows . ' Search Result for ' . $searchBarTextValue . '
                  &nbsp<i class="fas fa-arrow-circle-right"></i>
               </button>
               </form>
@@ -244,11 +245,11 @@
             {
               echo '<h2 class="widgetTitle">
 
-              <form method="post" action="exportAdvancedSearch.php">
+              <form method="post" action="exportSearch_developer.php">
 
-              <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
-              . '" class="filterSearchExportLink">
-                ' . $result->num_rows . ' Search Results 
+              <button type="submit" name="keyword" value="'. $searchBarTextValue . '" 
+              class="filterSearchExportLink">
+                ' . $result->num_rows . ' Search Results for ' . $searchBarTextValue . '
                  &nbsp<i class="fas fa-arrow-circle-right"></i>
               </button>
               </form>
@@ -257,7 +258,8 @@
             }
             else
             {
-              echo '<h2 class="widgetTitle">' . $result->num_rows . ' Search Results</h2>';
+              echo '<h2 class="widgetTitle">' . $result->num_rows . 
+              ' Search Results for "' . $searchBarTextValue . '"</h2>';
             }
 
             // if ($result->num_rows == 1) 
@@ -277,7 +279,8 @@
 
           }
           else
-            echo '<h2 class="widgetTitle">Sorry, no results were found.</h2>';
+            echo '<h2 class="widgetTitle">Sorry, no results found for "' . 
+            $searchBarTextValue . '"</h2>';
           }
 
 
