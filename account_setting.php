@@ -135,7 +135,7 @@ body
 		$sql = "
 
 		UPDATE main
-		SET Password = '" . $_POST['userPassword1'] . "' 
+		SET Password = '" . password_hash($_POST['userPassword1'], PASSWORD_DEFAULT) . "' 
 		WHERE Email = '" . $_SESSION['email'] . "';
 
 		";
