@@ -85,14 +85,14 @@ function addRule(targetDivId = "searchConditionsDiv")
   conditionalSelector.classList.add('selector');
 
   var option = document.createElement('option');
-  option.setAttribute('value', 'AND');
-  option.text = 'AND';
+  option.setAttribute('value', 'OR');
+  option.text = 'OR';
 
   conditionalSelector.add(option);
 
   option = document.createElement('option');
-  option.setAttribute('value', 'OR');
-  option.text = 'OR';
+  option.setAttribute('value', 'AND');
+  option.text = 'AND';
 
   conditionalSelector.add(option);
 
