@@ -240,7 +240,7 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
 
   if (operation == "=")
   {
-    searchCondition += " = '" + keyword + "' ";
+    searchCondition += " = UPPER('" + keyword + "') ";
   }
   else // CONTAINS, STARTS WITH, ENDS WITH
   {

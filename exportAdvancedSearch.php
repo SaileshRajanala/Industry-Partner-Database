@@ -31,7 +31,7 @@ if (!$conn)
 //     }
 // }
     
-$filename = $_POST["keyword"];  
+$filename = "Advanced Search Results";  
 
 
 
@@ -50,14 +50,13 @@ global $htmlFields,
        $mentorAge,
        $roleModels;
 
-       
 
 $sql = "
 
 SELECT DISTINCT " . $insertSchema . 
-", Timestamp FROM Industry_Partner_Database WHERE False "; 
+", Timestamp FROM Industry_Partner_Database "; 
 
-$sql .= getSearchConditionsFor($_POST["keyword"]);
+$sql .= $_POST['searchRules'];
 
 $sql .= " ORDER BY Timestamp DESC ";
 
