@@ -205,6 +205,10 @@
           <img class="themeImage" src="theme_midnight.png">
         </button>
 
+        <button name="theme" class="themeImageButton" type="submit" value="wsu">
+          <img class="themeImage" src="theme_wsu.png">
+        </button>
+
       </div>
 
       </form>
@@ -879,12 +883,28 @@
 
   <?php
 
-    // $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
+    $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
 
-    // $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
 
-    // $row = $result->fetch_assoc();
+    $row = $result->fetch_assoc();
+    
+    if (mysqli_num_rows($result) > 0)
+    {
+      if (isset($row['Theme']) == 'dark')
+      {
+        echo '<script src="wallpaper.js"></script>';
+      }
+      elseif (isset($row['Theme']) == 'wsu')
+      {
+        echo '<script type="text/javascript">
 
+                document.body.style.backgroundImage = "url(\'wsu" + 
+                (Math.floor(Math.random() * 6) + 1) + ".jpg\')";
+
+              </script>';
+      }
+    }
     // if (mysqli_num_rows($result) > 0)
     // {
     //   if ($row['Theme'] != '')

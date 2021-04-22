@@ -1,12 +1,12 @@
 ::selection
 {
-	color: white;
-	background-color: black;
+	color: black;
+	background-color: white;
 }
 
 .emailLink
 {
-	color: black;
+	color: white;
 	background-color: transparent;
 	transition: all 0.25s;
 	text-decoration: none;
@@ -14,14 +14,15 @@
 	padding-left: 2%;
 	padding-right: 2%;
 	border-radius: 5em;
-	box-shadow: 0em 0em 1em rgb(200,200,200);
+	box-shadow: 0em 0em 1em #ffc217;
 }
 
 .emailLink:hover
 {
-	color: white;
-	background-color: black;
+	color: black;
+	background-color: #ffc217;
 	text-decoration: none;
+	box-shadow: none;
 }
 
 body
@@ -29,13 +30,13 @@ body
 	margin: 0;
 	padding: 4%;
 
-	color: black; 
-	background-color: white;
+	color: white; 
+	background-color: black;
 
 	font-size: x-large;
 	font-family: 'QuickSand';
 
-	background-image: url('wsu1.jpg'); /*theme*/
+	background-image: url('wsu6.jpg'); /*theme*/
 
 	background-attachment: fixed;
 
@@ -126,13 +127,15 @@ body
 {
 	padding: 2%;
 
-	-webkit-backdrop-filter: blur(1em); 	/*change*/
-	background-color: transparent; 		    /*change*/
+	/*-webkit-backdrop-filter: blur(1em);*/ 	/*change*/
+	/*background-color: transparent; */		    /*change*/
+
+	background-color: rgb(0,0,0,0.8); 
 
 	border-radius: 2em;
-	margin-bottom: 4%;
-	margin-top: 4%;
-	box-shadow: 0px 0em 2em rgb(0,200,200); /*change*/
+	margin-bottom: 10%;
+	margin-top: 10%;
+	box-shadow: none; /*change*/
 }
 
 .widgetTitle
@@ -157,22 +160,28 @@ tr
 
 	border-radius: 100em;
 
-	background-color: white;
+
+	color: white;
+	background-color: rgb(44,44,44);
 
 	display: block;
 	padding: 1%;
 	padding-top: 0.5%;
 	padding-bottom: 0.5%;
 	
-	box-shadow: 0px 0px 13px rgb(0,200,200); /*change*/
+	box-shadow: 0em 0em 1em black; /*change*/
 
 	transition: all 0.25s;
 }
 
 tr:hover
 {
+	
+	background-color: #ffc217;
+	color: black;
+
 	transform: scale(1.01);
-	box-shadow: 0px 0px 13px black;
+	box-shadow: none;
 	cursor: pointer;
 }
 
@@ -230,7 +239,7 @@ td::selection
 	left: 8%;
 	top: 0%;
 
-	background-color: transparent; /*change*/
+	background-color: #1f1f1f; /*change*/
 
 	margin: 7%; 
 	padding: 2%;
@@ -243,7 +252,7 @@ td::selection
 	animation-fill-mode: both;
 	animation-duration: 0.25s;
 
-	border-radius: none; /*change*/
+	border-radius: 2em; /*change*/
 	font-family: 'Quicksand';
 	box-shadow: none; /*change*/
 }
@@ -258,7 +267,9 @@ td::selection
 	z-index: 2;			/*change*/
 	-webkit-backdrop-filter: blur(1em); 	/*change*/
 	backdrop-filter: blur(1em);				/*change*/
-	background-color: transparent; 		    /*change*/
+	/*background-color: rgb(0,0,0,0.8); */		    /*change*/
+
+	color: #ffc217;
 }
 
 .previewSection
@@ -267,16 +278,18 @@ td::selection
 	width: 92%;
 	padding: 4%;
 
-	margin-top: 7%; 		  
-	margin-bottom: 7%; 	
-	background-color: white;  /*change*/
-	box-shadow: none; 		  /*change*/
+	margin-top: 4%; 		  
+	margin-bottom: 4%; 	
+	color: white;
+	background-color: transparent;  /*change*/
+	box-shadow: 0em 1em 1em black; 		  /*change*/
 }
 
 .previewSectionTitle, .previewTitle
 {
   font-family: 'Julius Sans One', sans-serif;
   font-size: 130%;
+  color: #ffc217;
 }
 
 /*.previewSectionTitle
@@ -300,7 +313,7 @@ td::selection
 
 .previewSection .previewBlock 
 {
-  background-color: rgb(243,243,243);
+  background-color: rgb(20,20,20);
   box-shadow: none;
 }
 
@@ -369,12 +382,12 @@ body
 	padding: 2%;
 	padding-right: 4%;
 	padding-left: 4%;
-	background-color: white;
+	background-color: #ffc217;
 	color: black;
 	border: none;
 	border-radius: 47px;
 	transition: all 0.25s;
-	box-shadow: 0px 0px 13px rgb(200,200,200);
+	box-shadow: 0em 0em 1em black;
 }
 
 .uiButton:hover,#close:hover,.uiButtonOn:hover
