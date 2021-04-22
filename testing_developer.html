@@ -177,24 +177,41 @@
 
         /*box-shadow: 0em 0em 1em rgb(200,200,200);*/
         padding: 4%;
-        border-radius: 1em;
+        border-radius: 3em;
         margin: 4%;
-        border: none;
+        border: white;
         transition: all 0.25s;
       }
 
       .themeImage
       {
         width: 100%;
+        border-radius: 2em;
+        box-shadow: 0em 0em 2em black;
       } 
 
       .themeImageButton:hover
       {
         cursor: pointer;
        /* transform: scale(1.1);*/
-        /*box-shadow: 0em 0em 2em rgb(200,200,200);*/
-        /*background-color: white; */
+        
+        background-color: rgb(47,47,47); 
+        transform: translateY(1em);
+
+        animation-name: glow;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
       }
+
+      @keyframes glow
+      {
+        50% 
+        {
+          background-color: white; 
+        }
+      }
+
 
       #themeOptionsDiv
       {
@@ -250,6 +267,8 @@
         border-radius: 2.5em;
         border-bottom-left-radius: 0em;
         border-bottom-right-radius: 0em;
+
+        box-shadow: 0em 2em 2em black;
       }
 
       #themesMenuDiv::-webkit-scrollbar 

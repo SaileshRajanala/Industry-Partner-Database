@@ -60,15 +60,15 @@ function addThemes(themeNames)
 }
 
 
-// ON DOCUMENT LOAD
-//id_('themesMenu').classList.add('displayNone');
+// // ON DOCUMENT LOAD
+// id_('themesMenuDiv').classList.add('displayNone');
 
 // id_('themeButton').addEventListener('click', function() 
 // {
-//     if (id_('themesMenu').classList.contains('displayNone'))
-//         id_('themesMenu').classList.remove('displayNone');
+//     if (id_('themesMenuDiv').classList.contains('displayNone'))
+//         id_('themesMenuDiv').classList.remove('displayNone');
 //     else
-//         id_('themesMenu').classList.add('displayNone');
+//         id_('themesMenuDiv').classList.add('displayNone');
 // });
 
 
@@ -83,7 +83,7 @@ addThemes([
 'dark', 
 'midnight',
 
-
+// NEW Themes go 
 
 
 ]);
