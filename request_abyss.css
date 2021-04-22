@@ -516,7 +516,7 @@ body
 .linkB 
 {
     background-color: transparent;
-    color: white;
+    color: black; /*change*/
     
     font-size: x-large;
     font-family: "QuickSand";
