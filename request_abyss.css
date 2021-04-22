@@ -29,8 +29,8 @@ body
 	margin: 0;
 	padding: 4%;
 
-	color: white; 				/*change*/
-	background-color: black;	/*change*/
+	color: white; 						/*change*/
+	background-color: black;			/*change*/
 
 	font-size: x-large;
 	font-family: 'QuickSand';
@@ -126,13 +126,13 @@ body
 {
 	padding: 2%;
 
-	-webkit-backdrop-filter: blur(1em); 	/*change*/
-	background-color: transparent;     /*change*/
+	-webkit-backdrop-filter: blur(1em); 		/*change*/
+	background-color: transparent;     			/*change*/
 
 	border-radius: 2em;
 	margin-bottom: 4%;
 	margin-top: 4%;
-	box-shadow: 0em 0em 2em rgb(13,13,13,0.4); /*change*/
+	box-shadow: 0em 0em 2em rgb(13,13,13,0.4); 	/*change*/
 }
 
 .widgetTitle
