@@ -126,8 +126,8 @@ function addRule(targetDivId = "searchConditionsDiv")
   operationSelector.add(option);
 
   option = document.createElement('option');
-  option.setAttribute('value', '=');
-  option.text = '=';
+  option.setAttribute('value', 'IS');
+  option.text = 'IS';
 
   operationSelector.add(option);
 
