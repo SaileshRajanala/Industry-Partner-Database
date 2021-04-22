@@ -13,8 +13,46 @@
     <meta name="viewport" content="width=device-width">
     <title>Industry Partner Database</title>
 
+
+
+
+    <?php
+
+
+    $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+    $result = mysqli_query($conn, $sql);
+
+    $row = $result->fetch_assoc();
+    
+    if (mysqli_num_rows($result) > 0)
+    {
+      echo $row['Theme'];
+
+      if ($row['Theme'] != '')
+      {
+        echo '<link href="request_' . $row['Theme'] . 
+        '.css" id="rS" rel="stylesheet" type="text/css">';
+      }
+      else
+      {
+        echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
+      }
+    }
+    else
+    {
+      echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
+    }
+
+    ?>
+
+
+
+
+
     <!-- CSS 3 EXTERNAL -->
-    <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
+   <!--  <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css"> -->
+
     <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
     <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
     <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
@@ -710,4 +748,32 @@
   </body>
   
   </html>
-  <script src='wallpaper.js'></script>
+
+
+  <?php
+
+
+    // $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+    // $result = mysqli_query($conn, $sql);
+
+    // $row = $result->fetch_assoc();
+
+    // if (mysqli_num_rows($result) > 0)
+    // {
+    //   if ($row['Theme'] != '')
+    //   {
+    //     ;
+    //   }
+    //   else
+    //   {
+    //     echo '<script src="wallpaper.js"></script>';
+    //   }
+    // }
+    // else
+    // {
+    //   echo '<script src="wallpaper.js"></script>';
+    // }
+
+    ?>
+  
