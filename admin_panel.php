@@ -278,9 +278,9 @@ reqAdminNames();
 		if ($result->num_rows == 1) 
 		{
 			echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error adding User. User already exists!</div>";
-		}
-		else
-		{
+		}elseif(!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL)){
+			echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error adding User. Invalid Gmail!</div>";
+		}else{
 		   if (mysqli_query($conn, $sql)) 
 			{
 			  echo "<div class='widget' style='text-align:center;color:aqua;margin-left:8%;margin-bottom:0%;margin-right:8%;'>User added successfully!</div>";
