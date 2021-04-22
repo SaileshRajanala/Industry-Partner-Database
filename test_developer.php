@@ -173,12 +173,12 @@
       #themesMenuDiv
       {
         position: fixed;
-        
+
       }
 
     </style>
 
-    <div id="themesMenuDiv">
+    <!-- <div id="themesMenuDiv">
     <div id="themesMenu">
 
       <form name="themeChange" method="POST" action="">
@@ -220,9 +220,10 @@
       </form>
       
     </div>
-  </div>
+  </div> -->
 
     
+  <script type="text/javascript" src="themeScript.js"></script>
 
 
 
@@ -277,8 +278,6 @@
             <i class="fas fa-paint-brush"></i>   
 
            </button>
-           <script type="text/javascript" src="themeScript.js"></script>
-
     </div>
 
 
