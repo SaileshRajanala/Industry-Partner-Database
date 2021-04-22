@@ -227,9 +227,7 @@ function manageRules()
     {
   
       addRule();
-      // manageRules();
-
-
+    
     });
   }
 }
