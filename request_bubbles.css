@@ -14,7 +14,7 @@
 	padding-left: 2%;
 	padding-right: 2%;
 	border-radius: 5em;
-	box-shadow: 0em 0em 1em rgb(200,200,200);
+	box-shadow: 0em 0em 1em black;
 }
 
 .emailLink:hover
@@ -271,7 +271,7 @@ td::selection
 
 	margin-top: 6%; 		  
 	margin-bottom: 0%; 	
-	background-color: white;  /*change*/
+	background-color: rgb(255,255,255,0.5);  /*change*/
 	box-shadow: none; 		  /*change*/
 }
 
