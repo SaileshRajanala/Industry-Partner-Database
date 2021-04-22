@@ -170,9 +170,15 @@
         display: none;
       }
 
+      #themesMenuDiv
+      {
+        position: fixed;
+        
+      }
+
     </style>
 
-
+    <div id="themesMenuDiv">
     <div id="themesMenu">
 
       <form name="themeChange" method="POST" action="">
@@ -214,7 +220,7 @@
       </form>
       
     </div>
-
+  </div>
 
     
 
