@@ -33,7 +33,7 @@ body
 	font-size: x-large;
 	font-family: 'QuickSand';
 
-	background-image: url('stars_aurora.png');
+	background-image: url('midnight.png');
 	background-attachment: fixed;
 	
 	background-size: cover;
@@ -74,9 +74,9 @@ body
 	left: 0%;
 	top: 0%;
 	/*background-color: rgb(25,25,25,0.4);*/
-	background-color: rgb(4,4,4,0.7);
-	-webkit-backdrop-filter: blur(13px);
-	backdrop-filter: blur(13px);
+	background-color: transparent;
+	-webkit-backdrop-filter: blur(1em);
+	backdrop-filter: blur(1em);
 }
 
 #topBar
@@ -118,10 +118,13 @@ body
 {
 	padding: 2%;
 
-	background-color: rgb(25,25,25);
+	background-color: rgb(4,4,4,0.7); /*change*/
 	border-radius: 2em;
 	margin-bottom: 4%;
 	margin-top: 4%;
+
+	-webkit-backdrop-filter: blur(1em); /*change*/
+	backdrop-filter: blur(1em);		 /*change*/
 }
 
 .widgetTitle
@@ -144,8 +147,8 @@ tr
 	margin-bottom: 1%;
 	margin-top: 1%;
 
-	border-radius: 100em;;
-	background-color: rgb(25,25,25);
+	border-radius: 100em;
+	background-color: rgb(44,44,44,0.7);
 	display: block;
 	padding: 1%;
 	padding-top: 0.5%;
@@ -216,7 +219,11 @@ td::selection
 	width: 66%;
 	left: 8%;
 	top: 0%;
-	background-color: rgb(25,25,25);
+
+	background-color: transparent;
+	-webkit-backdrop-filter: blur(1em); 	/*change*/
+	backdrop-filter: blur(1em);
+
 	margin: 7%; 
 	padding: 2%;
 	z-index: 9;
@@ -230,22 +237,33 @@ td::selection
 
 	border-radius: 47px;
 	font-family: 'Quicksand';
-	box-shadow: 0px 0px 13px black;
+	/*box-shadow: 0px 0px 13px black;*/
 }
 
 .previewTitle
 {
-	padding-left: 4%;
+	border-radius: 1em;	/*change*/
+	position: sticky;	/*change*/
+	top: -6%;			/*change*/
+	padding: 1.5%;	    /*change*/
+	padding-left: 4%;	/*change*/
+	z-index: 2;			/*change*/
+	-webkit-backdrop-filter: blur(1em); 	/*change*/
+	backdrop-filter: blur(1em);				/*change*/
+	background-color: transparent; 
 }
 
 .previewSection
 {
-	border-radius: 35px;
+	border-radius: 1.5em;
 	width: 92%;
 	padding: 4%;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	box-shadow: 0em 1em 1em black;
+
+	margin-top: 7%; 		  
+	margin-bottom: 0%; 	
+	background-color: rgb(4,4,4,0.7);
+	;  /*change*/
+	box-shadow: none; 		  /*change*/
 }
 
 .previewSectionTitle, .previewTitle
@@ -264,7 +282,7 @@ td::selection
 
 .previewSection .previewBlock 
 {
-  background-color: rgb(13,13,13);
+  background-color: rgb(44,44,44,0.5);
   box-shadow: none;
 }
 
