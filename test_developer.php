@@ -165,6 +165,11 @@
         padding: 0;
       }
 
+      .displayNone
+      {
+        display: none;
+      }
+
     </style>
 
 
@@ -207,7 +212,7 @@
     </div>
 
 
-    <script type="text/javascript" src="themeScript.js"></script>
+    
 
 
 
@@ -232,6 +237,8 @@
            Industry Partner Database</button>
          </form>
 
+
+
          
 
          <form method="POST" action="logout.php">
@@ -255,7 +262,15 @@
           <button id="searchNavButton" class="linkB" style="float: right">
             <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
 
+            <button id="themeButton" type="submit" class="linkB" style="float: right">
+              <span class="navLabel">Themes</span> 
+            <i class="fas fa-paint-brush"></i>   
+
+           </button>
+           <script type="text/javascript" src="themeScript.js"></script>
+
     </div>
+
 
     <!-- TOP BAR MOBILE START -->
       <!-- <script type="text/javascript" src="topBarMobileScript.js"></script> -->
