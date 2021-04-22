@@ -75,15 +75,27 @@ function addThemes(themeNames)
 
 // ADD THEMES BELOW
 addThemes([
-'wsu', 
+
 'bright', 
 'citrus', 
 'abyss', 
 'bubbles', 
 'dark', 
 'midnight',
+'wsu', 
 
-// NEW Themes go 
+// New Themes go below 
+// Add theme like above
 
+// eg. 'newtheme',
 
 ]);
+
+
+
+
+
+
+
+
+
