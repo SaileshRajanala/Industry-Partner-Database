@@ -891,11 +891,11 @@
     
     if (mysqli_num_rows($result) > 0)
     {
-      if (isset($row['Theme']) == 'dark')
+      if (isset($row['Theme']) && $row['Theme'] == 'dark')
       {
         echo '<script src="wallpaper.js"></script>';
       }
-      elseif (isset($row['Theme']) == 'wsu')
+      elseif (isset($row['Theme']) && $row['Theme'] == 'wsu')
       {
         echo '<script type="text/javascript">
 
@@ -905,21 +905,7 @@
               </script>';
       }
     }
-    // if (mysqli_num_rows($result) > 0)
-    // {
-    //   if ($row['Theme'] != '')
-    //   {
-    //     ;
-    //   }
-    //   else
-    //   {
-    //     echo '<script src="wallpaper.js"></script>';
-    //   }
-    // }
-    // else
-    // {
-    //   echo '<script src="wallpaper.js"></script>';
-    // }
+    
 
     ?>
   
