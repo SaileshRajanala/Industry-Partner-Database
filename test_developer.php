@@ -18,6 +18,13 @@
 
     <?php
 
+    if (isset($_POST['theme']))
+    {
+      $sql = "UPDATE main SET Theme = '" . $_POST['theme']
+      . "' WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+      mysqli_query($conn, $sql);
+    }
 
     $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
 
@@ -103,6 +110,97 @@
   </head>
 
   <body>
+
+    <style type="text/css">
+      
+      #themesMenu
+      {
+        background-color: transparent;
+        color: white;
+        padding: 4%;
+        margin: 4%; 
+        border-radius: 2em;
+
+        -webkit-backdrop-filter: blur(1em);
+        backdrop-filter: blur(1em);
+      }
+
+      .themeImageButton
+      {
+        width: 84%;
+        background-color: inherit;
+        /*box-shadow: 0em 0em 1em rgb(200,200,200);*/
+        padding: 4%;
+        border-radius: 1em;
+        margin: 4%;
+        border: none;
+        transition: all 0.25s;
+      }
+
+      .themeImage
+      {
+        width: 100%;
+      } 
+
+      .themeImageButton:hover
+      {
+        cursor: pointer;
+        transform: scale(1.1);
+        box-shadow: 0em 0em 2em rgb(200,200,200);
+        background-color: white; 
+      }
+
+      #themeOptionsDiv
+      {
+
+        display: grid;
+        grid-template-columns: auto auto auto;
+
+      }
+
+      #themeOptionsDiv li
+      {
+        width: 98%;
+        box-shadow: none;
+        padding: 0;
+      }
+
+    </style>
+
+
+    <div id="themesMenu">
+
+      <form name="themeChange" method="POST" action="">
+
+      <h1>Themes</h1>
+
+      <div id="themeOptionsDiv">
+
+        <button name="theme" class="themeImageButton" type="submit" value="bright">
+          <img class="themeImage" src="theme_bright.png">
+        </button>
+
+        <button name="theme" class="themeImageButton" type="submit" value="citrus">
+          <img class="themeImage" src="theme_citrus.png">
+        </button>
+
+        <button name="theme" class="themeImageButton" type="submit" value="abyss">
+          <img class="themeImage" src="theme_abyss.png">
+        </button>
+
+        <button name="theme" class="themeImageButton" type="submit" value="bubbles">
+          <img class="themeImage" src="theme_bubbles.png">
+        </button>
+
+        <button name="theme" class="themeImageButton" type="submit" value="midnight">
+          <img class="themeImage" src="theme_midnight.png">
+        </button>
+
+      </div>
+
+      </form>
+      
+    </div>
 
     <button class="uiButtonOff" id="close" onclick="closePreview()"> 
       Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
