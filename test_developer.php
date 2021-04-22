@@ -206,6 +206,18 @@
       
     </div>
 
+
+    <script type="text/javascript" src="themeScript.js"></script>
+
+
+
+
+
+
+
+
+
+
     <button class="uiButtonOff" id="close" onclick="closePreview()"> 
       Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
     </button>
