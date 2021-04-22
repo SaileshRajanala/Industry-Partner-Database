@@ -27,21 +27,19 @@
     
     if (mysqli_num_rows($result) > 0)
     {
-      echo $row['Theme'];
-
-      if ($row['Theme'] != '')
+      if (isset($row['Theme']))
       {
         echo '<link href="request_' . $row['Theme'] . 
         '.css" id="rS" rel="stylesheet" type="text/css">';
       }
       else
       {
-        echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
+        //echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
       }
     }
     else
     {
-      echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
+      //echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
     }
 
     ?>
@@ -74,7 +72,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 
     <!-- JavaScript (INTERNAL) -->
-    <script>
+    <!-- <script>
 
     var d = new Date();
 
@@ -100,7 +98,7 @@
         swapStylesheet("mobile_dark.css", "mS");
     }
 
-  </script>
+  </script> -->
 
   </head>
 
@@ -751,7 +749,6 @@
 
 
   <?php
-
 
     // $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
 
