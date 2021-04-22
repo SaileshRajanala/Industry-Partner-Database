@@ -95,10 +95,10 @@ body
 	z-index: 9;
 
 	width: 99%;
-	background-color: transparent; /*change*/
+	background-color: #1f1f1f; /*change*/
 	
-	-webkit-backdrop-filter: blur(13px);
-	backdrop-filter: blur(13px);
+	/*-webkit-backdrop-filter: blur(13px);
+	backdrop-filter: blur(13px);*/
 
 	animation-name: toplaunch;
   	animation-delay: 0.5s;
@@ -510,7 +510,7 @@ body
 .linkB 
 {
     background-color: transparent;
-    color: black;
+    color: white;
     
     font-size: x-large;
     font-family: "QuickSand";
@@ -532,9 +532,9 @@ body
 
 .linkB:hover
 {
-	background-color: white; /*change*/
-
-    box-shadow: 0px 0px 1em rgb(0,0,0); /*change*/
+	background-color: #ffc217; /*change*/
+	color: black;
+    box-shadow: none; /*change*/
     cursor: pointer;
 }
 
