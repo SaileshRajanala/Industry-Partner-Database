@@ -504,7 +504,7 @@ body
 {
   #topBar 
   {
-    background-color: white;
+    background-color: black;
   }
 
   #layer
@@ -516,7 +516,7 @@ body
 .linkB 
 {
     background-color: transparent;
-    color: black; /*change*/
+    color: white;
     
     font-size: x-large;
     font-family: "QuickSand";
