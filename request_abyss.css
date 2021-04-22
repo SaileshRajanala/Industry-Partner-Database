@@ -127,12 +127,12 @@ body
 	padding: 2%;
 
 	-webkit-backdrop-filter: blur(1em); 	/*change*/
-	background-color: rgb(13,13,13,0.2);     /*change*/
+	background-color: transparent;     /*change*/
 
 	border-radius: 2em;
 	margin-bottom: 4%;
 	margin-top: 4%;
-	box-shadow: none; /*change*/
+	box-shadow: 0em 0em 1em rgb(170,0,200); /*change*/
 }
 
 .widgetTitle
