@@ -4,6 +4,7 @@ function id_(_id)
     return document.getElementById(_id);    
 }
 
+id_('themesMenu').classList.add('displayNone');
 
 id_('themeButton').addEventListener('click', function() 
 {
