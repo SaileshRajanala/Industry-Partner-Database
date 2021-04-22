@@ -180,6 +180,10 @@
           <img class="themeImage" src="theme_bright.png">
         </button>
 
+        <button name="theme" class="themeImageButton" type="submit" value="dark">
+          <img class="themeImage" src="theme_dark.png">
+        </button>
+
         <button name="theme" class="themeImageButton" type="submit" value="citrus">
           <img class="themeImage" src="theme_citrus.png">
         </button>
