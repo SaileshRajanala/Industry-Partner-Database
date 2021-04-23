@@ -41,6 +41,86 @@ tableColumns.push("other_Role_Model");
 tableColumns.push("Involvement_Notes");
 
 
+var collegeEducation = ['No, I have not taken any college classes',
+                     'Yes, I have taken some college classes', 
+                     "Yes, I have an Associate's degree",
+                     "Yes, I have a Technical degree",
+                     "Yes, I have a Bachelor's degree",
+                     "I prefer not to answer"];
+
+var bsSchool = ['Yes, I did go to Wichita State University',
+             'No, I attended different university'];
+
+var Fields = ['Business', 
+              'Education', 
+              'Engineering', 
+              'Health Professions', 
+              'Liberal Arts',
+              'Math', 
+              'Science', 
+              'Other'];
+
+var engDisciplines = ['Aerospace Engineering', 
+                      'Applied Computing',
+                      'Biomedical Engineering', 
+                      'Chemical Engineering',
+                      'Civil Engineering', 
+                      'Computer Engineering',
+                      'Computer Science', 
+                      'Cybersecurity', 
+                      'Electrical Engineering',
+                      'Environmental Engineering', 
+                      'Engineering Management', 
+                      'Facilities Management', 
+                      'Industrial/Systems Engineering', 
+                      'Mechatronics', 
+                      'Mechanical Engineering', 
+                      'Product Design and Manufacturing Engineering', 
+                      'Other'];
+
+var ms_phd_school = ['Yes, from Wichita State University', 
+                     'Yes, from another College/University', 
+                     'No'];
+
+var involvement = ['Advising a team of students on a project',
+                   'Demonstrating a technical skill or area of expertise',
+                   'Facilitate tour of your company',
+                   'Judging a competition', 
+                   'K-12 Youth Outreach such as Summer Camps, Classroom Visits, etc',
+                   'One-Time Student Recruitment & Retention Event',
+                   'Research Partnership', 
+                   'Serving as a role model', 
+                   'Teaching a concept',
+                   'Tell your personal story as it relates to work in your field',
+                   "I'm not interested in involvement at this time"];
+
+var involvementLevels = ['A one-time event lasting 1 to 2 hours',
+                         'A day long event', 
+                         'A recurring relationship over a semester'];
+
+var recruitmentLevels = ['Elementary School', 
+                         'Middle School', 
+                         'High School', 
+                         'College/University'];
+
+var mentorAge = ['Elementry', 
+                 'Middle School', 
+                 'High School', 
+                 'Undergraduate', 
+                 "Master's", 
+                 "Doctoral"];
+
+var roleModels = ['First-generation college students', 
+                  'Female', 
+                  'African American', 
+                  'Hispanic', 
+                  'Veterans', 
+                  'Other'];
+
+
+
+
+
 
 
 
@@ -281,9 +361,9 @@ function generateQueryConditions()
     var queryRuleElements = searchConditions[i].getElementsByClassName('queryRuleElement');
   
     sqlConditions += generateSearchCondition(queryRuleElements[0].value,
-                                                  queryRuleElements[1].value,
-                                                  queryRuleElements[2].value,
-                                                  queryRuleElements[3].value);
+                                             queryRuleElements[1].value,
+                                             queryRuleElements[2].value,
+                                             queryRuleElements[3].value);
   }
 
   id_('answer').innerHTML = sqlConditions;
@@ -299,27 +379,27 @@ function generateQueryConditions()
 
 
 
-function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
-{
-  var formElements = document.forms[form].elements;
+// function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
+// {
+//   var formElements = document.forms[form].elements;
 
-  var selectors = document.forms[form].getElementsByClassName('selector');
-  var keywords = document.forms[form].getElementsByClassName('keywordTextField');
+//   var selectors = document.forms[form].getElementsByClassName('selector');
+//   var keywords = document.forms[form].getElementsByClassName('keywordTextField');
   
-  var searchConditions = 
-  generateSearchCondition('WHERE', selectors[0].value, selectors[1].value, keywords[0].value);
+//   var searchConditions = 
+//   generateSearchCondition('WHERE', selectors[0].value, selectors[1].value, keywords[0].value);
 
-  for (let i = 1; i < keywords.length; i++) 
-  {
-    searchConditions += generateSearchCondition(selectors[3 * i - 1].value,  // There are
-                                                selectors[3 * i + 0].value,  // 3 selectors
-                                                selectors[3 * i + 1].value,  // per row
-                                                keywords[i].value);
-  }
+//   for (let i = 1; i < keywords.length; i++) 
+//   {
+//     searchConditions += generateSearchCondition(selectors[3 * i - 1].value,  // There are
+//                                                 selectors[3 * i + 0].value,  // 3 selectors
+//                                                 selectors[3 * i + 1].value,  // per row
+//                                                 keywords[i].value);
+//   }
 
-  id_('answer').innerHTML = searchConditions;
-  id_('advancedSearchButton').setAttribute('value', searchConditions);
-}
+//   id_('answer').innerHTML = searchConditions;
+//   id_('advancedSearchButton').setAttribute('value', searchConditions);
+// }
 
 
 function generateRulesOnUserInput(form = 'advancedSearchForm')
@@ -344,7 +424,6 @@ function generateRulesOnUserInput(form = 'advancedSearchForm')
       generateQueryConditions();
     })
   }
-
 }
 
 
