@@ -152,6 +152,206 @@ function animate(_element, _animationClass)
   );
 }
 
+
+function generateSearchCondition(conditionalconnection, tableColumn, operation, keyword)
+{
+  var searchCondition = " " + conditionalconnection + " UPPER( " + tableColumn + " ) ";
+
+  if (operation == "IS")
+  {
+    searchCondition += " = UPPER('" + keyword + "') ";
+  }
+  else // CONTAINS, STARTS WITH, ENDS WITH
+  {
+    searchCondition += " LIKE UPPER(";
+
+    if (operation == "CONTAINS")
+    {
+      searchCondition += " '%" + keyword + "%' ) ";
+    }
+    else if (operation == "STARTS WITH")
+    {
+      searchCondition += " '" + keyword + "%' ) ";
+    }
+    else if (operation == "ENDS WITH")
+    {
+      searchCondition += " '%" + keyword + "' ) ";
+    }
+  }
+
+  return searchCondition;
+}
+
+
+function generateQueryConditions()
+{
+  var searchConditions = class_('searchCondition');
+  var queryRuleElements = searchConditions[0].getElementsByClassName('queryRuleElement');
+
+  var sqlConditions = generateSearchCondition('WHERE',
+                                              queryRuleElements[0].value,
+                                              queryRuleElements[1].value,
+                                              queryRuleElements[2].value);
+
+  for (let i = 1; i < searchConditions.length; i++) 
+  {
+    var queryRuleElements = searchConditions[i].getElementsByClassName('queryRuleElement');
+  
+    sqlConditions += generateSearchCondition(queryRuleElements[0].value,
+                                             queryRuleElements[1].value,
+                                             queryRuleElements[2].value,
+                                             queryRuleElements[3].value);
+  }
+
+  id_('answer').innerHTML = sqlConditions;
+  id_('advancedSearchButton').setAttribute('value', sqlConditions);
+}
+
+function generateRulesOnUserInput(form = 'advancedSearchForm')
+{
+  var formElements = document.forms[form].elements;
+
+  var selectors = document.forms[form].getElementsByClassName('selector');
+  var keywords = document.forms[form].getElementsByClassName('keywordTextField');
+
+  for (let index = 0; index < selectors.length; index++) 
+  {
+    selectors.addEventListener('change', function() 
+    {
+      generateQueryConditions();
+    })
+  }
+
+  for (let index = 0; index < keywords.length; index++) 
+  {
+    keywords.addEventListener('keyup', function() 
+    {
+      generateQueryConditions();
+    })
+  }
+}
+
+
+function replaceTextFieldWithSelectorIn(sourceArray, searchCondition)
+{
+  var searchConditionNode = searchCondition.getElementsByClassName('queryRuleElement')[0].parentNode;
+  var targetTextField = searchCondition.getElementsByClassName('keywordTextField')[0];
+
+  var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
+
+  var newOperationSelector = document.createElement('select');
+  newOperationSelector.classList.add('selector');
+  newOperationSelector.classList.add('operationSelector');
+  newOperationSelector.classList.add('queryRuleElement');
+
+  var option = document.createElement('option');
+  option.setAttribute('value', 'CONTAINS');
+  option.classList.add('option_CONTAINS');
+  option.text = 'CONTAINS';
+
+  newOperationSelector.append(option);
+
+  //searchConditionNode.replaceChild(newOperationSelector, operationSelector);
+  operationSelector.replaceWith(newOperationSelector);
+
+
+  // var searchCondition = textField.parentElement;
+  // var searchConditionNode = textField.parentNode;
+
+  var selector = document.createElement('select');
+  selector.classList.add('selector');
+  selector.classList.add('queryRuleElement');
+  selector.classList.add('keywordSelector');
+
+  // var option = ""; // type is not string in the loop
+  // // creating variable once but using it in the loop 
+
+  for (let index = 0; index < sourceArray.length; index++) 
+  {
+    option = document.createElement('option');
+
+    if (sourceArray[index] == "Other")
+      option.setAttribute('value', "Other");
+    else
+      option.setAttribute('value', index + 1);
+
+    option.text = sourceArray[index];
+    
+    selector.append(option);
+  }
+
+  //searchConditionNode.replaceChild(selector ,targetTextField);
+
+  targetTextField.replaceWith(selector);
+}
+
+
+function inputCalibration(tableColumnSelector) 
+{
+  tableColumnSelector.addEventListener('change', function() 
+  {
+    
+  if (tableColumnSelector.value == 'College_Education')
+  {
+    replaceTextFieldWithSelectorIn(collegeEducation, tableColumnSelector.parentElement);
+  }
+  else
+  {
+    var searchCondition = tableColumnSelector.parentElement;
+    var searchConditionNode = tableColumnSelector.parentNode;
+    var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
+    var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
+
+    var newOperationSelector = document.createElement('select');
+    newOperationSelector.classList.add('selector');
+    newOperationSelector.classList.add('operationSelector');
+    newOperationSelector.classList.add('queryRuleElement');
+
+    var option = document.createElement('option');
+    option.setAttribute('value', 'CONTAINS');
+    option.classList.add('option_CONTAINS');
+    option.text = 'CONTAINS';
+
+    newOperationSelector.add(option);
+
+    option = document.createElement('option');
+    option.setAttribute('value', 'IS');
+    option.classList.add('option_IS');
+    option.text = 'IS';
+
+    newOperationSelector.add(option);
+
+    option = document.createElement('option');
+    option.setAttribute('value', 'STARTS WITH');
+    option.classList.add('option_STARTS_WITH');
+    option.text = 'STARTS WITH';
+
+    newOperationSelector.add(option);
+
+    option = document.createElement('option');
+    option.setAttribute('value', 'ENDS WITH');
+    option.classList.add('option_ENDS_WITH');
+    option.text = 'ENDS WITH';
+
+    newOperationSelector.add(option);
+
+    operationSelector.replaceWith(newOperationSelector);
+
+    var textField = document.createElement('input');
+    textField.setAttribute('type', 'text');
+    textField.setAttribute('name', 'keywordValue');
+    textField.classList.add('keywordTextField');
+    textField.classList.add('queryRuleElement');
+
+    //searchConditionNode.replaceChild(textField, targetSelector);
+    targetSelector.replaceWith(textField);
+  }
+
+  });
+}
+
+
+
 function addRule(targetDivId = "searchConditionsDiv")
 {
   var searchConditionsDiv = id_(targetDivId);
@@ -195,6 +395,8 @@ function addRule(targetDivId = "searchConditionsDiv")
 
     tableColumnSelector.add(option);
   }
+
+  inputCalibration(tableColumnSelector);
 
   searchCondition.append(tableColumnSelector);
 
@@ -261,48 +463,15 @@ function addRule(targetDivId = "searchConditionsDiv")
 
   });
 
-  animate(searchCondition, 'appendAnimation');
 
-  // var ruleHTML = '<div class="searchCondition">\n\n' + 
+  // tableColumnSelector.addEventListener('change', function() 
+  // {
+  //    // VERY IMPORTANT FUNCTION
+  // });
 
-	// 			'<select name="conditionalConnection" class="selector">\n\n' + 
-
-	// 			'	<option value="AND">AND</option>\n' + 
-	// 			'	<option value="OR">OR</option>\n\n' + 
-					
-	// 			'</select>\n\n' + 
-
-	// 			'<select name="tableColumn" class="selector">\n\n' + 
-
-	// 			'	<option value="Prefix">Prefix</option>\n' + 
-	// 			'	<option value="Suffix">Suffix</option>\n' + 
-	// 			'	<option value="First_Name">First Name</option>\n' + 
-	// 			'	<option value="Last_Name">Last Name</option>\n\n' + 
-					
-	// 			'</select>\n\n' + 
-
-	// 			'<select name="operation" class="selector">\n\n' + 
-
-	// 			'	<option value="CONTAINS">CONTAINS</option>\n' + 
-	// 			'	<option value="="> = </option>\n' + 
-	// 			'	<option value="STARTS">STARTS WITH</option>\n' + 
-	// 			'	<option value="ENDS">ENDS WITH</option>\n\n' + 
-					
-	// 			'</select>\n\n' + 
-
-	// 			'<input type="text" name="keywordValue" class="keywordTextField">\n\n' + 
-
-	// 			'<button type="button" class="addRuleButton">\n' + 
-	// 				'Add <i class="fas fa-plus-circle"></i>\n\n' + 
-	// 			'</button>\n\n' + 
-
-	// 			'<button type="button" class="removeRuleButton">\n' + 
-	// 				'Remove <i class="fas fa-minus-circle"></i>\n' + 
-	// 			'</button>\n\n' + 
-				
-	// 		'</div>\n\n';
   
-  // searchConditionsDiv.innerHTML += ruleHTML;
+
+  animate(searchCondition, 'appendAnimation');
 }
 
 
@@ -323,243 +492,6 @@ function manageRules()
   }
 }
 
-function generateSearchCondition(conditionalconnection, tableColumn, operation, keyword)
-{
-  var searchCondition = " " + conditionalconnection + " UPPER( " + tableColumn + " ) ";
-
-  if (operation == "IS")
-  {
-    searchCondition += " = UPPER('" + keyword + "') ";
-  }
-  else // CONTAINS, STARTS WITH, ENDS WITH
-  {
-    searchCondition += " LIKE UPPER(";
-
-    if (operation == "CONTAINS")
-    {
-      searchCondition += " '%" + keyword + "%' ) ";
-    }
-    else if (operation == "STARTS WITH")
-    {
-      searchCondition += " '" + keyword + "%' ) ";
-    }
-    else if (operation == "ENDS WITH")
-    {
-      searchCondition += " '%" + keyword + "' ) ";
-    }
-  }
-
-  return searchCondition;
-}
-
-
-function generateQueryConditions()
-{
-  var searchConditions = class_('searchCondition');
-  var queryRuleElements = searchConditions[0].getElementsByClassName('queryRuleElement');
-
-  var sqlConditions = generateSearchCondition('WHERE',
-                                              queryRuleElements[0].value,
-                                              queryRuleElements[1].value,
-                                              queryRuleElements[2].value);
-
-  for (let i = 1; i < searchConditions.length; i++) 
-  {
-    var queryRuleElements = searchConditions[i].getElementsByClassName('queryRuleElement');
-  
-    sqlConditions += generateSearchCondition(queryRuleElements[0].value,
-                                             queryRuleElements[1].value,
-                                             queryRuleElements[2].value,
-                                             queryRuleElements[3].value);
-  }
-
-  id_('answer').innerHTML = sqlConditions;
-  id_('advancedSearchButton').setAttribute('value', sqlConditions);
-}
-
-
-
-
-
-
-
-
-
-
-// function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
-// {
-//   var formElements = document.forms[form].elements;
-
-//   var selectors = document.forms[form].getElementsByClassName('selector');
-//   var keywords = document.forms[form].getElementsByClassName('keywordTextField');
-  
-//   var searchConditions = 
-//   generateSearchCondition('WHERE', selectors[0].value, selectors[1].value, keywords[0].value);
-
-//   for (let i = 1; i < keywords.length; i++) 
-//   {
-//     searchConditions += generateSearchCondition(selectors[3 * i - 1].value,  // There are
-//                                                 selectors[3 * i + 0].value,  // 3 selectors
-//                                                 selectors[3 * i + 1].value,  // per row
-//                                                 keywords[i].value);
-//   }
-
-//   id_('answer').innerHTML = searchConditions;
-//   id_('advancedSearchButton').setAttribute('value', searchConditions);
-// }
-
-
-function generateRulesOnUserInput(form = 'advancedSearchForm')
-{
-  var formElements = document.forms[form].elements;
-
-  var selectors = document.forms[form].getElementsByClassName('selector');
-  var keywords = document.forms[form].getElementsByClassName('keywordTextField');
-
-  for (let index = 0; index < selectors.length; index++) 
-  {
-    selectors.addEventListener('change', function() 
-    {
-      generateQueryConditions();
-    })
-  }
-
-  for (let index = 0; index < keywords.length; index++) 
-  {
-    keywords.addEventListener('keyup', function() 
-    {
-      generateQueryConditions();
-    })
-  }
-}
-
-
-function replaceTextFieldWithSelector(sourceArray, textField)
-{
-  var searchCondition = textField.parentElement;
-
-  var selector = document.createElement('select');
-  selector.classList.add('selector');
-  selector.classList.add('queryRuleElement');
-  selector.classList.add('keywordSelector');
-
-  var option = ""; // type is not string in the loop
-  // creating variable once but using it in the loop 
-
-  for (let index = 0; index < sourceArray.length; index++) 
-  {
-    option = document.createElement('option');
-
-    if (sourceArray[index] == "Other")
-      option.setAttribute('value', "Other");
-    else
-      option.setAttribute('value', index + 1);
-
-    option.text = sourceArray[index];
-    
-    selector.append(option);
-  }
-
-  searchCondition.replaceChild(selector ,textField);
-}
-
-
-function detectAndReplaceTextFields() 
-{
-  var tableColumnSelectors = class_('tableColumnSelector');
-
-  for (let index = 0; index < tableColumnSelectors.length; index++) 
-  {
-    tableColumnSelectors[index].addEventListener('change', function() 
-    {
-
-
-
-      if (tableColumnSelectors[index].value == 'College_Education')
-      {
-        var searchCondition = tableColumnSelectors[index].parentElement;
-        var searchConditionNode = tableColumnSelectors[index].parentNode;
-        var targetTextField = searchCondition.getElementsByClassName('keywordTextField')[0];
-
-        var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
-
-        var newOperationSelector = document.createElement('select');
-        newOperationSelector.classList.add('selector');
-        newOperationSelector.classList.add('operationSelector');
-        newOperationSelector.classList.add('queryRuleElement');
-
-        var option = document.createElement('option');
-        option.setAttribute('value', 'CONTAINS');
-        option.classList.add('option_CONTAINS');
-        option.text = 'CONTAINS';
-
-        newOperationSelector.append(option);
-
-        searchConditionNode.replaceChild(newOperationSelector, operationSelector);
-
-        replaceTextFieldWithSelector(collegeEducation, targetTextField);
-      }
-      else
-      {
-        var searchCondition = tableColumnSelectors[index].parentElement;
-        var searchConditionNode = tableColumnSelectors[index].parentNode;
-        var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
-        var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
-
-        var newOperationSelector = document.createElement('select');
-        newOperationSelector.classList.add('selector');
-        newOperationSelector.classList.add('operationSelector');
-        newOperationSelector.classList.add('queryRuleElement');
-        
-        var option = document.createElement('option');
-        option.setAttribute('value', 'CONTAINS');
-        option.classList.add('option_CONTAINS');
-        option.text = 'CONTAINS';
-
-        newOperationSelector.add(option);
-
-        option = document.createElement('option');
-        option.setAttribute('value', 'IS');
-        option.classList.add('option_IS');
-        option.text = 'IS';
-
-        newOperationSelector.add(option);
-
-        option = document.createElement('option');
-        option.setAttribute('value', 'STARTS WITH');
-        option.classList.add('option_STARTS_WITH');
-        option.text = 'STARTS WITH';
-
-        newOperationSelector.add(option);
-
-        option = document.createElement('option');
-        option.setAttribute('value', 'ENDS WITH');
-        option.classList.add('option_ENDS_WITH');
-        option.text = 'ENDS WITH';
-
-        newOperationSelector.add(option);
-
-        searchConditionNode.replaceChild(newOperationSelector, operationSelector);
-
-        var textField = document.createElement('input');
-        textField.setAttribute('type', 'text');
-        textField.setAttribute('name', 'keywordValue');
-        textField.classList.add('keywordTextField');
-        textField.classList.add('queryRuleElement');
-
-        searchConditionNode.replaceChild(textField, targetSelector);
-      }
-
-
-
-
-    });
-  }
-}
-
-
-
-
 
 
 
@@ -569,10 +501,12 @@ function detectAndReplaceTextFields()
 
 
 // Function Calls
+class_('tableColumnSelector')[0].addEventListener('change', function() 
+{
+  inputCalibration(class_('tableColumnSelector')[0]);
+});
 
 manageRules();
-
-detectAndReplaceTextFields();
 
 id_('advancedSearchButton').addEventListener('click', function() 
 {
