@@ -295,6 +295,43 @@ function inputCalibration(tableColumnSelector)
   {
     replaceTextFieldWithSelectorIn(collegeEducation, tableColumnSelector.parentElement);
   }
+  else if (tableColumnSelector.value == 'BS_school')
+  {
+    replaceTextFieldWithSelectorIn(bsSchool, tableColumnSelector.parentElement);
+  }
+  else if (tableColumnSelector.value == 'BS_field' || tableColumnSelector.value == 'MS_field')
+  {
+    replaceTextFieldWithSelectorIn(Fields, tableColumnSelector.parentElement);
+  }
+  else if (tableColumnSelector.value == 'BS_Eng_Discipline' || 
+           tableColumnSelector.value == 'MS_Eng_Discipline'  )
+  {
+    replaceTextFieldWithSelectorIn(engDisciplines, tableColumnSelector.parentElement);
+  }
+  else if (tableColumnSelector.value == 'have_MS_degree' || tableColumnSelector.value == 'have_PHD_degree')
+  {
+    replaceTextFieldWithSelectorIn(ms_phd_school, tableColumnSelector.parentElement);
+  }
+  else if (tableColumnSelector.value == 'Involvement')
+  {
+    replaceTextFieldWithSelectorIn(involvement, tableColumnSelector.parentElement);
+  }
+  else if (tableColumnSelector.value == 'Involvement_Level')
+  {
+    replaceTextFieldWithSelectorIn(involvementLevels, tableColumnSelector.parentElement);
+  }
+  else if (tableColumnSelector.value == 'Recruitment_Level')
+  {
+    replaceTextFieldWithSelectorIn(recruitmentLevels, tableColumnSelector.parentElement);
+  }
+  else if (tableColumnSelector.value == 'Mentor_Age')
+  {
+    replaceTextFieldWithSelectorIn(mentorAge, tableColumnSelector.parentElement);
+  }
+  else if (tableColumnSelector.value == 'Role_Model')
+  {
+    replaceTextFieldWithSelectorIn(roleModels, tableColumnSelector.parentElement);
+  }
   else
   {
     var searchCondition = tableColumnSelector.parentElement;
