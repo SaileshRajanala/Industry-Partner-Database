@@ -268,31 +268,26 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
 
 function generateQueryConditions()
 {
-  var searchConditions = class_('searchConditions');
+  var searchConditions = class_('searchCondition');
   var queryRuleElements = searchConditions[0].getElementsByClassName('queryRuleElement');
 
-  var sqlConditions = generateSearchCondition(queryRuleElements[0].value,
-    queryRuleElements[1].value,
-    queryRuleElements[2].value,
-    queryRuleElements[3].value);
+  var sqlConditions = generateSearchCondition('WHERE',
+                                              queryRuleElements[0].value,
+                                              queryRuleElements[1].value,
+                                              queryRuleElements[2].value);
 
   for (let i = 1; i < searchConditions.length; i++) 
   {
     var queryRuleElements = searchConditions[i].getElementsByClassName('queryRuleElement');
-    
-    var conditionalconnection = queryRuleElements[0].value;
-    var tableColumn = queryRuleElements[1].value;
-    var operation = queryRuleElements[2].value;
-    var keyword = queryRuleElements[3].value;
-    
+  
     sqlConditions += generateSearchCondition(queryRuleElements[0].value,
                                                   queryRuleElements[1].value,
                                                   queryRuleElements[2].value,
                                                   queryRuleElements[3].value);
   }
 
-  id_('answer').innerHTML = searchConditions;
-  id_('advancedSearchButton').setAttribute('value', searchConditions);
+  id_('answer').innerHTML = sqlConditions;
+  id_('advancedSearchButton').setAttribute('value', sqlConditions);
 }
 
 
@@ -371,7 +366,7 @@ manageRules();
 
 id_('advancedSearchButton').addEventListener('click', function() 
 {
-  generate_MySQL_Search_Rules();
+  generateQueryConditions();
 });
 
 
