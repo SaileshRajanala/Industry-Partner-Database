@@ -538,10 +538,8 @@ function manageRules()
 
 
 // Function Calls
-class_('tableColumnSelector')[0].addEventListener('change', function() 
-{
-  inputCalibration(class_('tableColumnSelector')[0]);
-});
+
+inputCalibration(class_('tableColumnSelector')[0]);
 
 manageRules();
 
