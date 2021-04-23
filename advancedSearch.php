@@ -11,7 +11,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Search Results</title>
+    <title>Precision Search Results</title>
 
     <!-- CSS 3 EXTERNAL -->
     <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
@@ -233,7 +233,7 @@
 
               <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
               . '" class="filterSearchExportLink">
-                ' . $result->num_rows . ' Search Results  
+                ' . $result->num_rows . ' Precision Search Results  
                  &nbsp<i class="fas fa-arrow-circle-right"></i>
               </button>
               </form>
@@ -248,7 +248,7 @@
 
               <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
               . '" class="filterSearchExportLink">
-                ' . $result->num_rows . ' Search Results 
+                ' . $result->num_rows . ' Precision Search Results 
                  &nbsp<i class="fas fa-arrow-circle-right"></i>
               </button>
               </form>
@@ -257,7 +257,7 @@
             }
             else
             {
-              echo '<h2 class="widgetTitle">' . $result->num_rows . ' Search Results</h2>';
+              echo '<h2 class="widgetTitle">' . $result->num_rows . ' Precision Search Results</h2>';
             }
 
             // if ($result->num_rows == 1) 
