@@ -148,6 +148,17 @@
 			transform: scale(0.9);
 		}
 
+		#advancedSearchButton:disabled, 
+		#advancedSearchButton:disabled:hover,
+		#advancedSearchButton:disabled:active
+		{
+			border-color: gray;
+			color: gray;
+			background-color: black;
+			cursor: not-allowed;
+			transform: scale(1);
+		}
+
 		.appendAnimation
 		{
 			animation-name: appendKeyframes;
@@ -232,6 +243,8 @@
 			background-image: url('title_stars.png');
 			background-repeat: no-repeat;
 		}
+
+
 
 	</style>
 

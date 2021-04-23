@@ -552,7 +552,7 @@ function detectEmptyTextFields()
 
   var textFields = class_('keywordTextField');
 
-  for (let i = 0; i < selectors.length; i++) 
+  for (let i = 0; i < textFields.length; i++) 
   {
     textFields[i].addEventListener('keyup', function()
     {
@@ -563,7 +563,7 @@ function detectEmptyTextFields()
 
       var noEmptyTextFields = true;
 
-      for (let j = 0; j < selectors.length; j++) 
+      for (let j = 0; j < textFields.length; j++) 
       {
         if (textFields[j].value == "")
         {
