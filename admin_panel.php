@@ -293,7 +293,7 @@ reqAdminNames();
 		$sql = "
 
 		INSERT INTO 
-		main (Name, Email, Password, Is_Admin, Department, Theme)
+		main (Name, Email, Password, Is_Admin, Department, Theme) 
 		VALUES (" . 
 
 		"'" . $_POST['userName'] . "'" . "," . 

@@ -280,6 +280,16 @@ else
 
 array_push($values, htmlentities($_POST["Involvement_Notes"], ENT_QUOTES));
 
+
+
+
+
+
+
+
+
+
+
 // Submission variable
 $submission = FALSE;
 
@@ -309,19 +319,51 @@ VALUES   (" . $value_Schema . ");
 
 ";
 
+$passedTests = false;
+
+for ($i=0; $i < count($htmlFields); $i++) 
+{ 
+  if (isset($_POST[$htmlFields[$i]])) 
+  {
+    $passedTests = true;
+  }
+}
+$check_sql = "
+
+SELECT * FROM
+Industry_Partner_Database 
+WHERE 1 AND
+Email = " . "'" . $_POST['userEmail'] . "' LIMIT 1 
+
+";
+
+
+$result = $conn->query($check_sql);
+
+if ($result->num_rows == 1)
+
+
+
 // echo $sql;
 
 // echo "VALUE _SCHEMA : " . $value_Schema . '<br><br><br>';
 
 // echo "SQL  : " . $sql . '<br><br><br>';
 
-if (mysqli_query($conn, $sql)) 
-{   
-  $submission = TRUE;
+if ($passedTests)
+{
+  if (mysqli_query($conn, $sql)) 
+  {   
+    $submission = TRUE;
+  }
+  else 
+  {
+    echo "Error : <br><br>" . mysqli_error($conn);
+  }
 }
 else 
 {
-  echo "Error : <br><br>" . mysqli_error($conn);
+  echo "Error submitting the form!";
 }
   ?>
     
