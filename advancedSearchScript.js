@@ -203,7 +203,7 @@ function generateQueryConditions()
                                              queryRuleElements[3].value);
   }
 
-  id_('answer').innerHTML = sqlConditions;
+  // id_('answer').innerHTML = sqlConditions;
   id_('advancedSearchButton').setAttribute('value', sqlConditions);
 }
 
