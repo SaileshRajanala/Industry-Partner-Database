@@ -42,14 +42,14 @@ tableColumns.push("Involvement_Notes");
 
 
 var collegeEducation = ['No, I have not taken any college classes',
-                     'Yes, I have taken some college classes', 
-                     "Yes, I have an Associate's degree",
-                     "Yes, I have a Technical degree",
-                     "Yes, I have a Bachelor's degree",
-                     "I prefer not to answer"];
+                        'Yes, I have taken some college classes', 
+                        "Yes, I have an Associate's degree",
+                        "Yes, I have a Technical degree",
+                        "Yes, I have a Bachelor's degree",
+                        "I prefer not to answer"];
 
 var bsSchool = ['Yes, I did go to Wichita State University',
-             'No, I attended different university'];
+                'No, I attended different university'];
 
 var Fields = ['Business', 
               'Education', 
@@ -164,6 +164,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   conditionalSelector.setAttribute('name', 'conditionalConnection');
   conditionalSelector.classList.add('selector');
   conditionalSelector.classList.add('queryRuleElement');
+  conditionalSelector.classList.add('conditionalSelector');
 
   var option = document.createElement('option');
   option.setAttribute('value', 'OR');
@@ -184,6 +185,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   tableColumnSelector.setAttribute('name', 'tableColumn');
   tableColumnSelector.classList.add('selector');
   tableColumnSelector.classList.add('queryRuleElement');
+  tableColumnSelector.classList.add('tableColumnSelector');
   
   for (let index = 0; index < tableColumns.length; index++) 
   {
@@ -201,6 +203,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   operationSelector.setAttribute('name', 'operation');
   operationSelector.classList.add('selector');
   operationSelector.classList.add('queryRuleElement');
+  operationSelector.classList.add('operationSelector');
 
   option = document.createElement('option');
   option.setAttribute('value', 'CONTAINS');
@@ -427,6 +430,30 @@ function generateRulesOnUserInput(form = 'advancedSearchForm')
 }
 
 
+function addSelector_RemoveTextField(selector, textField)
+{
+  var searchCondition = textField.parentElement;
+  searchCondition.removeChild(textField);
+
+  var selector = documnet.createElement('select');
+  selector.classList.add('selector');
+  selector.classList.add('queryRuleElemet');
+  selector.classList.add('keywordSelector');
+}
+
+
+function replaceTextField_with_Selector() 
+{
+  var tableColumnSelectors = class_('tableColumnSelector');
+
+  for (let index = 0; index < tableColumnSelectors.length; index++) 
+  {
+    tableColumnSelectors[index].addEventListener('change', function() 
+    {
+
+    });
+  }
+}
 
 
 

@@ -261,10 +261,11 @@
 					
 				</select> -->
 
-				<select name="tableColumn" class="selector queryRuleElement">
+				<select name="tableColumn" class="selector queryRuleElement tableColumnSelector">
 					<option value="Prefix">Prefix</option><option value="Suffix">Suffix</option><option value="First_Name">First_Name</option><option value="Last_Name">Last_Name</option><option value="Email">Email</option><option value="Phone_Number">Phone_Number</option><option value="Employer">Employer</option><option value="Job_Title">Job_Title</option><option value="State">State</option><option value="City">City</option><option value="College_Education">College_Education</option><option value="Associates_Degree">Associates_Degree</option><option value="Technical_Degree">Technical_Degree</option><option value="College_Degree_Year">College_Degree_Year</option><option value="BS_school">BS_school</option><option value="BS_other_school">BS_other_school</option><option value="BS_field">BS_field</option><option value="other_BS_field">other_BS_field</option><option value="BS_Eng_Discipline">BS_Eng_Discipline</option><option value="other_BS_Eng_Discipline">other_BS_Eng_Discipline</option><option value="have_MS_degree">have_MS_degree</option><option value="MS_other_school">MS_other_school</option><option value="MS_year">MS_year</option><option value="MS_field">MS_field</option><option value="other_MS_field">other_MS_field</option><option value="MS_Eng_Discipline">MS_Eng_Discipline</option><option value="other_MS_Eng_Discipline">other_MS_Eng_Discipline</option><option value="have_PHD_degree">have_PHD_degree</option><option value="PHD_other_school">PHD_other_school</option><option value="PHD_year">PHD_year</option><option value="special_degree">special_degree</option><option value="Involvement">Involvement</option><option value="Involvement_Level">Involvement_Level</option><option value="Recruitment_Level">Recruitment_Level</option><option value="Mentor_Age">Mentor_Age</option><option value="Role_Model">Role_Model</option><option value="other_Role_Model">other_Role_Model</option><option value="Involvement_Notes">Involvement_Notes</option></select>
 
-				<select name="operation" class="selector queryRuleElement">
+				<select name="operation" 
+				class="selector queryRuleElement operationSelector">
 
 					<option value="CONTAINS">CONTAINS</option>
 					<option value="IS"> IS </option>
@@ -273,7 +274,8 @@
 					
 				</select>
 
-				<input type="text" name="keywordValue" class="keywordTextField queryRuleElement">
+				<input type="text" name="keywordValue" 
+				class="keywordTextField queryRuleElement">
 
 				<button type="button" class="addRuleButton">
 					Add <i class="fas fa-plus-circle"></i>
