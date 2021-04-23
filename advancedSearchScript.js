@@ -83,6 +83,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   var conditionalSelector = document.createElement('select');
   conditionalSelector.setAttribute('name', 'conditionalConnection');
   conditionalSelector.classList.add('selector');
+  conditionalSelector.classList.add('queryRuleElement');
 
   var option = document.createElement('option');
   option.setAttribute('value', 'OR');
@@ -102,6 +103,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   var tableColumnSelector = document.createElement('select');
   tableColumnSelector.setAttribute('name', 'tableColumn');
   tableColumnSelector.classList.add('selector');
+  tableColumnSelector.classList.add('queryRuleElement');
   
   for (let index = 0; index < tableColumns.length; index++) 
   {
@@ -118,6 +120,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   var operationSelector = document.createElement('select');
   operationSelector.setAttribute('name', 'operation');
   operationSelector.classList.add('selector');
+  operationSelector.classList.add('queryRuleElement');
 
   option = document.createElement('option');
   option.setAttribute('value', 'CONTAINS');
@@ -150,6 +153,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   keywordTextField.setAttribute('name', 'keywordValue');
   keywordTextField.setAttribute('type', 'text');
   keywordTextField.classList.add('keywordTextField');
+  keywordTextField.classList.add('queryRuleElement');
 
   searchCondition.append(keywordTextField);
 
@@ -236,7 +240,7 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
 {
   var searchCondition = " " + conditionalconnection + " UPPER( " + tableColumn + " ) ";
 
-  if (operation == "=")
+  if (operation == "IS")
   {
     searchCondition += " = UPPER('" + keyword + "') ";
   }
@@ -261,6 +265,45 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
   return searchCondition;
 }
 
+
+function generateQueryConditions()
+{
+  var searchConditions = class_('searchConditions');
+  var queryRuleElements = searchConditions[0].getElementsByClassName('queryRuleElement');
+
+  var sqlConditions = generateSearchCondition(queryRuleElements[0].value,
+    queryRuleElements[1].value,
+    queryRuleElements[2].value,
+    queryRuleElements[3].value);
+
+  for (let i = 1; i < searchConditions.length; i++) 
+  {
+    var queryRuleElements = searchConditions[i].getElementsByClassName('queryRuleElement');
+    
+    var conditionalconnection = queryRuleElements[0].value;
+    var tableColumn = queryRuleElements[1].value;
+    var operation = queryRuleElements[2].value;
+    var keyword = queryRuleElements[3].value;
+    
+    sqlConditions += generateSearchCondition(queryRuleElements[0].value,
+                                                  queryRuleElements[1].value,
+                                                  queryRuleElements[2].value,
+                                                  queryRuleElements[3].value);
+  }
+
+  id_('answer').innerHTML = searchConditions;
+  id_('advancedSearchButton').setAttribute('value', searchConditions);
+}
+
+
+
+
+
+
+
+
+
+
 function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
 {
   var formElements = document.forms[form].elements;
@@ -283,6 +326,7 @@ function generate_MySQL_Search_Rules(form = 'advancedSearchForm')
   id_('advancedSearchButton').setAttribute('value', searchConditions);
 }
 
+
 function generateRulesOnUserInput(form = 'advancedSearchForm')
 {
   var formElements = document.forms[form].elements;
@@ -294,7 +338,7 @@ function generateRulesOnUserInput(form = 'advancedSearchForm')
   {
     selectors.addEventListener('change', function() 
     {
-      generate_MySQL_Search_Rules(form);
+      generateQueryConditions();
     })
   }
 
@@ -302,7 +346,7 @@ function generateRulesOnUserInput(form = 'advancedSearchForm')
   {
     keywords.addEventListener('keyup', function() 
     {
-      generate_MySQL_Search_Rules(form);
+      generateQueryConditions();
     })
   }
 
