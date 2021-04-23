@@ -545,12 +545,39 @@ function manageRules()
   }
 }
 
+function detectEmptyTextFields() 
+{
+  id_('advancedSearchButton').disabled = true;
+  //disable searchButton on document launch
+
+  var textFields = class_('keywordTextField');
+
+  for (let i = 0; i < selectors.length; i++) 
+  {
+    textFields[i].addEventListener('keyup', function()
+    {
+      if (textFields[i].value == "")
+      {
+        id_('advancedSearchButton').disabled = true;
+      }
+    });
+  }
+}
 
 function dynamicWidth() 
 {
   var selectors = class_('selector');
 
-  
+  for (let i = 0; i < selectors.length; i++) 
+  {
+    selectors[i].addEventListener('change', function()
+    {
+      
+
+
+    });
+    
+  }
 }
 
 
@@ -563,6 +590,8 @@ function dynamicWidth()
 inputCalibration(class_('tableColumnSelector')[0]);
 
 manageRules();
+
+detectEmptyTextFields();
 
 id_('advancedSearchButton').addEventListener('click', function() 
 {
