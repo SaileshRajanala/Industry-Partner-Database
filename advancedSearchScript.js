@@ -403,6 +403,16 @@ function inputCalibration(tableColumnSelector)
   });
 }
 
+function disableSearchButton_IfEmpty(textField)
+{
+  textField.addEventListener('keyup', function()
+  {
+    if (textField.value == "")
+    {
+      id_('advancedSearchButton').disabled = true;
+    }
+  });
+}
 
 
 function addRule(targetDivId = "searchConditionsDiv")
@@ -498,7 +508,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   keywordTextField.classList.add('queryRuleElement');
 
   searchCondition.append(keywordTextField);
-
+  //disableSearchButton_IfEmpty(keywordTextField);
 
   var _button = document.createElement('button');
   _button.setAttribute('type', 'button');
@@ -543,6 +553,17 @@ function manageRules()
     
     });
   }
+}
+
+function disableSearchButton_IfEmpty(textField)
+{
+  textField.addEventListener('keyup', function()
+  {
+    if (textField.value == "")
+    {
+      id_('advancedSearchButton').disabled = true;
+    }
+  });
 }
 
 function detectEmptyTextFields() 
@@ -594,7 +615,7 @@ function dynamicWidth()
     selectors[i].addEventListener('change', function()
     {
       
-
+        // to be written
 
     });
     
@@ -609,10 +630,11 @@ function dynamicWidth()
 // Function Calls
 
 inputCalibration(class_('tableColumnSelector')[0]);
+//disableSearchButton_IfEmpty(class_('keywordTextField')[0]);
 
 manageRules();
 
-detectEmptyTextFields();
+// detectEmptyTextFields();
 
 id_('advancedSearchButton').addEventListener('click', function() 
 {
