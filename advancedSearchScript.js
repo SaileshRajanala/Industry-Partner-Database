@@ -430,19 +430,38 @@ function generateRulesOnUserInput(form = 'advancedSearchForm')
 }
 
 
-function addSelector_RemoveTextField(selector, textField)
+function replaceTextFieldWithSelector(sourceArray, textField)
 {
   var searchCondition = textField.parentElement;
   searchCondition.removeChild(textField);
 
-  var selector = documnet.createElement('select');
+  var selector = document.createElement('select');
   selector.classList.add('selector');
   selector.classList.add('queryRuleElemet');
   selector.classList.add('keywordSelector');
+
+  var option = ""; // type is not string in the loop
+  // creating variable once but using it in the loop 
+
+  for (let index = 0; index < sourceArray.length; index++) 
+  {
+    option = document.createElement('option');
+
+    if (sourceArray[index] == "Other")
+      option.setAttribute('value', "Other");
+    else
+      option.setAttribute('value', index + 1);
+
+    option.text = sourceArray[index];
+    
+    selector.append(option);
+  }
+
+  searchCondition.append(selector);
 }
 
 
-function replaceTextField_with_Selector() 
+function detectAndReplaceTextFields() 
 {
   var tableColumnSelectors = class_('tableColumnSelector');
 
@@ -450,6 +469,20 @@ function replaceTextField_with_Selector()
   {
     tableColumnSelectors[index].addEventListener('change', function() 
     {
+
+
+
+      if (tableColumnSelectors[index].value == 'College_Education')
+      {
+        var searchCondition = tableColumnSelectors[index].parentElement;
+        var targetTextField = searchCondition.getElementsByClassName('keywordTextField')[0];
+
+        replaceTextFieldWithSelector(collegeEducation, targetTextField);
+      }
+
+
+
+
 
     });
   }
@@ -469,6 +502,8 @@ function replaceTextField_with_Selector()
 // Function Calls
 
 manageRules();
+
+detectAndReplaceTextFields();
 
 id_('advancedSearchButton').addEventListener('click', function() 
 {
