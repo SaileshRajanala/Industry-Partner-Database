@@ -246,7 +246,7 @@ function sanitize(_id)
   });
 }
 
-function other(_name, _value = "Other", _form = "Industry_Partner_Database")
+function other(_name, _form = "Industry_Partner_Database")
 {
   
   /* CREATES THIS HTML ELEMENT
@@ -262,6 +262,8 @@ function other(_name, _value = "Other", _form = "Industry_Partner_Database")
   </label>
 
   */
+
+  var _value = "Other";
 
   var _type = document.forms[_form].elements[_name][0].type;
 
@@ -924,12 +926,17 @@ sanitize('city');
 
 
 
-other("BS_field", 'Other Degree');
-other("BS_Eng_Discipline[]", 'Other Discipline');
-other("MS_field");
-other("MS_Eng_Discipline[]", 'Other Discipline');
-other("Role_Model[]");
+// other("BS_field", 'Other Degree');
+// other("BS_Eng_Discipline[]", 'Other Discipline');
+// other("MS_field");
+// other("MS_Eng_Discipline[]", 'Other Discipline');
+// other("Role_Model[]");
 
+other("BS_field");
+other("BS_Eng_Discipline[]");
+other("MS_field");
+other("MS_Eng_Discipline[]");
+other("Role_Model[]");
 
 
 
