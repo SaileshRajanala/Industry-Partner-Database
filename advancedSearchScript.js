@@ -207,24 +207,28 @@ function addRule(targetDivId = "searchConditionsDiv")
 
   option = document.createElement('option');
   option.setAttribute('value', 'CONTAINS');
+  option.classList.add('option_CONTAINS');
   option.text = 'CONTAINS';
 
   operationSelector.add(option);
 
   option = document.createElement('option');
   option.setAttribute('value', 'IS');
+  option.classList.add('option_IS');
   option.text = 'IS';
 
   operationSelector.add(option);
 
   option = document.createElement('option');
   option.setAttribute('value', 'STARTS WITH');
+  option.classList.add('option_STARTS_WITH');
   option.text = 'STARTS WITH';
 
   operationSelector.add(option);
 
   option = document.createElement('option');
   option.setAttribute('value', 'ENDS WITH');
+  option.classList.add('option_ENDS_WITH');
   option.text = 'ENDS WITH';
 
   operationSelector.add(option);
@@ -433,11 +437,10 @@ function generateRulesOnUserInput(form = 'advancedSearchForm')
 function replaceTextFieldWithSelector(sourceArray, textField)
 {
   var searchCondition = textField.parentElement;
-  searchCondition.removeChild(textField);
 
   var selector = document.createElement('select');
   selector.classList.add('selector');
-  selector.classList.add('queryRuleElemet');
+  selector.classList.add('queryRuleElement');
   selector.classList.add('keywordSelector');
 
   var option = ""; // type is not string in the loop
@@ -457,7 +460,7 @@ function replaceTextFieldWithSelector(sourceArray, textField)
     selector.append(option);
   }
 
-  searchCondition.append(selector);
+  searchCondition.replaceChild(selector ,textField);
 }
 
 
@@ -475,11 +478,77 @@ function detectAndReplaceTextFields()
       if (tableColumnSelectors[index].value == 'College_Education')
       {
         var searchCondition = tableColumnSelectors[index].parentElement;
+        var searchConditionNode = tableColumnSelectors[index].parentNode;
         var targetTextField = searchCondition.getElementsByClassName('keywordTextField')[0];
+
+        var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
+
+        var newOperationSelector = document.createElement('select');
+        newOperationSelector.classList.add('selector');
+        newOperationSelector.classList.add('operationSelector');
+        newOperationSelector.classList.add('queryRuleElement');
+
+        var option = document.createElement('option');
+        option.setAttribute('value', 'CONTAINS');
+        option.classList.add('option_CONTAINS');
+        option.text = 'CONTAINS';
+
+        newOperationSelector.append(option);
+
+        searchConditionNode.replaceChild(newOperationSelector, operationSelector);
 
         replaceTextFieldWithSelector(collegeEducation, targetTextField);
       }
+      else
+      {
+        var searchCondition = tableColumnSelectors[index].parentElement;
+        var searchConditionNode = tableColumnSelectors[index].parentNode;
+        var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
+        var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
 
+        var newOperationSelector = document.createElement('select');
+        newOperationSelector.classList.add('selector');
+        newOperationSelector.classList.add('operationSelector');
+        newOperationSelector.classList.add('queryRuleElement');
+        
+        var option = document.createElement('option');
+        option.setAttribute('value', 'CONTAINS');
+        option.classList.add('option_CONTAINS');
+        option.text = 'CONTAINS';
+
+        newOperationSelector.add(option);
+
+        option = document.createElement('option');
+        option.setAttribute('value', 'IS');
+        option.classList.add('option_IS');
+        option.text = 'IS';
+
+        newOperationSelector.add(option);
+
+        option = document.createElement('option');
+        option.setAttribute('value', 'STARTS WITH');
+        option.classList.add('option_STARTS_WITH');
+        option.text = 'STARTS WITH';
+
+        newOperationSelector.add(option);
+
+        option = document.createElement('option');
+        option.setAttribute('value', 'ENDS WITH');
+        option.classList.add('option_ENDS_WITH');
+        option.text = 'ENDS WITH';
+
+        newOperationSelector.add(option);
+
+        searchConditionNode.replaceChild(newOperationSelector, operationSelector);
+
+        var textField = document.createElement('input');
+        textField.setAttribute('type', 'text');
+        textField.setAttribute('name', 'keywordValue');
+        textField.classList.add('keywordTextField');
+        textField.classList.add('queryRuleElement');
+
+        searchConditionNode.replaceChild(textField, targetSelector);
+      }
 
 
 
