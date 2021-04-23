@@ -60,8 +60,50 @@ $query = "select Email from main " ;
 	<link rel="preconnect" href="https://fonts.gstatic.com"> 
   	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
+
+
+
+
+  	<?php
+
+    if (isset($_POST['theme']))
+    {
+      $sql = "UPDATE main SET Theme = '" . $_POST['theme']
+      . "' WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+      mysqli_query($conn, $sql);
+    }
+
+    $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+    $result = mysqli_query($conn, $sql);
+
+    $row = $result->fetch_assoc();
+    
+    if (mysqli_num_rows($result) > 0)
+    {
+      if (isset($row['Theme']))
+      {
+        echo '<link href="request_' . $row['Theme'] . 
+        '.css" id="rS" rel="stylesheet" type="text/css">';
+      }
+      else
+      {
+        echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
+      }
+    }
+    else
+    {
+      echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
+    }
+
+    ?>
+
+
+<!-- <link rel="stylesheet" type="text/css" id="rS" href="request_dark.css">
+ -->
+
   	<link rel="stylesheet" type="text/css" id="tS" href="test_dark.css">
-  	<link rel="stylesheet" type="text/css" id="rS" href="request_dark.css">
   	<link rel="stylesheet" type="text/css" id="fS" href="style_dark.css">
   	<link rel="stylesheet" type="text/css" id="mS" href="mobile_dark.css">
 
@@ -69,7 +111,7 @@ $query = "select Email from main " ;
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
     <!-- JavaScript (INTERNAL) -->
-    <script>
+    <!-- <script>
 
     var d = new Date(); 
 
@@ -93,7 +135,7 @@ $query = "select Email from main " ;
         swapStylesheet("mobile_dark.css", "mS");
     }
 
-  </script>
+  </script> -->
 
 <style>
 
@@ -251,14 +293,15 @@ reqAdminNames();
 		$sql = "
 
 		INSERT INTO 
-		main (Name, Email, Password, Is_Admin, Department)
+		main (Name, Email, Password, Is_Admin, Department, Theme)
 		VALUES (" . 
 
 		"'" . $_POST['userName'] . "'" . "," . 
 		"'" . $_POST['userEmail'] . "'" . "," .
 		"'" . '$2y$10$36TVil8qx/HFC1.6nbQIYOZML9/erZcH0MUL.ufOdHacfC2qcs7Jy' . "'" . "," . 			// default password
 		"'" . $_POST['isAdmin'] . "'" . "," .
-		"'" . $_POST['department'] . "'" .
+		"'" . $_POST['department'] . "'" . "," .
+		"'" . 'wsu' . "'" .
 
 		 ");
 
@@ -278,9 +321,13 @@ reqAdminNames();
 		if ($result->num_rows == 1) 
 		{
 			echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error adding User. User already exists!</div>";
-		}elseif(!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL)){
+		}
+		elseif (!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL))
+		{
 			echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error adding User. Invalid Email!</div>";
-		}else{
+		}
+		else
+		{
 		   if (mysqli_query($conn, $sql)) 
 			{
 			  echo "<div class='widget' style='text-align:center;color:aqua;margin-left:8%;margin-bottom:0%;margin-right:8%;'>User added successfully!</div>";
