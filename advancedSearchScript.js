@@ -235,7 +235,11 @@ function generateRulesOnUserInput(form = 'advancedSearchForm')
 function replaceTextFieldWithSelectorIn(sourceArray, searchCondition)
 {
   var searchConditionNode = searchCondition.getElementsByClassName('queryRuleElement')[0].parentNode;
+
   var targetTextField = searchCondition.getElementsByClassName('keywordTextField')[0];
+
+
+  var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
 
   var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
 
