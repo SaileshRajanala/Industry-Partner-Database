@@ -560,8 +560,29 @@ function detectEmptyTextFields()
       {
         id_('advancedSearchButton').disabled = true;
       }
+
+      var noEmptyTextFields = true;
+
+      for (let j = 0; j < selectors.length; j++) 
+      {
+        if (textFields[j].value == "")
+        {
+          noEmptyTextFields = false;
+        }
+      }
+
+      if (noEmptyTextFields)
+      {
+        id_('advancedSearchButton').disabled = false;
+      }
     });
   }
+
+  
+
+  
+
+
 }
 
 function dynamicWidth() 
