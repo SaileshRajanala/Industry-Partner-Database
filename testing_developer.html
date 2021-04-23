@@ -26,7 +26,7 @@
 
     </style>
 
-    <link href="request_wsu.css" id="rS" rel="stylesheet" type="text/css">
+    <link href="request_abyss.css" id="rS" rel="stylesheet" type="text/css">
 
     
 
@@ -40,6 +40,9 @@
     <link href="export_bright.css" id="eS" rel="stylesheet" type="text/css">
     <link href="help_bright.css" id="hS" rel="stylesheet" type="text/css">
     <link href="mobile_bright.css" id="mS" rel="stylesheet" type="text/css">
+
+    <!-- THEMES CSSS -->
+    <link href="themes.css" id="thS" rel="stylesheet" type="text/css">
 
     <!-- CSS FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -154,169 +157,6 @@
 
   <body>
 
-
-    <style type="text/css">
-      
-      #themesMenu
-      {
-        background-color: transparent;
-        color: white;
-        padding: 4%;
-        margin: 0%; 
-        border-radius: 2em;
-
-        /*-webkit-backdrop-filter: blur(1em);
-        backdrop-filter: blur(1em);*/
-      }
-
-      .themeImageButton
-      {
-        width: 92%;
-        background-color: transparent;
-        position: relative;
-
-        /*box-shadow: 0em 0em 1em rgb(200,200,200);*/
-        padding: 4%;
-        border-radius: 3em;
-        margin: 4%;
-        border: white;
-        transition: all 0.25s;
-      }
-
-      .themeImage
-      {
-        width: 100%;
-        border-radius: 2em;
-        box-shadow: 0em 0em 2em black;
-      } 
-
-      .themeImageButton:hover
-      {
-        cursor: pointer;
-       /* transform: scale(1.1);*/
-        
-        background-color: rgb(47,47,47); 
-        transform: translateY(1em);
-
-        animation-name: glow;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        animation-fill-mode: both;
-      }
-
-      .themeImageButton:active
-      {
-        transform: scale(0.9);
-      }
-
-      @keyframes glow
-      {
-        50% 
-        {
-          background-color: white; 
-        }
-      }
-
-
-      #themeOptionsDiv
-      {
-        display: grid;
-        grid-template-columns: auto auto;
-      }
-
-      #themeOptionsDiv li
-      {
-        width: 98%;
-        box-shadow: none;
-        padding: 0;
-      }
-
-      #themesDivTitle
-      {
-        text-align: center;
-        position: sticky;
-        position: -webkit-sticky;
-
-        top: -1%;
-        padding: 4%; 
-
-        margin-left: -4%; 
-        margin-right: -4%;
-        padding-left: 8%; 
-        padding-right: 8%; 
-
-        margin-top: -1%; 
-
-        z-index: 4;
-        background-color: rgb(0,0,0,0.5);
-
-        -webkit-backdrop-filter: blur(1em);
-        backdrop-filter: blur(1em);
-      }
-
-      #themesMenuDiv
-      {
-        position: fixed;
-        left: 15%;
-        width: 70%;
-        top: 15%;
-        bottom: 0%;
-
-        overflow-y: scroll;
-
-        padding-bottom: 10%;
-
-        background-color: black;
-        z-index: 10;
-
-        border-radius: 2.5em;
-        border-bottom-left-radius: 0em;
-        border-bottom-right-radius: 0em;
-
-        box-shadow: 0em 2em 2em black;
-      }
-
-      #themesMenuDiv::-webkit-scrollbar 
-      {
-        display: none;
-      }
-
-      #themesMenuDiv 
-      {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-      }
-
-      .themeImageCaption
-      {
-        background-color: red;
-        color: white;
-        position: absolute;
-
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0;
-
-        background-color: rgb(0,0,0,0.4);
-
-        -webkit-backdrop-filter: blur(1em);
-        backdrop-filter: blur(1em);
-
-        font-family: 'Quicksand';
-        font-size: x-large;
-
-        transition: all 0.25s;
-      }
-
-      .themeImageCaption:hover
-      {
-        opacity: 1;
-      }
-
-    </style>
-
     <!-- <div id="themesMenuDiv">
     <div id="themesMenu">
 
@@ -361,7 +201,6 @@
 
 
 
-  <script type="text/javascript" src="themeScript.js"></script>
 
 
 
@@ -394,10 +233,18 @@
           <button id="searchNavButton" class="linkB" style="float: right">
             <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
 
+            <button id="themeButton" type="submit" class="linkB" style="float: right">
+              <span class="navLabel">Themes</span> 
+            <i class="fas fa-paint-brush"></i>   
+
+           </button>
     </div>
 
+
+  <script type="text/javascript" src="themeScript.js"></script>
+
     <!-- TOP BAR MOBILE START -->
-      <!-- <script type="text/javascript" src="topBarMobileScript.js"></script> -->
+      <script type="text/javascript" src="topBarMobileScript.js"></script>
       <!-- TOP BAR MOBILE END -->
       
       <!-- SEARCH BAR -->
@@ -1040,12 +887,12 @@
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
   document.body.style.backgroundImage = "url('wsu" + 
   (Math.floor(Math.random() * 6) + 1) + ".jpg')";
 
-</script>
+</script> -->
 
 
 

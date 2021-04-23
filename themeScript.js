@@ -4,6 +4,19 @@ function id_(_id)
     return document.getElementById(_id);    
 }
 
+function animate(_id, _animationClass)
+{
+  id_(_id).classList.add(_animationClass);
+
+  // Code below is necessary for animation on request.
+  id_(_id).addEventListener("animationend", 
+  function() 
+  {
+      id_(_id).classList.remove(_animationClass);            
+  }
+  );
+}
+
 function addThemes(themeNames)
 {
     var themeOptionsDiv = document.createElement('div');
@@ -60,37 +73,58 @@ function addThemes(themeNames)
 }
 
 
-// // ON DOCUMENT LOAD
-// id_('themesMenuDiv').classList.add('displayNone');
+function initializeThemes() 
+{
+    id_('themesMenuDiv').classList.add('displayNone');
 
-// id_('themeButton').addEventListener('click', function() 
-// {
-//     if (id_('themesMenuDiv').classList.contains('displayNone'))
-//         id_('themesMenuDiv').classList.remove('displayNone');
-//     else
-//         id_('themesMenuDiv').classList.add('displayNone');
-// });
+    id_('themeButton').addEventListener('click', function() 
+    {
+        if (id_('themesMenuDiv').classList.contains('displayNone'))
+        {
+            id_('themesMenuDiv').classList.remove('displayNone');
+            animate('themesMenuDiv', 'launchTopAnimation');
+
+            id_('themeButton').classList.add('linkB_active');
+        }
+        else
+        {
+            id_('themesMenuDiv').classList.add('displayNone');
+
+            if (id_('themeButton').classList.contains('linkB_active'))
+                id_('themeButton').classList.remove('linkB_active');
+        }
+    });    
+}
+
 
 
 
 // ADD THEMES BELOW
 addThemes([
 
+'wsu', 
 'bright', 
 'citrus', 
 'abyss', 
 'bubbles', 
 'dark', 
 'midnight',
-'wsu', 
 
-// New Themes go below 
-// Add theme like above
-
+// ADD THEMES BELOW THIS LINE <*> ------ <*>
 // eg. 'newtheme',
 
+
+
+
+
+// ADD THEMES ABOVE THIS LINE <*> ------ <*>
 ]);
 
+
+// // // // // // // // 
+initializeThemes();  // 
+// // // // // // // //
+// DON'T REMOVE ABOVE LINE - (!!!! important !!!!) 
 
 
 

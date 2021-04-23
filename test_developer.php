@@ -63,6 +63,9 @@
     <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
 
+    <!-- THEMES CSSS -->
+    <link href="themes.css" id="thS" rel="stylesheet" type="text/css">
+
     <!-- CSS FOR ICONS -->
 <!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  -->
@@ -111,73 +114,6 @@
 
   <body>
 
-    <style type="text/css">
-      
-      #themesMenu
-      {
-        background-color: transparent;
-        color: white;
-        padding: 4%;
-        margin: 4%; 
-        border-radius: 2em;
-
-        -webkit-backdrop-filter: blur(1em);
-        backdrop-filter: blur(1em);
-      }
-
-      .themeImageButton
-      {
-        width: 84%;
-        background-color: inherit;
-        /*box-shadow: 0em 0em 1em rgb(200,200,200);*/
-        padding: 4%;
-        border-radius: 1em;
-        margin: 4%;
-        border: none;
-        transition: all 0.25s;
-      }
-
-      .themeImage
-      {
-        width: 100%;
-      } 
-
-      .themeImageButton:hover
-      {
-        cursor: pointer;
-        transform: scale(1.1);
-        box-shadow: 0em 0em 2em rgb(200,200,200);
-        background-color: white; 
-      }
-
-      #themeOptionsDiv
-      {
-
-        display: grid;
-        grid-template-columns: auto auto auto;
-
-      }
-
-      #themeOptionsDiv li
-      {
-        width: 98%;
-        box-shadow: none;
-        padding: 0;
-      }
-
-      .displayNone
-      {
-        display: none;
-      }
-
-      #themesMenuDiv
-      {
-        position: fixed;
-
-      }
-
-    </style>
-
     <!-- <div id="themesMenuDiv">
     <div id="themesMenu">
 
@@ -223,9 +159,6 @@
   </div> -->
 
     
-  <script type="text/javascript" src="themeScript.js"></script>
-
-
 
 
 
@@ -262,16 +195,22 @@
 
 
           <button id="helpNavButton" class="linkB" style="float: right">
-            <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
+            <span class="navLabel">Help</span> 
+            <i id="helpNavIcon" class='far fa-question-circle'></i>
+          </button>
 
           <!-- <button class="linkB" style="float: right">
             Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
 
           <button id="exportNavButton" class="linkB" style="float: right">
-            <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
+            <span class="navLabel">Export</span> 
+            <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i>
+          </button>
 
           <button id="searchNavButton" class="linkB" style="float: right">
-            <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button>
+            <span class="navLabel">Search</span> 
+            <i id="searchNavIcon" class='fab fa-sistrix'></i>
+          </button>
 
             <button id="themeButton" type="submit" class="linkB" style="float: right">
               <span class="navLabel">Themes</span> 
@@ -279,6 +218,9 @@
 
            </button>
     </div>
+
+
+  <script type="text/javascript" src="themeScript.js"></script>
 
 
     <!-- TOP BAR MOBILE START -->
