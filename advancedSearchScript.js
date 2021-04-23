@@ -236,10 +236,10 @@ function replaceTextFieldWithSelectorIn(sourceArray, searchCondition)
 {
   var searchConditionNode = searchCondition.getElementsByClassName('queryRuleElement')[0].parentNode;
 
-  var targetTextField = searchCondition.getElementsByClassName('keywordTextField')[0];
-
-
-  var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
+  // if (searchCondition.getElementsByClassName('keywordTextField')[0] != undefined)
+  //   var targetTextField = searchCondition.getElementsByClassName('keywordTextField')[0];
+  // else
+  //   var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
 
   var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
 
@@ -286,7 +286,19 @@ function replaceTextFieldWithSelectorIn(sourceArray, searchCondition)
 
   //searchConditionNode.replaceChild(selector ,targetTextField);
 
-  targetTextField.replaceWith(selector);
+  // targetTextField.replaceWith(selector);
+  // targetSelector.replaceWith(selector);
+
+  if (searchCondition.getElementsByClassName('keywordTextField')[0] != undefined)
+  {
+    var targetTextField = searchCondition.getElementsByClassName('keywordTextField')[0];
+    targetTextField.replaceWith(selector);
+  }
+  else
+  {
+    var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
+    targetSelector.replaceWith(selector);
+  }
 }
 
 
