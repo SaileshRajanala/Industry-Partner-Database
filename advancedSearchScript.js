@@ -546,7 +546,12 @@ function manageRules()
 }
 
 
+function dynamicWidth() 
+{
+  var selectors = class_('selector');
 
+  
+}
 
 
 
