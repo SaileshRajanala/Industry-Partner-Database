@@ -107,6 +107,7 @@ addThemes([
 'citrus', 
 'abyss', 
 'bubbles', 
+'summer',
 'dark', 
 'midnight',
 
