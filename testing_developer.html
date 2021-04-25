@@ -95,18 +95,22 @@
   <body>
 
     <style type="text/css">
+
       #precisionSearchLinkDiv
       {
-        background-color: black;
         position: fixed;
         width: 50%;
-        left: 25%;
-        top: 35%;
-
+        left: 23%;
+        top: 30%;
         border-radius: 2em;
+        background-color: rgb(25,25,25);
+        padding: 2%;
+        font-family: 'Noto Sans KR';
+      }
 
-
-
+      #precisionSearchLinkDiv .info
+      {
+        margin: 2%;
       }
 
       #precisionSearchButton
@@ -115,14 +119,20 @@
         padding-left: 4%;
         padding-right: 4%;
 
+        margin: 0%;
+
+        text-align: left;
+
+        font-family: 'Quicksand';
+
         background-color: black;
         color: white;
 
         border-radius: 2em;
         width: 100%;
-        font-size: x-large;
+        font-size: xx-large;
 
-        border: none;
+        border: 0.1em solid white;
 
         transition: all 0.25s;
       }
@@ -130,22 +140,51 @@
       #precisionSearchButton:hover
       {
         cursor: pointer;
+        border-color: white;
+        background-color: white;
+        color: black;
+        
+        margin: 0%;
 
+        padding: 4%;
+        padding-left: 6%;
+        padding-right: 6%;
       }
+
+      #precisionSearchButton:active
+      {
+        background-color: white;
+        color: black;
+        border-color: white;
+        transform: scale(0.9);
+      }
+
+      .displayNone
+      {
+        display: none;
+      }
+
+      .launchUpAnimation
+      {
+        animation-name: launchUp;
+        animation-duration: 0.5s;
+        animation-fill-mode: both;
+      }
+
+      @keyframes launchUp
+      {
+        0%
+        {
+          opacity: 0;
+          transform: translateY(5em);
+        }
+      }
+
 
     </style>
 
 
-  <div id="precisionSearchLinkDiv">
-
-    <form method="POST" target="_blank" action="precisionSearch.html">
-      <button id="precisionSearchButton">
-        Precision Search <i class='fab fa-sistrix'></i>
-      </button>
-    </form>
-
-  </div>
-
+ 
 
 
 
@@ -187,6 +226,34 @@
     </div>
 
 
+
+
+
+  <div id="precisionSearchLinkDiv" class="displayNone">
+
+    <form method="POST" target="_blank" action="precisionSearch.html">
+      <button id="precisionSearchButton">
+        <i class='fab fa-sistrix'></i>  Precision Search
+      </button>
+    </form>
+
+    <div class="info">
+      
+      Precision Search enables you to search precisely by creating your own Search Conditions. <br><br>
+
+      Use it to search for something that involves a lot of conditions.
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="precisionSearchDiv.js"></script>
+
+
+
+
+
+
   <script type="text/javascript" src="themeScript.js"></script>
 
     <!-- TOP BAR MOBILE START -->
@@ -202,7 +269,8 @@
               <i class="fa fa-search"></i>
             </button>
             
-            <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
+            <input type="text" name="searchBar" id="searchBar" 
+            placeholder="Search...">
             
           </div>
 
@@ -226,26 +294,7 @@
       
     </div>
 
-    <script type="text/javascript">
-
-    var d = new Date();
-    var downloadIcons = document.getElementsByClassName("downloadIcon");
-
-    if (d.getHours() >= 6 && d.getHours() < 18)
-    {  
-        for (var i = downloadIcons.length - 1; i >= 0; i--) {
-          downloadIcons[i].src = "download_bright.png";
-        }
-    }
-    else
-    {
-        for (var i = downloadIcons.length - 1; i >= 0; i--) {
-          downloadIcons[i].src = "download_dark.png";
-        }    
-    }
-
-    </script>
-
+    
     <!-- EXPORT DIV END -->
 
     <!-- EXPORT DIV FUNCTIONALITY SCRIPT START -->

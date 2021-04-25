@@ -17,7 +17,7 @@ document.getElementById('searchBar').onfocus = function()
   document.getElementById("searchBarDiv").style.padding = '0.7%';
   document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
   document.getElementById("searchBarDiv").style.margin = '-0.7%';
-  document.getElementById("searchBarDiv").style.marginRight = '1.3%';
+  document.getElementById("searchBarDiv").style.paddingRight = '0.1%';
 };
 
 // CrossBrowserCompatible Method for FocusOut below
