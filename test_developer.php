@@ -36,17 +36,17 @@
     {
       if (isset($row['Theme']))
       {
-        echo '<link href="request_' . $row['Theme'] . 
+        echo '<link href="' . $row['Theme'] . 
         '.css" id="rS" rel="stylesheet" type="text/css">';
       }
       else
       {
-        echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
+        echo '<link href="dark.css" id="rS" rel="stylesheet" type="text/css">';
       }
     }
     else
     {
-      echo '<link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">';
+      echo '<link href="dark.css" id="rS" rel="stylesheet" type="text/css">';
     }
 
     ?>
@@ -58,13 +58,13 @@
     <!-- CSS 3 EXTERNAL -->
    <!--  <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css"> -->
 
-    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
+    <!-- <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
     <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
-    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
+    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css"> -->
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
 
     <!-- THEMES CSSS -->
-    <link href="themes.css" id="thS" rel="stylesheet" type="text/css">
+    <!-- <link href="themes.css" id="thS" rel="stylesheet" type="text/css"> -->
 
     <!-- CSS FOR ICONS -->
 <!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
