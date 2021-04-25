@@ -167,7 +167,22 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
 
     if (operation == "CONTAINS")
     {
-      searchCondition += " '%" + keyword + "%' ) ";
+      /*
+  
+        a
+
+        a, 2
+
+        1, a, 3
+
+        2, a
+
+      */
+
+      searchCondition += " '" + keyword + "' ) ";
+      searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '" + keyword + ",%') ";
+      searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword + ",%') ";
+      searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword + "') ";
     }
     else if (operation == "STARTS WITH")
     {
@@ -352,52 +367,56 @@ function inputCalibration(tableColumnSelector)
   {
     var searchCondition = tableColumnSelector.parentElement;
     var searchConditionNode = tableColumnSelector.parentNode;
-    var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
-    var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
+    
+    if (searchCondition.getElementsByClassName('keywordSelector')[0] != undefined)
+    {
+      var targetSelector = searchCondition.getElementsByClassName('keywordSelector')[0];
+      var operationSelector = searchCondition.getElementsByClassName('operationSelector')[0];
 
-    var newOperationSelector = document.createElement('select');
-    newOperationSelector.classList.add('selector');
-    newOperationSelector.classList.add('operationSelector');
-    newOperationSelector.classList.add('queryRuleElement');
+      var newOperationSelector = document.createElement('select');
+      newOperationSelector.classList.add('selector');
+      newOperationSelector.classList.add('operationSelector');
+      newOperationSelector.classList.add('queryRuleElement');
 
-    var option = document.createElement('option');
-    option.setAttribute('value', 'CONTAINS');
-    option.classList.add('option_CONTAINS');
-    option.text = 'CONTAINS';
+      var option = document.createElement('option');
+      option.setAttribute('value', 'CONTAINS');
+      option.classList.add('option_CONTAINS');
+      option.text = 'CONTAINS';
 
-    newOperationSelector.add(option);
+      newOperationSelector.add(option);
 
-    option = document.createElement('option');
-    option.setAttribute('value', 'IS');
-    option.classList.add('option_IS');
-    option.text = 'IS';
+      option = document.createElement('option');
+      option.setAttribute('value', 'IS');
+      option.classList.add('option_IS');
+      option.text = 'IS';
 
-    newOperationSelector.add(option);
+      newOperationSelector.add(option);
 
-    option = document.createElement('option');
-    option.setAttribute('value', 'STARTS WITH');
-    option.classList.add('option_STARTS_WITH');
-    option.text = 'STARTS WITH';
+      option = document.createElement('option');
+      option.setAttribute('value', 'STARTS WITH');
+      option.classList.add('option_STARTS_WITH');
+      option.text = 'STARTS WITH';
 
-    newOperationSelector.add(option);
+      newOperationSelector.add(option);
 
-    option = document.createElement('option');
-    option.setAttribute('value', 'ENDS WITH');
-    option.classList.add('option_ENDS_WITH');
-    option.text = 'ENDS WITH';
+      option = document.createElement('option');
+      option.setAttribute('value', 'ENDS WITH');
+      option.classList.add('option_ENDS_WITH');
+      option.text = 'ENDS WITH';
 
-    newOperationSelector.add(option);
+      newOperationSelector.add(option);
 
-    operationSelector.replaceWith(newOperationSelector);
+      operationSelector.replaceWith(newOperationSelector);
 
-    var textField = document.createElement('input');
-    textField.setAttribute('type', 'text');
-    textField.setAttribute('name', 'keywordValue');
-    textField.classList.add('keywordTextField');
-    textField.classList.add('queryRuleElement');
+      var textField = document.createElement('input');
+      textField.setAttribute('type', 'text');
+      textField.setAttribute('name', 'keywordValue');
+      textField.classList.add('keywordTextField');
+      textField.classList.add('queryRuleElement');
 
-    //searchConditionNode.replaceChild(textField, targetSelector);
-    targetSelector.replaceWith(textField);
+      //searchConditionNode.replaceChild(textField, targetSelector);
+      targetSelector.replaceWith(textField);
+    }
   }
 
   });
