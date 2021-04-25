@@ -236,6 +236,18 @@ td::selection
 .previewTitle
 {
 	padding-left: 4%;
+
+	background-color: inherit;
+	position: sticky;	/*change*/
+	position: -webkit-sticky;
+	top: -6%;			/*change*/
+	padding: 1.5%;	    /*change*/
+	margin-left: -4%;
+	margin-top: 1.5%;
+	margin-right: -4%;
+	padding-left: 8%;
+	padding-right: 4%;
+	z-index: 2;			/*change*/
 }
 
 .previewSection
