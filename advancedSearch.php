@@ -233,7 +233,7 @@
 
               <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
               . '" class="filterSearchExportLink">
-                ' . $result->num_rows . ' Precision Search Results  
+                ' . $result->num_rows . ' Precision Search Result  
                  &nbsp<i class="fas fa-arrow-circle-right"></i>
               </button>
               </form>
