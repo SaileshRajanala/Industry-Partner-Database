@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Precision Search</title>
-	<script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <title>Precision Search</title>
+    <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" id="rS" href="request_dark.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
 
-	
     <style type="text/css">
     body
     {
@@ -247,16 +247,11 @@
 
     </style>
 
-	<div class="notification">
-		
-	</div>
+    <div class="notification">
+    </div>
 
 
 
-
-
-
-	
     <!-- Top Bar Arc Structure -->
       <div id="topBar">
 
@@ -296,65 +291,102 @@
 
 
 
+    <div class="pageTitleDiv blackOutAnimation">
+        <h1 id="pageTitle">
 
-	
+            				Precision Search &nbsp 
+            <i class="fab fa-sistrix" style="float: right;"></i>
+        </h1>
+    </div>
 
-		<div class="pageTitleDiv blackOutAnimation">
-			<h1 id="pageTitle">
-				Precision Search &nbsp <i class="fab fa-sistrix" style="float: right;"></i>
-			</h1>
-		</div>
-	
+    <form name="advancedSearchForm" method="POST" action="advancedSearch.php" target="_blank">
 
-		<form name="advancedSearchForm" method="POST" 
-			  action="advancedSearch.php" target="_blank">
+        <div id="advancedSearchDiv" class="blackOutAnimation">
 
-		<div id="advancedSearchDiv" class="blackOutAnimation">
+            <div id="searchConditionsDiv">
 
-			<div id="searchConditionsDiv">
+                <div class="searchCondition stickyElement">
 
-				<div class="searchCondition stickyElement">
+                    <!-- <select name="conditionalConnection" class="selector" value="WHERE" style="display: none">
 
-				<!-- <select name="conditionalConnection" class="selector" value="WHERE" style="display: none">
+                    					<option value="WHERE">WHERE</option>
+                    					
+                    				</select> -->
 
-					<option value="WHERE">WHERE</option>
-					
-				</select> -->
+                    <select name="tableColumn" class="selector queryRuleElement tableColumnSelector">
+                        <option value="Prefix">Prefix</option>
+                        <option value="Suffix">Suffix</option>
+                        <option value="First_Name">First_Name</option>
+                        <option value="Last_Name">Last_Name</option>
+                        <option value="Email">Email</option>
+                        <option value="Phone_Number">Phone_Number</option>
+                        <option value="Employer">Employer</option>
+                        <option value="Job_Title">Job_Title</option>
+                        <option value="State">State</option>
+                        <option value="City">City</option>
+                        <option value="College_Education">College_Education</option>
+                        <option value="Associates_Degree">Associates_Degree</option>
+                        <option value="Technical_Degree">Technical_Degree</option>
+                        <option value="College_Degree_Year">College_Degree_Year</option>
+                        <option value="BS_school">BS_school</option>
+                        <option value="BS_other_school">BS_other_school</option>
+                        <option value="BS_field">BS_field</option>
+                        <option value="other_BS_field">other_BS_field</option>
+                        <option value="BS_Eng_Discipline">BS_Eng_Discipline</option>
+                        <option value="other_BS_Eng_Discipline">other_BS_Eng_Discipline</option>
+                        <option value="have_MS_degree">have_MS_degree</option>
+                        <option value="MS_other_school">MS_other_school</option>
+                        <option value="MS_year">MS_year</option>
+                        <option value="MS_field">MS_field</option>
+                        <option value="other_MS_field">other_MS_field</option>
+                        <option value="MS_Eng_Discipline">MS_Eng_Discipline</option>
+                        <option value="other_MS_Eng_Discipline">other_MS_Eng_Discipline</option>
+                        <option value="have_PHD_degree">have_PHD_degree</option>
+                        <option value="PHD_other_school">PHD_other_school</option>
+                        <option value="PHD_year">PHD_year</option>
+                        <option value="special_degree">special_degree</option>
+                        <option value="Involvement">Involvement</option>
+                        <option value="Involvement_Level">Involvement_Level</option>
+                        <option value="Recruitment_Level">Recruitment_Level</option>
+                        <option value="Mentor_Age">Mentor_Age</option>
+                        <option value="Role_Model">Role_Model</option>
+                        <option value="other_Role_Model">other_Role_Model</option>
+                        <option value="Involvement_Notes">Involvement_Notes</option>
+                    </select>
 
-				<select name="tableColumn" class="selector queryRuleElement tableColumnSelector">
-					<option value="Prefix">Prefix</option><option value="Suffix">Suffix</option><option value="First_Name">First_Name</option><option value="Last_Name">Last_Name</option><option value="Email">Email</option><option value="Phone_Number">Phone_Number</option><option value="Employer">Employer</option><option value="Job_Title">Job_Title</option><option value="State">State</option><option value="City">City</option><option value="College_Education">College_Education</option><option value="Associates_Degree">Associates_Degree</option><option value="Technical_Degree">Technical_Degree</option><option value="College_Degree_Year">College_Degree_Year</option><option value="BS_school">BS_school</option><option value="BS_other_school">BS_other_school</option><option value="BS_field">BS_field</option><option value="other_BS_field">other_BS_field</option><option value="BS_Eng_Discipline">BS_Eng_Discipline</option><option value="other_BS_Eng_Discipline">other_BS_Eng_Discipline</option><option value="have_MS_degree">have_MS_degree</option><option value="MS_other_school">MS_other_school</option><option value="MS_year">MS_year</option><option value="MS_field">MS_field</option><option value="other_MS_field">other_MS_field</option><option value="MS_Eng_Discipline">MS_Eng_Discipline</option><option value="other_MS_Eng_Discipline">other_MS_Eng_Discipline</option><option value="have_PHD_degree">have_PHD_degree</option><option value="PHD_other_school">PHD_other_school</option><option value="PHD_year">PHD_year</option><option value="special_degree">special_degree</option><option value="Involvement">Involvement</option><option value="Involvement_Level">Involvement_Level</option><option value="Recruitment_Level">Recruitment_Level</option><option value="Mentor_Age">Mentor_Age</option><option value="Role_Model">Role_Model</option><option value="other_Role_Model">other_Role_Model</option><option value="Involvement_Notes">Involvement_Notes</option></select>
+                    <select name="operation" class="selector queryRuleElement operationSelector">
 
-				<select name="operation" 
-				class="selector queryRuleElement operationSelector">
+                        <option class="option_CONTAINS" value="CONTAINS">CONTAINS</option>
+                        <option class="option_IS" value="IS"> IS </option>
+                        <option class="option_STARTS_WITH" value="STARTS WITH">STARTS WITH</option>
+                        <option class="option_ENDS_WITH" value="ENDS WITH">ENDS WITH</option>
 
-					<option class="option_CONTAINS" value="CONTAINS">CONTAINS</option>
-					<option class="option_IS" value="IS"> IS </option>
-					<option class="option_STARTS_WITH" value="STARTS WITH">STARTS WITH</option>
-					<option class="option_ENDS_WITH" value="ENDS WITH">ENDS WITH</option>
-					
-				</select>
+                    </select>
 
-				<input type="text" name="keywordValue" 
-				class="keywordTextField queryRuleElement">
+                    <input type="text" name="keywordValue" class="keywordTextField queryRuleElement">
 
-				<button type="button" class="addRuleButton">
-					Add <i class="fas fa-plus-circle"></i>
-				</button>
+                    <button type="button" class="addRuleButton">
 
-				<button type="submit" name="advancedSearchButton" id="advancedSearchButton">
-					Search <i class="fab fa-sistrix"></i>
-				</button>
-				
-			</div>
+                        					Add 
+                        <i class="fas fa-plus-circle"></i>
+                    </button>
 
-		</div>
-	</div>
-</form>
-		
-	<div id="answer" style="color: white;font-size: larger"></div>
+                    <button type="submit" name="advancedSearchButton" id="advancedSearchButton">
 
-<script type="text/javascript" src="advancedSearchScript.js"></script>
+                        					Search 
+                        <i class="fab fa-sistrix"></i>
+                    </button>
 
+                </div>
 
+            </div>
+        </div>
+    </form>
+
+    <div id="answer" style="color: white;font-size: larger"></div>
+
+    <script type="text/javascript" src="advancedSearchScript.js"></script>
+    
 </body>
 </html>
+

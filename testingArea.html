@@ -8,255 +8,294 @@
 </head>
 <body>
 
-	<style type="text/css">
-		body
-		{
-			background-color: black;
-		}
+	
+    <style type="text/css">
+    body
+    {
+        background-color: black;
+        background-image: none;
+        padding: 0%;
+    }
 
-		.notification
-		{
-			
-		}
+    .notification
+    {
+    }
 
-		.keywordTextField
-		{
-			min-width: 15%;
-			max-width: 20%;
+    .keywordTextField
+    {
+        min-width: 15%;
+        max-width: 20%;
+        margin-top: -0.25%;
+        margin-bottom: -0.25%;
+    }
 
-			margin-top: -0.25%;
-			margin-bottom: -0.25%;
-		}
+    .keywordTextField::selection
+    {
+        color: white;
+        background-color: black;
+    }
 
-		.keywordTextField::selection
-		{
-			color: white;
-			background-color: black;
-		}
+    .keywordTextField, .selector
+    {
+        font-family: 'Quicksand';
+        color: white;
+        background-color: rgb(25, 25, 25);
+        border: solid transparent;
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+        outline: none;
+        font-size: x-large;
+        border-radius: 5em;
+        padding: 0.5%;
+        padding-left: 1%;
+        padding-right: 1%;
+        transition: all 0.25s;
+    }
 
-		.keywordTextField, .selector
-		{
-			font-family: 'Quicksand';
-			color: white;
-			background-color: rgb(25,25,25);
-			border: solid transparent;
+    .selector
+    {
+        border-radius: 2em;
+        float: left;
+    }
 
-			margin-left: 0.5%;
-			margin-right: 0.5%;
-			outline: none;
+    .keywordSelector
+    {
+        width: 25.5%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
-			font-size: x-large;
-			border-radius: 5em;
+    .keywordTextField:hover, .selector:hover
+    {
+        cursor: pointer;
+        border-color: white;
+    }
 
-			padding: 0.5%;
-			padding-left: 1%;
-			padding-right: 1%;
+    .keywordTextField:focus, .selector:active
+    {
+        cursor: pointer;
+        background-color: white;
+        color: black;
+        border-color: white;
+    }
 
-			transition: all 0.25s;
-		}
+    .searchCondition
+    {
+        background-color: black;
+        display: flex;
+        border-radius: 5em;
+        padding: 1%;
+    }
 
-		.selector
-		{
-			border-radius: 2em;
-			float: left;
-		}
+    .addRuleButton, .removeRuleButton, #advancedSearchButton
+    {
+        font-family: 'Quicksand';
+        background-color: transparent;
+        border: solid transparent;
+        color: lime;
+        font-size: x-large;
+        border-radius: 5em;
+        outline: none;
+        padding: 0.25%;
+        padding-left: 1%;
+        padding-right: 1%;
+        transition: all 0.1s;
+    }
 
-		.keywordSelector
-		{
-			width: 25.5%;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
+    .removeRuleButton
+    {
+        color: red;
+    }
 
-		.keywordTextField:hover, .selector:hover
-		{
-			cursor: pointer;
-			border-color: white;
-		}
+    #advancedSearchButton
+    {
+        color: white;
+        border-color: white;
+    }
 
-		.keywordTextField:focus, .selector:active
-		{
-			cursor: pointer;
-			background-color: white;
-			color: black;
-			border-color: white;
-		}
+    .addRuleButton:hover, .removeRuleButton:hover, #advancedSearchButton:hover
+    {
+        border-color: lime;
+        cursor: pointer;
+    }
 
-		.searchCondition
-		{
-			background-color: black;
-			display: flex;
-			border-radius: 5em;
-			padding: 1%;
-		}
+    .removeRuleButton:hover
+    {
+        border-color: red;
+    }
 
-		.addRuleButton, .removeRuleButton, #advancedSearchButton
-		{
-			font-family: 'Quicksand';
-			background-color: transparent;
-			border: solid transparent;
+    #advancedSearchButton:hover
+    {
+        background-color: white;
+        border-color: transparent;
+        color: black;
+    }
 
-			color: lime;
-			font-size: x-large;
-			border-radius: 5em;
-			outline: none;
+    .addRuleButton:active, .removeRuleButton:active
+    {
+        background-color: lime;
+        color: black;
+        transform: scale(0.9);
+    }
 
-			padding: 0.25%;
-			padding-left: 1%;
-			padding-right: 1%;
+    .removeRuleButton:active
+    {
+        background-color: red;
+        color: white;
+    }
 
-			transition: all 0.1s;
-		}
+    #advancedSearchButton:active
+    {
+        transform: scale(0.9);
+    }
 
-		.removeRuleButton
-		{
-			color: red;
-		}
+    #advancedSearchButton:disabled, #advancedSearchButton:disabled:hover, #advancedSearchButton:disabled:active
+    {
+        border-color: gray;
+        color: gray;
+        background-color: black;
+        cursor: not-allowed;
+        transform: scale(1);
+    }
 
-		#advancedSearchButton
-		{
-			color: white;
-			border-color: white;
-		}
+    .appendAnimation
+    {
+        animation-name: appendKeyframes;
+        animation-duration: 0.5s;
+        animation-fill-mode: both;
+    }
 
-		.addRuleButton:hover, .removeRuleButton:hover, #advancedSearchButton:hover
-		{
-			border-color: lime;
-			cursor: pointer;
-		}
+    @keyframes appendKeyframes
+    {
+        0%
+        {
+            transform: scale(1.1);
+        }
+    }
 
-		.removeRuleButton:hover
-		{
-			border-color: red;
-		}
+    input[type="text"]:hover
+    {
+        cursor: text;
+    }
 
-		#advancedSearchButton:hover
-		{
-			background-color: white;
-			border-color: transparent;
-			color: black;
-		}
+    .stickyElement
+    {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0%;
+        z-index: 4;
+        background-color: transparent;
+        -webkit-backdrop-filter: blur(1em);
+        backdrop-filter: blur(1em);
+    }
 
-		.addRuleButton:active, .removeRuleButton:active 
-		{
-			background-color: lime;
-			color: black;
-			transform: scale(0.9);
-		}
+    #pageTitle::selection
+    {
+        color: inherit;
+        background-color: inherit;
+    }
 
-		.removeRuleButton:active
-		{
-			background-color: red;
-			color: white;
-		}
+    #pageTitle
+    {
+        color: white;
+        font-family: 'QuickSand';
+        padding: 2%;
+        padding-top: 4%;
+        margin-left: -6%;
+        font-size: 250%;
+        display: inline-block;
+        background: linear-gradient(to right, rgb(13, 13, 13), white, rgb(47, 47, 47));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-fill-color: transparent;
+    }
 
-		#advancedSearchButton:active
-		{
-			transform: scale(0.9);
-		}
+    .blackOutAnimation
+    {
+        animation-name: blackOutKeyframes;
+        animation-duration: 1s;
+        animation-delay: 0.5s;
+        animation-fill-mode: both;
+    }
 
-		#advancedSearchButton:disabled, 
-		#advancedSearchButton:disabled:hover,
-		#advancedSearchButton:disabled:active
-		{
-			border-color: gray;
-			color: gray;
-			background-color: black;
-			cursor: not-allowed;
-			transform: scale(1);
-		}
+    @keyframes blackOutKeyframes
+    {
+        0%
+        {
+            opacity: 0%;
+        }
+    }
 
-		.appendAnimation
-		{
-			animation-name: appendKeyframes;
-			animation-duration: 0.5s;
-			animation-fill-mode: both;
-		}
+    ::selection
+    {
+        color: black;
+        background-color: white;
+    }
 
-		@keyframes appendKeyframes
-		{
-			0%
-			{
-				transform: scale(1.1);
-			}
-		}
+    .pageTitleDiv
+    {
+        background-image: url('title_stars.png');
+        background-repeat: no-repeat;
+    }
 
-		input[type="text"]:hover
-		{	
-			cursor: text;
-		}
+    #topBar
+    {
+        position: relative;
+    }
 
-		.stickyElement
-		{
-			position: sticky;
-			position: -webkit-sticky;
-
-			top: 0%;
-			z-index: 4;
-
-			background-color: transparent;
-			-webkit-backdrop-filter: blur(1em);
-			backdrop-filter: blur(1em);
-		}
-
-		#pageTitle::selection
-		{
-			color: inherit;
-			background-color: inherit;
-		}
-
-		#pageTitle
-		{
-			color: white;
-			font-family: 'QuickSand';
-			padding: 2%;
-			font-size: 400%;
-
-			display: inline-block;
-
-			background: linear-gradient(to right, rgb(13,13,13), white, rgb(47,47,47));
-			
-			-webkit-background-clip: text;
-			background-clip: text;
-
-			-webkit-text-fill-color: transparent;
-			text-fill-color: transparent;
-		}
-
-		.blackOutAnimation
-		{
-			animation-name: blackOutKeyframes;
-			animation-duration: 1s;
-			animation-delay: 0.5s;
-			animation-fill-mode: both;
-		}
-
-		@keyframes blackOutKeyframes
-		{
-			0%
-			{
-				opacity: 0%;
-			}
-		}
-
-		::selection
-		{
-			color: black;
-			background-color: white;
-		}
-
-		.pageTitleDiv
-		{
-			background-image: url('title_stars.png');
-			background-repeat: no-repeat;
-		}
-
-	</style>
+    </style>
 
 	<div class="notification">
 		
 	</div>
+
+
+
+
+	
+    <!-- Top Bar Arc Structure -->
+      <div id="topBar">
+
+      <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
+            
+           <form method="POST" action="test_developer.php">
+          <!-- <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+           Industry Partner Database</button> -->
+
+           <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+            <i class="fas fa-chevron-circle-left"></i> Back </button>
+         </form>
+
+          <form method="POST" action="logout.php">
+           <button type="submit" class="linkB" style="float: right">
+              <span class="navLabel">Sign Out</span> 
+            <i class="fas fa-sign-out-alt"></i>          
+           </button>
+          </form>
+
+          <button id="helpNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Help</span> <i id="helpNavIcon" class='far fa-question-circle'></i></button>
+
+          <!-- <button class="linkB" style="float: right">
+            Close <i id="closeLinkIcon" class='far fa-times-circle'></i></button> -->
+
+          <button id="exportNavButton" class="linkB" style="float: right;display: none">
+            <span class="navLabel">Export</span> <i id="exportNavIcon" class='fas fa-arrow-circle-down'></i></button>
+
+
+          <!-- <button id="searchNavButton" class="linkB" style="float: right">
+            <span class="navLabel">Search</span> <i id="searchNavIcon" class='fab fa-sistrix'></i></button> -->
+
+      </div>
+
+
+	
+
+
+
+
 
 		<div class="pageTitleDiv blackOutAnimation">
 			<h1 id="pageTitle">
