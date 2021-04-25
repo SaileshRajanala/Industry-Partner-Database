@@ -169,6 +169,29 @@
   <script type="text/javascript" src="themeScript.js"></script>
 
 
+   <div id="precisionSearchLinkDiv" class="displayNone">
+
+    <form method="POST" target="_blank" action="precisionSearch.html">
+      <button id="precisionSearchButton">
+        <i class='fab fa-sistrix'></i>  
+        Precision Search
+        <i class='fas fa-arrow-circle-right'></i>
+      </button>
+    </form>
+
+    <div class="info">
+      
+      Precision Search enables you to search precisely by creating your own Search Conditions. <br><br>
+
+      Click the link above to search for something that involves a lot of conditions.
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="precisionSearchDiv.js"></script>
+
+
     <!-- TOP BAR MOBILE START -->
       <!-- <script type="text/javascript" src="topBarMobileScript.js"></script> -->
       <!-- TOP BAR MOBILE END -->
