@@ -88,117 +88,63 @@
 
   </script> -->
 
-    <!-- <style type="text/css">
-    
-    .searchFilterDiv .widgetTitle
-    {
-      background-color: inherit;
 
-      position: sticky;
-      position: -webkit-sticky;
-
-      z-index: 1;
-
-      padding: 1%;
-      margin: 0%;
-      margin-top: 1%;
-      margin-bottom: 1%;
-
-      padding-left: 3%;
-      padding-right: 3%;
-
-      top: -12%;
-    }
-
-    .primaryFilterDiv
-    {
-      background-color: inherit;
-      /*margin-top: -2%;*/
-      margin: 0%;
-      padding: 0%;
-    }
-
-            .filterSearchExportLink
-            {
-              font-size: inherit;
-              background-color: inherit;
-              color: inherit;
-              border: none;
-
-              margin-left: -2%;
-              padding-left: 2%;
-
-              margin-right: 1%;
-              padding-right: 1%;
-
-              border-radius: 1em;
-
-              font-family: 'Quicksand';
-
-              transition: all 0.25s;
-            }
-
-
-            .filterSearchExportLink:hover
-            {
-              background-color: white;
-              color: black;
-              cursor: pointer;
-            }
-
-            .filterSearchExportLink:active
-            {
-              transform: scale(0.97);
-            }
-
-  </style> -->
 
   </head>
 
   <body>
 
-    <!-- <div id="themesMenuDiv">
-    <div id="themesMenu">
+    <style type="text/css">
+      #precisionSearchLinkDiv
+      {
+        background-color: black;
+        position: fixed;
+        width: 50%;
+        left: 25%;
+        top: 35%;
 
-      <form name="themeChange" method="POST" action="">
+        border-radius: 2em;
 
-      <h1 id="themesDivTitle">
-        <i class="fas fa-paint-roller"></i> &nbsp
-        <i class="fas fa-palette"></i> &nbsp
-        Themes &nbsp
-        <i class="fas fa-paint-brush"></i> &nbsp
-        <i class="fas fa-brush"></i> &nbsp
-      </h1>
 
-      <div id="themeOptionsDiv">
 
-        <button name="theme" class="themeImageButton" type="submit" value="bright">
-          <img class="themeImage" src="theme_bright.png">
-        </button>
+      }
 
-        <button name="theme" class="themeImageButton" type="submit" value="citrus">
-          <img class="themeImage" src="theme_citrus.png">
-        </button>
+      #precisionSearchButton
+      {
+        padding: 2%;
+        padding-left: 4%;
+        padding-right: 4%;
 
-        <button name="theme" class="themeImageButton" type="submit" value="abyss">
-          <img class="themeImage" src="theme_abyss.png">
-        </button>
+        background-color: black;
+        color: white;
 
-        <button name="theme" class="themeImageButton" type="submit" value="bubbles">
-          <img class="themeImage" src="theme_bubbles.png">
-        </button>
+        border-radius: 2em;
+        width: 100%;
+        font-size: x-large;
 
-        <button name="theme" class="themeImageButton" type="submit" value="midnight">
-          <img class="themeImage" src="theme_midnight.png">
-        </button>
+        border: none;
 
-      </div>
+        transition: all 0.25s;
+      }
 
-      </form>
-      
-    </div>
-  </div> -->
+      #precisionSearchButton:hover
+      {
+        cursor: pointer;
 
+      }
+
+    </style>
+
+
+  <div id="precisionSearchLinkDiv">
+
+    <form method="POST" target="_blank" action="precisionSearch.html">
+      <button id="precisionSearchButton">
+        Precision Search <i class='fab fa-sistrix'></i>
+      </button>
+    </form>
+
+  </div>
 
 
 
