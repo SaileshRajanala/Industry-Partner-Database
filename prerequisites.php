@@ -350,13 +350,13 @@ global $htmlFields,
         if ($row["College_Education"] == '3') 
         {
           $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Associate's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>" . 
-          $row["Associates_Degree"] . ", " . $row["College_Degree_Year"] . '</div><br><br>';
+          $row["Associates_Degree"] . ", " . $row["College_Degree_Year"] . '</div>';
         }
 
         if ($row["College_Education"] == '4') 
         {
           $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Technical Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>" . 
-          $row["Technical_Degree"] . ", " . $row["College_Degree_Year"] . '</div><br><br>';
+          $row["Technical_Degree"] . ", " . $row["College_Degree_Year"] . '</div>';
         }
 
         if ($row["College_Education"] == '5') 
@@ -474,10 +474,10 @@ global $htmlFields,
           }
         } // option 5 end
 
-         if ($row["College_Education"] == '3' ||
-             $row["College_Education"] == '4' ||
-             $row["College_Education"] == '5' ||
-            false) 
+         if (($row["College_Education"] == '3'  ||
+              $row["College_Education"] == '4'  ||
+              $row["College_Education"] == '5') && 
+             ($row["special_degree"]    != ""   ))
           $recordPreviews .= '<br><br>';
 
         if ($row['special_degree'] != "") 
