@@ -615,7 +615,7 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
     isInputValid('first_name', /^[a-zA-Z-'][a-zA-Z -']*$/)           &&
     isInputValid('last_name', /^[a-zA-Z-'][a-zA-Z -']*$/)            &&
     isInputValid('email', /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)  &&
-    //isInputValid('phone_number', /^\d{10}$/)                       &&
+    isInputValid('phone_number', /^(\d{10}|\d{0})$/)                 &&
     //isInputValid('employer', /.*/)                                 &&
     //isInputValid('job_title', /.*/)                                &&
     //isInputValid('city', /.*/)                                     && 
@@ -882,8 +882,8 @@ validate('email',
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i, 
   'Please enter your Email address', 'Enter a valid email', 'Email is Valid');
 
-// validate('phone_number', /^\d{10}$/, 'Enter your 10-digit Phone Number', 
-//   'Enter a valid U.S. Phone Number', 'Phone Number is Valid');
+validate('phone_number', /^(\d{10}|\d{0})$/, 'Enter your 10-digit Phone Number', 
+  'Enter a valid U.S. Phone Number', 'Phone Number is Valid');
 
 // validate('employer', /.*$/, 
 //   "Please enter your Employer's Name", 
