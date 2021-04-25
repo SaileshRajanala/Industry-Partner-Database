@@ -328,20 +328,6 @@ for ($i=0; $i < count($htmlFields); $i++)
     $passedTests = true;
   }
 }
-$check_sql = "
-
-SELECT * FROM
-Industry_Partner_Database 
-WHERE 1 AND
-Email = " . "'" . $_POST['userEmail'] . "' LIMIT 1 
-
-";
-
-
-$result = $conn->query($check_sql);
-
-if ($result->num_rows == 1)
-
 
 
 // echo $sql;

@@ -403,7 +403,7 @@ global $htmlFields,
           elseif ($row["BS_school"] == 2)
             $BS_SCHOOL .= $row['BS_other_school'];
 
-          $recordPreviews .= '<i class="fas fa-university"></i> ' . $BS_SCHOOL . '</div><br><br>';
+          $recordPreviews .= '<i class="fas fa-university"></i> ' . $BS_SCHOOL . '</div>';
 
 
 
@@ -425,7 +425,7 @@ global $htmlFields,
             else
               $MS_FIELD = $row["other_MS_field"];
 
-            $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>" . 
+            $recordPreviews .= "<br><br><div class='previewBlock'><span class='previewSectionTitle'><b>Master's Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i> <br>" . 
                   $MS_FIELD . ", " . $row["MS_year"] . '<br><br>';
 
     
@@ -452,13 +452,13 @@ global $htmlFields,
             if ($MS_DISCIPLINES != "")
               $recordPreviews .= "<br><br>";
 
-            $recordPreviews .= '<i class="fas fa-university"></i> ' . $MS_SCHOOL . '</div><br><br>';
+            $recordPreviews .= '<i class="fas fa-university"></i> ' . $MS_SCHOOL . '</div>';
           }
 
 
           if ($row['have_PHD_degree'] == 1 || $row['have_PHD_degree'] == 2)
           {
-            $recordPreviews .= "<div class='previewBlock'>";
+            $recordPreviews .= "<br><br><div class='previewBlock'>";
 
              $PHD_SCHOOL = "";
 
@@ -470,9 +470,15 @@ global $htmlFields,
              $recordPreviews .= "<span class='previewSectionTitle'><b>PHD Degree</b></span><i style='float:right;' class='fas fa-graduation-cap'></i><br>" . 
                   $row["PHD_year"] . '<br><br>';
 
-             $recordPreviews .= '<i class="fas fa-university"></i> ' . $PHD_SCHOOL . '</div><br><br>';
+             $recordPreviews .= '<i class="fas fa-university"></i> ' . $PHD_SCHOOL . '</div>';
           }
         } // option 5 end
+
+         if ($row["College_Education"] == '3' ||
+             $row["College_Education"] == '4' ||
+             $row["College_Education"] == '5' ||
+            false) 
+          $recordPreviews .= '<br><br>';
 
         if ($row['special_degree'] != "") 
         { 
