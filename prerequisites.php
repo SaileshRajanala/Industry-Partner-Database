@@ -477,9 +477,15 @@ global $htmlFields,
         if ($row['special_degree'] != "") 
         { 
           $recordPreviews .= "<div class='previewBlock'><span class='previewSectionTitle'><b>Areas of Specialization</b></span><i style='float:right' class='fas fa-microscope'></i> <br><br>" . $row["special_degree"] . '</div>';
-
-          $recordPreviews .= "</div>";
         }
+
+        if ($row["College_Education"] == '3' ||
+            $row["College_Education"] == '4' ||
+            $row["College_Education"] == '5' ||
+            $row["special_degree"]    != ""  ||
+            false) 
+          $recordPreviews .= "</div>";
+
 
         // Involvement Opportunities
         $recordPreviews .= '<div class="previewSection noShadow"><span class="previewSectionTitle">Involvement Preference</span><br><br>';

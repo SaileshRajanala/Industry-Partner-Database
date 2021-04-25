@@ -114,58 +114,6 @@
 
   <body>
 
-    <!-- <div id="themesMenuDiv">
-    <div id="themesMenu">
-
-      <form name="themeChange" method="POST" action="">
-
-      <h1>Themes</h1>
-
-      <div id="themeOptionsDiv">
-
-        <button name="theme" class="themeImageButton" type="submit" value="bright">
-          <img class="themeImage" src="theme_bright.png">
-        </button>
-
-        <button name="theme" class="themeImageButton" type="submit" value="dark">
-          <img class="themeImage" src="theme_dark.png">
-        </button>
-
-        <button name="theme" class="themeImageButton" type="submit" value="citrus">
-          <img class="themeImage" src="theme_citrus.png">
-        </button>
-
-        <button name="theme" class="themeImageButton" type="submit" value="abyss">
-          <img class="themeImage" src="theme_abyss.png">
-        </button>
-
-        <button name="theme" class="themeImageButton" type="submit" value="bubbles">
-          <img class="themeImage" src="theme_bubbles.png">
-        </button>
-
-        <button name="theme" class="themeImageButton" type="submit" value="midnight">
-          <img class="themeImage" src="theme_midnight.png">
-        </button>
-
-        <button name="theme" class="themeImageButton" type="submit" value="wsu">
-          <img class="themeImage" src="theme_wsu.png">
-        </button>
-
-      </div>
-
-      </form>
-      
-    </div>
-  </div> -->
-
-    
-
-
-
-
-
-
-
 
     <button class="uiButtonOff" id="close" onclick="closePreview()"> 
       Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
@@ -182,8 +130,6 @@
          </form>
 
 
-
-         
 
          <form method="POST" action="logout.php">
            <button type="submit" class="linkB" style="float: right">
