@@ -74,7 +74,7 @@
 
 
     <!-- JavaScript (INTERNAL) -->
-    <script>
+    <!-- <script>
 
     var d = new Date();
 
@@ -100,7 +100,7 @@
         swapStylesheet("mobile_dark.css", "mS");
     }
 
-  </script>
+  </script> -->
 
   </head>
 
