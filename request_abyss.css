@@ -255,6 +255,7 @@ td::selection
 {	
 	border-radius: 1em;	/*change*/
 	position: sticky;	/*change*/
+	position: -webkit-sticky;
 	top: -6%;			/*change*/
 	padding: 1.5%;	    /*change*/
 	padding-left: 4%;	/*change*/
