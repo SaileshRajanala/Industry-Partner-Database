@@ -832,7 +832,7 @@ body
 #searchResultsDiv .widget
 {
   margin-bottom: 24%;
-  background-color: transparent;
+
 }
 
 #searchButton
@@ -872,7 +872,7 @@ body
 
 .filterSearchResult
 {
-	background-color: rgb(0,0,0,0.7);
+	background-color: rgb(10,10,10,0.4);
 	padding: 1%;
 
 	margin-top: 4%;
@@ -916,7 +916,8 @@ body
 
 .filterSearchResult .widgetTitle
 {
-  background-color: rgb(0,0,0);
+  background-color: #ffc217;
+  color: black;
   border-radius: 2em;
 
   position: sticky;
@@ -963,8 +964,8 @@ body
 
 .filterSearchExportLink:hover
 {
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: #ffc217;
   cursor: pointer;
 }
 
