@@ -1586,17 +1586,17 @@ li
 {
 	/*Variables Declarations*/
 
-	--angle	   : 147deg;
+	--angle	 : 147deg;
 	--gColor1: yellow;
 	--gColor2:   aqua;
 
-	--focusBackColor: black;
-	--focusTextColor: white;
+	--focusBackColor: white;
+	--focusTextColor: black;
 
 	--hoverBackColor: white;
 	--hoverTextColor: black;
 
-	--selectBackColor: white;
+	--selectBackColor: black;
 }
 
 .searchBarFocusIn
@@ -1605,18 +1605,19 @@ li
 
 	color: var(--focusTextColor);
 	background-color: transparent;
-	background: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));
+	/*background: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));*/
 	
-	display: inline;
+	/*display: inline;
 	background-clip: text;
 	text-fill-color: transparent;
 	-webkit-background-clip: text;
-  	-webkit-text-fill-color: transparent;
+  	-webkit-text-fill-color: transparent;*/
 }
 
 .searchBarFocusIn::selection
 {
-  	background-color: var(--selectBackColor);
+  	background-color: black;
+  	color: white;
 }
 
 .searchBarDivFocusIn
@@ -1638,9 +1639,9 @@ li
 .searchButtonIconFocusIn
 {
 	outline: none;
-	box-shadow: none;
+	
 	/*box-shadow: 0em 0em 0.5em white;*/
-	background-image: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));
+	/*background-image: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));*/
 	z-index: 4;
 }
 
