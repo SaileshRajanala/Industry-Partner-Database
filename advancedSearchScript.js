@@ -167,7 +167,26 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
 
     if (operation == "CONTAINS")
     {
-      /*
+      if 
+      ( // Conditions for encrypted options
+        tableColumn == 'College_Education' ||
+        tableColumn == 'BS_school'         ||
+        tableColumn == 'BS_field'          ||
+        tableColumn == 'MS_field'          ||
+        tableColumn == 'BS_Eng_Discipline' ||
+        tableColumn == 'MS_Eng_Discipline' ||
+        tableColumn == 'have_MS_degree'    ||
+        tableColumn == 'have_PHD_degree'   ||
+        tableColumn == 'Involvement'       ||
+        tableColumn == 'Involvement_Level' ||
+        tableColumn == 'Recruitment_Level' ||
+        tableColumn == 'Mentor_Age'        ||
+        tableColumn == 'Role_Model'        ||
+        false
+      )
+      {
+
+        /*
   
         a
 
@@ -177,12 +196,17 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
 
         2, a
 
-      */
+        */
 
-      searchCondition += " '" + keyword + "' ) ";
-      searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '" + keyword + ",%') ";
-      searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword + ",%') ";
-      searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword + "') ";
+        // precise check conditions for 'CONTAINS' below
+        searchCondition += " '" + keyword + "' ) ";
+        searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '"    + keyword + ",%') ";
+        searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword + ",%') ";
+        searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword +   "') ";
+      }
+      else
+        searchCondition += " '%" + keyword + "%' ) ";
+        // normal check condition for 'CONTAINS' above
     }
     else if (operation == "STARTS WITH")
     {

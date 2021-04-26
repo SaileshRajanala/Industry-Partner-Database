@@ -693,6 +693,10 @@ function searchArrayForKeyword($arr, $keyword)
 }
 
 
+
+
+
+
 function optionDetectionRules($columnName, $option)
 {
   /*
@@ -722,6 +726,9 @@ function optionDetectionRules($columnName, $option)
 
     return $rules;
 }
+
+
+
 
 
 
@@ -769,6 +776,8 @@ function getSearchConditionsFor($keyword)
           'OR UPPER(special_degree)          LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(other_Role_Model)        LIKE UPPER(' . "'%{$keyword}%') \n" .
           'OR UPPER(Involvement_Notes)       LIKE UPPER(' . "'%{$keyword}%') \n";
+
+  
 
   global $htmlFields, 
          $tableColumns, 
