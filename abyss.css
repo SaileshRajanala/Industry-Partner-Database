@@ -1650,10 +1650,10 @@ li
 
 	--angle	 : 147deg;
 	--gColor1: 	 magenta;
-	--gColor2:   blue;
+	--gColor2:   aqua, blue;
 
-	--focusBackColor: white;
-	--focusTextColor: black;
+	--focusBackColor: black;
+	--focusTextColor: white;
 
 	--hoverBackColor: white;
 	--hoverTextColor: black;
@@ -1680,7 +1680,7 @@ li
 
 .searchBarFocusIn::selection
 {
-  	background-color: rgb(100,0,200,0.3);
+  	background-color: rgb(150,0,250,0.5);
 }
 
 .searchBarDivFocusIn
@@ -1703,9 +1703,9 @@ li
 {
 	outline: none;
 	color: white;
-	
+	box-shadow: none;
 	/*box-shadow: 0em 0em 0.5em white;*/
-	background-image: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));
+	background-image: linear-gradient(var(--angle), magenta,blue);
 	z-index: 4;
 }
 
@@ -1713,8 +1713,8 @@ li
 {
 	cursor: pointer;
 	background-image: none;
-	background-color: black;
-	color: var(--hoverTextColor);
+	background-color: white;
+	color: black;
 }
 
 .searchButtonIconFocusIn:active
