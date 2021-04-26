@@ -45,10 +45,20 @@ function id_(_id)
   return document.getElementById(_id);
 }
 
-id_()
+id_('searchBar').addEventListener('focusin', function()
+{
+  id_('searchBar').classList.add('searchBarFoucusIn');
+  id_('searchButtonIcon').classList.add('searchButtonIconFoucusIn');
+  id_('searchBarDiv').classList.add('searchBarDivFoucusIn');
+});
 
 
-
+id_('searchBar').addEventListener('focusout', function()
+{
+  id_('searchBar').classList.remove('searchBarFoucusIn');
+  id_('searchButtonIcon').classList.remove('searchButtonIconFoucusIn');
+  id_('searchBarDiv').classList.remove('searchBarDivFoucusIn');
+});
 
 
 
