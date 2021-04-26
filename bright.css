@@ -614,18 +614,19 @@ body
 	
 }
 
-/*.search_Icon:hover
+.search_Icon:hover
 {
 	background-color: black;
 	cursor: pointer;
-	box-shadow: 0px 0px 13px white;
+	transform: scale(1.1);
+	/*box-shadow: 0px 0px 13px white;*/
 	color: white;
 }
 
 .search_Icon:active
 {
 	transform: scale(0.9);
-}*/
+}
 
 @keyframes bubblegum
 {
@@ -1498,18 +1499,138 @@ li
 
 /*----------------------------------------------------------------*/
 
+  #precisionSearchLinkDiv
+  {
+    position: fixed;
+    width: 50%;
+    left: 23%;
+    top: 30%;
+    border-radius: 2em;
+    color: black;
+    background-color: rgb(255,255,255,0.5);
+    box-shadow: 0em 1em 2em rgb(200,200,200);
+    padding: 2%;
+    font-family: 'Noto Sans KR';
+
+    -webkit-backdrop-filter: blur(1em);
+    backdrop-filter: blur(1em);
+  }
+
+  #precisionSearchLinkDiv .info
+  {
+    margin: 2%;
+  }
+
+  #precisionSearchButton
+  {
+    padding: 2%;
+    padding-left: 4%;
+    padding-right: 4%;
+
+    margin: 0%;
+
+    text-align: left;
+
+    font-family: 'Quicksand';
+
+    background-color: rgb(235,235,235);
+    
+    color: black;
+
+    border-radius: 2em;
+    width: 100%;
+    font-size: xx-large;
+
+    border: none;
+
+    transition: all 0.25s;
+  }
+
+  #precisionSearchButton:hover
+  {
+    cursor: pointer;
+    border-color: black;
+    background-color: black;
+    color: white;
+    
+    margin: 0%;
+
+    padding: 4%;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  #precisionSearchButton:active
+  {
+    transform: scale(0.9);
+  }
+
+  .displayNone
+  {
+    display: none;
+  }
+
+  .launchUpAnimation
+  {
+    animation-name: launchUp;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes launchUp
+  {
+    0%
+    {
+      opacity: 0;
+      transform: translateY(5em);
+    }
+  }
+
+/*----------------------------------------------------------------*/
+
+:root 
+{
+	/*Variables Declarations*/
+
+	--angle	 : 147deg;
+	--gColor1: black;
+	--gColor2: black;
+
+	--focusBackColor: black;
+	--focusTextColor: white;
+
+	--hoverBackColor: white;
+	--hoverTextColor: black;
+
+	--selectBackColor: white;
+}
+
 .searchBarFocusIn
 {
-	background-color: black;
-	color: white;
 	outline: none;
+
+	color: var(--focusTextColor);
+	background-color: transparent;
+	/*background: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));*/
+	
+	/*display: inline;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;*/
+}
+
+.searchBarFocusIn::selection
+{
+  	background-color: var(--selectBackColor);
 }
 
 .searchBarDivFocusIn
 {
 	outline: none;
-	background-color: black;
-	color: white;
+
+	background-color: var(--focusBackColor);
+	color: var(--focusTextColor);
 
 	padding: 0.7%;
 	padding-left: 1.3%;
@@ -1523,14 +1644,29 @@ li
 .searchButtonIconFocusIn
 {
 	outline: none;
-	box-shadow: 0em 0em 0.5em white;
+	box-shadow: none;
+	/*box-shadow: 0em 0em 0.5em white;*/
+/*	background-image: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));
+*/	z-index: 4;
 }
 
 .searchButtonIconFocusIn:hover
 {
+	cursor: pointer;
+	background-image: none;
 	background-color: black;
 	color: white;
+	box-shadow: 0em 0em 0.5em white;
 }
+
+.searchButtonIconFocusIn:active
+{
+	cursor: pointer;
+	transform: scale(0.9);
+}
+
+/*----------------------------------------------------------------*/
+
 
 
 

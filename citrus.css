@@ -1655,7 +1655,7 @@ li
 	outline: none;
 
 	color: var(--focusTextColor);
-	background-color: var(--focusBackColor);
+	background-color: transparent;
 	background: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));
 	
 	display: inline;
