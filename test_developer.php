@@ -199,7 +199,7 @@
       <!-- SEARCH BAR -->
       <form name="searchForm" action="search_developer.php" method="POST">
 
-          <div id="searchBarDiv" class="search_div" >
+          <div id="searchBarDiv" class="search_div">
              
             <button class="search_Icon" id="searchButtonIcon"  type="submit">
               <i class="fa fa-search"></i>

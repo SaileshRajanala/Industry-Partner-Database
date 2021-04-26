@@ -148,7 +148,7 @@
 
      <form name="searchForm" action="" method="post"> 
 
-          <div id="searchBarDiv" class="search_div" >
+          <div id="searchBarDiv" class="search_div">
              
             <button class="search_Icon" id="searchButtonIcon"  type="submit">
               <i class="fa fa-search"></i>
@@ -160,6 +160,8 @@
           </div>
 
      </form>
+
+
 
      <!-- EXPORT DIV START -->
 
