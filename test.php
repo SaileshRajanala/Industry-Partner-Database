@@ -99,13 +99,13 @@
       <!-- SEARCH BAR -->
       <form name="searchForm" action="search.php" method="POST">
 
-          <div id="searchBarDiv">
+          <div id="searchBarDiv" class="search_div" >
              
-            <button id="searchButtonIcon" type="submit">
+            <button class="search_Icon" id="searchButtonIcon"  type="submit">
               <i class="fa fa-search"></i>
             </button>
             
-            <input type="text" name="searchBar" id="searchBar" placeholder="Search...">
+            <input type="text" name="searchBar" id="searchBar" class="search_TextField"  placeholder="Search...">
             
           </div>
 

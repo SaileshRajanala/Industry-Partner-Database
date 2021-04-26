@@ -46,7 +46,7 @@
 	animation-duration: 0.25s;
 }
 
-#searchBar
+.search_TextField
 {
 	width: 44%;
 	top: 13%;
@@ -70,19 +70,19 @@
 	transition: all 0.25s;
 }
 
-#searchBar:hover
+.search_TextField:hover
 {
 	border-color: white;
 }
 
-#searchBar:focus
+.search_TextField:focus
 {
 	outline: none;
 	color: black;
 	background-color: white;
 }
 
-#searchBar::selection
+.search_TextField::selection
 {
     color: white;
     background-color: black;

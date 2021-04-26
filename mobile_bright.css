@@ -204,7 +204,7 @@ td
 
 /*********/
 
-#searchBarDiv
+.search_div
 {
 	background-color: white;
 	position: fixed;
@@ -222,7 +222,7 @@ td
 	border: 1.5px solid transparent;
 }
 
-#searchBar
+.search_TextField
 {
 	font-size: xx-large;
 	font-family: 'Quicksand';
@@ -610,7 +610,7 @@ tr:hover
 
 
 
-#searchButtonIcon
+.search_Icon
 {
 	padding-left: 2.5%;
 	padding-right: 2.5%;

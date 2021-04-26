@@ -47,17 +47,17 @@ function id_(_id)
 
 id_('searchBar').addEventListener('focusin', function()
 {
-  id_('searchBar').classList.add('searchBarFoucusIn');
-  id_('searchButtonIcon').classList.add('searchButtonIconFoucusIn');
-  id_('searchBarDiv').classList.add('searchBarDivFoucusIn');
+  id_('searchBarDiv').classList.add('searchBarDivFocusIn');
+  id_('searchButtonIcon').classList.add('searchButtonIconFocusIn');
+  id_('searchBar').classList.add('searchBarFocusIn');
 });
 
 
 id_('searchBar').addEventListener('focusout', function()
 {
-  id_('searchBar').classList.remove('searchBarFoucusIn');
-  id_('searchButtonIcon').classList.remove('searchButtonIconFoucusIn');
-  id_('searchBarDiv').classList.remove('searchBarDivFoucusIn');
+  id_('searchBar').classList.remove('searchBarFocusIn');
+  id_('searchButtonIcon').classList.remove('searchButtonIconFocusIn');
+  id_('searchBarDiv').classList.remove('searchBarDivFocusIn');
 });
 
 

@@ -28,7 +28,7 @@
 	background-color: black;
 }
 
-#searchBarDiv
+.search_div
 {
 	background-color: white;
 	position: fixed;
@@ -46,18 +46,18 @@
 	border: 1.5px solid transparent;
 }
 
-/*#searchBarDiv:hover
+/*.search_div:hover
 {
 	box-shadow: 0px 13px 26px grey;
 }*/
 
-#searchBarDiv:active
+.search_div:active
 {
 	padding: 0%;
 	margin: -0%;
 }
 
-#searchButtonIcon
+.search_Icon
 {
 	background-color: white;
 	color: black;
@@ -74,7 +74,7 @@
 	
 }
 
-#searchButtonIcon:hover
+.search_Icon:hover
 {
 	background-color: black;
 	cursor: pointer;
@@ -82,7 +82,7 @@
 	color: white;
 }
 
-#searchButtonIcon:active
+.search_Icon:active
 {
 	transform: scale(0.9);
 }
@@ -135,7 +135,7 @@
 	animation-duration: 0.25s;
 }
 
-#searchBar
+.search_TextField
 {
 	font-size: xx-large;
 	font-family: 'Quicksand';
@@ -156,19 +156,19 @@
 	transition: all 0.25s;
 }
 
-/*#searchBar:hover
+/*.search_TextField:hover
 {
 	border-color: white;
 }*/
 
-#searchBar:focus
+.search_TextField:focus
 {
 	outline: none;
 	color: white;
 /*	background-color: white;
 */}
 
-#searchBar::selection
+.search_TextField::selection
 {
     color: black;
     background-color: white;

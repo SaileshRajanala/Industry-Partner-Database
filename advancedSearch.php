@@ -107,13 +107,13 @@
 
      <form name="searchForm" action="" method="post" style="display: none;"> 
 
-          <div id="searchBarDiv">
+          <div id="searchBarDiv" class="search_div" >
              
-            <button id="searchButtonIcon" type="submit">
+            <button class="search_Icon" id="searchButtonIcon"  type="submit">
               <i class="fa fa-search"></i>
             </button>
             
-            <input type="text" name="searchBar" id="searchBar" placeholder="Search..."
+            <input type="text" name="searchBar" id="searchBar" class="search_TextField"  placeholder="Search..."
             value="<?php if (isset($_POST["searchBar"])) echo $_POST['searchBar'] ?>">
           
           </div>

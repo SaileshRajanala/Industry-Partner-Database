@@ -570,7 +570,7 @@ body
 	background-color: white;
 }
 
-#searchBarDiv
+.search_div
 {
 	background-color: rgb(25,25,25);
 	position: fixed;
@@ -588,24 +588,24 @@ body
 	border: 1.5px solid transparent;
 }
 
-#searchBarDiv:hover
+.search_div:hover
 {
 	border-color: white;
 }
 
-#searchBarDiv:active
+.search_div:active
 {
 	padding: 0%;
 	margin: -0%;
 }
 
-#searchBar::selection
+.search_TextField::selection
 {
     color: white;
     background-color: black;
 }
 
-#searchButtonIcon
+.search_Icon
 {
 	background-color: rgb(44,44,44);
 	color: white;
@@ -622,7 +622,7 @@ body
 	
 }
 
-#searchButtonIcon:hover
+.search_Icon:hover
 {
 	background-color: white;
 	cursor: pointer;
@@ -630,7 +630,7 @@ body
 	color: black;
 }
 
-#searchButtonIcon:active
+.search_Icon:active
 {
 	transform: scale(0.9);
 }
@@ -683,7 +683,7 @@ body
 	animation-duration: 0.25s;
 }
 
-#searchBar
+.search_TextField
 {
 	font-size: xx-large;
 	font-family: 'Quicksand';
@@ -704,12 +704,12 @@ body
 	transition: all 0.25s;
 }
 
-/*#searchBar:hover
+/*.search_TextField:hover
 {
 	border-color: white;
 }*/
 
-#searchBar:focus
+.search_TextField:focus
 {
 	outline: none;
 	color: black;
@@ -1220,7 +1220,7 @@ body
 
   width: 33%;
   
-  z-index: 1;
+  z-index: 4;
   font-size: large;
 
   border-radius: 1.5em;
@@ -1360,7 +1360,7 @@ li
 	background-color: white;
 }
 
-#searchBarDiv
+.search_div
 {
 	background-color: black;
 	position: fixed;
@@ -1378,24 +1378,24 @@ li
 	border: none;
 }
 
-#searchBarDiv:hover
+.search_div:hover
 {
 	border-color: white;
 }
 
-#searchBarDiv:active
+.search_div:active
 {
 	padding: 0%;
 	margin: -0%;
 }
 
-#searchBar::selection
+.search_TextField::selection
 {
     color: black;
     background-color: white;
 }
 
-#searchButtonIcon
+.search_Icon
 {
 	background-color: white;
 	color: black;
@@ -1412,7 +1412,7 @@ li
 	
 }
 
-#searchButtonIcon:hover
+.search_Icon:hover
 {
 	background-color: white;
 	cursor: pointer;
@@ -1420,7 +1420,7 @@ li
 	color: black;
 }
 
-#searchButtonIcon:active
+.search_Icon:active
 {
 	transform: scale(0.9);
 }
@@ -1473,7 +1473,7 @@ li
 	animation-duration: 0.25s;
 }
 
-#searchBar
+.search_TextField
 {
 	font-size: xx-large;
 	font-family: 'Quicksand';
@@ -1494,12 +1494,12 @@ li
 	transition: all 0.25s;
 }
 
-/*#searchBar:hover
+/*.search_TextField:hover
 {
 	border-color: white;
 }*/
 
-#searchBar:focus
+.search_TextField:focus
 {
 	outline: none;
 	color: white;
