@@ -1667,7 +1667,7 @@ li
 
 .searchBarFocusIn::selection
 {
-  	background-color: var(--selectBackColor);
+  	background-color: rgb(100,200,200,0.4);
 }
 
 .searchBarDivFocusIn
