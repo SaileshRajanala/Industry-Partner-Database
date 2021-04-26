@@ -1,40 +1,77 @@
 
-var d = new Date();
+// var d = new Date();
     
-document.getElementById('searchBar').onfocus = function() 
+// document.getElementById('searchBar').onfocus = function() 
+// {
+//   if (d.getHours() >= 6 && d.getHours() < 18)
+//   {  
+//     document.getElementById("searchBarDiv").style.backgroundColor = 'black';
+//     //document.getElementById("searchBarDiv").style.boxShadow = "none";
+//     // document.getElementById("searchButtonIcon").style.boxShadow = "none";
+//   }
+//   else
+//   {
+//     document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+//   }
+
+//   document.getElementById("searchBarDiv").style.padding = '0.7%';
+//   document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
+//   document.getElementById("searchBarDiv").style.margin = '-0.7%';
+//   document.getElementById("searchBarDiv").style.paddingRight = '0.1%';
+// };
+
+// // CrossBrowserCompatible Method for FocusOut below
+// document.getElementById('searchBar').addEventListener("focusout", onFocusOff);
+
+// function onFocusOff() 
+// {
+//   if (d.getHours() >= 6 && d.getHours() < 18)
+//   {  
+//     document.getElementById("searchBarDiv").style.backgroundColor = 'white';
+//     //document.getElementById("searchBarDiv").style.boxShadow = "0px 13px 26px rgb(200,200,200)";
+//     // document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
+//   }
+//   else
+//   {
+//     document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
+//   }
+//   document.getElementById("searchBarDiv").style.padding = '0%';
+//   document.getElementById("searchBarDiv").style.margin = '0%';
+// };
+
+
+function id_(_id)
 {
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {  
-    document.getElementById("searchBarDiv").style.backgroundColor = 'black';
-    //document.getElementById("searchBarDiv").style.boxShadow = "none";
-    // document.getElementById("searchButtonIcon").style.boxShadow = "none";
-  }
-  else
-  {
-    document.getElementById("searchBarDiv").style.backgroundColor = 'white';
-  }
+  return document.getElementById(_id);
+}
 
-  document.getElementById("searchBarDiv").style.padding = '0.7%';
-  document.getElementById("searchBarDiv").style.paddingLeft = '1.3%';
-  document.getElementById("searchBarDiv").style.margin = '-0.7%';
-  document.getElementById("searchBarDiv").style.paddingRight = '0.1%';
-};
+id_()
 
-// CrossBrowserCompatible Method for FocusOut below
-document.getElementById('searchBar').addEventListener("focusout", onFocusOff);
 
-function onFocusOff() 
-{
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {  
-    document.getElementById("searchBarDiv").style.backgroundColor = 'white';
-    //document.getElementById("searchBarDiv").style.boxShadow = "0px 13px 26px rgb(200,200,200)";
-    // document.getElementById("searchButtonIcon").style.boxShadow = "0px 0px 13px rgb(200,200,200)";
-  }
-  else
-  {
-    document.getElementById("searchBarDiv").style.backgroundColor = 'rgb(25,25,25)';
-  }
-  document.getElementById("searchBarDiv").style.padding = '0%';
-  document.getElementById("searchBarDiv").style.margin = '0%';
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
