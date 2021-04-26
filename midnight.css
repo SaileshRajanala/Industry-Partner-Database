@@ -571,12 +571,12 @@ body
 
 .search_div
 {
-	background-color: rgb(200,200,200,0.7);
+	background-color: rgb(234,234,234,0.5);
 	-webkit-backdrop-filter: blur(1em); 	/*change*/
 	backdrop-filter: blur(1em);				/*change*/
 	position: fixed;
 	display: flex;
-	color: black;
+	color: white;
 	top: 10%;
 	width: 50%;
 	left: 25%;
@@ -1623,8 +1623,8 @@ li
 	--gColor1: yellow;
 	--gColor2:   aqua;
 
-	--focusBackColor: rgb(35,35,35);
-	--focusTextColor: white;
+	--focusBackColor: white;
+	--focusTextColor: black;
 
 	--hoverBackColor: white;
 	--hoverTextColor: black;
@@ -1656,6 +1656,9 @@ li
 .searchBarDivFocusIn
 {
 	outline: none;
+	box-shadow: 0em 0em 2em white;
+
+	z-index: 10;
 
 	background-color: var(--focusBackColor);
 	color: var(--focusTextColor);
