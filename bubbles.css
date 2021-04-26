@@ -1636,7 +1636,7 @@ li
       transform: translateY(5em);
     }
   }
-  
+
 /*----------------------------------------------------------------*/
 
 :root 
@@ -1673,7 +1673,7 @@ li
 
 .searchBarFocusIn::selection
 {
-  	background-color: var(--selectBackColor);
+  	background-color: rgb(150,150,250, 0.4);
 }
 
 .searchBarDivFocusIn

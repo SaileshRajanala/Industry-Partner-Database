@@ -653,10 +653,10 @@ body
 
 .search_Icon:hover
 {
-	background-color: white;
+	background-color: black;
 	cursor: pointer;
-
-	color: black;
+	transform: scale(1.1);
+	color: white;
 }
 
 .search_Icon:active
@@ -1669,7 +1669,7 @@ li
 	background-color: transparent;
 	background: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));
 
-	caret-color: magenta;
+	caret-color: black;
 	
 	display: inline;
 	background-clip: text;
@@ -1680,7 +1680,7 @@ li
 
 .searchBarFocusIn::selection
 {
-  	background-color: var(--selectBackColor);
+  	background-color: rgb(100,0,200,0.3);
 }
 
 .searchBarDivFocusIn
@@ -1702,7 +1702,8 @@ li
 .searchButtonIconFocusIn
 {
 	outline: none;
-	box-shadow: none;
+	color: white;
+	
 	/*box-shadow: 0em 0em 0.5em white;*/
 	background-image: linear-gradient(var(--angle), var(--gColor1), var(--gColor2));
 	z-index: 4;
@@ -1712,7 +1713,7 @@ li
 {
 	cursor: pointer;
 	background-image: none;
-	background-color: var(--hoverBackColor);
+	background-color: black;
 	color: var(--hoverTextColor);
 }
 
