@@ -658,6 +658,24 @@ generalSuggestions.push(precisionSearchSuggestion(
 
 
 
+generalSuggestions.push(precisionSearchSuggestion(
+  "Search for those who DON'T have a Master's Degree",
+
+  " WHERE UPPER( have_MS_degree ) LIKE UPPER( '3' ) " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '3,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3')"
+));
+
+
+generalSuggestions.push(precisionSearchSuggestion(
+  "Search for those who DON'T have a PHD Degree",
+
+  " WHERE UPPER( have_PHD_degree ) LIKE UPPER( '3' ) " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '3,%') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3,%') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3')"
+));
 
 
 
