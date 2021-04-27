@@ -919,6 +919,23 @@ for (let i = -15; i <= 0; i++)
 
 
 
+// Involvement Suggestions
+
+var involvement_Suggestions = [];
+
+// last option is not considered in the below for loop
+// as it states "I'm not interested..."
+for (let i = 0; i < involvement.length - 1; i++) 
+{
+  suggestions.push(precisionSearchSuggestion(
+    "Search for those who wants to be involved in <br><br> \"" + involvement[i] + "\"",
+
+    " WHERE UPPER( Involvement ) LIKE UPPER( '" + (i + 1) + "' ) " +
+     " OR UPPER( Involvement ) LIKE UPPER ( '" + (i + 1) + ",%') " +
+     " OR UPPER( Involvement ) LIKE UPPER ( '%, " + (i + 1) + ",%') " +
+     " OR UPPER( Involvement ) LIKE UPPER ( '%, " + (i + 1) + "')"
+  ));
+}
 
 
 
