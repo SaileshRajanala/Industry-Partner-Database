@@ -179,7 +179,7 @@
           </button>
 
             <button id="themeButton" type="submit" class="linkB" 
-            style="float: right; display: none;"> <!-- REMOVETHIS -->
+            style="float: right;">
               <span class="navLabel">Themes</span> 
             <i class="fas fa-paint-brush"></i>   
 
