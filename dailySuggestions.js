@@ -1304,7 +1304,7 @@ suggestRandomFrom(PHD_year_Suggestions);
 
 
 // 1x suggestion
-decision = randomNumber(9);
+decision = randomNumber(5);
 
 if (decision == 0)
 suggestRandomFrom(involvement_Suggestions);
