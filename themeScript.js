@@ -39,6 +39,8 @@ function addThemes(themeNames)
         // adding theme below
         themeOptionsDiv.append(themeButton);
     }
+    
+    // Code below creates descriptions of Dynamic and Random themes in the Theme menu.
 
     /*
 
@@ -91,7 +93,7 @@ function addThemes(themeNames)
     
     themeOptionsDiv.append(labelDiv);
 
-
+    // Above block creates random and dynamic themes description.
 
 
 

@@ -13,6 +13,7 @@ var themes = ['abyss',
               'bubbles',
               'wsu'];
 
-              
-
 changeTheme(themes[Math.floor(Math.random() * themes.length)]);
+
+
+// Script reduces performance and loading of the webpage.
