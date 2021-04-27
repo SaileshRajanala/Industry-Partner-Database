@@ -190,6 +190,7 @@ function precisionSearchSuggestion(_label, _searchConditions, _action = "advance
 
 
 var suggestions = [];
+var generalSuggestions = [];
 
 // Mail Suggestions
 suggestions.push(precisionSearchSuggestion('Search for all "Gmail" users ', 
@@ -585,7 +586,7 @@ for (let yearIndex = -15; yearIndex <= 0; yearIndex++)
 var BS_school_Suggestions = [];
 
 suggestions.push(precisionSearchSuggestion(
-  "Search for those who graduated from \"Wichita State University\"",
+  "Search for those have a Bachelor's Degree from \"Wichita State University\"",
 
   " WHERE UPPER( BS_school ) LIKE UPPER( '1' ) " + 
   " OR UPPER( BS_school ) LIKE UPPER ( '1,%') " + 
@@ -594,7 +595,7 @@ suggestions.push(precisionSearchSuggestion(
 ));
 
 BS_school_Suggestions.push(precisionSearchSuggestion(
-  "Search for those who graduated from \"Wichita State University\"",
+  "Search for those have a Bachelor's Degree from \"Wichita State University\"",
 
   " WHERE UPPER( BS_school ) LIKE UPPER( '1' ) " + 
   " OR UPPER( BS_school ) LIKE UPPER ( '1,%') " + 
@@ -603,7 +604,7 @@ BS_school_Suggestions.push(precisionSearchSuggestion(
 ));
 
 suggestions.push(precisionSearchSuggestion(
-  "Search for those who graduated from a different University",
+  "Search for those who have a Bachelor's Degree from a \"Different University\"",
 
   " WHERE UPPER( BS_school ) LIKE UPPER( '2' ) " + 
   " OR UPPER( BS_school ) LIKE UPPER ( '2,%') " + 
@@ -612,7 +613,7 @@ suggestions.push(precisionSearchSuggestion(
 ));
 
 BS_school_Suggestions.push(precisionSearchSuggestion(
-  "Search for those who graduated from a \"Different University\"",
+  "Search for those who have a Bachelor's Degree from a \"Different University\"",
 
   " WHERE UPPER( BS_school ) LIKE UPPER( '2' ) " + 
   " OR UPPER( BS_school ) LIKE UPPER ( '2,%') " + 
@@ -637,7 +638,7 @@ suggestions.push(precisionSearchSuggestion(
   " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 1')"
 ));
 
-BS_school_Suggestions.push(precisionSearchSuggestion(
+generalSuggestions.push(precisionSearchSuggestion(
   "Search for \"Shocker Alumni\"",
 
   " WHERE UPPER( BS_school ) LIKE UPPER( '1' ) " +
@@ -661,8 +662,54 @@ BS_school_Suggestions.push(precisionSearchSuggestion(
 
 
 
+// BS_field Suggestions & MS_field Suggestions
+
+var BS_field_Suggestions = [];
+var MS_field_Suggestions = [];
 
 
+for (let fieldIndex = 0; fieldIndex < Fields.length; fieldIndex++) 
+{
+  suggestions.push(precisionSearchSuggestion(
+    'Search for those pursuing Bachelor\'s Degree in the field of "' 
+    + Fields[fieldIndex] + '"',
+
+    " WHERE UPPER( BS_field ) LIKE UPPER( '" + (fieldIndex + 1) + "' ) " + 
+    " OR UPPER( BS_field ) LIKE UPPER ( '" + (fieldIndex + 1) + ",%') " + 
+    " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + ",%') " + 
+    " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + "')"
+  ));
+
+  BS_field_Suggestions.push(precisionSearchSuggestion(
+    'Search for those pursuing Bachelor\'s Degree in the field of "' 
+    + Fields[fieldIndex] + '"',
+
+    " WHERE UPPER( BS_field ) LIKE UPPER( '" + (fieldIndex + 1) + "' ) " + 
+    " OR UPPER( BS_field ) LIKE UPPER ( '" + (fieldIndex + 1) + ",%') " + 
+    " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + ",%') " + 
+    " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + "')"
+  ));
+
+  suggestions.push(precisionSearchSuggestion(
+    'Search for those pursuing Master\'s Degree in the field of "' 
+    + Fields[fieldIndex] + '"',
+
+    " WHERE UPPER( MS_field ) LIKE UPPER( '" + (fieldIndex + 1) + "' ) " + 
+    " OR UPPER( MS_field ) LIKE UPPER ( '" + (fieldIndex + 1) + ",%') " + 
+    " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + ",%') " + 
+    " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + "')"
+  ));
+
+  MS_field_Suggestions.push(precisionSearchSuggestion(
+    'Search for those pursuing Master\'s Degree in the field of "' 
+    + Fields[fieldIndex] + '"',
+
+    " WHERE UPPER( MS_field ) LIKE UPPER( '" + (fieldIndex + 1) + "' ) " + 
+    " OR UPPER( MS_field ) LIKE UPPER ( '" + (fieldIndex + 1) + ",%') " + 
+    " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + ",%') " + 
+    " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + "')"
+  ));
+}
 
 
 
