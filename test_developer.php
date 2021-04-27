@@ -390,6 +390,22 @@
         </script>
         <!-- GREETING SCRIPT END -->
 
+
+        <!-- DAILY SUGGESTIONS START -->
+        <div class="widget" id="dailySuggestionsDiv">
+          
+          <h1 class="widgetTitle"> Daily Suggestions &nbsp<i class="fas fa-lightbulb"></i></h1>
+
+        </div>
+
+        <script type="text/javascript" src="dailySuggestions.js"></script>
+        <!-- DAILY SUGGESTIONS END -->
+
+
+
+
+
+
         <!-- OLDER ENTRIES -->
 
         <?php

@@ -311,12 +311,12 @@ generalSuggestions.push(precisionSearchSuggestion('Search for all "shockers.wich
 
 var phone_number_Suggestions = [];
 
-generalSuggestions.push(precisionSearchSuggestion('Search for all users who provided Phone Numbers', 
+generalSuggestions.push(precisionSearchSuggestion('Search for all users who provided "Phone Numbers"', 
 " WHERE UPPER( Phone_Number ) <> UPPER('') "
 ));
 
 
-phone_number_Suggestions.push(precisionSearchSuggestion('Search for all users who provided Phone Numbers', 
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for all users who provided "Phone Numbers"', 
 " WHERE UPPER( Phone_Number ) <> UPPER('') "
 ));
 
