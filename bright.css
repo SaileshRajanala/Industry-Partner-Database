@@ -245,8 +245,9 @@ td::selection
 	background-color: inherit;
 	position: sticky;	/*change*/
 	position: -webkit-sticky;
-	top: -6%;			/*change*/
+	top: -7%;			/*change*/
 	padding: 1.5%;	    /*change*/
+	padding-top: 2.5%;
 	margin-left: -4%;
 	margin-top: 1.5%;
 	margin-right: -4%;

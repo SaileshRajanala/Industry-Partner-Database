@@ -79,8 +79,8 @@ body
 
 	background-color: transparent; /*change*/
 
-	-webkit-backdrop-filter: blur(13px);
-	backdrop-filter: blur(13px);
+	-webkit-backdrop-filter: blur(1em);
+	backdrop-filter: blur(1em);
 }
 
 #topBar
@@ -252,8 +252,9 @@ td::selection
 {	
 	border-radius: 1em;	/*change*/
 	position: sticky;	/*change*/
-	top: -6%;			/*change*/
+	top: -7%;			/*change*/
 	padding: 1.5%;	    /*change*/
+	padding-top: 2.5%;
 	padding-left: 4%;	/*change*/
 	z-index: 2;			/*change*/
 	-webkit-backdrop-filter: blur(1em); 	/*change*/
