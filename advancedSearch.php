@@ -193,7 +193,7 @@
      <div class="dashboard"></div>
     <!-- SEARCH SECTION -->
 
-     <div id="searchResultsDiv" class="advancedSearchResults">
+     <div id="searchResultsDiv" class="advancedSearchResults" style="height: 90%">
         
         <div class="widget">
 

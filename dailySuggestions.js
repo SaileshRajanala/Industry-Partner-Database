@@ -323,7 +323,7 @@ suggestions.push(precisionSearchSuggestion('Search for those who work at "Airbus
 // Job Title Suggestions
 var jobTitle_suggestions = [];
 
-function add_jobTitle_suggestions(_position, _label = 'Search for those whose position is ' + _position)
+function add_jobTitle_suggestions(_position, _label = 'Search for those whose position is "' + _position + '"')
 {
   suggestions.push(precisionSearchSuggestion(_label, 
     " WHERE UPPER( Job_Title ) LIKE UPPER( '%" + _position + "%' ) "
@@ -566,12 +566,13 @@ function add_college_degree_year_Suggestions(_year, _label = "Search for those w
   ));
 }
 
-var currentYear = new Date().setFullYear();
+var d = new Date();
+var currentYear = d.getFullYear();
 
-for (let yearIndex = -15; yearIndex <= 15; yearIndex++) 
+for (let yearIndex = -15; yearIndex <= 0; yearIndex++) 
   add_college_degree_year_Suggestions(currentYear + yearIndex);
 
-// before and after 15 years suggestions
+// before 15 years suggestions
 
 
 
