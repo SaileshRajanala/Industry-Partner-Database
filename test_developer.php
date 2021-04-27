@@ -178,7 +178,8 @@
             <i id="searchNavIcon" class='fab fa-sistrix'></i>
           </button>
 
-            <button id="themeButton" type="submit" class="linkB" style="float: right">
+            <button id="themeButton" type="submit" class="linkB" 
+            style="float: right; display: none;"> <!-- REMOVETHIS -->
               <span class="navLabel">Themes</span> 
             <i class="fas fa-paint-brush"></i>   
 
@@ -392,7 +393,8 @@
 
 
         <!-- DAILY SUGGESTIONS START -->
-        <div class="widget" id="dailySuggestionsDiv">
+        <div class="widget" id="dailySuggestionsDiv" style="display: none"> 
+          <!-- REMOVETHIS -->
           
           <h1 class="widgetTitle"> Daily Suggestions &nbsp<i class="fas fa-lightbulb"></i></h1>
 

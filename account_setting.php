@@ -26,16 +26,71 @@ if(!isset($_SESSION['user_id']))
 	<link rel="preconnect" href="https://fonts.gstatic.com"> 
   	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
-  	<link rel="stylesheet" type="text/css" id="tS" href="test_dark.css">
-  	<link rel="stylesheet" type="text/css" id="rS" href="request_dark.css">
   	<link rel="stylesheet" type="text/css" id="fS" href="style_dark.css">
+
+  	<?php
+
+    if (isset($_POST['theme']))
+    {
+      $sql = "UPDATE main SET Theme = '" . $_POST['theme']
+      . "' WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+      mysqli_query($conn, $sql);
+    }
+
+    $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+    $result = mysqli_query($conn, $sql);
+
+    $row = $result->fetch_assoc();
+    
+    if (mysqli_num_rows($result) > 0)
+    {
+      if (isset($row['Theme']))
+      {
+        // For Random Theme
+        if ($row['Theme'] == 'random')
+        {
+           $themes = ['abyss', 
+                      'citrus',
+                      'bright',
+                      'dark',
+                      'midnight',
+                      'summer',
+                      'bubbles',
+                      'wsu'];
+
+          echo '<link href="' . $themes[rand(0, count($themes) - 1)] . 
+          '.css" id="themeCSS" rel="stylesheet" type="text/css">';
+        }
+
+
+        // Usual Case
+        echo '<link href="' . $row['Theme'] . 
+        '.css" id="themeCSS" rel="stylesheet" type="text/css">';
+
+      }
+      else
+      {
+        echo '<link href="dark.css" id="themeCSS" rel="stylesheet" type="text/css">';
+      }
+    }
+    else
+    {
+      echo '<link href="dark.css" id="themeCSS" rel="stylesheet" type="text/css">';
+    }
+
+
+    ?>
+
+
   	<link rel="stylesheet" type="text/css" id="mS" href="mobile_dark.css">
 
   	<!-- ICONS SCRIPT -->
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
     <!-- JavaScript (INTERNAL) -->
-    <script>
+    <!-- <script>
 
     var d = new Date();
 
@@ -60,7 +115,7 @@ if(!isset($_SESSION['user_id']))
     }
 
   </script>
-
+ -->
 
 <style>
 
@@ -196,7 +251,7 @@ body
 
 			<div class="formSection" style="padding: 4%;">
 
-				<h1 class="widgetTitle" style="margin-left: 4%;margin-right: 4%">
+				<h1 class="widgetTitle" style="color:white;margin-left: 4%;margin-right: 4%">
 
 				Change Password &nbsp<i class="fas fa-cogs"></i>
 
@@ -235,8 +290,41 @@ body
 </body>
 
 
-<script type="text/javascript" src="wallpaper.js"></script>
+<?php
 
+    $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+    $result = mysqli_query($conn, $sql);
+
+    $row = $result->fetch_assoc();
+    
+    if (mysqli_num_rows($result) > 0)
+    {
+      if (isset($row['Theme']) && $row['Theme'] == 'dark')
+      {
+        echo '<script src="wallpaper.js"></script>';
+      }
+      elseif (isset($row['Theme']) && $row['Theme'] == 'wsu')
+      {
+        echo '<script type="text/javascript">
+
+                document.body.style.backgroundImage = "url(\'wsu" + 
+                (Math.floor(Math.random() * 6) + 1) + ".jpg\')";
+
+              </script>';
+      }
+      elseif (isset($row['Theme']) && $row['Theme'] == 'dynamic')
+      {
+        echo '<script src="dynamicTheme.js"></script>';
+      }
+      // elseif (isset($row['Theme']) && $row['Theme'] == 'random')
+      // {
+      //   echo '<script src="randomTheme.js"></script>';
+      // }
+    }
+    
+
+    ?>
 </html>
 
 
