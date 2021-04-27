@@ -40,8 +40,27 @@
     {
       if (isset($row['Theme']))
       {
+        // For Random Theme
+        if ($row['Theme'] == 'random')
+        {
+           $themes = ['abyss', 
+                      'citrus',
+                      'bright',
+                      'dark',
+                      'midnight',
+                      'summer',
+                      'bubbles',
+                      'wsu'];
+
+          echo '<link href="' . $themes[rand(0, count($themes) - 1)] . 
+          '.css" id="themeCSS" rel="stylesheet" type="text/css">';
+        }
+
+
+        // Usual Case
         echo '<link href="' . $row['Theme'] . 
         '.css" id="themeCSS" rel="stylesheet" type="text/css">';
+
       }
       else
       {
@@ -789,10 +808,10 @@
       {
         echo '<script src="dynamicTheme.js"></script>';
       }
-      elseif (isset($row['Theme']) && $row['Theme'] == 'random')
-      {
-        echo '<script src="randomTheme.js"></script>';
-      }
+      // elseif (isset($row['Theme']) && $row['Theme'] == 'random')
+      // {
+      //   echo '<script src="randomTheme.js"></script>';
+      // }
     }
     
 
