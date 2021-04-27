@@ -515,30 +515,30 @@ var college_education_Suggestions = [];
 
 function add_college_education_Suggestions(_educationLevel, _conditions)
 {
-  suggestions.push(precisionSearchSuggestion('Search for those who have a ' + _educationLevel, 
+  suggestions.push(precisionSearchSuggestion('Search for those who have ' + _educationLevel, 
     _conditions
   ));
 
-  college_education_Suggestions.push(precisionSearchSuggestion('Search for those who have a ' + 
+  college_education_Suggestions.push(precisionSearchSuggestion('Search for those who have ' + 
     _educationLevel,  _conditions
   ));
 }
 
-add_college_education_Suggestions('Associate\'s Degree',
+add_college_education_Suggestions('an "Associate\'s Degree"',
  " WHERE UPPER( College_Education ) LIKE UPPER( '3' ) " + 
  " OR UPPER( College_Education ) LIKE UPPER ( '3,%') " + 
  " OR UPPER( College_Education ) LIKE UPPER ( '%, 3,%') " + 
  " OR UPPER( College_Education ) LIKE UPPER ( '%, 3') "
 );
 
-add_college_education_Suggestions('Technical Degree',
+add_college_education_Suggestions('a "Technical Degree"',
  " WHERE UPPER( College_Education ) LIKE UPPER( '4' ) " + 
  " OR UPPER( College_Education ) LIKE UPPER ( '4,%') " + 
  " OR UPPER( College_Education ) LIKE UPPER ( '%, 4,%') " + 
  " OR UPPER( College_Education ) LIKE UPPER ( '%, 4') "
 );
 
-add_college_education_Suggestions('Bachelor\'s Degree',
+add_college_education_Suggestions('a "Bachelor\'s Degree"',
  " WHERE UPPER( College_Education ) LIKE UPPER( '5' ) " + 
  " OR UPPER( College_Education ) LIKE UPPER ( '5,%') " + 
  " OR UPPER( College_Education ) LIKE UPPER ( '%, 5,%') " + 
@@ -551,7 +551,7 @@ add_college_education_Suggestions('Bachelor\'s Degree',
 // College Degree Year Suggestions
 var college_degree_year_Suggestions = [];
 
-function add_college_degree_year_Suggestions(_year, _label = "Search for those who graduated in " + _year)
+function add_college_degree_year_Suggestions(_year, _label = 'Search for those who graduated in "' + _year + '"')
 {
   suggestions.push(precisionSearchSuggestion(_label, 
     " WHERE UPPER( College_Degree_Year ) LIKE UPPER( '%" + _year + "%' ) " + 
