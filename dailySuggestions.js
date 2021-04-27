@@ -581,10 +581,78 @@ for (let yearIndex = -15; yearIndex <= 0; yearIndex++)
 
 
 
+// BS_school suggestions
+var BS_school_Suggestions = [];
 
+suggestions.push(precisionSearchSuggestion(
+  "Search for those who graduated from \"Wichita State University\"",
 
+  " WHERE UPPER( BS_school ) LIKE UPPER( '1' ) " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '1,%') " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 1,%') " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 1')"
+));
 
+BS_school_Suggestions.push(precisionSearchSuggestion(
+  "Search for those who graduated from \"Wichita State University\"",
 
+  " WHERE UPPER( BS_school ) LIKE UPPER( '1' ) " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '1,%') " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 1,%') " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 1')"
+));
+
+suggestions.push(precisionSearchSuggestion(
+  "Search for those who graduated from a different University",
+
+  " WHERE UPPER( BS_school ) LIKE UPPER( '2' ) " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '2,%') " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 2,%') " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 2')"
+));
+
+BS_school_Suggestions.push(precisionSearchSuggestion(
+  "Search for those who graduated from a different University",
+
+  " WHERE UPPER( BS_school ) LIKE UPPER( '2' ) " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '2,%') " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 2,%') " + 
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 2')"
+));
+
+suggestions.push(precisionSearchSuggestion(
+  "Search for \"Shocker Alumni\"",
+
+  " WHERE UPPER( BS_school ) LIKE UPPER( '1' ) " +
+  " OR UPPER( BS_school ) LIKE UPPER ( '1,%') " +
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 1,%') " +
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 1') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER( '1' ) " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '1,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 1,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 1') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER( '1' ) " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '1,%') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 1,%') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 1')"
+));
+
+BS_school_Suggestions.push(precisionSearchSuggestion(
+  "Search for \"Shocker Alumni\"",
+
+  " WHERE UPPER( BS_school ) LIKE UPPER( '1' ) " +
+  " OR UPPER( BS_school ) LIKE UPPER ( '1,%') " +
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 1,%') " +
+  " OR UPPER( BS_school ) LIKE UPPER ( '%, 1') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER( '1' ) " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '1,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 1,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 1') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER( '1' ) " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '1,%') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 1,%') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 1')"
+));
 
 
 
