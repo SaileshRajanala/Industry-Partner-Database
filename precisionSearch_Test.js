@@ -41,6 +41,14 @@ tableColumns.push("other_Role_Model");
 tableColumns.push("Involvement_Notes");
 
 
+var states = [ 'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 
+               'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 
+               'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 
+               'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND',  
+               'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 
+               'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY' ];
+
+
 var collegeEducation = ['No, I have not taken any college classes',
                         'Yes, I have taken some college classes', 
                         "Yes, I have an Associate's degree",
@@ -345,7 +353,11 @@ function inputCalibration(tableColumnSelector)
 {
   tableColumnSelector.addEventListener('change', function() 
   {
-    
+  // if (tableColumnSelector.value == 'State')
+  // {
+  //   replaceTextFieldWithSelectorIn(states, tableColumnSelector.parentElement);
+  // } 
+  // else 
   if (tableColumnSelector.value == 'College_Education')
   {
     replaceTextFieldWithSelectorIn(collegeEducation, tableColumnSelector.parentElement);

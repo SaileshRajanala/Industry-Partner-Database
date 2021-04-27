@@ -120,7 +120,7 @@ var roleModels = ['First-generation college students',
 
 
 
-                  
+
 function id_(_id)
 {
     return document.getElementById(_id);
@@ -135,7 +135,7 @@ function searchSuggestion(_label, _searchKeyword, _action = 'search_developer.ph
 {
     /*
         <form method="POST" action="search_developer.php" target="_blank">
-          <button class="searchSuggestion" name="searchBar" value="Veterans">
+          <button type="submit" class="searchSuggestion" name="searchBar" value="Veterans">
             <i class='fab fa-sistrix'></i>  &nbspSearch for Veterans
           </button>
         </form>
@@ -149,6 +149,7 @@ function searchSuggestion(_label, _searchKeyword, _action = 'search_developer.ph
     var searchButton = document.createElement('button');
     searchButton.classList.add('searchSuggestion');
     searchButton.setAttribute('name', 'searchBar');
+    searchButton.setAttribute('type', 'submit');
     searchButton.setAttribute('value', _searchKeyword);
 
     searchButton.innerHTML = "<i class='fab fa-sistrix'></i>  &nbsp" + _label;
@@ -162,7 +163,7 @@ function precisionSearchSuggestion(_label, _searchConditions, _action = "advance
 {
     /*
         <form method="POST" action="advancedSearch.php" target="_blank">
-          <button class="searchSuggestion" name="advancedSearchButton" value="BS_field = 'Computer Science'">
+          <button type="submit" class="searchSuggestion" name="advancedSearchButton" value="BS_field = 'Computer Science'">
             <i class='fab fa-sistrix'></i>  &nbspSearch for Veterans
           </button>
         </form>
@@ -175,6 +176,7 @@ function precisionSearchSuggestion(_label, _searchConditions, _action = "advance
     
         var searchButton = document.createElement('button');
         searchButton.classList.add('searchSuggestion');
+        searchButton.setAttribute('type', 'submit');
         searchButton.setAttribute('name', 'advancedSearchButton');
         searchButton.setAttribute('value', _searchConditions);
     
@@ -196,6 +198,18 @@ suggest(searchSuggestion('Search for Shocker Alumni', 'Wichita State University'
 suggest(searchSuggestion('Search for Veterans', 'Veterans'));
 suggest(precisionSearchSuggestion('Search for Computer Science Graduates', 
 
-" WHERE UPPER (BS_Eng_Discipline)  "
+" WHERE UPPER (BS_Eng_Discipline) LIKE UPPER ('% 7,%') "
+
++
+
+" OR UPPER (BS_Eng_Discipline) LIKE UPPER ('7') "
+
++
+
+" OR UPPER (BS_Eng_Discipline) LIKE UPPER ('7,%') "
+
++
+
+" OR UPPER (BS_Eng_Discipline) LIKE UPPER ('%, 7') "
 
 ));
