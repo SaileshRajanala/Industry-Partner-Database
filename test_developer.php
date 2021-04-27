@@ -820,6 +820,10 @@
 
               </script>';
       }
+      elseif (isset($row['Theme']) && $row['Theme'] == 'dynamic')
+      {
+        echo '<script src="dynamicTheme.js"></script>';
+      }
     }
     
 
