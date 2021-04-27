@@ -362,7 +362,70 @@ suggestions.push(precisionSearchSuggestion('Search for those whose position is "
 
 
 
-// State Suggestions
+// State Suggestions (**changable**)
+
+function addStateSuggestion(_state, _stateLabel)
+{
+  suggestions.push(precisionSearchSuggestion('Search for those who are from "' + _state + '"', 
+    " WHERE UPPER( State ) LIKE UPPER( '%" + _stateLabel + "%' ) "
+  ));
+}
+
+addStateSuggestion('Alabama', "AL");
+addStateSuggestion('Alaska', "AK");
+addStateSuggestion('Arizona', "AZ");
+addStateSuggestion('Arkansas', "AR");
+addStateSuggestion('California', "CA");
+addStateSuggestion('Colorado', "CO");
+addStateSuggestion('Connecticut', "CT");
+addStateSuggestion('Delaware', "DE");
+addStateSuggestion('District Of Columbia', "DC");
+addStateSuggestion('Florida', "FL");
+addStateSuggestion('Georgia', "GA");
+addStateSuggestion('Hawaii', "HI");
+addStateSuggestion('Idaho', "ID");
+addStateSuggestion('Illinois', "IL");
+addStateSuggestion('Indiana', "IN");
+addStateSuggestion('Iowa', "IA");
+addStateSuggestion('Kansas', "KS");
+addStateSuggestion('Kentucky', "KY");
+addStateSuggestion('Louisiana', "LA");
+addStateSuggestion('Maine', "ME");
+addStateSuggestion('Maryland', "MD");
+addStateSuggestion('Massachusetts', "MA");
+addStateSuggestion('Michigan', "MI");
+addStateSuggestion('Minnesota', "MN");
+addStateSuggestion('Mississippi', "MS");
+addStateSuggestion('Missouri', "MO");
+addStateSuggestion('Montana', "MT");
+addStateSuggestion('Nebraska', "NE");
+addStateSuggestion('Nevada', "NV");
+addStateSuggestion('New Hampshire', "NH");
+addStateSuggestion('New Jersey', "NJ");
+addStateSuggestion('New Mexico', "NM");
+addStateSuggestion('New York', "NY");
+addStateSuggestion('North Carolina', "NC");
+addStateSuggestion('North Dakota', "ND");
+addStateSuggestion('Ohio', "OH");
+addStateSuggestion('Oklahoma', "OK");
+addStateSuggestion('Oregon', "OR");
+addStateSuggestion('Pennsylvania', "PA");
+addStateSuggestion('Rhode Island', "RI");
+addStateSuggestion('South Carolina', "SC");
+addStateSuggestion('South Dakota', "SD");
+addStateSuggestion('Tennessee', "TN");
+addStateSuggestion('Texas', "TX");
+addStateSuggestion('Utah', "UT");
+addStateSuggestion('Vermont', "VT");
+addStateSuggestion('Virginia', "VA");
+addStateSuggestion('Washington', "WA");
+addStateSuggestion('West Virginia', "WV");
+addStateSuggestion('Wisconsin', "WI");
+addStateSuggestion('Wyoming', "WY");
+
+
+
+
 
 
 
