@@ -13,11 +13,66 @@
     <meta name="viewport" content="width=device-width">
     <title>Precision Search Results</title>
 
+    <?php
+
+    if (isset($_POST['theme']))
+    {
+      $sql = "UPDATE main SET Theme = '" . $_POST['theme']
+      . "' WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+      mysqli_query($conn, $sql);
+    }
+
+    $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+    $result = mysqli_query($conn, $sql);
+
+    $row = $result->fetch_assoc();
+    
+    if (mysqli_num_rows($result) > 0)
+    {
+      if (isset($row['Theme']))
+      {
+        // For Random Theme
+        if ($row['Theme'] == 'random')
+        {
+           $themes = ['abyss', 
+                      'citrus',
+                      'bright',
+                      'dark',
+                      'midnight',
+                      'summer',
+                      'bubbles',
+                      'wsu'];
+
+          echo '<link href="' . $themes[rand(0, count($themes) - 1)] . 
+          '.css" id="themeCSS" rel="stylesheet" type="text/css">';
+        }
+
+
+        // Usual Case
+        echo '<link href="' . $row['Theme'] . 
+        '.css" id="themeCSS" rel="stylesheet" type="text/css">';
+
+      }
+      else
+      {
+        echo '<link href="dark.css" id="themeCSS" rel="stylesheet" type="text/css">';
+      }
+    }
+    else
+    {
+      echo '<link href="dark.css" id="themeCSS" rel="stylesheet" type="text/css">';
+    }
+
+
+    ?>
+
     <!-- CSS 3 EXTERNAL -->
-    <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
+    <!-- <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
     <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
     <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
-    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css">
+    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css"> -->
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
 
     <!-- ICONS SCRIPT -->
@@ -33,7 +88,7 @@
 
 
     <!-- JavaScript (INTERNAL) -->
-    <script>
+    <!-- <script>
 
     var d = new Date();
 
@@ -59,7 +114,7 @@
         swapStylesheet("mobile_dark.css", "mS");
     }
 
-  </script>
+  </script> -->
 
   </head>
 
@@ -612,4 +667,38 @@
 
   </body>
 
-  <script type="text/javascript" src="wallpaper.js"></script>
+  <?php
+
+    $sql = "SELECT * FROM main WHERE ID = '" . $_SESSION['user_id'] ."'";
+
+    $result = mysqli_query($conn, $sql);
+
+    $row = $result->fetch_assoc();
+    
+    if (mysqli_num_rows($result) > 0)
+    {
+      if (isset($row['Theme']) && $row['Theme'] == 'dark')
+      {
+        echo '<script src="wallpaper.js"></script>';
+      }
+      elseif (isset($row['Theme']) && $row['Theme'] == 'wsu')
+      {
+        echo '<script type="text/javascript">
+
+                document.body.style.backgroundImage = "url(\'wsu" + 
+                (Math.floor(Math.random() * 6) + 1) + ".jpg\')";
+
+              </script>';
+      }
+      elseif (isset($row['Theme']) && $row['Theme'] == 'dynamic')
+      {
+        echo '<script src="dynamicTheme.js"></script>';
+      }
+      // elseif (isset($row['Theme']) && $row['Theme'] == 'random')
+      // {
+      //   echo '<script src="randomTheme.js"></script>';
+      // }
+    }
+    
+
+    ?>
