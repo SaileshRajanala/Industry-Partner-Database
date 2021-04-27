@@ -667,49 +667,203 @@ generalSuggestions.push(precisionSearchSuggestion(
 var BS_field_Suggestions = [];
 var MS_field_Suggestions = [];
 
-
-for (let fieldIndex = 0; fieldIndex < Fields.length; fieldIndex++) 
+for (let i = 0; i < Fields.length; i++) 
 {
-  suggestions.push(precisionSearchSuggestion(
-    'Search for those pursuing Bachelor\'s Degree in the field of "' 
-    + Fields[fieldIndex] + '"',
-
-    " WHERE UPPER( BS_field ) LIKE UPPER( '" + (fieldIndex + 1) + "' ) " + 
-    " OR UPPER( BS_field ) LIKE UPPER ( '" + (fieldIndex + 1) + ",%') " + 
-    " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + ",%') " + 
-    " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + "')"
-  ));
-
-  BS_field_Suggestions.push(precisionSearchSuggestion(
-    'Search for those pursuing Bachelor\'s Degree in the field of "' 
-    + Fields[fieldIndex] + '"',
-
-    " WHERE UPPER( BS_field ) LIKE UPPER( '" + (fieldIndex + 1) + "' ) " + 
-    " OR UPPER( BS_field ) LIKE UPPER ( '" + (fieldIndex + 1) + ",%') " + 
-    " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + ",%') " + 
-    " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + "')"
-  ));
-
-  suggestions.push(precisionSearchSuggestion(
-    'Search for those pursuing Master\'s Degree in the field of "' 
-    + Fields[fieldIndex] + '"',
-
-    " WHERE UPPER( MS_field ) LIKE UPPER( '" + (fieldIndex + 1) + "' ) " + 
-    " OR UPPER( MS_field ) LIKE UPPER ( '" + (fieldIndex + 1) + ",%') " + 
-    " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + ",%') " + 
-    " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + "')"
-  ));
-
-  MS_field_Suggestions.push(precisionSearchSuggestion(
-    'Search for those pursuing Master\'s Degree in the field of "' 
-    + Fields[fieldIndex] + '"',
-
-    " WHERE UPPER( MS_field ) LIKE UPPER( '" + (fieldIndex + 1) + "' ) " + 
-    " OR UPPER( MS_field ) LIKE UPPER ( '" + (fieldIndex + 1) + ",%') " + 
-    " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + ",%') " + 
-    " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (fieldIndex + 1) + "')"
-  ));
+  if (i == Fields.length)
+  {
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Bachelor\'s Degree in the field of "' 
+      + Fields[i] + '"',
+  
+      " WHERE UPPER( BS_field ) LIKE UPPER( '" + "Other" + "' ) " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '" + "Other" + ",%') " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + "Other" + "')"
+    ));
+  
+    BS_field_Suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Bachelor\'s Degree in the field of "' 
+      + Fields[i] + '"',
+  
+      " WHERE UPPER( BS_field ) LIKE UPPER( '" + "Other" + "' ) " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '" + "Other" + ",%') " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + "Other" + "')"
+    ));
+  
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Master\'s Degree in the field of "' 
+      + Fields[i] + '"',
+  
+      " WHERE UPPER( MS_field ) LIKE UPPER( '" + "Other" + "' ) " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '" + "Other" + ",%') " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + "Other" + "')"
+    ));
+  
+    MS_field_Suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Master\'s Degree in the field of "' 
+      + Fields[i] + '"',
+  
+      " WHERE UPPER( MS_field ) LIKE UPPER( '" + "Other" + "' ) " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '" + "Other" + ",%') " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + "Other" + "')"
+    ));
+  }
+  else
+  {
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Bachelor\'s Degree in the field of "' 
+      + Fields[i] + '"',
+  
+      " WHERE UPPER( BS_field ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  
+    BS_field_Suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Bachelor\'s Degree in the field of "' 
+      + Fields[i] + '"',
+  
+      " WHERE UPPER( BS_field ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Master\'s Degree in the field of "' 
+      + Fields[i] + '"',
+  
+      " WHERE UPPER( MS_field ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  
+    MS_field_Suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Master\'s Degree in the field of "' 
+      + Fields[i] + '"',
+  
+      " WHERE UPPER( MS_field ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  }
 }
+
+
+
+
+
+
+
+
+
+// BS_Eng_Discipline Suggestions & MS_Eng_Discipline Suggestions
+
+var BS_Eng_Discipline_Suggestions = [];
+var MS_Eng_Discipline_Suggestions = [];
+
+for (let i = 0; i < engDisciplines.length; i++) 
+{
+  if (i == engDisciplines.length - 1)
+  {
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Bachelor\'s Degree in "' 
+      + engDisciplines[i] + '"',
+  
+      " WHERE UPPER( BS_Eng_Discipline ) LIKE UPPER( '" + "Other" + "' ) " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '" + "Other" + ",%') " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + "')"
+    ));
+  
+    BS_Eng_Discipline_Suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Bachelor\'s Degree in "' 
+      + engDisciplines[i] + '"',
+  
+      " WHERE UPPER( BS_Eng_Discipline ) LIKE UPPER( '" + "Other" + "' ) " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '" + "Other" + ",%') " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + "')"
+    ));
+  
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Master\'s Degree in "' 
+      + engDisciplines[i] + '"',
+  
+      " WHERE UPPER( MS_Eng_Discipline ) LIKE UPPER( '" + "Other" + "' ) " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '" + "Other" + ",%') " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + "')"
+    ));
+  
+    MS_Eng_Discipline_Suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Master\'s Degree in "' 
+      + engDisciplines[i] + '"',
+  
+      " WHERE UPPER( MS_Eng_Discipline ) LIKE UPPER( '" + "Other" + "' ) " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '" + "Other" + ",%') " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + "')"
+    ));
+  }
+  else
+  {
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Bachelor\'s Degree in "' 
+      + engDisciplines[i] + '"',
+  
+      " WHERE UPPER( BS_Eng_Discipline ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  
+    BS_Eng_Discipline_Suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Bachelor\'s Degree in "' 
+      + engDisciplines[i] + '"',
+  
+      " WHERE UPPER( BS_Eng_Discipline ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Master\'s Degree in "' 
+      + engDisciplines[i] + '"',
+  
+      " WHERE UPPER( MS_Eng_Discipline ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  
+    MS_Eng_Discipline_Suggestions.push(precisionSearchSuggestion(
+      'Search for those pursuing Master\'s Degree in "' 
+      + engDisciplines[i] + '"',
+  
+      " WHERE UPPER( MS_Eng_Discipline ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  }  
+}
+
+
+
+
+
+
+
+
+
 
 
 
