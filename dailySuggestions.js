@@ -612,7 +612,7 @@ suggestions.push(precisionSearchSuggestion(
 ));
 
 BS_school_Suggestions.push(precisionSearchSuggestion(
-  "Search for those who graduated from a different University",
+  "Search for those who graduated from a \"Different University\"",
 
   " WHERE UPPER( BS_school ) LIKE UPPER( '2' ) " + 
   " OR UPPER( BS_school ) LIKE UPPER ( '2,%') " + 
@@ -661,6 +661,17 @@ BS_school_Suggestions.push(precisionSearchSuggestion(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 for (let i = 0; i < suggestions.length; i++)
 {
   suggest(suggestions[i]);
@@ -669,7 +680,6 @@ for (let i = 0; i < suggestions.length; i++)
 
 
 
-suggest(searchSuggestion('Search for Shocker Alumni', 'Wichita State University'));
 suggest(searchSuggestion('Search for Veterans', 'Veterans'));
 
 
