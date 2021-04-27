@@ -189,6 +189,17 @@ function precisionSearchSuggestion(_label, _searchConditions, _action = "advance
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 var suggestions = [];
 var generalSuggestions = [];
 
@@ -239,10 +250,102 @@ suggestions.push(precisionSearchSuggestion('Search for all "shockers.wichita.edu
 
 
 
+generalSuggestions.push(precisionSearchSuggestion('Search for all "Gmail" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@gmail.%' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all "Outlook" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@outlook.%' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all "Live Mail" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@live.%' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all "Yahoo" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@yahoo.%' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all "Hot Mail" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@hotmail.%' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all "wichita.edu" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@wichita.edu' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all "iCloud" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@icloud.%' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all ".edu" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%.edu' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all ".in" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%.in' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all ".com" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%.com' ) "
+));
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all "shockers.wichita.edu" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%shockers.wichita.edu' ) "
+));
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 // Phone Number Suggestions
+
+var phone_number_Suggestions = [];
+
+generalSuggestions.push(precisionSearchSuggestion('Search for all users who provided Phone Numbers', 
+" WHERE UPPER( Phone_Number ) <> UPPER('') "
+));
+
+
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for all users who provided Phone Numbers', 
+" WHERE UPPER( Phone_Number ) <> UPPER('') "
+));
+
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers start with "316"', 
+" WHERE UPPER( Phone_Number ) LIKE UPPER( '316%' ) "
+));
+
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers start with "1800"', 
+" WHERE UPPER( Phone_Number ) LIKE UPPER( '1800%' ) "
+));
+
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers start with "316-978"', 
+" WHERE UPPER( Phone_Number ) LIKE UPPER( '316978%' ) "
+));
+
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers do NOT start with "316"', 
+" WHERE UPPER( Phone_Number ) NOT LIKE UPPER( '316%' ) "
+));
+
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers do NOT start with "316-978"', 
+" WHERE UPPER( Phone_Number ) NOT LIKE UPPER( '316978%' ) "
+));
+
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers do NOT start with "1800"', 
+" WHERE UPPER( Phone_Number ) NOT LIKE UPPER( '1800%' ) "
+));
+
+// adding them to suggestions as well
+
 suggestions.push(precisionSearchSuggestion('Search for all users who provided Phone Numbers', 
 " WHERE UPPER( Phone_Number ) <> UPPER('') "
 ));
@@ -277,46 +380,35 @@ suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers
 
 
 
+
 // Employer Suggestions
-suggestions.push(precisionSearchSuggestion('Search for those who work at "Apple"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%Apple%' ) "
-));
+var employer_suggestions = [];
 
-suggestions.push(precisionSearchSuggestion('Search for those who work at "Google"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%Google%' ) "
-));
+function add_employer_suggestions(_employer, _label = 'Search for those who work at "' + _employer + '"')
+{
+  suggestions.push(precisionSearchSuggestion(_label, 
+    " WHERE UPPER( Employer ) LIKE UPPER( '%" + _employer + "%' ) "
+  ));
 
-suggestions.push(precisionSearchSuggestion('Search for those who work at "Microsoft"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%Microsoft%' ) "
-));
+  employer_suggestions.push(precisionSearchSuggestion(_label, 
+    " WHERE UPPER( Employer ) LIKE UPPER( '%" + _employer + "%' ) "
+  ));
+}
 
-suggestions.push(precisionSearchSuggestion('Search for those who work at "Amazon"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%Amazon%' ) "
-));
+add_employer_suggestions('Wichita State University');
+add_employer_suggestions('Apple');
+add_employer_suggestions('Google');
+add_employer_suggestions('Microsoft');
+add_employer_suggestions('Amazon');
+add_employer_suggestions('Airbus');
+add_employer_suggestions('Spirit Aerosystems');
+add_employer_suggestions('NetApp');
+add_employer_suggestions('University', 'Search for those who work in a University');
+add_employer_suggestions('State University', 'Search for those who work in a State University');
 
-suggestions.push(precisionSearchSuggestion('Search for those who work at "Wichita State University"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%Wichita State University%' ) "
-));
 
-suggestions.push(precisionSearchSuggestion('Search for those who work in a University', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%University%' ) "
-));
 
-suggestions.push(precisionSearchSuggestion('Search for those who work in a "State University"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%State University%' ) "
-));
 
-suggestions.push(precisionSearchSuggestion('Search for those who work at "NetApp"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%NetApp%' ) "
-));
-
-suggestions.push(precisionSearchSuggestion('Search for those who work at "Spirit Aerosystems"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%Spirit Aerosystems%' ) "
-));
-
-suggestions.push(precisionSearchSuggestion('Search for those who work at "Airbus"', 
-" WHERE UPPER( Employer ) LIKE UPPER( '%Airbus%' ) "
-));
 
 
 
@@ -344,6 +436,7 @@ add_jobTitle_suggestions('CEO');
 add_jobTitle_suggestions('Instructor');
 add_jobTitle_suggestions('Entrepenuer');
 add_jobTitle_suggestions('Advisor');
+
 
 
 
@@ -1109,39 +1202,52 @@ for (let i = 0; i < roleModels.length; i++)
 
 
 
+// Suggestions above
 
 
 
+// // shows all suggestions
+// for (let i = 0; i < suggestions.length; i++)
+// {
+//   suggest(suggestions[i]);
+// }
 
-
-
-
-for (let i = 0; i < suggestions.length; i++)
+function randomNumber(limit) 
 {
-  suggest(suggestions[i]);
+  return Math.floor(Math.random() * limit);
+}
+
+function suggestRandomFrom(_suggestions) 
+{
+  suggest(_suggestions[Math.floor(Math.random() * _suggestions.length)]);
 }
 
 
 
+suggestRandomFrom(generalSuggestions);
+suggestRandomFrom(phone_number_Suggestions);
+suggestRandomFrom(employer_suggestions);
+suggestRandomFrom(jobTitle_suggestions);
+suggestRandomFrom(state_suggestions);
+suggestRandomFrom(city_suggestions);
+suggestRandomFrom(college_education_Suggestions);
+suggestRandomFrom(college_degree_year_Suggestions);
 
-suggest(searchSuggestion('Search for Veterans', 'Veterans'));
+suggestRandomFrom(BS_school_Suggestions);
+suggestRandomFrom(BS_field_Suggestions);
+suggestRandomFrom(BS_Eng_Discipline_Suggestions);
+
+suggestRandomFrom(MS_field_Suggestions);
+suggestRandomFrom(MS_Eng_Discipline_Suggestions);
+suggestRandomFrom(MS_year_Suggestions);
+
+suggestRandomFrom(PHD_year_Suggestions);
+
+suggestRandomFrom(involvement_Suggestions);
+suggestRandomFrom(involvement_levels_Suggestions);
+suggestRandomFrom(recruitment_levels_Suggestions);
+suggestRandomFrom(mentor_Age_Suggestions);
+suggestRandomFrom(Role_Model_Suggestions);
 
 
 
-suggest(precisionSearchSuggestion('Search for Computer Science Graduates', 
-
-" WHERE UPPER (BS_Eng_Discipline) LIKE UPPER ('% 7,%') "
-
-+
-
-" OR UPPER (BS_Eng_Discipline) LIKE UPPER ('7') "
-
-+
-
-" OR UPPER (BS_Eng_Discipline) LIKE UPPER ('7,%') "
-
-+
-
-" OR UPPER (BS_Eng_Discipline) LIKE UPPER ('%, 7') "
-
-));
