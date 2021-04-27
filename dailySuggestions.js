@@ -403,8 +403,8 @@ add_employer_suggestions('Amazon');
 add_employer_suggestions('Airbus');
 add_employer_suggestions('Spirit Aerosystems');
 add_employer_suggestions('NetApp');
-add_employer_suggestions('University', 'Search for those who work in a University');
-add_employer_suggestions('State University', 'Search for those who work in a State University');
+add_employer_suggestions('University', 'Search for those who work in a "University"');
+add_employer_suggestions('State University', 'Search for those who work in a "State University"');
 
 
 
@@ -1021,7 +1021,7 @@ var involvement_Suggestions = [];
 for (let i = 0; i < involvement.length - 1; i++) 
 {
   suggestions.push(precisionSearchSuggestion(
-    "Search for those who want to be involved in <br><br> \"" + involvement[i] + "\"",
+    "Search for those who want to be involved in <br><br> &nbsp&nbsp\"" + involvement[i] + "\"",
 
     " WHERE UPPER( Involvement ) LIKE UPPER( '" + (i + 1) + "' ) " +
      " OR UPPER( Involvement ) LIKE UPPER ( '" + (i + 1) + ",%') " +
@@ -1030,7 +1030,7 @@ for (let i = 0; i < involvement.length - 1; i++)
   ));
 
   involvement_Suggestions.push(precisionSearchSuggestion(
-    "Search for those who want to be involved in <br><br> \"" + involvement[i] + "\"",
+    "Search for those who want to be involved in <br><br> &nbsp&nbsp\"" + involvement[i] + "\"",
 
     " WHERE UPPER( Involvement ) LIKE UPPER( '" + (i + 1) + "' ) " +
      " OR UPPER( Involvement ) LIKE UPPER ( '" + (i + 1) + ",%') " +
@@ -1058,7 +1058,7 @@ var involvement_levels_Suggestions = [];
 for (let i = 0; i < involvementLevels.length; i++) 
 {
   suggestions.push(precisionSearchSuggestion(
-    "Search for those who want to be involved in <br><br> \"" + involvementLevels[i] + "\"",
+    "Search for those who want to be involved in <br><br> &nbsp&nbsp\"" + involvementLevels[i] + "\"",
 
     " WHERE UPPER( Involvement_Level ) LIKE UPPER( '" + (i + 1) + "' ) " +
      " OR UPPER( Involvement_Level ) LIKE UPPER ( '" + (i + 1) + ",%') " +
@@ -1067,7 +1067,7 @@ for (let i = 0; i < involvementLevels.length; i++)
   ));
 
   involvement_levels_Suggestions.push(precisionSearchSuggestion(
-    "Search for those who want to be involved in <br><br> \"" + involvementLevels[i] + "\"",
+    "Search for those who want to be involved in <br><br> &nbsp&nbsp\"" + involvementLevels[i] + "\"",
 
     " WHERE UPPER( Involvement_Level ) LIKE UPPER( '" + (i + 1) + "' ) " +
      " OR UPPER( Involvement_Level ) LIKE UPPER ( '" + (i + 1) + ",%') " +
@@ -1224,30 +1224,96 @@ function suggestRandomFrom(_suggestions)
 
 
 
-suggestRandomFrom(generalSuggestions);
+
+
+
+/*
+
+1x general suggestion
+1x personal / professioinal suggestion
+2x education suggestion
+1x involvement suggestion
+
+*/
+
+
+var decision;
+
+
+// 1x suggestion
+suggestRandomFrom(generalSuggestions); 
+
+// 1x suggestion
+decision = randomNumber(5);
+
+if (decision == 0)
 suggestRandomFrom(phone_number_Suggestions);
+else if (decision == 1)
 suggestRandomFrom(employer_suggestions);
+else if (decision == 2)
 suggestRandomFrom(jobTitle_suggestions);
+else if (decision == 3)
 suggestRandomFrom(state_suggestions);
+else if (decision == 4)
 suggestRandomFrom(city_suggestions);
+
+
+// 2x suggestions
+decision = randomNumber(9);
+
+if (decision == 0)
 suggestRandomFrom(college_education_Suggestions);
+else if (decision == 1)
 suggestRandomFrom(college_degree_year_Suggestions);
-
+else if (decision == 2)
 suggestRandomFrom(BS_school_Suggestions);
+else if (decision == 3)
 suggestRandomFrom(BS_field_Suggestions);
+else if (decision == 4)
 suggestRandomFrom(BS_Eng_Discipline_Suggestions);
-
+else if (decision == 5)
 suggestRandomFrom(MS_field_Suggestions);
+else if (decision == 6)
 suggestRandomFrom(MS_Eng_Discipline_Suggestions);
+else if (decision == 7)
 suggestRandomFrom(MS_year_Suggestions);
-
+else if (decision == 8)
 suggestRandomFrom(PHD_year_Suggestions);
 
+decision = (decision + 1) % 9;
+
+if (decision == 0)
+suggestRandomFrom(college_education_Suggestions);
+else if (decision == 1)
+suggestRandomFrom(college_degree_year_Suggestions);
+else if (decision == 2)
+suggestRandomFrom(BS_school_Suggestions);
+else if (decision == 3)
+suggestRandomFrom(BS_field_Suggestions);
+else if (decision == 4)
+suggestRandomFrom(BS_Eng_Discipline_Suggestions);
+else if (decision == 5)
+suggestRandomFrom(MS_field_Suggestions);
+else if (decision == 6)
+suggestRandomFrom(MS_Eng_Discipline_Suggestions);
+else if (decision == 7)
+suggestRandomFrom(MS_year_Suggestions);
+else if (decision == 8)
+suggestRandomFrom(PHD_year_Suggestions);
+
+
+
+// 1x suggestion
+decision = randomNumber(9);
+
+if (decision == 0)
 suggestRandomFrom(involvement_Suggestions);
+else if (decision == 1)
 suggestRandomFrom(involvement_levels_Suggestions);
+else if (decision == 2)
 suggestRandomFrom(recruitment_levels_Suggestions);
+else if (decision == 3)
 suggestRandomFrom(mentor_Age_Suggestions);
+else if (decision == 4)
 suggestRandomFrom(Role_Model_Suggestions);
-
-
 
