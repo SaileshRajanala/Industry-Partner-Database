@@ -850,17 +850,17 @@ function add_MS_year_Suggestions(_year)
   suggestions.push(precisionSearchSuggestion(
     "Search for those who earned a Master's degree in \"" + _year + "\"",
 
-    "WHERE UPPER( MS_year ) LIKE UPPER( '%" + _year + "%' )"
+    " WHERE UPPER( MS_year ) LIKE UPPER( '%" + _year + "%' )"
   ));
 
   MS_year_Suggestions.push(precisionSearchSuggestion(
     "Search for those who earned a Master's degree in \"" + _year + "\"",
 
-    "WHERE UPPER( MS_year ) LIKE UPPER( '%" + _year + "%' )"
+    " WHERE UPPER( MS_year ) LIKE UPPER( '%" + _year + "%' )"
   ));
 }
 
-for (let i = -15; i < 0; i++) 
+for (let i = -15; i <= 0; i++) 
   add_MS_year_Suggestions(i + currentYear);  
 
 
@@ -870,7 +870,7 @@ for (let i = -15; i < 0; i++)
 
 
 
-  
+
 
 // PHD year Suggestions
 
@@ -881,17 +881,17 @@ function add_PHD_year_Suggestions(_year)
   suggestions.push(precisionSearchSuggestion(
     "Search for those who earned a PHD degree in \"" + _year + "\"",
 
-    "WHERE UPPER( PHD_year ) LIKE UPPER( '%" + _year + "%' )"
+    " WHERE UPPER( PHD_year ) LIKE UPPER( '%" + _year + "%' )"
   ));
 
   PHD_year_Suggestions.push(precisionSearchSuggestion(
     "Search for those who earned a PHD degree in \"" + _year + "\"",
 
-    "WHERE UPPER( PHD_year ) LIKE UPPER( '%" + _year + "%' )"
+    " WHERE UPPER( PHD_year ) LIKE UPPER( '%" + _year + "%' )"
   ));
 }
 
-for (let i = -15; i < 0; i++) 
+for (let i = -15; i <= 0; i++) 
   add_PHD_year_Suggestions(i + currentYear);  
 
 
