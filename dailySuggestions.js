@@ -780,7 +780,7 @@ var MS_field_Suggestions = [];
 
 for (let i = 0; i < Fields.length; i++) 
 {
-  if (i == Fields.length)
+  if (i == Fields.length - 1)
   {
     suggestions.push(precisionSearchSuggestion(
       'Search for those pursuing Bachelor\'s Degree in the field of "' 
