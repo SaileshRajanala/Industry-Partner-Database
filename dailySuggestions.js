@@ -928,7 +928,16 @@ var involvement_Suggestions = [];
 for (let i = 0; i < involvement.length - 1; i++) 
 {
   suggestions.push(precisionSearchSuggestion(
-    "Search for those who wants to be involved in <br><br> \"" + involvement[i] + "\"",
+    "Search for those who want to be involved in <br><br> \"" + involvement[i] + "\"",
+
+    " WHERE UPPER( Involvement ) LIKE UPPER( '" + (i + 1) + "' ) " +
+     " OR UPPER( Involvement ) LIKE UPPER ( '" + (i + 1) + ",%') " +
+     " OR UPPER( Involvement ) LIKE UPPER ( '%, " + (i + 1) + ",%') " +
+     " OR UPPER( Involvement ) LIKE UPPER ( '%, " + (i + 1) + "')"
+  ));
+
+  involvement_Suggestions.push(precisionSearchSuggestion(
+    "Search for those who want to be involved in <br><br> \"" + involvement[i] + "\"",
 
     " WHERE UPPER( Involvement ) LIKE UPPER( '" + (i + 1) + "' ) " +
      " OR UPPER( Involvement ) LIKE UPPER ( '" + (i + 1) + ",%') " +
@@ -936,6 +945,85 @@ for (let i = 0; i < involvement.length - 1; i++)
      " OR UPPER( Involvement ) LIKE UPPER ( '%, " + (i + 1) + "')"
   ));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Involvement Level Suggestions
+
+var involvement_levels_Suggestions = [];
+
+for (let i = 0; i < involvementLevels.length; i++) 
+{
+  suggestions.push(precisionSearchSuggestion(
+    "Search for those who want to be involved in <br><br> \"" + involvementLevels[i] + "\"",
+
+    " WHERE UPPER( Involvement_Level ) LIKE UPPER( '" + (i + 1) + "' ) " +
+     " OR UPPER( Involvement_Level ) LIKE UPPER ( '" + (i + 1) + ",%') " +
+     " OR UPPER( Involvement_Level ) LIKE UPPER ( '%, " + (i + 1) + ",%') " +
+     " OR UPPER( Involvement_Level ) LIKE UPPER ( '%, " + (i + 1) + "')"
+  ));
+
+  involvement_levels_Suggestions.push(precisionSearchSuggestion(
+    "Search for those who want to be involved in <br><br> \"" + involvementLevels[i] + "\"",
+
+    " WHERE UPPER( Involvement_Level ) LIKE UPPER( '" + (i + 1) + "' ) " +
+     " OR UPPER( Involvement_Level ) LIKE UPPER ( '" + (i + 1) + ",%') " +
+     " OR UPPER( Involvement_Level ) LIKE UPPER ( '%, " + (i + 1) + ",%') " +
+     " OR UPPER( Involvement_Level ) LIKE UPPER ( '%, " + (i + 1) + "')"
+  ));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Recruitment Level Suggestions
+
+var recruitment_levels_Suggestions = [];
+
+for (let i = 0; i < recruitmentLevels.length; i++) 
+{
+  suggestions.push(precisionSearchSuggestion(
+    "Search for those who want to recruit students of Age Level <br><br> \"" + recruitmentLevels[i] + "\"",
+
+     " WHERE UPPER( Recruitment_Level ) LIKE UPPER( '" + (i + 1) + "' ) " +
+     " OR UPPER( Recruitment_Level ) LIKE UPPER ( '" + (i + 1) + ",%') " +
+     " OR UPPER( Recruitment_Level ) LIKE UPPER ( '%, " + (i + 1) + ",%') " +
+     " OR UPPER( Recruitment_Level ) LIKE UPPER ( '%, " + (i + 1) + "')"
+  ));
+
+  recruitment_levels_Suggestions.push(precisionSearchSuggestion(
+    "Search for those who want to recruit students of Age Level <br><br> \"" + recruitmentLevels[i] + "\"",
+
+     " WHERE UPPER( Recruitment_Level ) LIKE UPPER( '" + (i + 1) + "' ) " +
+     " OR UPPER( Recruitment_Level ) LIKE UPPER ( '" + (i + 1) + ",%') " +
+     " OR UPPER( Recruitment_Level ) LIKE UPPER ( '%, " + (i + 1) + ",%') " +
+     " OR UPPER( Recruitment_Level ) LIKE UPPER ( '%, " + (i + 1) + "')"
+  ));
+}
+
+
+
+
+
 
 
 
