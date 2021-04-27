@@ -41,16 +41,16 @@
       if (isset($row['Theme']))
       {
         echo '<link href="' . $row['Theme'] . 
-        '.css" id="rS" rel="stylesheet" type="text/css">';
+        '.css" id="themeCSS" rel="stylesheet" type="text/css">';
       }
       else
       {
-        echo '<link href="dark.css" id="rS" rel="stylesheet" type="text/css">';
+        echo '<link href="dark.css" id="themeCSS" rel="stylesheet" type="text/css">';
       }
     }
     else
     {
-      echo '<link href="dark.css" id="rS" rel="stylesheet" type="text/css">';
+      echo '<link href="dark.css" id="themeCSS" rel="stylesheet" type="text/css">';
     }
 
     ?>
