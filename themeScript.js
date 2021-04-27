@@ -40,6 +40,61 @@ function addThemes(themeNames)
         themeOptionsDiv.append(themeButton);
     }
 
+    /*
+
+    <div style="background-color: black; padding: 2%;margin:6%;margin-top:-6%;padding-top: 0%;text-align: center;border-radius: 1em;font-family: 'Noto Sans KR'">
+        <h3>Dynamic Theme</h3>
+        <p> Switches between themes throughout the day.</p>
+    </div>
+
+    <div style="background-color: black; padding: 2%;margin:6%;margin-top:-6%;padding-top: 0%;text-align: center;border-radius: 1em;font-family: 'Noto Sans KR'">
+        <h3>Random Theme</h3>
+        <p> Sets a random theme everytime you load webpage. </p>
+    </div>
+
+    */
+
+    var labelDiv = document.createElement('div');
+    labelDiv.setAttribute('style', 'background-color: black; padding: 2%;margin:6%;margin-top:-6%;padding-top: 0%;text-align: center;border-radius: 1em;font-family: \'Noto Sans KR\'');
+    
+
+    var _element = document.createElement('h3');
+    _element.innerHTML = "Dynamic Theme";
+
+    labelDiv.append(_element);
+
+
+    _element = document.createElement('p');
+    _element.innerHTML = "Switches between themes throughout the day.";
+
+    labelDiv.append(_element);
+    
+    themeOptionsDiv.append(labelDiv);
+
+
+
+
+    labelDiv = document.createElement('div');
+    labelDiv.setAttribute('style', 'background-color: black; padding: 2%;margin:6%;margin-top:-6%;padding-top: 0%;text-align: center;border-radius: 1em;font-family: \'Noto Sans KR\'');
+    
+
+    _element = document.createElement('h3');
+    _element.innerHTML = "Random Theme";
+
+    labelDiv.append(_element);
+
+
+    _element = document.createElement('p');
+    _element.innerHTML = "Sets a random theme everytime you load webpage.";
+
+    labelDiv.append(_element);
+    
+    themeOptionsDiv.append(labelDiv);
+
+
+
+
+
     var themesForm = document.createElement('form');
     themesForm.setAttribute('name', 'themeChange');
     themesForm.setAttribute('method', 'POST');
@@ -110,6 +165,9 @@ addThemes([
 'summer',
 'dark', 
 'midnight',
+
+'dynamic',
+'random'
 
 // ADD THEMES BELOW THIS LINE <*> ------ <*>
 // eg. 'newtheme',
