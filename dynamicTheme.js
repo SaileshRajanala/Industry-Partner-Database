@@ -4,28 +4,21 @@ function changeTheme(theme="bright", _id = 'themeCSS')
     document.getElementById(_id).setAttribute('href', theme + ".css");
 }
 
-var d = new Date();
-
-var hour = d.getHours();
-
-if (hour >= 0 && hour <= 1)
+function setThemeForHours(theme, hourStart, hourEnd, _id = 'themeCSS')
 {
+    var d = new Date();
 
+    if (d.getHours() >= hourStart && d.getHours() < hourEnd)
+    {
+        changeTheme(theme, _id);
+    }
 }
 
-if (d.getHours() >= 6 && d.getHours() < 180)
-{  
-    swapStylesheet("request_bright.css", "rS");
-    swapStylesheet("test_bright.css", "tS");
-    swapStylesheet("export_bright.css", "eS");
-    swapStylesheet("help_bright.css", "hS");
-    swapStylesheet("mobile_bright.css", "mS");
-}
-else
-{
-    swapStylesheet("request_dark.css", "rS");
-    swapStylesheet("test_dark.css", "tS");
-    swapStylesheet("export_dark.css", "eS");
-    swapStylesheet("help_dark.css", "hS");
-    swapStylesheet("mobile_dark.css", "mS");
-}
+setThemeForHours('bright',    6,  8);
+setThemeForHours('wsu',       8, 10);
+setThemeForHours('citrus',   10, 12);
+setThemeForHours('abyss',    12, 14);
+setThemeForHours('summer',   14, 16);
+setThemeForHours('bubbles',  16, 18);
+setThemeForHours('dark',     18, 23);
+setThemeForHours('midnight', 23,  6);
