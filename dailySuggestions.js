@@ -189,13 +189,216 @@ function precisionSearchSuggestion(_label, _searchConditions, _action = "advance
 
 
 
+var suggestions = [];
 
+// Mail Suggestions
+suggestions.push(precisionSearchSuggestion('Search for all "Gmail" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@gmail.%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all "Outlook" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@outlook.%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all "Live Mail" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@live.%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all "Yahoo" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@yahoo.%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all "Hot Mail" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@hotmail.%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all "wichita.edu" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@wichita.edu' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all "iCloud" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%@icloud.%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all ".edu" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%.edu' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all ".in" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%.in' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all ".com" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%.com' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for all "shockers.wichita.edu" users ', 
+" WHERE UPPER( Email ) LIKE UPPER( '%shockers.wichita.edu' ) "
+));
+
+
+
+
+
+
+// Phone Number Suggestions
+suggestions.push(precisionSearchSuggestion('Search for all users who provided Phone Numbers', 
+" WHERE UPPER( Phone_Number ) <> UPPER('') "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers start with "316"', 
+" WHERE UPPER( Phone_Number ) LIKE UPPER( '316%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers start with "1800"', 
+" WHERE UPPER( Phone_Number ) LIKE UPPER( '1800%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers start with "316-978"', 
+" WHERE UPPER( Phone_Number ) LIKE UPPER( '316978%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers do NOT start with "316"', 
+" WHERE UPPER( Phone_Number ) NOT LIKE UPPER( '316%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers do NOT start with "316-978"', 
+" WHERE UPPER( Phone_Number ) NOT LIKE UPPER( '316978%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers do NOT start with "1800"', 
+" WHERE UPPER( Phone_Number ) NOT LIKE UPPER( '1800%' ) "
+));
+
+
+
+
+
+
+
+// Employer Suggestions
+
+
+suggestions.push(precisionSearchSuggestion('Search for those who work at "Apple"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%Apple%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work at "Google"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%Google%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work at "Microsoft"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%Microsoft%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work at "Amazon"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%Amazon%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work at "Wichita State University"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%Wichita State University%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work in a University', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%University%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work in a "State University"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%State University%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work at "NetApp"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%NetApp%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work at "Spirit Aerosystems"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%Spirit Aerosystems%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those who work at "Airbus"', 
+" WHERE UPPER( Employer ) LIKE UPPER( '%Airbus%' ) "
+));
+
+
+
+
+// Job Title Suggestions
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "Manager"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%Manager%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "Student Worker"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%Student Worker%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "Developer"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%Developer%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "Lead"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%Lead%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "CFO"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%CFO%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "CEO"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%CEO%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "Instructor"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%Instructor%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "Entrepenuer"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%Entrepenuer%' ) "
+));
+
+suggestions.push(precisionSearchSuggestion('Search for those whose position is "Advisor"', 
+" WHERE UPPER( Job_Title ) LIKE UPPER( '%Advisor%' ) "
+));
+
+
+
+
+// State Suggestions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+for (let i = 0; i < suggestions.length; i++)
+{
+  suggest(suggestions[i]);
+}
 
 
 
 
 suggest(searchSuggestion('Search for Shocker Alumni', 'Wichita State University'));
 suggest(searchSuggestion('Search for Veterans', 'Veterans'));
+
+
+
 suggest(precisionSearchSuggestion('Search for Computer Science Graduates', 
 
 " WHERE UPPER (BS_Eng_Discipline) LIKE UPPER ('% 7,%') "
