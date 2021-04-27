@@ -362,8 +362,7 @@ suggestions.push(precisionSearchSuggestion('Search for those whose position is "
 
 
 
-// State Suggestions (**changable**)
-
+// State Suggestions (**should be changed**)
 function addStateSuggestion(_state, _stateLabel)
 {
   suggestions.push(precisionSearchSuggestion('Search for those who are from "' + _state + '"', 
@@ -426,6 +425,8 @@ addStateSuggestion('Wyoming', "WY");
 
 
 
+
+//
 
 
 
