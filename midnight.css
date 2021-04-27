@@ -982,15 +982,15 @@ body
 
     font-family: 'Quicksand';
 
-    background-color: rgb(25,25,25);
+    background-color: transparent;
     color: white;
     transition: all 0.25s;
 }
 
 .searchSuggestion:hover
 {
-    background-color: rgb(47,47,47);
-    color: white;
+    background-color: rgb(255,255,255,0.8);
+    color: black;
     cursor: pointer;
 }
 

@@ -971,7 +971,7 @@ body
 
     font-family: 'Quicksand';
 
-    background-color: rgb(25,25,25);
+    background-color: transparent;
     color: white;
     transition: all 0.25s;
 }
