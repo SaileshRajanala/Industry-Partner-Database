@@ -789,6 +789,10 @@
       {
         echo '<script src="dynamicTheme.js"></script>';
       }
+      elseif (isset($row['Theme']) && $row['Theme'] == 'random')
+      {
+        echo '<script src="randomTheme.js"></script>';
+      }
     }
     
 
