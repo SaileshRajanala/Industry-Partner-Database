@@ -371,9 +371,9 @@ function addStateSuggestion(_state, _stateLabel)
     " WHERE UPPER( State ) LIKE UPPER( '%" + _stateLabel + "%' ) "
   ));
 
-  state_suggestions.push(precisionSearchSuggestion('Search for those who are from "' + _city + '"', 
-  " WHERE UPPER( City ) LIKE UPPER( '%" + _city + "%' ) "
-  ));
+  state_suggestions.push(precisionSearchSuggestion('Search for those who are from "' + _state + '"', 
+  " WHERE UPPER( State ) LIKE UPPER( '%" + _stateLabel + "%' ) "
+));
 }
 
 addStateSuggestion('Alabama', "AL");
@@ -517,7 +517,7 @@ addCitySuggestion("Stavanger");
 
 
 
-
+// State Suggestions (**should be changed**)
 
 
 
