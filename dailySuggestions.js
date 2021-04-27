@@ -537,6 +537,7 @@ addCitySuggestion("Stavanger");
 
 
 
+
 for (let i = 0; i < suggestions.length; i++)
 {
   suggest(suggestions[i]);
