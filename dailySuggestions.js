@@ -277,8 +277,6 @@ suggestions.push(precisionSearchSuggestion('Search for those whose Phone Numbers
 
 
 // Employer Suggestions
-
-
 suggestions.push(precisionSearchSuggestion('Search for those who work at "Apple"', 
 " WHERE UPPER( Employer ) LIKE UPPER( '%Apple%' ) "
 ));
@@ -323,41 +321,34 @@ suggestions.push(precisionSearchSuggestion('Search for those who work at "Airbus
 
 
 // Job Title Suggestions
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "Manager"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%Manager%' ) "
-));
+var jobTitle_suggestions = [];
 
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "Student Worker"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%Student Worker%' ) "
-));
+function add_jobTitle_suggestions(_position, _label = 'Search for those whose position is ' + _position)
+{
+  suggestions.push(precisionSearchSuggestion(_label, 
+    " WHERE UPPER( Job_Title ) LIKE UPPER( '%" + _position + "%' ) "
+  ));
 
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "Developer"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%Developer%' ) "
-));
+  jobTitle_suggestions.push(precisionSearchSuggestion(_label, 
+    " WHERE UPPER( Job_Title ) LIKE UPPER( '%" + _position + "%' ) "
+  ));
+}
 
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "Lead"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%Lead%' ) "
-));
+add_jobTitle_suggestions('Manager');
+add_jobTitle_suggestions('Student Worker');
+add_jobTitle_suggestions('Developer');
+add_jobTitle_suggestions('Lead');
+add_jobTitle_suggestions('CFO');
+add_jobTitle_suggestions('CEO');
+add_jobTitle_suggestions('Instructor');
+add_jobTitle_suggestions('Entrepenuer');
+add_jobTitle_suggestions('Advisor');
 
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "CFO"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%CFO%' ) "
-));
 
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "CEO"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%CEO%' ) "
-));
 
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "Instructor"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%Instructor%' ) "
-));
 
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "Entrepenuer"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%Entrepenuer%' ) "
-));
 
-suggestions.push(precisionSearchSuggestion('Search for those whose position is "Advisor"', 
-" WHERE UPPER( Job_Title ) LIKE UPPER( '%Advisor%' ) "
-));
+
 
 
 
@@ -501,13 +492,13 @@ function addCitySuggestion(_city)
   ));
 
   city_suggestions.push(precisionSearchSuggestion('Search for those who are from "' + _city + '"', 
-  " WHERE UPPER( City ) LIKE UPPER( '%" + _city + "%' ) "
+    " WHERE UPPER( City ) LIKE UPPER( '%" + _city + "%' ) "
   ));
 }
 
 
 // auto create suggestions loop
-for (let city_index = 0; city_index < array.length; city_index++) 
+for (let city_index = 0; city_index < cities.length; city_index++) 
   addCitySuggestion(cities[city_index]);
 
 
@@ -517,7 +508,70 @@ addCitySuggestion("Stavanger");
 
 
 
-// State Suggestions (**should be changed**)
+
+
+// College Education Suggestions
+var college_education_Suggestions = [];
+
+function add_college_education_Suggestions(_educationLevel, _conditions)
+{
+  suggestions.push(precisionSearchSuggestion('Search for those who have a ' + _educationLevel, 
+    _conditions
+  ));
+
+  college_education_Suggestions.push(precisionSearchSuggestion('Search for those who have a ' + 
+    _educationLevel,  _conditions
+  ));
+}
+
+add_college_education_Suggestions('Associate\'s Degree',
+ " WHERE UPPER( College_Education ) LIKE UPPER( '3' ) " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '3,%') " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '%, 3,%') " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '%, 3') "
+);
+
+add_college_education_Suggestions('Technical Degree',
+ " WHERE UPPER( College_Education ) LIKE UPPER( '4' ) " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '4,%') " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '%, 4,%') " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '%, 4') "
+);
+
+add_college_education_Suggestions('Bachelor\'s Degree',
+ " WHERE UPPER( College_Education ) LIKE UPPER( '5' ) " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '5,%') " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '%, 5,%') " + 
+ " OR UPPER( College_Education ) LIKE UPPER ( '%, 5') "
+);
+
+
+
+
+// College Degree Year Suggestions
+var college_degree_year_Suggestions = [];
+
+function add_college_degree_year_Suggestions(_year, _label = "Search for those who graduated in " + _year)
+{
+  suggestions.push(precisionSearchSuggestion(_label, 
+    " WHERE UPPER( College_Degree_Year ) LIKE UPPER( '%" + _year + "%' ) " + 
+    " OR UPPER( MS_year ) LIKE UPPER( '%" + _year + "%' )  " + 
+    " OR UPPER( PHD_year ) LIKE UPPER( '%" + _year + "%' ) "
+  ));
+
+  college_degree_year_Suggestions.push(precisionSearchSuggestion(_label, 
+    " WHERE UPPER( College_Degree_Year ) LIKE UPPER( '%" + _year + "%' ) " + 
+    " OR UPPER( MS_year ) LIKE UPPER( '%" + _year + "%' )  " + 
+    " OR UPPER( PHD_year ) LIKE UPPER( '%" + _year + "%' ) "
+  ));
+}
+
+var currentYear = new Date().setFullYear();
+
+for (let yearIndex = -15; yearIndex <= 15; yearIndex++) 
+  add_college_degree_year_Suggestions(currentYear + yearIndex);
+
+// before and after 15 years suggestions
 
 
 
