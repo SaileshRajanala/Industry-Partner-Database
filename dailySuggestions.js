@@ -1002,7 +1002,7 @@ var recruitment_levels_Suggestions = [];
 for (let i = 0; i < recruitmentLevels.length; i++) 
 {
   suggestions.push(precisionSearchSuggestion(
-    "Search for those who want to recruit students of Age Level <br><br> \"" + recruitmentLevels[i] + "\"",
+    "Search for those who want to recruit students of Age Level \"" + recruitmentLevels[i] + "\"",
 
      " WHERE UPPER( Recruitment_Level ) LIKE UPPER( '" + (i + 1) + "' ) " +
      " OR UPPER( Recruitment_Level ) LIKE UPPER ( '" + (i + 1) + ",%') " +
@@ -1011,7 +1011,7 @@ for (let i = 0; i < recruitmentLevels.length; i++)
   ));
 
   recruitment_levels_Suggestions.push(precisionSearchSuggestion(
-    "Search for those who want to recruit students of Age Level <br><br> \"" + recruitmentLevels[i] + "\"",
+    "Search for those who want to recruit students of Age Level \"" + recruitmentLevels[i] + "\"",
 
      " WHERE UPPER( Recruitment_Level ) LIKE UPPER( '" + (i + 1) + "' ) " +
      " OR UPPER( Recruitment_Level ) LIKE UPPER ( '" + (i + 1) + ",%') " +
@@ -1023,6 +1023,86 @@ for (let i = 0; i < recruitmentLevels.length; i++)
 
 
 
+
+
+
+
+
+// Mentor Age Suggestions
+
+var mentor_Age_Suggestions = [];
+
+for (let i = 0; i < mentorAge.length; i++) 
+{
+  suggestions.push(precisionSearchSuggestion(
+    "Search for those who want to mentor students of Age Level \"" + mentorAge[i] + "\"",
+
+     " WHERE UPPER( Mentor_Age ) LIKE UPPER( '" + (i + 1) + "' ) " +
+     " OR UPPER( Mentor_Age ) LIKE UPPER ( '" + (i + 1) + ",%') " +
+     " OR UPPER( Mentor_Age ) LIKE UPPER ( '%, " + (i + 1) + ",%') " +
+     " OR UPPER( Mentor_Age ) LIKE UPPER ( '%, " + (i + 1) + "')"
+  ));
+
+  mentor_Age_Suggestions.push(precisionSearchSuggestion(
+    "Search for those who want to mentor students of Age Level \"" + mentorAge[i] + "\"",
+
+     " WHERE UPPER( Mentor_Age ) LIKE UPPER( '" + (i + 1) + "' ) " +
+     " OR UPPER( Mentor_Age ) LIKE UPPER ( '" + (i + 1) + ",%') " +
+     " OR UPPER( Mentor_Age ) LIKE UPPER ( '%, " + (i + 1) + ",%') " +
+     " OR UPPER( Mentor_Age ) LIKE UPPER ( '%, " + (i + 1) + "')"
+  ));
+}
+
+
+
+
+
+
+
+
+
+
+// Role Model Suggestions
+
+var Role_Model_Suggestions = [];
+
+for (let i = 0; i < roleModels.length; i++) 
+{
+  if (i == roleModels.length - 1)
+  {
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those who want to serve as a Role Model for "' + roleModels[i] + '"',
+  
+      " WHERE UPPER( Role_Model ) LIKE UPPER( '%" + "Other" + "%' ) "
+    ));
+  
+    Role_Model_Suggestions.push(precisionSearchSuggestion(
+      'Search for those who want to serve as a Role Model for "' + roleModels[i] + '"',
+  
+      " WHERE UPPER( Role_Model ) LIKE UPPER( '%" + "Other" + "%' ) "
+    ));
+  }
+  else
+  {
+    suggestions.push(precisionSearchSuggestion(
+      'Search for those who want to serve as a Role Model for "' + roleModels[i] + '"',
+  
+      " WHERE UPPER( Role_Model ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( Role_Model ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( Role_Model ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( Role_Model ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  
+    Role_Model_Suggestions.push(precisionSearchSuggestion(
+      'Search for those who want to serve as a Role Model for "' + roleModels[i] + '"',
+  
+      " WHERE UPPER( Role_Model ) LIKE UPPER( '" + (i + 1) + "' ) " + 
+      " OR UPPER( Role_Model ) LIKE UPPER ( '" + (i + 1) + ",%') " + 
+      " OR UPPER( Role_Model ) LIKE UPPER ( '%, " + (i + 1) + ",%') " + 
+      " OR UPPER( Role_Model ) LIKE UPPER ( '%, " + (i + 1) + "')"
+    ));
+  }  
+}
 
 
 
