@@ -680,7 +680,8 @@ function searchArrayForKeyword($arr, $keyword)
 
   for ($i = 0; $i < count($arr); $i++)
   {
-    if (strpos(strtolower($arr[$i]), strtolower($keyword)) !== false) 
+    if (($keyword != "") && 
+        (strpos(strtolower($arr[$i]), strtolower($keyword)) !== false)) 
     {
       if (strtolower($arr[$i]) == "other")
         array_push($optionArray, "other");
