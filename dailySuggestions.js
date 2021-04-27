@@ -675,40 +675,28 @@ for (let i = 0; i < Fields.length; i++)
       'Search for those pursuing Bachelor\'s Degree in the field of "' 
       + Fields[i] + '"',
   
-      " WHERE UPPER( BS_field ) LIKE UPPER( '" + "Other" + "' ) " + 
-      " OR UPPER( BS_field ) LIKE UPPER ( '" + "Other" + ",%') " + 
-      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
-      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + "Other" + "')"
+      " WHERE UPPER( BS_field ) LIKE UPPER( '%" + "Other" + "%' ) "
     ));
   
     BS_field_Suggestions.push(precisionSearchSuggestion(
       'Search for those pursuing Bachelor\'s Degree in the field of "' 
       + Fields[i] + '"',
   
-      " WHERE UPPER( BS_field ) LIKE UPPER( '" + "Other" + "' ) " + 
-      " OR UPPER( BS_field ) LIKE UPPER ( '" + "Other" + ",%') " + 
-      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
-      " OR UPPER( BS_field ) LIKE UPPER ( '%, " + "Other" + "')"
+      " WHERE UPPER( BS_field ) LIKE UPPER( '%" + "Other" + "%' ) "
     ));
   
     suggestions.push(precisionSearchSuggestion(
       'Search for those pursuing Master\'s Degree in the field of "' 
       + Fields[i] + '"',
   
-      " WHERE UPPER( MS_field ) LIKE UPPER( '" + "Other" + "' ) " + 
-      " OR UPPER( MS_field ) LIKE UPPER ( '" + "Other" + ",%') " + 
-      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
-      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + "Other" + "')"
+      " WHERE UPPER( MS_field ) LIKE UPPER( '%" + "Other" + "%' ) "
     ));
   
     MS_field_Suggestions.push(precisionSearchSuggestion(
       'Search for those pursuing Master\'s Degree in the field of "' 
       + Fields[i] + '"',
   
-      " WHERE UPPER( MS_field ) LIKE UPPER( '" + "Other" + "' ) " + 
-      " OR UPPER( MS_field ) LIKE UPPER ( '" + "Other" + ",%') " + 
-      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
-      " OR UPPER( MS_field ) LIKE UPPER ( '%, " + "Other" + "')"
+      " WHERE UPPER( MS_field ) LIKE UPPER( '%" + "Other" + "%' ) "
     ));
   }
   else
@@ -776,40 +764,28 @@ for (let i = 0; i < engDisciplines.length; i++)
       'Search for those pursuing Bachelor\'s Degree in "' 
       + engDisciplines[i] + '"',
   
-      " WHERE UPPER( BS_Eng_Discipline ) LIKE UPPER( '" + "Other" + "' ) " + 
-      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '" + "Other" + ",%') " + 
-      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
-      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + "')"
+      " WHERE UPPER( BS_Eng_Discipline ) LIKE UPPER( '%" + "Other" + "%' ) "
     ));
   
     BS_Eng_Discipline_Suggestions.push(precisionSearchSuggestion(
       'Search for those pursuing Bachelor\'s Degree in "' 
       + engDisciplines[i] + '"',
   
-      " WHERE UPPER( BS_Eng_Discipline ) LIKE UPPER( '" + "Other" + "' ) " + 
-      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '" + "Other" + ",%') " + 
-      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
-      " OR UPPER( BS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + "')"
+      " WHERE UPPER( BS_Eng_Discipline ) LIKE UPPER( '%" + "Other" + "%' ) "
     ));
   
     suggestions.push(precisionSearchSuggestion(
       'Search for those pursuing Master\'s Degree in "' 
       + engDisciplines[i] + '"',
   
-      " WHERE UPPER( MS_Eng_Discipline ) LIKE UPPER( '" + "Other" + "' ) " + 
-      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '" + "Other" + ",%') " + 
-      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
-      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + "')"
+      " WHERE UPPER( MS_Eng_Discipline ) LIKE UPPER( '%" + "Other" + "%' ) "
     ));
   
     MS_Eng_Discipline_Suggestions.push(precisionSearchSuggestion(
       'Search for those pursuing Master\'s Degree in "' 
       + engDisciplines[i] + '"',
   
-      " WHERE UPPER( MS_Eng_Discipline ) LIKE UPPER( '" + "Other" + "' ) " + 
-      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '" + "Other" + ",%') " + 
-      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + ",%') " + 
-      " OR UPPER( MS_Eng_Discipline ) LIKE UPPER ( '%, " + "Other" + "')"
+      " WHERE UPPER( MS_Eng_Discipline ) LIKE UPPER( '%" + "Other" + "%' ) "
     ));
   }
   else

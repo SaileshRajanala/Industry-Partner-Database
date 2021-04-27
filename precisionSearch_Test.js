@@ -206,11 +206,16 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
 
         */
 
-        // precise check conditions for 'CONTAINS' below
-        searchCondition += " '" + keyword + "' ) ";
-        searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '"    + keyword + ",%') ";
-        searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword + ",%') ";
-        searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword +   "') ";
+        if (keyword == "Other")
+          searchCondition += " '%" + keyword + "%' ) "; 
+        else
+        {
+          // precise check conditions for 'CONTAINS' below
+          searchCondition += " '" + keyword + "' ) ";
+          searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '"    + keyword + ",%') ";
+          searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword + ",%') ";
+          searchCondition += " OR UPPER( " + tableColumn + " ) LIKE UPPER ( '%, " + keyword +   "') ";
+        }
       }
       else
         searchCondition += " '%" + keyword + "%' ) ";
