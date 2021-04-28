@@ -1212,6 +1212,43 @@ for (let i = 0; i < roleModels.length; i++)
 //   suggest(suggestions[i]);
 // }
 
+
+
+
+
+function searchSuggestions()
+{
+  if (id_('searchBar') != undefined)
+  {
+    id_('searchBar').addEventListener('keyup', function()
+    {
+      var keyWord = id_('searchBar').value;
+
+      for (let i = 0; i < suggestions.length; i++) 
+      {
+        var suggestionLabel = suggestions[i].getElementsByTagName('button')[0].textContent;
+        
+        if (keyWord.toLowerCase().includes(suggestionLabel.toLowerCase()) || 
+            suggestionLabel.toLowerCase().includes(keyWord.toLowerCase()))
+        {
+          id_('searchBarDiv').append(suggestions[i]);
+        }
+      }
+    });
+  }
+}
+
+searchSuggestions();
+
+
+
+
+
+
+
+
+
+
 function randomNumber(limit) 
 {
   return Math.floor(Math.random() * limit);
