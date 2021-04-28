@@ -1298,6 +1298,7 @@ function searchSuggestions()
         }
       }
 
+      console.log(matchingSuggestions);
 
       for (let i = 0; i < matchingSuggestions.length; i++) 
       {
