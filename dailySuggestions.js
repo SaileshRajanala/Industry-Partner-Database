@@ -1313,28 +1313,19 @@ function activateSearchSuggestions()
 
   if (id_('searchBar') != undefined && id_('searchSuggestionsDiv') != undefined)
   {
-    id_('searchBar').addEventListener('focusin', function()
+    id_('searchBar').addEventListener('keyup', function()
     {
-      id_('searchBar').addEventListener('keyup', function()
+      if (id_('searchBar').value != "")
       {
-        if (id_('searchBar').value != "")
-        {
-          if (noSuggestionsAvaialable())
-            id_('searchSuggestionsDiv').style.display = "none";
-          else
-            id_('searchSuggestionsDiv').style.display = "block";
-        }
-        else
-        {
+        if (noSuggestionsAvaialable())
           id_('searchSuggestionsDiv').style.display = "none";
-        }
-      });
-    });
-
-
-    id_('searchBar').addEventListener('focusout', function()
-    {
-      id_('searchSuggestionsDiv').style.display = "none";
+        else
+          id_('searchSuggestionsDiv').style.display = "block";
+      }
+      else
+      {
+        id_('searchSuggestionsDiv').style.display = "none";
+      }
     });
   }
 }
