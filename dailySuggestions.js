@@ -1309,32 +1309,43 @@ function noSuggestionsAvaialable()
 
 function activateSearchSuggestions()
 {
-  
-
   if (id_('searchBar') != undefined && id_('searchSuggestionsDiv') != undefined)
   {
     id_('searchSuggestionsDiv').style.display = "none";
 
-    id_('searchBar').addEventListener('keyup', function()
-    {
-      if (id_('searchBar').value != "")
+    id_('searchBar').addEventListener('focusin', function()
+    {  
+      id_('searchBar').addEventListener('keyup', function()
       {
-        if (noSuggestionsAvaialable())
-          id_('searchSuggestionsDiv').style.display = "none";
+        if (id_('searchBar').value != "")
+        {
+          if (noSuggestionsAvaialable())
+            id_('searchSuggestionsDiv').style.display = "none";
+          else
+            id_('searchSuggestionsDiv').style.display = "block";
+        }
         else
+        {
           id_('searchSuggestionsDiv').style.display = "block";
-      }
-      else
-      {
-        id_('searchSuggestionsDiv').style.display = "none";
-      }
+  
+          for (let i = 0; i < suggestions.length; i++) 
+            id_('searchSuggestionsDiv').append(suggestions[i]);
+        }
+      });
     });
-  }
 
-  id_('searchBar').addEventListener('focusout', function()
-  {
-    id_('searchSuggestionsDiv').style.display = "none";
-  });
+
+    id_('searchBar').addEventListener('focusout', function()
+    {
+      id_('searchSuggestionsDiv').style.display = "none";
+    });
+
+
+
+    id_('searchBar').style.zIndex = "100";
+    id_('searchSuggestionsDiv').style.zIndex = "100";
+
+  }
 }
 
 
