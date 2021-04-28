@@ -1315,10 +1315,11 @@ function activateSearchSuggestions()
 
     id_('searchBar').addEventListener('focusin', function()
     { 
+      
+      id_('searchSuggestionsDiv').style.display = "block";
+      
       if (id_('searchBar').value == "")
       {
-        id_('searchSuggestionsDiv').style.display = "block";
-  
         for (let i = 0; i < suggestions.length; i++) 
           id_('searchSuggestionsDiv').append(suggestions[i]);
       }
