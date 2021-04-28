@@ -163,7 +163,8 @@ function animate(_element, _animationClass)
 
 function generateSearchCondition(conditionalconnection, tableColumn, operation, keyword)
 {
-  var searchCondition = " " + conditionalconnection + " UPPER( " + tableColumn + " ) ";
+  var searchCondition = " " + conditionalconnection + " ( " // condition start
+                         + " UPPER( " + tableColumn + " ) ";
 
   if (operation == "IS")
   {
@@ -230,6 +231,8 @@ function generateSearchCondition(conditionalconnection, tableColumn, operation, 
       searchCondition += " '%" + keyword + "' ) ";
     }
   }
+
+  searchCondition += " ) " // condition end
 
   return searchCondition;
 }
