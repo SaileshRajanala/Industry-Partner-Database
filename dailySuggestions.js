@@ -1212,15 +1212,39 @@ for (let i = 0; i < roleModels.length; i++)
 //   suggest(suggestions[i]);
 // }
 
+
+function containsAllKeywords(suggestionLabel, keyWords)
+{
+  var matches = 0;
+  
+  for (let i = 0; i < keyWords.length; i++) 
+  {    
+    if (suggestionLabel.toLowerCase().includes(keyWords[i].toLowerCase()))
+    { 
+      matches++;
+    }
+  }
+
+  if (matches == keyWords.length)
+    return true;
+  else
+  return false;
+}
+
 function noSuggestionsAvaialable()
 {
   var keyWord = id_('searchBar').value;
 
+  var keyWordString = keyWord.replace(/\s+/g,' ').trim();
+  var keyWords = keyWordString.split(' ');
+
+  var suggestionLabel;
+
   for (let i = 0; i < suggestions.length; i++) 
   {
-    var suggestionLabel = suggestions[i].getElementsByTagName('button')[0].textContent;
+    suggestionLabel = suggestions[i].getElementsByTagName('button')[0].textContent;
 
-    if (suggestionLabel.toLowerCase().includes(keyWord.toLowerCase())) 
+    if (containsAllKeywords(suggestionLabel, keyWords)) 
       return false;
 
   }
@@ -1252,23 +1276,6 @@ function activateSearchSuggestions()
   }
 }
 
-function containsAllKeywords(suggestionLabel, keyWords)
-{
-  var matches = 0;
-  
-  for (let i = 0; i < keyWords.length; i++) 
-  {    
-    if (suggestionLabel.toLowerCase().includes(keyWords[i].toLowerCase()))
-    { 
-      matches++;
-    }
-  }
-
-  if (matches == keyWords.length)
-    return true;
-  else
-  return false;
-}
 
 
 function searchSuggestions()
