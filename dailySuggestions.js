@@ -1255,7 +1255,7 @@ function activateSearchSuggestions()
 function containsAllKeywords(suggestionLabel, keyWords)
 {
   var matches = 0;
-
+  
   for (let i = 0; i < keyWords.length; i++) 
   {    
     if (suggestionLabel.toLowerCase().includes(keyWords[i].toLowerCase()))
@@ -1267,7 +1267,7 @@ function containsAllKeywords(suggestionLabel, keyWords)
   if (matches == keyWords.length)
     return true;
   else
-    return false;
+  return false;
 }
 
 
@@ -1286,11 +1286,11 @@ function searchSuggestions()
       var keyWordString = keyWord.replace(/\s+/g,' ').trim();
       var keyWords = keyWordString.split(' ');
 
-
+      var suggestionLabel;
 
       for (let i = 0; i < suggestions.length; i++) 
       {
-        var suggestionLabel = suggestions[i].getElementsByTagName('button')[0].textContent;
+        suggestionLabel = suggestions[i].getElementsByTagName('button')[0].textContent;
         
         if (containsAllKeywords(suggestionLabel, keyWords))
         { 
