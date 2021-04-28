@@ -748,8 +748,50 @@ generalSuggestions.push(precisionSearchSuggestion(
   " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 1')"
 ));
 
+suggestions.push(precisionSearchSuggestion(
+  "Search for those have a Master's Degree from \"Wichita State University\"",
 
+  " WHERE UPPER( have_MS_degree ) LIKE UPPER( '1' ) " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '1,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 1,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 1')"
+));
 
+generalSuggestions.push(precisionSearchSuggestion(
+  "Search for those have a Master's Degree from \"Wichita State University\"",
+
+  " WHERE UPPER( have_MS_degree ) LIKE UPPER( '1' ) " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '1,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 1,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 1')"
+));
+
+suggestions.push(precisionSearchSuggestion(
+  "Search for those have a Master's Degree from a \"Different University\"",
+
+  " WHERE UPPER( have_MS_degree ) LIKE UPPER( '2' ) " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '2,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 2,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 2')"
+));
+
+generalSuggestions.push(precisionSearchSuggestion(
+  "Search for those have a Master's Degree from a \"Different University\"",
+
+  " WHERE UPPER( have_MS_degree ) LIKE UPPER( '2' ) " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '2,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 2,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 2')"
+));
+
+suggestions.push(precisionSearchSuggestion(
+  "Search for those who DON'T have a Master's Degree",
+
+  " WHERE UPPER( have_MS_degree ) LIKE UPPER( '3' ) " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '3,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3,%') " +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3')"
+));
 
 generalSuggestions.push(precisionSearchSuggestion(
   "Search for those who DON'T have a Master's Degree",
@@ -760,6 +802,14 @@ generalSuggestions.push(precisionSearchSuggestion(
   " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3')"
 ));
 
+suggestions.push(precisionSearchSuggestion(
+  "Search for those who DON'T have a PHD Degree",
+
+  " WHERE UPPER( have_PHD_degree ) LIKE UPPER( '3' ) " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '3,%') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3,%') " +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3')"
+));
 
 generalSuggestions.push(precisionSearchSuggestion(
   "Search for those who DON'T have a PHD Degree",
