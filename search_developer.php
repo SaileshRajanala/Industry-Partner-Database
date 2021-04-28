@@ -129,6 +129,23 @@
       Close <i id="closeLinkIcon" class='far fa-times-circle'></i>
     </button>
     <div id="layer"></div>
+
+
+
+    <!-- Search Suggestions -->
+    <style type="text/css">
+       #searchSuggestionsDiv
+       {
+        height: 50%;
+        overflow-y: scroll;
+        z-index: 1;
+       }
+     </style>
+
+     <div id="searchSuggestionsDiv"></div>
+
+
+     
   
     <!-- Top Bar Arc Structure -->
       <div id="topBar">
