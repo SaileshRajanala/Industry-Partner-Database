@@ -1212,8 +1212,45 @@ for (let i = 0; i < roleModels.length; i++)
 //   suggest(suggestions[i]);
 // }
 
+function noSuggestionsAvaialable()
+{
+  var keyWord = id_('searchBar').value;
+
+  for (let i = 0; i < suggestions.length; i++) 
+  {
+    var suggestionLabel = suggestions[i].getElementsByTagName('button')[0].textContent;
+
+    if (suggestionLabel.toLowerCase().includes(keyWord.toLowerCase())) 
+      return false;
+
+  }
+
+  return true;
+}
 
 
+function activateSearchSuggestions()
+{
+  id_('searchSuggestionsDiv').style.display = "none";
+
+  if (id_('searchBar') != undefined && id_('searchSuggestionsDiv') != undefined)
+  {
+    id_('searchBar').addEventListener('keyup', function()
+    {
+      if (id_('searchBar').value != "")
+      {
+        if (noSuggestionsAvaialable())
+          id_('searchSuggestionsDiv').style.display = "none";
+        else
+          id_('searchSuggestionsDiv').style.display = "block";
+      }
+      else
+      {
+        id_('searchSuggestionsDiv').style.display = "none";
+      }
+    });
+  }
+}
 
 
 function searchSuggestions()
@@ -1222,24 +1259,34 @@ function searchSuggestions()
   {
     id_('searchBar').addEventListener('keyup', function()
     {
+      id_('searchSuggestionsDiv').innerHTML = '';
+
+      var matchingSuggestions = [];
       var keyWord = id_('searchBar').value;
 
       for (let i = 0; i < suggestions.length; i++) 
       {
         var suggestionLabel = suggestions[i].getElementsByTagName('button')[0].textContent;
         
-        if (keyWord.toLowerCase().includes(suggestionLabel.toLowerCase()) || 
-            suggestionLabel.toLowerCase().includes(keyWord.toLowerCase()))
-        {
-          id_('searchSuggestionsDiv').append(suggestions[i]);
+        if (suggestionLabel.toLowerCase().includes(keyWord.toLowerCase()))
+        { 
+          matchingSuggestions.push(suggestions[i]);
         }
       }
+
+
+      for (let i = 0; i < matchingSuggestions.length; i++) 
+      {
+        id_('searchSuggestionsDiv').append(matchingSuggestions[i]);
+      }
+
     });
   }
 }
 
-searchSuggestions();
 
+searchSuggestions();
+activateSearchSuggestions();
 
 
 
