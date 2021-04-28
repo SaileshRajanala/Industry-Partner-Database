@@ -1309,10 +1309,12 @@ function noSuggestionsAvaialable()
 
 function activateSearchSuggestions()
 {
-  id_('searchSuggestionsDiv').style.display = "none";
+  
 
   if (id_('searchBar') != undefined && id_('searchSuggestionsDiv') != undefined)
   {
+    id_('searchSuggestionsDiv').style.display = "none";
+
     id_('searchBar').addEventListener('keyup', function()
     {
       if (id_('searchBar').value != "")
@@ -1328,6 +1330,11 @@ function activateSearchSuggestions()
       }
     });
   }
+
+  id_('searchBar').addEventListener('focusout', function()
+  {
+    id_('searchSuggestionsDiv').style.display = "none";
+  });
 }
 
 
