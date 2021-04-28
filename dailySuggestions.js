@@ -1314,7 +1314,17 @@ function activateSearchSuggestions()
     id_('searchSuggestionsDiv').style.display = "none";
 
     id_('searchBar').addEventListener('focusin', function()
-    {  
+    { 
+      if (id_('searchBar').value == "")
+      {
+        id_('searchSuggestionsDiv').style.display = "block";
+  
+        for (let i = 0; i < suggestions.length; i++) 
+          id_('searchSuggestionsDiv').append(suggestions[i]);
+      }
+
+
+
       id_('searchBar').addEventListener('keyup', function()
       {
         if (id_('searchBar').value != "")
