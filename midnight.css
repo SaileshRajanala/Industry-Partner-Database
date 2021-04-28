@@ -603,8 +603,8 @@ body
 
 .search_TextField::selection
 {
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: black;
 }
 
 .search_Icon
@@ -1650,8 +1650,8 @@ li
 
 .searchBarFocusIn::selection
 {
-  	background-color: white;
-  	color: black;
+  	background-color: black;
+  	color: white;
 }
 
 .searchBarDivFocusIn
