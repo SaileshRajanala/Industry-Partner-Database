@@ -203,6 +203,12 @@ function precisionSearchSuggestion(_label, _searchConditions, _action = "advance
 var suggestions = [];
 var generalSuggestions = [];
 
+// Precision Search Button
+suggestions.push(searchSuggestion('Precision Search', '', 'precisionSearch.html'));
+
+
+
+
 // Mail Suggestions
 suggestions.push(precisionSearchSuggestion('Search for all "Gmail" users ', 
 " WHERE UPPER( Email ) LIKE UPPER( '%@gmail.%' ) "
