@@ -1231,7 +1231,7 @@ function searchSuggestions()
         if (keyWord.toLowerCase().includes(suggestionLabel.toLowerCase()) || 
             suggestionLabel.toLowerCase().includes(keyWord.toLowerCase()))
         {
-          id_('searchBarDiv').append(suggestions[i]);
+          id_('searchSuggestionsDiv').append(suggestions[i]);
         }
       }
     });
