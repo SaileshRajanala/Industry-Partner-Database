@@ -197,6 +197,7 @@
 
      </form>
 
+      <script type="text/javascript" src="dailySuggestions.js"></script>
 
 
      <!-- EXPORT DIV START -->
