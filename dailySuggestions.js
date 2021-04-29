@@ -128,6 +128,7 @@ function id_(_id)
 
 function suggest(_element, _id = 'dailySuggestionsDiv') 
 {
+  if (document.getElementById(_id) != undefined)
     document.getElementById(_id).append(_element);
 }
 
@@ -1349,6 +1350,11 @@ function activateSearchSuggestions()
     id_('searchBar').addEventListener('focusout', function()
     {
       id_('searchSuggestionsDiv').style.display = "none";
+    });
+
+    id_('searchSuggestionsDiv').addEventListener('mouseover', function()
+    {
+      id_('searchSuggestionsDiv').style.display = "block";
     });
 
 
