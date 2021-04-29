@@ -1347,11 +1347,7 @@ function activateSearchSuggestions()
     });
 
 
-    id_('searchBar').addEventListener('focusout', function()
-    {
-      id_('searchSuggestionsDiv').style.display = "none";
-    });
-
+  
 
     id_('searchBar').style.zIndex = "100";
     id_('searchSuggestionsDiv').style.zIndex = "100";

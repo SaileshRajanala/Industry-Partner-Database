@@ -136,7 +136,7 @@
     <style type="text/css">
        #searchSuggestionsDiv
        {
-        height: 50%;
+        max-height: 50%;
         overflow-y: scroll;
         z-index: 1;
        }
