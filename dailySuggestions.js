@@ -1352,7 +1352,6 @@ function activateSearchSuggestions()
       id_('searchSuggestionsDiv').style.display = "none";
     });
 
-
     id_('searchBar').style.zIndex = "4";
     id_('searchSuggestionsDiv').style.zIndex = "4";
 
