@@ -1346,10 +1346,28 @@ function activateSearchSuggestions()
       });
     });
 
-
+    // Important Lines of Code below for successful closing of the search Suggestions.
     id_('searchBar').addEventListener('focusout', function()
     {
       id_('searchSuggestionsDiv').style.display = "none";
+    });
+
+    id_('searchSuggestionsDiv').addEventListener('mouseover', function()
+    {
+      id_('searchBar').focus();
+      id_('searchBar').addEventListener('focusout', function()
+      {
+        id_('searchSuggestionsDiv').style.display = "block";
+      });
+    });
+
+    id_('searchSuggestionsDiv').addEventListener('mouseout', function()
+    {
+      id_('searchBar').focus();
+      id_('searchBar').addEventListener('focusout', function()
+      {
+        id_('searchSuggestionsDiv').style.display = "none";
+      });
     });
 
     id_('searchBar').style.zIndex = "4";
