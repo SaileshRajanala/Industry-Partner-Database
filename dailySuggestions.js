@@ -1352,12 +1352,6 @@ function activateSearchSuggestions()
       id_('searchSuggestionsDiv').style.display = "none";
     });
 
-    id_('searchSuggestionsDiv').addEventListener('mouseover', function()
-    {
-      id_('searchSuggestionsDiv').style.display = "block";
-    });
-
-
 
     id_('searchBar').style.zIndex = "100";
     id_('searchSuggestionsDiv').style.zIndex = "100";
