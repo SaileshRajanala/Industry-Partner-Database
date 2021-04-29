@@ -41,6 +41,27 @@ tableColumns.push("other_Role_Model");
 tableColumns.push("Involvement_Notes");
 
 
+
+function generalize(str)
+{
+  // Capitalizes the first char
+  // Replaces _ with whitespace
+
+  var result = str.replace(/_/g, " ");
+  return result.replace(/\b\w/g, l => l.toUpperCase());
+}
+
+
+
+
+
+
+
+
+
+
+
+
 var states = [ 'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 
                'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 
                'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 
@@ -514,7 +535,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   {
     option = document.createElement('option');
     option.setAttribute('value', tableColumns[index]);
-    option.text = tableColumns[index];
+    option.text = generalize(tableColumns[index]);
 
     tableColumnSelector.add(option);
   }

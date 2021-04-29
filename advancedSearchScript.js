@@ -128,6 +128,14 @@ var roleModels = ['First-generation college students',
 
 
 
+function generalize(str)
+{
+  // Capitalizes the first char
+  // Replaces _ with whitespace
+
+  var result = str.replace(/_/g, " ");
+  return result.replace(/\b\w/g, l => l.toUpperCase());
+}
 
 
 
@@ -517,7 +525,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   {
     option = document.createElement('option');
     option.setAttribute('value', tableColumns[index]);
-    option.text = tableColumns[index];
+    option.text = generalize(tableColumns[index]);
 
     tableColumnSelector.add(option);
   }
