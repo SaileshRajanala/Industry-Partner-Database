@@ -393,8 +393,7 @@
 
 
         <!-- DAILY SUGGESTIONS START -->
-        <div class="widget" id="dailySuggestionsDiv" style="display: none"> 
-          <!-- REMOVETHIS -->
+        <div class="widget" id="dailySuggestionsDiv"> 
           
           <h1 class="widgetTitle"> Daily Suggestions &nbsp<i class="fas fa-lightbulb"></i></h1>
 
