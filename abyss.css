@@ -502,17 +502,43 @@ body
 	}
 }
 
+.previewTitle, .previewSection
+{
+	background-color: rgb(25,25,25);;
+	box-shadow: 0em 1em 2em black;
+}
+
+.preview 
+{
+	background-color: rgb(25,25,25);;
+	border-radius: 2em;
+}
+
+.helpArticle h2
+{
+    background-color: black;
+    background-image: linear-gradient(147deg, magenta, blue, aqua);
+}
+
 /* FIREFOX SUPPORT */
 @-moz-document url-prefix() 
 {
-  #topBar 
+  #topBar, #layer, #exportDiv, #helpDiv, .helpArticle h2
   {
     background-color: black;
+    background-image: linear-gradient(147deg, magenta, blue, aqua);
   }
 
-  #layer
+  .previewTitle, .previewSection
   {
-  	background-color: white;
+  	background-color: rgb(25,25,25);
+  	box-shadow: 0em 1em 2em black;
+  }
+
+  .preview 
+  {
+  	background-color: rgb(25,25,25);
+  	border-radius: 2em;
   }
 }
 

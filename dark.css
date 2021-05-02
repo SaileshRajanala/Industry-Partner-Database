@@ -469,6 +469,22 @@ body
 	}
 }
 
+.previewTitle {
+	background-color: inherit;
+	position: sticky;
+	position: -webkit-sticky;
+	top: -8%;
+	padding: 1.5%;
+	padding-top: 2.5%;
+	margin-left: 0%;
+    margin-top:  0%;
+    margin-right: 0%;
+	padding-left: 4%;
+	padding-right: 0%;
+	z-index: 2; 
+	border-radius: 2em;
+}
+
 /* FIREFOX SUPPORT */
 @-moz-document url-prefix() 
 {

@@ -507,19 +507,62 @@ body
 	}
 }
 
+.previewTitle {
+	background-color: inherit;
+	position: sticky;
+	position: -webkit-sticky;
+	top: -1%;
+	padding: 1.5%;
+	padding-top: 2.5%;
+	margin-left: 0%;
+    margin-top:  0%;
+    margin-right: 0%;
+	padding-left: 4%;
+	padding-right: 0%;
+	z-index: 2; 
+	border-radius: 2em;
+}
+
+.previewTitle, .previewSection
+{
+	background-color: white;
+	box-shadow: 0em 1em 2em rgb(200,200,200);
+}
+
+.preview 
+{
+	background-color: white;
+	border-radius: 2em;
+}
+
+.helpArticle h2
+{
+    background-color: black;
+    background-image: linear-gradient(147deg, orange, red);
+}
+
 /* FIREFOX SUPPORT */
 @-moz-document url-prefix() 
 {
-  #topBar 
+  #topBar, #layer, #exportDiv, #helpDiv, .helpArticle h2
   {
     background-color: white;
+    background-image: linear-gradient(147deg, orange, red);
   }
 
-  #layer
+  .previewTitle, .previewSection
   {
   	background-color: white;
+  	box-shadow: 0em 1em 2em rgb(200,200,200);
+  }
+
+  .preview 
+  {
+  	background-color: white;
+  	border-radius: 2em;
   }
 }
+
 
 .linkB 
 {
@@ -982,7 +1025,7 @@ body
 {
     display: block;
 
-    background-color: black;
+    background-color: white;
 
     position: fixed;
 
@@ -1020,13 +1063,13 @@ body
     font-family: 'Quicksand';
 
     background-color: transparent;
-    color: white;
+    color: black;
     transition: all 0.25s;
 }
 
 .searchSuggestion:hover
 {
-    background-color: white;
+    background-color: rgb(234,234,234);
     color: black;
     cursor: pointer;
 }

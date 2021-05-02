@@ -510,15 +510,16 @@ body
 /* FIREFOX SUPPORT */
 @-moz-document url-prefix() 
 {
-  #topBar 
-  {
-    background-color: white;
-  }
+	#exportDiv, #helpDiv, #layer
+	{
+		background-color: #101010;
+	}
 
-  #layer
-  {
-  	background-color: white;
-  }
+	.previewTitle
+	{
+		background-color: rgb(25,25,25);
+	}
+
 }
 
 .linkB 

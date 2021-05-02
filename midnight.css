@@ -475,17 +475,52 @@ body
 	}
 }
 
+.previewTitle, .previewSection
+{
+	background-color: rgb(25,25,25);
+	box-shadow: 0em 1em 2em black;
+}
+
+.preview 
+{
+	background-color: rgb(25,25,25);;
+	border-radius: 2em;
+}
+
+.helpArticle h2
+{
+    background-color: black;
+}
+
 /* FIREFOX SUPPORT */
 @-moz-document url-prefix() 
 {
-  #topBar 
+  #topBar, #layer, #exportDiv, #helpDiv, .helpArticle h2
   {
     background-color: black;
+    background-image: linear-gradient(147deg, rgb(25,25,25),black);
   }
 
-  #layer
+  #helpDiv
+  {
+  	background-image: linear-gradient(147deg, rgb(25,25,25),black);
+  }
+
+  .previewTitle, .previewSection
   {
   	background-color: rgb(25,25,25);
+  	box-shadow: 0em 1em 2em black;
+  }
+
+  .preview 
+  {
+  	background-color: rgb(25,25,25);
+  	border-radius: 2em;
+  }
+
+  .previewSection
+  {
+  	margin-bottom: 4%;
   }
 }
 

@@ -475,19 +475,60 @@ body
 	}
 }
 
+.previewTitle, .previewSection
+{
+	background-color: white;
+	box-shadow: 0em 1em 2em rgb(200,200,200);
+}
+
+.preview 
+{
+	background-color: white;
+	border-radius: 2em;
+}
+
+.helpArticle h2
+{
+    background-color: black;
+}
+
+.previewTitle {
+	background-color: inherit;
+	position: sticky;
+	position: -webkit-sticky;
+	top: -8%;
+	padding: 1.5%;
+	padding-top: 2.5%;
+	margin-left: 0%;
+    margin-top:  0%;
+    margin-right: 0%;
+	padding-left: 4%;
+	padding-right: 0%;
+	z-index: 2; 
+	border-radius: 2em;
+}
+
 /* FIREFOX SUPPORT */
 @-moz-document url-prefix() 
 {
-  #topBar 
+  #topBar, #layer, #exportDiv, #helpDiv, .helpArticle h2
   {
     background-color: white;
   }
 
-  #layer
+  .previewTitle, .previewSection
   {
   	background-color: white;
+  	box-shadow: 0em 1em 2em rgb(200,200,200);
+  }
+
+  .preview 
+  {
+  	background-color: white;
+  	border-radius: 2em;
   }
 }
+
 
 .linkB 
 {
