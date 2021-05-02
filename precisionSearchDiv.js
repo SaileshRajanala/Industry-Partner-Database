@@ -16,11 +16,6 @@ function animate(_id, _animationClass)
   );
 }
 
-
-
-
-
-
 id_('searchNavButton').addEventListener('click', function() 
 {
   var _id = 'precisionSearchLinkDiv';
