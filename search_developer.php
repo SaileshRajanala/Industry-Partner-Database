@@ -325,7 +325,22 @@
           {
             echo "<div class=\"filterSearchResult primaryFilterDiv\">";
 
+/*
+          <h2 class="widgetTitle">
 
+          <form method="post" action="exportSearch_developer.php">
+
+          <button type="submit" name="keyword" value="jr" class="filterSearchExportLink" 
+            style="width: 104%">
+            <span style="float: left">
+            9 Search Results for "jr" &nbsp&nbsp</span>
+            <span style="float: right">Export <i class='fas fa-arrow-circle-down'></i>
+            </span>
+          </button>
+          </form>
+
+          </h2>
+*/
             if ($result->num_rows == 1) 
             {
               echo '<h2 class="widgetTitle">
@@ -333,9 +348,11 @@
               <form method="post" action="exportSearch_developer.php">
 
               <button type="submit" name="keyword" value="'. $searchBarTextValue . '" 
-              class="filterSearchExportLink">
-                ' . $result->num_rows . ' Search Result for ' . $searchBarTextValue . '
-                 &nbsp<i class="fas fa-arrow-circle-right"></i>
+              class="filterSearchExportLink" style="width: 104%"><span style="float: left">
+                ' . $result->num_rows . ' Search Result for ' . $searchBarTextValue . '</span>
+                 <span style="float: right">
+                 Export <i class="fas fa-arrow-circle-down"></i>
+              </span>
               </button>
               </form>
 
@@ -348,9 +365,11 @@
               <form method="post" action="exportSearch_developer.php">
 
               <button type="submit" name="keyword" value="'. $searchBarTextValue . '" 
-              class="filterSearchExportLink">
-                ' . $result->num_rows . ' Search Results for ' . $searchBarTextValue . '
-                 &nbsp<i class="fas fa-arrow-circle-right"></i>
+              class="filterSearchExportLink" style="width: 104%"><span style="float: left">
+                ' . $result->num_rows . ' Search Results for ' . $searchBarTextValue . '</span>
+                 <span style="float: right">
+                 Export <i class="fas fa-arrow-circle-down"></i>
+              </span>
               </button>
               </form>
 
@@ -362,18 +381,12 @@
               ' Search Results for "' . $searchBarTextValue . '"</h2>';
             }
 
-            // if ($result->num_rows == 1) 
-            //   echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
-            //   $searchBarTextValue . '"</h2>';
-            // else
-            //   echo '<h2 class="widgetTitle">' . $result->num_rows . 
-            //   ' Search Results for "' . $searchBarTextValue . '"</h2>';
+       
 
             echo printRecords($sql);
             array_push($previewsQueries, $sql);
 
-            // if ($result->num_rows != 0) 
-            //   echo exportSearchLink($searchBarTextValue);
+
 
             echo '</div>';
 
@@ -396,9 +409,6 @@
 
               $keyword_sql .= " ORDER BY Timestamp DESC ";
 
-              // echo "<br>";echo "<br>";echo "<br>";
-              // echo "KEYWORD SQL <br><br>" . $keyword_sql;
-              // echo "<br>";echo "<br>";echo "<br>";
 
               $result = $conn->query($keyword_sql);
 
@@ -413,9 +423,11 @@
                 <form method="post" action="exportSearch_developer.php">
 
                 <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
-                class="filterSearchExportLink">
-                  ' . $result->num_rows . ' Search Result for "' . $keyWords[$i] . '"
-                   &nbsp<i class="fas fa-arrow-circle-right"></i>
+                class="filterSearchExportLink" style="width: 104%"><span style="float: left">
+                  ' . $result->num_rows . ' Search Result for ' . $keyWords[$i] . '</span>
+                   <span style="float: right">
+                   Export <i class="fas fa-arrow-circle-down"></i>
+                </span>
                 </button>
                 </form>
 
@@ -428,9 +440,11 @@
                 <form method="post" action="exportSearch_developer.php">
 
                 <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
-                class="filterSearchExportLink">
-                  ' . $result->num_rows . ' Search Results for "' . $keyWords[$i] . '"
-                   &nbsp<i class="fas fa-arrow-circle-right"></i>
+                class="filterSearchExportLink" style="width: 104%"><span style="float: left">
+                  ' . $result->num_rows . ' Search Result for ' . $keyWords[$i] . '</span>
+                   <span style="float: right">
+                   Export <i class="fas fa-arrow-circle-down"></i>
+                </span>
                 </button>
                 </form>
 
@@ -442,20 +456,8 @@
                 ' Search Results for "' . $keyWords[$i] . '"</h2>';
               }
 
-
-              // if ($result->num_rows == 1) 
-              //   echo '<h2 class="widgetTitle"> 1 Search Result for "' . 
-              //   $keyWords[$i] . '"</h2>';
-              // else
-              //   echo '<h2 class="widgetTitle">' . $result->num_rows . 
-              //   ' Search Results for "' . $keyWords[$i] . '"</h2>';
-
-
               echo printRecords($keyword_sql);
               array_push($previewsQueries, $keyword_sql);
-
-              // if ($result->num_rows != 0) 
-              //   echo exportSearchLink($keyWords[$i]);
 
               echo '</div>';
             }
@@ -477,12 +479,7 @@
       <!-- RESULTS PREVIEW -->
 
       <?php
-
-      // if (isset($_POST["searchBar"]))
-      // {
-      //  echo printRecordPreviews($sql); 
-      // }
-
+      
       if (count($previewsQueries) > 0) 
       {
         for ($i = 0; $i < count($previewsQueries); $i++)
