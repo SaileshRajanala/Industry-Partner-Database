@@ -532,6 +532,11 @@ body
   	background-color: white;
   	border-radius: 2em;
   }
+
+  .filterSearchResult, #primaryFilterDiv, .filterSearchResult .widgetTitle
+  {
+  	background-image: linear-gradient(147deg, white,white);
+  }
 }
 
 .linkB 

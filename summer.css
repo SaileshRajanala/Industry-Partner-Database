@@ -561,6 +561,16 @@ body
   	background-color: white;
   	border-radius: 2em;
   }
+
+  .filterSearchResult, #primaryFilterDiv, .filterSearchResult .widgetTitle
+  {
+  	background-image: linear-gradient(147deg, white, white);
+  }
+
+  .filterSearchResult tr
+  {
+  	box-shadow: 0em 0em 2em rgb(200,200,200);
+  }
 }
 
 

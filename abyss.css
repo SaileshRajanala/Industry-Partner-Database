@@ -540,6 +540,11 @@ body
   	background-color: rgb(25,25,25);
   	border-radius: 2em;
   }
+
+  .filterSearchResult, #primaryFilterDiv, .filterSearchResult .widgetTitle
+  {
+  	background-image: linear-gradient(147deg, magenta, blue);
+  }
 }
 
 .linkB 
