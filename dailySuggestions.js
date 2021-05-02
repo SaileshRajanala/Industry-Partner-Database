@@ -205,7 +205,7 @@ var suggestions = [];
 var generalSuggestions = [];
 
 // Precision Search Button
-suggestions.push(searchSuggestion('Precision Search', '', 'precisionSearch.html'));
+suggestions.push(searchSuggestion('Precision Search', '', 'precisionSearch.php'));
 
 
 // Mail Suggestions

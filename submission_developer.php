@@ -41,7 +41,7 @@ function swapStylesheet(sheet, name) {
 <?php
 
 require "./connect.php";
-require_once "./global.php";
+
 require_once "./prerequisites.php";
 
 $values = [htmlentities($_POST["prefix"], ENT_QUOTES)];

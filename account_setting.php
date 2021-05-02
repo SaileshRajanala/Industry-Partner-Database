@@ -287,6 +287,14 @@ body
 
 </div>
 
+<!-- HELP DIV START -->
+<div id="helpDiv"></div>
+<!-- HELP DIV END -->
+
+<!-- HELP DIV FUNCTIONALITY SCRIPT START -->
+<script type="text/javascript" src="helpScript.js"></script>
+<!-- HELP DIV FUNCTIONALITY SCRIPT END -->
+
 </body>
 
 

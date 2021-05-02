@@ -1,9 +1,17 @@
+<?php session_start();
+
+  include("connect.php");
+  include("functions.php");
+
+  $user_data = check_login($conn);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Precision Search</title>
 
-	 <link rel="stylesheet" type="text/css" id="rS" href="request_dark.css">
+	<link rel="stylesheet" type="text/css" id="rS" href="dark.css">
 
 	<script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
@@ -392,8 +400,15 @@
 		</div>
 	</div>
 </form>
+
+<!-- HELP DIV START -->
+<div id="helpDiv"></div>
+<!-- HELP DIV END -->
+
+<!-- HELP DIV FUNCTIONALITY SCRIPT START -->
+<script type="text/javascript" src="helpScript.js"></script>
+<!-- HELP DIV FUNCTIONALITY SCRIPT END -->
 		
-	<div id="answer" style="color: white;font-size: larger"></div>
 
 <script type="text/javascript" src="advancedSearchScript.js"></script>
 

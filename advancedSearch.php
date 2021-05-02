@@ -69,10 +69,6 @@
     ?>
 
     <!-- CSS 3 EXTERNAL -->
-    <!-- <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css">
-    <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
-    <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
-    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css"> -->
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
 
     <!-- ICONS SCRIPT -->
@@ -85,36 +81,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
-
-
-    <!-- JavaScript (INTERNAL) -->
-    <!-- <script>
-
-    var d = new Date();
-
-    function swapStylesheet(sheet, name) 
-    {
-        document.getElementById(name).setAttribute('href', sheet);
-    }
-
-    if (d.getHours() >= 6 && d.getHours() < 18)
-    {  
-        swapStylesheet("request_bright.css", "rS");
-        swapStylesheet("test_bright.css", "tS");
-        swapStylesheet("export_bright.css", "eS");
-        swapStylesheet("help_bright.css", "hS");
-        swapStylesheet("mobile_bright.css", "mS");
-    }
-    else
-    {
-        swapStylesheet("request_dark.css", "rS");
-        swapStylesheet("test_dark.css", "tS");
-        swapStylesheet("export_dark.css", "eS");
-        swapStylesheet("help_dark.css", "hS");
-        swapStylesheet("mobile_dark.css", "mS");
-    }
-
-  </script> -->
 
   </head>
 
@@ -254,7 +220,7 @@
 
           <?php
           require "./connect.php";
-          require_once "./global.php";
+          
           require_once "./prerequisites.php";
 
           global $previewsQueries;
@@ -376,13 +342,13 @@
    document.getElementById('searchResultsDiv').style.animationDuration = '0.5s';
  </script>
 
-    <!-- HELP DIV START -->
-    <div id="helpDiv"></div>
-    <!-- HELP DIV END -->
+<!-- HELP DIV START -->
+<div id="helpDiv"></div>
+<!-- HELP DIV END -->
 
-    <!-- HELP DIV FUNCTIONALITY SCRIPT START -->
-    <script type="text/javascript" src="helpScript.js"></script>
-    <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
+<!-- HELP DIV FUNCTIONALITY SCRIPT START -->
+<script type="text/javascript" src="helpScript.js"></script>
+<!-- HELP DIV FUNCTIONALITY SCRIPT END -->
 
   </body>
 

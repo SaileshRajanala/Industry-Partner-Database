@@ -279,7 +279,7 @@
 
           <?php
           require "./connect.php";
-          require_once "./global.php";
+          
           require_once "./prerequisites.php";
 
           global $searchBarTextValue, $keyWords, $previewsQueries;
