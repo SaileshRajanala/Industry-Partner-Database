@@ -1,12 +1,14 @@
 <?php
-$server = "localhost";
-$user = "id15084806_teamlotus";
-$password = "SlZ}Df1?-NeUt?>/";
-$database = "id15084806_main_database";
+$server   = "mysprod.wichita.edu";
+$user     = "wpaccessibility";
+$password = "wpaccessibility";
+$database = "wpaccessibility";
 
 $conn = mysqli_connect($server, $user, $password, $database);
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+
+if (!$conn) 
+{
+  die("Connection failed.\n" . mysqli_connect_error());
 }
 //echo "Connected successfully";
 

@@ -14,8 +14,6 @@
     <title>Industry Partner Database</title>
 
 
-
-
     <?php
 
     if (isset($_POST['theme']))
@@ -76,19 +74,8 @@
 
 
     <!-- CSS 3 EXTERNAL -->
-   <!--  <link href="request_dark.css" id="rS" rel="stylesheet" type="text/css"> -->
-
-    <!-- <link href="test_dark.css" id="tS" rel="stylesheet" type="text/css">
-    <link href="export_dark.css" id="eS" rel="stylesheet" type="text/css">
-    <link href="help_dark.css" id="hS" rel="stylesheet" type="text/css"> -->
+  
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
-
-    <!-- THEMES CSSS -->
-    <!-- <link href="themes.css" id="thS" rel="stylesheet" type="text/css"> -->
-
-    <!-- CSS FOR ICONS -->
-<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- -->
     <!-- ICONS SCRIPT -->
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
 
@@ -100,35 +87,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
-
-    <!-- JavaScript (INTERNAL) -->
-    <!-- <script>
-
-    var d = new Date();
-
-    function swapStylesheet(sheet, name) 
-    {
-        document.getElementById(name).setAttribute('href', sheet);
-    }
-
-    if (d.getHours() >= 6 && d.getHours() < 18)
-    {  
-        swapStylesheet("request_bright.css", "rS");
-        swapStylesheet("test_bright.css", "tS");
-        swapStylesheet("export_bright.css", "eS");
-        swapStylesheet("help_bright.css", "hS");
-        swapStylesheet("mobile_bright.css", "mS");
-    }
-    else
-    {
-        swapStylesheet("request_dark.css", "rS");
-        swapStylesheet("test_dark.css", "tS");
-        swapStylesheet("export_dark.css", "eS");
-        swapStylesheet("help_dark.css", "hS");
-        swapStylesheet("mobile_dark.css", "mS");
-    }
-
-  </script> -->
 
   </head>
 
