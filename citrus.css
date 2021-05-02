@@ -494,18 +494,47 @@ body
 	}
 }
 
+.previewTitle, .previewSection
+  {
+  	background-color: white;
+  	box-shadow: 0em 1em 2em rgb(200,200,200);
+  }
+
+  .preview 
+  {
+  	background-color: white;
+  	border-radius: 2em;
+  }
+
+
 /* FIREFOX SUPPORT */
 @-moz-document url-prefix() 
 {
   #topBar 
   {
     background-color: white;
+    background-image: linear-gradient(147deg, yellow, aqua);
   }
 
   #layer
   {
   	background-color: white;
+  	background-image: linear-gradient(147deg, yellow, aqua);
   }
+
+  .previewTitle, .previewSection
+  {
+  	background-color: white;
+  	box-shadow: 0em 1em 2em rgb(200,200,200);
+  }
+
+  .preview 
+  {
+  	background-color: white;
+  	border-radius: 2em;
+  }
+
+
 }
 
 .linkB 
@@ -965,7 +994,7 @@ body
 {
     display: block;
 
-    background-color: black;
+    background-color: white;
 
     position: fixed;
 
@@ -1003,13 +1032,13 @@ body
     font-family: 'Quicksand';
 
     background-color: transparent;
-    color: white;
+    color: black;
     transition: all 0.25s;
 }
 
 .searchSuggestion:hover
 {
-    background-color: white;
+    background-color: rgb(234,234,234);
     color: black;
     cursor: pointer;
 }
@@ -1017,8 +1046,8 @@ body
 .searchSuggestion:active
 {
     transform: scale(0.97);
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     border-radius: 5em;
 /*
     animation-name: upNatomic;

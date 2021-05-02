@@ -1316,8 +1316,8 @@ function activateSearchSuggestions()
 
     id_('searchBar').addEventListener('focusin', function()
     { 
-      
-      id_('searchSuggestionsDiv').style.display = "block";
+      if (!noSuggestionsAvaialable())
+        id_('searchSuggestionsDiv').style.display = "block";
       
       if (id_('searchBar').value == "")
       {
