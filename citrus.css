@@ -965,7 +965,7 @@ body
 {
     display: block;
 
-    background-color: rgb(25,25,25);
+    background-color: transparent;
 
     position: fixed;
 
@@ -1003,13 +1003,13 @@ body
     font-family: 'Quicksand';
 
     background-color: transparent;
-    color: black;
+    color: white;
     transition: all 0.25s;
 }
 
 .searchSuggestion:hover
 {
-    background-color: rgb(255,255,255,0.7);
+    background-color: white;
     color: black;
     cursor: pointer;
 }

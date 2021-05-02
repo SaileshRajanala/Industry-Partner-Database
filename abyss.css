@@ -975,7 +975,7 @@ body
 {
     display: block;
 
-    background-color: rgb(25,25,25);
+    background-color: black; /*change*/
 
     position: fixed;
 
@@ -1019,8 +1019,8 @@ body
 
 .searchSuggestion:hover
 {
-    background-color: rgb(0,0,0,0.5);
-    color: white;
+    background-color: white;
+    color: black;
     cursor: pointer;
 }
 
