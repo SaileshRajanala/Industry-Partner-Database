@@ -44,6 +44,15 @@ require "./connect.php";
 
 require_once "./prerequisites.php";
 
+if(!isset($_POST['email']) || !isset($_POST['first_name']) || !isset($_POST['last_name']) || !isset($_POST['phone_number'])){
+   
+    die('Pleae Fill Out Information Before You Submit') ;
+   
+   
+}
+
+
+
 $values = [htmlentities($_POST["prefix"], ENT_QUOTES)];
 
 array_push($values, htmlentities($_POST["suffix"], ENT_QUOTES));
@@ -325,7 +334,20 @@ for ($i=0; $i < count($htmlFields); $i++)
 { 
   if (isset($_POST[$htmlFields[$i]])) 
   {
-    $passedTests = true;
+    
+    if(ctype_alnum(htmlentities($_POST["first_name"], ENT_QUOTES)) && ctype_alnum(htmlentities($_POST["suffix"], ENT_QUOTES)) && ctype_alnum(htmlentities($_POST["first_name"], ENT_QUOTES)) && filter_var(htmlentities($_POST["email"], ENT_QUOTES), FILTER_VALIDATE_EMAIL)){
+    //eliminate every char except 0-9
+   $string = htmlentities($_POST["phone_number"], ENT_QUOTES) ;
+   $justNums = preg_replace("/[^0-9]/", '', $string);
+
+  //eliminate leading 1 if its there
+  if (strlen($justNums) == 11) $justNums = preg_replace("/^1/", '',$justNums);
+
+  //if we have 10 digits left, it's probably valid.
+  if (strlen($justNums) == 10) $passedTests = true;
+      
+   // $passedTests = true;
+    }
   }
 }
 
