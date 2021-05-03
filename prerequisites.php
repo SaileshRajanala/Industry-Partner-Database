@@ -255,8 +255,6 @@ function printRecords($sql)
 
         $records .= "<td>" . $row["Job_Title"] . "</td>";
 
-        // $records .= "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-18000) . "</td>";
-
         $records .= "<td>" . date('M d, Y  g:i A', strtotime($row["Timestamp"])) . "</td>";
 
         $records .= "</tr>";
@@ -630,7 +628,8 @@ global $htmlFields,
           $recordPreviews .= '<i class="fas fa-phone-alt"></i> Phone : ' . $row["Phone_Number"] . '<br><br>';
         }
 
-        $recordPreviews .= '<i class="far fa-clock"></i> Timestamp : ' . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-18000);
+        $recordPreviews .= '<i class="far fa-clock"></i> Timestamp : ' .
+        date('M d, Y  g:i A', strtotime($row["Timestamp"]));
 
         $recordPreviews .= '</div></div>';
       }
