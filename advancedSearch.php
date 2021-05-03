@@ -252,10 +252,12 @@
 
               <form method="post" action="exportAdvancedSearch.php">
 
-              <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
-              . '" class="filterSearchExportLink">
-                ' . $result->num_rows . ' Precision Search Result  
-                 &nbsp<i class="fas fa-arrow-circle-right"></i>
+              <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"]  . '" 
+              class="filterSearchExportLink" style="width: 104%"><span style="float: left">
+                ' . $result->num_rows . ' Precision Search Result </span>
+                 <span style="float: right">
+                 Export <i class="fas fa-arrow-circle-down"></i>
+              </span>
               </button>
               </form>
 
@@ -267,10 +269,12 @@
 
               <form method="post" action="exportAdvancedSearch.php">
 
-              <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"] 
-              . '" class="filterSearchExportLink">
-                ' . $result->num_rows . ' Precision Search Results 
-                 &nbsp<i class="fas fa-arrow-circle-right"></i>
+              <button type="submit" name="searchRules" value="'. $_POST["advancedSearchButton"]  . '" 
+              class="filterSearchExportLink" style="width: 104%"><span style="float: left">
+                ' . $result->num_rows . ' Precision Search Results </span>
+                 <span style="float: right">
+                 Export <i class="fas fa-arrow-circle-down"></i>
+              </span>
               </button>
               </form>
 
