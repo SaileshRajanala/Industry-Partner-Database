@@ -320,6 +320,43 @@ for ($i=1; $i < count($htmlFields); $i++)
   }
 }
 
+
+$checkSql = "
+
+SELECT * FROM 
+Industry_Partner_Database 
+WHERE 1 
+
+";
+
+echo "asnkjnsadjsa<br><br><br><br>" . $value_Schema . "<br><br>";
+
+$values = explode("',", $value_Schema);
+for ($i=0; $i < count($tableColumns); $i++) 
+{ 
+  echo "VALUE : <br>" . $values[$i] . "<br><br>";
+
+}
+for ($i=0; $i < count($tableColumns); $i++) 
+{ 
+  $checkSql .= " AND " . $tableColumns[$i] . " = " . $values[$i] . "' ";
+}
+
+echo "asnkjnsadjsa<br><br><br><br>" . $checkSql . "<br><br>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $sql = "
 
 INSERT INTO 
