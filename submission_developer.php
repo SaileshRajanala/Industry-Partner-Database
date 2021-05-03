@@ -296,9 +296,6 @@ array_push($values, htmlentities($_POST["Involvement_Notes"], ENT_QUOTES));
 
 
 
-
-
-
 // Submission variable
 $submission = FALSE;
 
@@ -321,6 +318,7 @@ for ($i=1; $i < count($htmlFields); $i++)
 }
 
 
+
 $checkSql = "
 
 SELECT * FROM 
@@ -329,30 +327,29 @@ WHERE 1
 
 ";
 
-echo "asnkjnsadjsa<br><br><br><br>" . $value_Schema . "<br><br>";
 
-$values = explode("',", $value_Schema);
+$checkValues = explode("',", $value_Schema);
+
 for ($i=0; $i < count($tableColumns); $i++) 
 { 
-  echo "VALUE : <br>" . $values[$i] . "<br><br>";
+  $checkSql .= " AND " . $tableColumns[$i] . " = " . $checkValues[$i];
 
-}
-for ($i=0; $i < count($tableColumns); $i++) 
-{ 
-  $checkSql .= " AND " . $tableColumns[$i] . " = " . $values[$i] . "' ";
+  if ($i != count($tableColumns) - 1)
+    $checkSql .= "' ";
 }
 
-echo "asnkjnsadjsa<br><br><br><br>" . $checkSql . "<br><br>";
+$checkResult = $conn->query($checkSql);
 
+$entryExists = true;
 
-
-
-
-
-
-
-
-
+if ($checkResult->num_rows != 0)
+{
+  $entryExists = true;
+}
+elseif ($checkResult->num_rows == 0)
+{
+  $entryExists = false;
+}
 
 
 
@@ -388,14 +385,7 @@ for ($i=0; $i < count($htmlFields); $i++)
   }
 }
 
-
-// echo $sql;
-
-// echo "VALUE _SCHEMA : " . $value_Schema . '<br><br><br>';
-
-// echo "SQL  : " . $sql . '<br><br><br>';
-
-if ($passedTests)
+if ($passedTests && !$entryExists)
 {
   if (mysqli_query($conn, $sql)) 
   {   
@@ -416,7 +406,9 @@ else
     
     <?php
 
-    if ($submission)
+    if ($entryExists)
+      echo "You have submitted the form already. Thank you.";
+    elseif ($submission)
       echo "Thank you for your submission.";
 
     ?>
