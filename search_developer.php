@@ -441,7 +441,7 @@
 
                 <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
                 class="filterSearchExportLink" style="width: 104%"><span style="float: left">
-                  ' . $result->num_rows . ' Search Result for ' . $keyWords[$i] . '</span>
+                  ' . $result->num_rows . ' Search Results for ' . $keyWords[$i] . '</span>
                    <span style="float: right">
                    Export <i class="fas fa-arrow-circle-down"></i>
                 </span>
