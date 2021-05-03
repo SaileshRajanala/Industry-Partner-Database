@@ -255,7 +255,9 @@ function printRecords($sql)
 
         $records .= "<td>" . $row["Job_Title"] . "</td>";
 
-        $records .= "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-18000) . "</td>";
+        // $records .= "<td>" . date('Y-m-d H:i:s', strtotime($row["Timestamp"])-18000) . "</td>";
+
+        $records .= "<td>" . date('M d, Y g:i A', strtotime($row["Timestamp"])) . "</td>";
 
         $records .= "</tr>";
       }

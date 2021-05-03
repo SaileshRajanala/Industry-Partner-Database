@@ -61,7 +61,7 @@ searchNavButton.onclick = function()
       }
       else
       {
-        document.getElementById("searchBar").focus();
+        //document.getElementById("searchBar").focus();
       }
     }
 

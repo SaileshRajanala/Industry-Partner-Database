@@ -200,7 +200,7 @@
               <i class="fa fa-search"></i>
             </button>
             
-            <input type="text" name="searchBar" id="searchBar" class="search_TextField"  placeholder="Search...">
+            <input type="text" name="searchBar" id="searchBar" class="search_TextField"  placeholder="Quick Search...">
             
           </div>
 
