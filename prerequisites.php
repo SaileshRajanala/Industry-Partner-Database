@@ -320,7 +320,8 @@ global $htmlFields,
             if ($row["Job_Title"] != "") 
               $recordPreviews .= $row["Job_Title"] . '<br>';
 
-            $recordPreviews .= $row["Employer"] . '<br><br>';
+            if ($row["Employer"] != "")
+              $recordPreviews .= $row["Employer"] . '<br><br>';
 
             if (($row["City"] != "") && ($row["State"] != "")) 
             {
