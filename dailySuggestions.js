@@ -457,11 +457,11 @@ var state_suggestions = [];
 
 function addStateSuggestion(_state, _stateLabel)
 {
-  suggestions.push(precisionSearchSuggestion('Search for those who are from "' + _state + '"', 
+  suggestions.push(precisionSearchSuggestion('Search for those who are from the state of "' + _state + '"', 
     " WHERE UPPER( State ) LIKE UPPER( '%" + _stateLabel + "%' ) "
   ));
 
-  state_suggestions.push(precisionSearchSuggestion('Search for those who are from "' + _state + '"', 
+  state_suggestions.push(precisionSearchSuggestion('Search for those who are from the state of "' + _state + '"', 
   " WHERE UPPER( State ) LIKE UPPER( '%" + _stateLabel + "%' ) "
 ));
 }
@@ -601,9 +601,18 @@ for (let city_index = 0; city_index < cities.length; city_index++)
   addCitySuggestion(cities[city_index]);
 
 
-addCitySuggestion("Vizag");
+addCitySuggestion("Kathmandu");
+addCitySuggestion("Mumbai");
+addCitySuggestion("Chennai");
+addCitySuggestion("Pokhara");
+addCitySuggestion("Hyderabad");
+addCitySuggestion("Tirumala");
+addCitySuggestion("Shiridi");
+addCitySuggestion("Tirupati");
+addCitySuggestion("Kathmandu");
+addCitySuggestion("Visakhapatnam");
 addCitySuggestion("Stavanger");
-
+addCitySuggestion("Paris");
 
 
 
