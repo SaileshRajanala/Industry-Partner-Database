@@ -362,28 +362,34 @@ VALUES   (" . $value_Schema . ");
 
 ";
 
-$passedTests = false;
+$passedTests = true;
+// $passedTests = false;
 
-for ($i=0; $i < count($htmlFields); $i++) 
-{ 
-  if (isset($_POST[$htmlFields[$i]])) 
-  {
-    
-    if(ctype_alnum(htmlentities($_POST["first_name"], ENT_QUOTES)) && ctype_alnum(htmlentities($_POST["suffix"], ENT_QUOTES)) && ctype_alnum(htmlentities($_POST["first_name"], ENT_QUOTES)) && filter_var(htmlentities($_POST["email"], ENT_QUOTES), FILTER_VALIDATE_EMAIL)){
-    //eliminate every char except 0-9
-   $string = htmlentities($_POST["phone_number"], ENT_QUOTES) ;
-   $justNums = preg_replace("/[^0-9]/", '', $string);
+// for ($i=0; $i < count($htmlFields); $i++) 
+// { 
+//   if (isset($_POST[$htmlFields[$i]])) 
+//   {
+//     if(ctype_alnum(htmlentities($_POST["first_name"], ENT_QUOTES)) && 
+//        ctype_alnum(htmlentities($_POST["suffix"], ENT_QUOTES)) && 
+//        ctype_alnum(htmlentities($_POST["first_name"], ENT_QUOTES)) && 
+//        filter_var(htmlentities($_POST["email"], ENT_QUOTES), FILTER_VALIDATE_EMAIL))
+//     {
+//       //eliminate every char except 0-9
+//       $string = htmlentities($_POST["phone_number"], ENT_QUOTES) ;
+//       $justNums = preg_replace("/[^0-9]/", '', $string);
 
-  //eliminate leading 1 if its there
-  if (strlen($justNums) == 11) $justNums = preg_replace("/^1/", '',$justNums);
+//       //eliminate leading 1 if its there
+//       if (strlen($justNums) == 11) 
+//         $justNums = preg_replace("/^1/", '',$justNums);
 
-  //if we have 10 digits left, it's probably valid.
-  if (strlen($justNums) == 10) $passedTests = true;
-      
-   // $passedTests = true;
-    }
-  }
-}
+//       //if we have 10 digits left, it's probably valid.
+//       if (strlen($justNums) == 10) 
+//         $passedTests = true;
+          
+//        // $passedTests = true;
+//     }
+//   }
+// }
 
 if ($passedTests && !$entryExists)
 {
@@ -396,10 +402,12 @@ if ($passedTests && !$entryExists)
     echo "Error : <br><br>" . mysqli_error($conn);
   }
 }
-else 
-{
-  echo "Error submitting the form!";
-}
+// else 
+// {
+//   if (!$passedTests)
+//     echo "Error submitting the form!";
+// }
+
   ?>
     
   <div id="thankYou">
@@ -410,6 +418,8 @@ else
       echo "You have submitted the form already. Thank you.";
     elseif ($submission)
       echo "Thank you for your submission.";
+    elseif (!$passedTests)
+      echo "Error submitting the form!";
 
     ?>
 
