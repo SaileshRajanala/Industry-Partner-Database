@@ -531,6 +531,8 @@ td
 	width: 100%;
 	border-radius: 47px;
 	padding: 1%;
+	padding-left: 2%;
+	padding-right: 2%;
 	
 	display: block;
 }
