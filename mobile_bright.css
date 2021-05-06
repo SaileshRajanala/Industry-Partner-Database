@@ -72,10 +72,11 @@ body
 .widget
 {
 	padding: 2%;
+	padding-bottom: 1%;
 	text-align: center;
 
 	background-color: transparent;
-	border-radius: 25px;
+	border-radius: 2em;
 
 	margin-bottom: 20%;
 	margin-top: 0%;
@@ -99,17 +100,17 @@ body
 tr
 {
 	text-align: left;
-	width: 98%;
-	margin: -1%;
-	margin-bottom: 4%;
-	margin-top: 1%;
+	width: 100%;
+	margin: -2%;
+	margin-bottom: 0%;
+	margin-top: 4%;
 
 	background-color: white;
 	color: black;
 	display: block;
 	padding: 4%;
 	
-	border: 1px solid transparent;
+	border: none;
 	box-shadow: 0em 1em 2em rgb(200,200,200);
 
 	transition: all 0.25s;
@@ -118,16 +119,16 @@ tr
 tr:hover
 {
 	transform: scale(1.01);
-	border: 1px solid white;
+	
 	cursor: pointer;
 	box-shadow: 0em 1em 2em rgb(200,200,200);
 }
 
 td
 {
-	width: 22.5%;
+	width: 23%;
 	background-color: transparent;
-	padding: 1%;
+	padding: 4%;
 
 	border-radius: 47px;
 
@@ -231,9 +232,44 @@ td
 	color: white;
 }
 
+.searchButtonIconFocusIn
+{
+	background-color: white;
+	color: black;
+	background-image: linear-gradient(147deg, white, white);
+}
+
 .search_TextField:hover
 {
 	border-color: transparent;
+}
+
+.searchBarFocusIn
+{
+	color: white;
+	background-color: black;
+	
+	outline: none;
+	color: white;
+	background-color: transparent;
+	background: linear-gradient(147deg, white, white);
+	caret-color: white;
+	display: inline;
+	background-clip: text;
+	text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.searchBarFocusIn::selection
+{
+	background: linear-gradient(147deg, black, black);
+	background-color: white;
+
+	background-clip: none;
+	text-fill-color: black;
+	-webkit-background-clip: none;
+	-webkit-text-fill-color: black;
 }
 
 .search_TextField
@@ -506,77 +542,79 @@ tr
 	border-radius: 1.5em;
 	transition: all 0.25s;
 	padding: 2%;
+	box-shadow: 0em 1em 2em rgb(200,200,200);
 }
 
 tr:hover
 {
 	background-color: black;
 	color: white;
+	box-shadow: 0em 1em 2em rgb(200,200,200);
 }
 
 /* EXPORT *********************/
 
 .alertDiv
 {
-        position: fixed;
-        
-        box-shadow: 0px 0px 13px rgb(200,200,200);
-        bottom: -600px;
-        width: 88%;
-        left: 0%;
-        margin: 2%;
-        /*height: 50%;*/
-        padding: 4%;
+    position: fixed;
     
-        padding-bottom: 10%;
+    box-shadow: 0px 0px 13px rgb(200,200,200);
+    bottom: -600px;
+    width: 88%;
+    left: 0%;
+    margin: 2%;
+    /*height: 50%;*/
+    padding: 4%;
 
-        text-align: center;
+    padding-bottom: 10%;
 
-        font-size: large;
-        color: black;
+    text-align: center;
 
-        border-radius: 2.5em;
-        
+    font-size: large;
+    color: black;
 
-        z-index: 7;
+    border-radius: 2.5em;
+    
 
-        -webkit-backdrop-filter: blur(44px);
-        backdrop-filter: blur(13px);
-      }
+    z-index: 7;
 
-      #fileName
-      {
-        
-        text-align: center;
-        padding: 2%;
-        width: 88%;
-        color: white;
-        
-        margin: 4%;
-        
-        margin-top: 4%;
+    -webkit-backdrop-filter: blur(44px);
+    backdrop-filter: blur(13px);
+  }
 
-        transition: all 0.25s;
-        border: 1px solid rgb(200,200,200);
+  #fileName
+  {
+    
+    text-align: center;
+    padding: 2%;
+    width: 88%;
+    color: white;
+    
+    margin: 4%;
+    
+    margin-top: 4%;
 
-        -webkit-backdrop-filter: blur(13px);
-        backdrop-filter: blur(13px);
+    transition: all 0.25s;
+    border: 1px solid rgb(200,200,200);
 
-      }
+    -webkit-backdrop-filter: blur(13px);
+    backdrop-filter: blur(13px);
 
-      .downloadIcon
-      {
-        width: 70px;
-        margin-top: 10%;
-      }
+  }
 
-      @keyframes bottomUP
-      {
-        100%
-        {
-          transform: translateY(-600px);
-        }
-      }
+  .downloadIcon
+  {
+    width: 70px;
+    margin-top: 10%;
+  }
+
+  @keyframes bottomUP
+  {
+    100%
+    {
+      transform: translateY(-600px);
+    }
+  }
 
 /******HELP DIV******/
 
@@ -620,7 +658,27 @@ tr:hover
 #todaySummary
 {
 	background-color: white;
-	box-shadow: 0px 13px 13px rgb(200,200,200);
+	box-shadow: 0em 1em 2em rgb(200,200,200);
+}
+
+#searchSuggestionsDiv
+{
+	width: 90%;
+	left: 4%;
+	height: 44%;
+	background-color: black;
+	border-radius: 2em;
+
+	box-shadow: 0em 1em 2em rgb(200,200,200);
+}
+
+#searchSuggestionsDiv .searchSuggestion
+{
+	background-color: white;
+	color: black;
+	margin: 2%;
+	width: 96%;
+	box-shadow: none;
 }
 
 
@@ -645,6 +703,12 @@ tr:hover
 	margin-bottom: 2%;
 	border-radius: 1.5em;
 	box-shadow: 0em 1em 2em rgb(200,200,200);
+}
+
+.searchSuggestion:hover
+{
+	color: white;
+	background-color: black;
 }
 
 #precisionSearchLinkDiv
@@ -673,6 +737,23 @@ tr:hover
 	background-color: white;
 	z-index: 4;
 }
+
+
+
+#themesMenuDiv
+{
+	left: 2%;
+	width: 96%;
+}
+
+
+
+#themeButton
+{
+	display: none;
+}
+
+
 
 }
 
