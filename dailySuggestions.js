@@ -401,13 +401,9 @@ function add_employer_suggestions(_employer, _label = 'Search for those who work
 }
 
 add_employer_suggestions('Wichita State University');
-add_employer_suggestions('Apple');
-add_employer_suggestions('Google');
-add_employer_suggestions('Microsoft');
-add_employer_suggestions('Amazon');
 add_employer_suggestions('Airbus');
 add_employer_suggestions('Spirit Aerosystems');
-add_employer_suggestions('NetApp');
+add_employer_suggestions('Koch');
 add_employer_suggestions('University', 'Search for those who work in a "University"');
 add_employer_suggestions('State University', 'Search for those who work in a "State University"');
 
