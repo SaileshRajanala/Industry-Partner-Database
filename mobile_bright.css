@@ -7,6 +7,7 @@ body
 	padding: 1%;
 	color: black; 
 	background-color: white;
+	background-image: none;
 	font-size: large;
 	font-family: 'QuickSand';
 
@@ -24,7 +25,7 @@ body
 	width: 100%;
 	height: 100%;
 	z-index: 8;
-	display: none;
+	
 	left: 0%;
 	top: 0%;
 	background-color: rgb(200,200,200,0.4);
@@ -72,13 +73,14 @@ body
 {
 	padding: 2%;
 	text-align: center;
-/*	-webkit-backdrop-filter: blur(13px);
-*/
+
 	background-color: transparent;
 	border-radius: 25px;
-	margin-bottom: 4%;
-	margin-top: 2%;
-	box-shadow: none;
+
+	margin-bottom: 20%;
+	margin-top: 0%;
+
+	box-shadow: 0em 1em 2em rgb(200,200,200);
 }
 
 .widgetTitle
@@ -102,13 +104,13 @@ tr
 	margin-bottom: 4%;
 	margin-top: 1%;
 
-	border-radius: 15px;
 	background-color: white;
+	color: black;
 	display: block;
-	padding: 2%;
+	padding: 4%;
 	
 	border: 1px solid transparent;
-	box-shadow: 0px 13px 13px rgb(200,200,200);
+	box-shadow: 0em 1em 2em rgb(200,200,200);
 
 	transition: all 0.25s;
 }
@@ -118,6 +120,7 @@ tr:hover
 	transform: scale(1.01);
 	border: 1px solid white;
 	cursor: pointer;
+	box-shadow: 0em 1em 2em rgb(200,200,200);
 }
 
 td
@@ -217,9 +220,20 @@ td
 	
 	/*border-radius: 47px;*/
 	border-radius: 1000em;
-	box-shadow: 0px 13px 13px rgb(200,200,200);
+	box-shadow: 0em 1em 4em rgb(200,200,200);
 	transition: all 0.25s;
 	border: 1.5px solid transparent;
+}
+
+.searchBarDivFocusIn
+{
+	background-color: black;
+	color: white;
+}
+
+.search_TextField:hover
+{
+	border-color: transparent;
 }
 
 .search_TextField
@@ -489,8 +503,9 @@ tr
 {
 	transition: all 0.1s;
 	display: block;
-	border-radius: 15px;
+	border-radius: 1.5em;
 	transition: all 0.25s;
+	padding: 2%;
 }
 
 tr:hover
@@ -616,4 +631,51 @@ tr:hover
 	padding-right: 2.5%;
 }
 
+
+.linkB, .searchSuggestion
+{
+	color: black;
+	background-color: white;
 }
+
+.searchSuggestion
+{
+	padding: 4%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	border-radius: 1.5em;
+	box-shadow: 0em 1em 2em rgb(200,200,200);
+}
+
+#precisionSearchLinkDiv
+{
+	z-index: 4;
+	background-color: black;
+	color: white;
+
+	overflow-y: scroll;
+
+	top: 70%;
+	bottom: 2%;
+	left: 2%;
+	width: 92%;
+	box-shadow: 0em 1em 2em rgb(200,200,200);
+}
+
+#precisionSearchLinkDiv button, #precisionSearchLinkDiv button:hover
+{
+	background-color: white;
+	color: black;
+}
+
+#layer
+{
+	background-color: white;
+	z-index: 4;
+}
+
+}
+
+
+
+
