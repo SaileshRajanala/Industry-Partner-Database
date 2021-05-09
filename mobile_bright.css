@@ -357,8 +357,13 @@ td
   background-color: white;
 
   z-index: 1;
-  margin-top: 100%;
+  margin-top: 30%;
   box-shadow: none;
+}
+
+.formSection ul li
+{
+	box-shadow: none;
 }
 
 .formSection

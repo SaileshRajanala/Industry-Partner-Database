@@ -50,24 +50,6 @@ function animate(_id='message', _animationClass='msgPopAnimation')
   );
 }
 
-// function animateAll(_class='message', _animationClass='msgPopAnimation')
-// {
-//   for (var i = class_(_class).length - 1; i >= 0; i--) 
-//   {
-//     var object = class_(_class)[i];
-
-//     object.classList.add(_animationClass);
-
-//     // Code below is necessary for animation on request.
-//     object.addEventListener("animationend", 
-//     function() 
-//     {
-//         object.classList.remove(_animationClass);            
-//     }
-//     );
-//   }
-// }
-
 function id_message(_id, msg, icon = '<i class="fas fa-comment"></i>') 
 {
   var messageDiv = id_(_id);
@@ -77,18 +59,18 @@ function id_message(_id, msg, icon = '<i class="fas fa-comment"></i>')
   messageDiv.innerHTML = icon + '&nbsp; ' + msg + '';
   
   // messageDiv.style.color = 'black';
-  var d = new Date();
+  // var d = new Date();
 
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {
-    messageDiv.style.backgroundColor = 'black';
-    messageDiv.style.color = 'white';
-  }
-  else 
-  {
+  // if (d.getHours() >= 6 && d.getHours() < 18)
+  // {
+  //   messageDiv.style.backgroundColor = 'black';
+  //   messageDiv.style.color = 'white';
+  // }
+  // else 
+  // {
     messageDiv.style.backgroundColor = 'white';
     messageDiv.style.color = 'black';
-  }
+  // }
 }
 
 function id_error_message(_id, msg) 
@@ -99,34 +81,34 @@ function id_error_message(_id, msg)
   id_message(_id, msg, '<i class="fas fa-exclamation-triangle"></i>');
   messageDiv.style.color = 'white';
 
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {
+  // if (d.getHours() >= 6 && d.getHours() < 18)
+  // {
+  // messageDiv.style.backgroundColor = 'red';
+  // }
+  // else 
+  // {
   messageDiv.style.backgroundColor = 'red';
-  }
-  else 
-  {
-  messageDiv.style.backgroundColor = 'darkred';
-  }
+  // }
 }
 
 function id_success_message(_id, msg) 
 {
   var d = new Date();
-  
+
   var messageDiv = id_(_id);
   id_message(_id, msg, '<i class="far fa-check-circle"></i>');
   messageDiv.style.color = 'white';
 
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {
-  messageDiv.style.backgroundColor = 'lime';
-  messageDiv.style.color = 'black';
-  }
-  else 
-  {
+  // if (d.getHours() >= 6 && d.getHours() < 18)
+  // {
+  // messageDiv.style.backgroundColor = 'lime';
+  // messageDiv.style.color = 'black';
+  // }
+  // else 
+  // {
   messageDiv.style.backgroundColor = 'green';
   messageDiv.style.color = 'white';
-  }
+  // }
 }
 
 function checkInput(_id, _regex)
@@ -696,6 +678,9 @@ function switchDiv(targetDiv, currentDiv, _button = "Next")
 
     id_(targetDiv).style.display = 'block';
     window.scrollTo(0, 0);
+
+    document.body.style.backgroundImage = "url(\'wsu" + 
+    (Math.floor(Math.random() * 6) + 1) + ".jpg\')";
 
     message('Industry Partner Form', "");
 }
