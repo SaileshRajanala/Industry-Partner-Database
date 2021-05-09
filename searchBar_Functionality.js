@@ -17,13 +17,18 @@ searchNavButton.onclick = function()
     searchBar.classList.add("bubblegumOff");
     searchBar.classList.remove("bubblegumOn");
 
-    if (searchNavIcon.classList.contains("fa-times-circle")
-      && searchNavIcon.classList.contains("far"))
+    // if (searchNavIcon.classList.contains("fa-times-circle")
+    //   && searchNavIcon.classList.contains("far"))
+    // {
+    //   searchNavIcon.classList.remove("fa-times-circle");
+    //   searchNavIcon.classList.remove("far");
+    //   searchNavIcon.classList.add("fab");
+    //   searchNavIcon.classList.add("fa-sistrix");
+    //   searchNavButton.classList.remove("linkB_active");
+    // }
+
+    if (searchNavButton.classList.contains("linkB_active"))
     {
-      searchNavIcon.classList.remove("fa-times-circle");
-      searchNavIcon.classList.remove("far");
-      searchNavIcon.classList.add("fab");
-      searchNavIcon.classList.add("fa-sistrix");
       searchNavButton.classList.remove("linkB_active");
     }
 
@@ -36,10 +41,10 @@ searchNavButton.onclick = function()
     dashBoard.style.animationDelay = "0s";
     dashBoard.classList.add("hideBelow");
 
-    searchNavIcon.classList.remove("fa-sistrix");
-    searchNavIcon.classList.remove("fab");
-    searchNavIcon.classList.add("far");
-    searchNavIcon.classList.add("fa-times-circle");
+    // searchNavIcon.classList.remove("fa-sistrix");
+    // searchNavIcon.classList.remove("fab");
+    // searchNavIcon.classList.add("far");
+    // searchNavIcon.classList.add("fa-times-circle");
     searchNavButton.classList.add("linkB_active");
 
     //Code below is necessary for button on input field
