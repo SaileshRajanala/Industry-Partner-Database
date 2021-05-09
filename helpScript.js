@@ -1,5 +1,4 @@
 
-
 // HELP DIV FUNCTIONALITY SCRIPT START 
 
 var helpDiv = document.getElementById('helpDiv');
@@ -262,5 +261,17 @@ if (document.getElementById('helpDiv') != undefined)
     "<a class=\"helpEmailLink\" href=\"mailto:support@lotus.com\">Contact Support</a>" + 
     "<br><br>" + 
 
+  "</div>" +
+
+  "<div class=\"helpArticle\">" +
+    
+    "<h2> Programming Manual </h2>" +
+
+    "<a class=\"linkB\" " + 
+    "href=\"Industry%20Partner%20Database%20-%20Programming%20Manual.pdf\" " + 
+    "download=\"Industry%20Partner%20Database%20-%20Programming%20Manual.pdf\"> " +
+      "Programming Manual <i class='fas fa-arrow-circle-down'></i> " +
+    "</a>" +
+        
   "</div>";
 }
