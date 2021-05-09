@@ -386,7 +386,7 @@ reqAdminNames();
   <!-- <button type="submit" class="linkB" id="homeNavButton" style="float: left">
    Industry Partner Database</button> -->
 
-   <button type="submit" class="linkB" id="homeNavButton" style="float: left">
+   <button type="submit" class="linkB" style="float: left">
     <i class="fas fa-chevron-circle-left"></i> Back </button>
  </form>
 

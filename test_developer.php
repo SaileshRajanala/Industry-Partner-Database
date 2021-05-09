@@ -264,6 +264,8 @@
 
     <div class="dashboard">
 
+      <h1 class="mobileOnly mobileTitle">Industry Partner Database</h1>
+
         <div class="widget" id="todaySummary">
           <h1 class="widgetTitle" id="greeting"></h1>
         <!-- TODAY PHP SCRIPT START -->
