@@ -11,6 +11,7 @@ body
 	font-family: 'QuickSand';
 
   background-size: contain;
+  background-image: none;
 
 	animation-name: blurOut;
   animation-delay: 1s;
@@ -89,13 +90,16 @@ body
 .widget
 {
 	padding: 2%;
+  padding-bottom: 1%;
   text-align: center;
-/*	-webkit-backdrop-filter: blur(13px);
-*/
+
 	background-color: transparent;
-	border-radius: 25px;
-	margin-bottom: 4%;
-	margin-top: 2%;
+	border-radius: 2em;
+
+  margin-bottom: 20%;
+  margin-top: 0%;
+
+  box-shadow: 0em 1em 2em rgb(0,0,0);
 }
 
 .widgetTitle
@@ -114,34 +118,35 @@ body
 tr
 {
   text-align: left;
-	width: 98%;
-	margin: -1%;
-	margin-bottom: 4%;
-	margin-top: 1%;
+  width: 100%;
+  margin: -2%;
+  margin-bottom: 0%;
+  margin-top: 4%;
 
-	border-radius: 15px;
-	background-color: rgb(25,25,25);
-	display: block;
-	padding: 2%;
-	
-	border: 1px solid transparent;
-	box-shadow: 0px 0px 13px black;
+  background-color: rgb(25,25,25);
+  color: white;
+  display: block;
+  padding: 4%;
+  
+  border: none;
+  box-shadow: 0em 1em 2em rgb(0,0,0);
 
-	transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 tr:hover
 {
 	transform: scale(1.01);
-	border: 1px solid white;
+
 	cursor: pointer;
+  box-shadow: 0em 1em 2em rgb(0,0,0);
 }
 
 td
 {
-	width: 22.5%;
+	width: 23%;
 	background-color: transparent;
-	padding: 1%;
+	padding: 4%;
 
 	border-radius: 47px;
 
@@ -234,9 +239,57 @@ td
 	
 	/*border-radius: 47px;*/
 	border-radius: 1000em;
-	box-shadow: 0px 13px 13px black;
+	box-shadow: 0em 0em 4em black;
 	transition: all 0.25s;
-	border: 1.5px solid transparent;
+	border: 1.5px solid white;
+}
+
+.searchBarDivFocusIn
+{
+  background-color: white;
+  color: black;
+}
+
+.searchButtonIconFocusIn
+{
+  background-color: black;
+  color: white;
+  background-image: linear-gradient(147deg, black, black);
+}
+
+
+
+.search_TextField:hover
+{
+  border-color: transparent;
+}
+
+.searchBarFocusIn
+{
+  color: black;
+  background-color: white;
+  
+  outline: none;
+  color: black;
+  background-color: transparent;
+  background: linear-gradient(147deg, black, black);
+  caret-color: black;
+  display: inline;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.searchBarFocusIn::selection
+{
+  background: linear-gradient(147deg, white, white);
+  background-color: black;
+
+  background-clip: none;
+  text-fill-color: white;
+  -webkit-background-clip: none;
+  -webkit-text-fill-color: white;
 }
 
 .search_TextField
@@ -510,16 +563,18 @@ td
 	width: 100%;
 	border-radius: 47px;
 	padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
 	
 	display: block;
 }
 
 tr
 {
-	transition: all 0.1s;
 	display: block;
-	border-radius: 15px;
-	transition: all 0.25s;
+	border-radius: 1.5em;
+  transition: all 0.25s;
+  padding: 2%;
 }
 
 tr:hover
@@ -637,6 +692,26 @@ tr:hover
   box-shadow: 0px 13px 13px black;
 }
 
+#searchSuggestionsDiv
+{
+  width: 90%;
+  left: 4%;
+  height: 44%;
+  background-color: black;
+  border-radius: 2em;
+
+  box-shadow: 0em 1em 2em rgb(0,0,0);
+}
+
+#searchSuggestionsDiv .searchSuggestion
+{
+  background-color: rgb(25,25,25);
+  color: white;
+  margin: 2%;
+  width: 96%;
+  box-shadow: none;
+}
+
 
 
 .search_Icon
@@ -644,6 +719,205 @@ tr:hover
   padding-left: 2.5%;
   padding-right: 2.5%;
 }
+
+
+.linkB, .searchSuggestion
+{
+  color: white;
+  background-color: rgb(25,25,25);
+}
+
+.searchSuggestion
+{
+  padding: 4%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 1.5em;
+  box-shadow: 0em 1em 2em black;
+}
+
+.searchSuggestion:hover
+{
+  color: black;
+  background-color: white;
+}
+
+#precisionSearchLinkDiv
+{
+  z-index: 4;
+  background-color: rgb(25,25,25);
+  color: white;
+
+  overflow-y: scroll;
+
+  top: 70%;
+  bottom: 2%;
+  left: 2%;
+  width: 92%;
+  box-shadow: 0em 0em 4em black;
+}
+
+#precisionSearchLinkDiv button, #precisionSearchLinkDiv button:hover
+{
+  background-color: white;
+  color: black;
+}
+
+#layer
+{
+  background-color: black;
+  z-index: 4;
+}
+
+
+
+#themesMenuDiv
+{
+  left: 2%;
+  width: 96%;
+}
+
+
+
+#themeButton
+{
+  display: none;
+}
+
+
+#close, .uiButton,
+#close:hover, .uiButton:hover
+{
+  background-color: rgb(25,25,25);
+  color: white;
+  box-shadow: 0em 0em 2em black;
+}
+
+.previewTitle
+{
+  top: -3%;
+  box-shadow: 0em 1em 2em black;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background-color: rgb(25,25,25);
+}
+
+.previewTitle, 
+.previewSection, 
+.previewSectionTitle
+{
+  color: white;
+}
+
+.previewSection .previewBlock
+{
+  background-color: rgb(47,47,47);
+}
+
+.previewBlock
+{
+  line-height: 1.5;
+}
+
+.previewSection
+{
+  margin-top: 7%;
+  background-color: rgb(25,25,25);
+  box-shadow: 0em 1em 2em black;
+}
+
+
+.emailLink
+{
+  background-color: white;
+  padding: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
+  box-shadow: 0em 0em 1em rgb(0,0,0);
+  color: black;
+}
+
+.emailLink:hover
+{
+  background-color: rgb(25,25,25);
+  color: white;
+  box-shadow: 0em 0em 1em black;
+}
+
+.linkB:hover, .linkB_active
+{
+  background-color: white;
+  color: black;
+}
+
+.alertDiv
+{
+  background-color: rgb(25,25,25);
+  color: white;
+  border-radius: 2em;
+  box-shadow: 0em 0em 4em rgb(0,0,0);
+}
+
+#fileName
+{
+  background-color: white;
+  box-shadow: 0em 0em 1em black;
+  border: 0.1em solid transparent;
+}
+
+
+#fileName:focus
+{
+  background-color: black;
+  color: white;
+}
+
+#helpDiv
+{
+  top: 10%;
+  box-shadow: 0em 0em 1em black;
+  border-radius: 2em;
+}
+
+.helpArticle, li
+{
+  box-shadow: 0em 0em 1em black;
+  background-color: rgb(25,25,25);
+  color: white;
+}
+
+.helpArticle h2
+{
+  background-color: black;
+  background-image: linear-gradient(147deg, black, black);
+  color: white;
+  padding: 4%;
+}
+
+.filterSearchResult
+{
+  background-color: rgb(47,47,47);
+  box-shadow: 0em 0em 1em black;
+}
+
+#searchResultsDiv
+{
+  left: 0%;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
