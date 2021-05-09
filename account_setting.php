@@ -84,7 +84,17 @@ if(!isset($_SESSION['user_id']))
     ?>
 
 
-  	<link rel="stylesheet" type="text/css" id="mS" href="mobile_dark.css">
+  	<!-- MOBILE CSS & SCRIPT START -->
+    <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript">
+      var d = new Date();
+
+      if (d.getHours() >= 6 && d.getHours() <= 18) 
+        document.getElementById('mS').setAttribute('href', 'mobile_bright.css');
+      else
+        document.getElementById('mS').setAttribute('href', 'mobile_dark.css');
+    </script>
 
   	<!-- ICONS SCRIPT -->
     <script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
