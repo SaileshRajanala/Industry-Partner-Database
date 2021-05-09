@@ -14,11 +14,8 @@ helpNavButton.onclick = function()
     helpDiv.classList.add("helpOff");
     helpDiv.classList.remove("helpOn");
 
-    if (helpNavIcon.classList.contains("fa-times-circle"))
+    if (helpNavButton.classList.contains("linkB_active"))
     {
-      helpNavIcon.classList.remove("fa-times-circle");
-      helpNavIcon.classList.add("fa-question-circle");
-
       helpNavButton.classList.remove("linkB_active");
     }
   }
@@ -26,9 +23,10 @@ helpNavButton.onclick = function()
   {
     helpDiv.classList.add("helpOn");
     
-    helpNavIcon.classList.remove("fa-question-circle");
-    helpNavIcon.classList.add("fa-times-circle");
-    helpNavButton.classList.add("linkB_active");
+    // helpNavIcon.classList.remove("fa-question-circle");
+    // helpNavIcon.classList.add("fa-times-circle");
+    
+     helpNavButton.classList.add("linkB_active");
 
     helpDiv.classList.add("helpOn");
     

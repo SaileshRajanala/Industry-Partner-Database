@@ -35,6 +35,8 @@ searchNavButton.onclick = function()
       dashBoard.style.display = "block";
       dashBoard.style.animationDelay = "0s";
       dashBoard.classList.remove("hideBelow");
+
+      document.getElementById('layer').style.display = "none";
   }
   else 
   {
@@ -46,6 +48,10 @@ searchNavButton.onclick = function()
     // searchNavIcon.classList.add("far");
     // searchNavIcon.classList.add("fa-times-circle");
     searchNavButton.classList.add("linkB_active");
+
+    document.getElementById('layer').style.display = "block";
+    document.getElementById('layer').style.zIndex = '2';
+    document.getElementById('precisionSearchLinkDiv').style.zIndex = '3';
 
     //Code below is necessary for button on input field
     searchBar.style.display = 'flex'; 

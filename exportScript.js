@@ -11,25 +11,37 @@
           exportDiv.classList.add("exportOff");
           exportDiv.classList.remove("exportOn");
 
-          if (exportNavIcon.classList.contains("fa-times-circle")
-            && exportNavIcon.classList.contains("far"))
+          // if (exportNavIcon.classList.contains("fa-times-circle")
+          //   && exportNavIcon.classList.contains("far"))
+          // {
+          //   exportNavIcon.classList.remove("fa-times-circle");
+          //   exportNavIcon.classList.remove("far");
+          //   exportNavIcon.classList.add("fas");
+          //   exportNavIcon.classList.add("fa-arrow-circle-down");
+
+          //   exportNavButton.classList.remove("linkB_active");
+          // }
+
+
+          if (exportNavButton.classList.contains("linkB_active"))
           {
-            exportNavIcon.classList.remove("fa-times-circle");
-            exportNavIcon.classList.remove("far");
-            exportNavIcon.classList.add("fas");
-            exportNavIcon.classList.add("fa-arrow-circle-down");
+            // exportNavIcon.classList.remove("fa-times-circle");
+            // exportNavIcon.classList.remove("far");
+            // exportNavIcon.classList.add("fas");
+            // exportNavIcon.classList.add("fa-arrow-circle-down");
 
             exportNavButton.classList.remove("linkB_active");
           }
+
         }
         else 
         {
           exportDiv.classList.add("exportOn");
 
-          exportNavIcon.classList.remove("fa-arrow-circle-down");
-          exportNavIcon.classList.remove("fas");
-          exportNavIcon.classList.add("far");
-          exportNavIcon.classList.add("fa-times-circle");
+          // exportNavIcon.classList.remove("fa-arrow-circle-down");
+          // exportNavIcon.classList.remove("fas");
+          // exportNavIcon.classList.add("far");
+          // exportNavIcon.classList.add("fa-times-circle");
 
           exportNavButton.classList.add("linkB_active");
 
