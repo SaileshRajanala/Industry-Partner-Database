@@ -649,7 +649,10 @@ tr:hover
 
 #homeNavButton
 {
-	font-size: larger;
+  font-size: medium;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 47%;
 }
 
 .navLabel
@@ -847,6 +850,7 @@ tr:hover
 {
 	top: 10%;
 	box-shadow: 0em 0em 1em rgb(200,200,200);
+	background-image: linear-gradient(147deg,white,white);
 	border-radius: 2em;
 }
 
