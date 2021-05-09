@@ -1,3 +1,6 @@
+@media only screen and (max-width: 1000px) 
+{
+
 body
 {
   padding: 2%;
@@ -314,4 +317,9 @@ tr:hover
 {
   background-color: white;
   color: black;
+}
+
+
+
+
 }
