@@ -25,16 +25,16 @@ function message(msg, icon = '<i class="fas fa-comment"></i>')
 
   var d = new Date();
 
-  if (d.getHours() >= 6 && d.getHours() < 18)
-  {
-    messageDiv.style.backgroundColor = 'black';
-    messageDiv.style.color = 'white';
-  }
-  else 
-  {
+  // if (d.getHours() >= 6 && d.getHours() < 18)
+  // {
+  //   messageDiv.style.backgroundColor = 'black';
+  //   messageDiv.style.color = 'white';
+  // }
+  // else 
+  // {
     messageDiv.style.backgroundColor = 'white';
     messageDiv.style.color = 'black';
-  }
+  // }
 }
 
 function animate(_id='message', _animationClass='msgPopAnimation')
