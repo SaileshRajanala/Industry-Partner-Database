@@ -75,8 +75,18 @@
     ?>
     
 
+    <!-- MOBILE CSS & SCRIPT START -->
     <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript">
+      var d = new Date();
 
+      if (d.getHours() >= 6 && d.getHours() <= 18) 
+        document.getElementById('mS').setAttribute('href', 'mobile_bright.css');
+      else
+        document.getElementById('mS').setAttribute('href', 'mobile_dark.css');
+    </script>
+    
     <!-- CSS FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
