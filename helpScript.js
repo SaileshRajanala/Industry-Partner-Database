@@ -267,11 +267,15 @@ if (document.getElementById('helpDiv') != undefined)
     
     "<h2> Programming Manual </h2>" +
 
-    "<a class=\"linkB\" " + 
+    "<br>" +
+
+    "<a class=\"linkB\" style='text-decoration:none'" + 
     "href=\"Industry%20Partner%20Database%20-%20Programming%20Manual.pdf\" " + 
-    "download=\"Industry%20Partner%20Database%20-%20Programming%20Manual.pdf\"> " +
-      "Programming Manual <i class='fas fa-arrow-circle-down'></i> " +
+    "download> " +
+      "&nbspProgramming Manual <i class='fas fa-arrow-circle-down'></i> " +
     "</a>" +
-        
+    
+    "<br><br>" +
+
   "</div>";
 }
