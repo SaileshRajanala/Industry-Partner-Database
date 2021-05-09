@@ -188,7 +188,7 @@
 
     <div class="info">
       
-      Precision Search enables you to search precisely by creating your own Search Conditions. <br><br>
+      Precision Search enables you to search precisely by creating your own Search Conditions.
 
       Click the link above to search for something that involves a lot of conditions.
 
