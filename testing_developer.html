@@ -11,8 +11,17 @@
 
     <link href="wsu.css" id="themeCSS" rel="stylesheet" type="text/css">
   
-    <link href="mobile_bright.css" id="mobile_themeCSS" rel="stylesheet" type="text/css">
+    <!-- MOBILE CSS & SCRIPT START -->
+    <link href="mobile_dark.css" id="mS" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript">
+      var d = new Date();
 
+      if (d.getHours() >= 6 && d.getHours() <= 18) 
+        document.getElementById('mS').setAttribute('href', 'mobile_bright.css');
+      else
+        document.getElementById('mS').setAttribute('href', 'mobile_dark.css');
+    </script>
 
 
 
