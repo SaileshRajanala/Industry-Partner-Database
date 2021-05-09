@@ -93,6 +93,8 @@ function id_message(_id, msg, icon = '<i class="fas fa-comment"></i>')
 
 function id_error_message(_id, msg) 
 {
+  var d = new Date();
+
   var messageDiv = id_(_id);
   id_message(_id, msg, '<i class="fas fa-exclamation-triangle"></i>');
   messageDiv.style.color = 'white';
@@ -109,6 +111,8 @@ function id_error_message(_id, msg)
 
 function id_success_message(_id, msg) 
 {
+  var d = new Date();
+  
   var messageDiv = id_(_id);
   id_message(_id, msg, '<i class="far fa-check-circle"></i>');
   messageDiv.style.color = 'white';

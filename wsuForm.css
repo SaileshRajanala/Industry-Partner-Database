@@ -13,7 +13,7 @@ body
   font-size: x-large;
   color: white;
   font-family: 'Quicksand';
-  background-image: url('stars.png');
+  background-image: url('wsu6.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -73,7 +73,7 @@ body
   margin: 0;
   border-radius: 3em;
   /*background-image: url('worlds.png');*/
-  background-color: rgb(25,25,25);
+  background-color: transparent;
 
   z-index: 1;
   /*display: none;*/
@@ -695,10 +695,9 @@ textarea::selection, input[type='text']::selection
 
 #welcomeDiv
 {
-  /*box-shadow: none;*/
-  /*padding: 0%;*/
   
-  padding: 3%;
+  /*padding: 0%;*/
+  padding: 2%;
   margin-bottom: -50%;
 
   /*background-color: transparent;*/
@@ -706,6 +705,7 @@ textarea::selection, input[type='text']::selection
 
 #welcomeFormSection
 {
+  box-shadow: none;
   /*background-color: rgb(13,13,13,0.4);*/
   /*backdrop-filter: blur(0.5em);
   -webkit-backdrop-filter: blur(0.5em);*/
@@ -743,17 +743,6 @@ input::selection
   width: 96%;
   border-color: transparent; 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 .guide
@@ -829,6 +818,49 @@ input::selection
   {
     margin-bottom: 15%;
   }
+}
+
+@keyframes maximize
+{
+  100%
+  {
+    margin-bottom: 15%;
+  }
+}
+
+@keyframes fadeOff
+{
+  100% 
+  {
+    border-radius: 5em;
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+.bond
+{
+  border-bottom-left-radius: 0em;
+  border-bottom-right-radius: 0em;
+  border-top-left-radius: 0.9em;
+  border-top-right-radius: 0.9em;
+  box-shadow: none;
+  border: 1px solid transparent;
+  margin-bottom: 0%;
+  padding-bottom: 1%;
+  transition: all 0s;
+}
+
+.bond:hover
+{
+  border: 1px solid transparent;
+}
+
+input
+{
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 86%;
 }
 
 .singleBlock .guide
