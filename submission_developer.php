@@ -3,7 +3,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Industry Partner Database</title>
+  <title>Industry Partner Form Submission</title>
 
   <!-- CSS 3 (EXTERNAL) -->
   <link href="submit_dark.css" id="sS" rel="stylesheet" type="text/css">
