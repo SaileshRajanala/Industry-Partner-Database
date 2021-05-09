@@ -32,5 +32,5 @@ for (var i = formDivs.length - 1; i >= 0; i--) {
 document.body.style.backgroundImage = "url(\'wsu" + 
     (Math.floor(Math.random() * 6) + 1) + ".jpg\')";
 
-formDivs[0].style.display = 'block';
+formDivs[2].style.display = 'block';
 // INITIALIZE FORM END ###################################

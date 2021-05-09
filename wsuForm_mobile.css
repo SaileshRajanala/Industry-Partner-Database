@@ -3,6 +3,20 @@ body
   padding: 2%;
 }
 
+.radioList li label, .checkList li label
+{
+  border-radius: 1em;
+  margin: 0%;
+  margin-bottom: -2%;
+  padding: 4%;
+}
+
+input[type="radio"]:not(:checked) + label,
+input[type="checkbox"]:not(:checked) + label 
+{
+  background-color: rgb(25,25,25);
+}
+
 .formDiv h1
 {
   padding-left: 2%;

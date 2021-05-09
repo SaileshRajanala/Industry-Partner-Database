@@ -551,7 +551,7 @@ function validateYear(_id)
       }
       else
       {
-        id_message('message', "Industry Partner Form");
+        message('Industry Partner Form','');
       }
     }
     else
