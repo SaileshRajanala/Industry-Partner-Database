@@ -1,7 +1,7 @@
 
 body 
 {
-  background-image: url('squares_dark.png');
+  background-image: url('wsu1.jpg');
   background-attachment: fixed;
   background-repeat: none;
   background-size: 100% 100%;
@@ -24,10 +24,10 @@ body
 .login_form
 {
   color: white;
-  background-color: transparent;
+  background-color: rgb(25,25,25);
 
-  -webkit-backdrop-filter: blur(2em);
-  backdrop-filter: blur(2em);
+ /* -webkit-backdrop-filter: blur(2em);
+  backdrop-filter: blur(2em);*/
 
   font-size: large;
 
@@ -71,7 +71,7 @@ body
   border-radius: 5em;
 
   color: white;
-  background-color: rgb(25,25,25, 0.5);
+  background-color: rgb(74,74,74);
   box-shadow: 0em 0em 1em black;
 
   font-family: 'Quicksand', sans-serif;
@@ -137,50 +137,38 @@ body
   cursor: pointer;
 }
 
-.errorMsg {
- color: red;
-}
-
-
-/* .main_form 
+.errorMsg 
 {
-  width:350px;
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-  position: absolute;
-  color: #fff;
+  color: red;
 }
 
-.main_form 
+
+@media only screen and (max-width: 1000px) 
 {
-  color: white;
-}
-.main_form h1{
-  font-size: 3em;
-  text-align: center;
-  text-transform:uppercase;
-  margin: 40px 0 ;
-}
-.main_form label{
-  font-size: 2em;
-  margin:15px 0 ;
+  body
+  {
+    background-size: auto;
+  }
 
+  .login_form
+  {
+    width: 70%;
+    left: 15%;
+    top: 20%;
+    padding-top: 6%;
+  }
+
+  .login_form button
+  {
+    width: 100%;
+  }
 }
-.main_form input{
-  font-size 2em;
-  width:100%;
-  padding: 15px 10px;
-  border: 0 ;
-  outline: none;
-  border-radius:5px;
-}
-.main_form input[type='submit']{
-  font-size: 2em;
-  font-weight:bold;
-  margin: 15px 0;
-  width:50%;
-  border-radius:5px;
-  border:none;
-} */
+
+
+
+
+
+
+
+
+

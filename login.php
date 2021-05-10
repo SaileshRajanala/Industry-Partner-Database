@@ -18,6 +18,7 @@ if(!empty($_SESSION['user_id']))
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="login_style.css">
+
 </head>
 
 <body name="body">
@@ -47,4 +48,11 @@ if(!empty($_SESSION['user_id']))
 
 
 </body>
-</html>
+
+<script type="text/javascript">
+
+    document.body.style.backgroundImage = "url(\'wsu" + 
+    (Math.floor(Math.random() * 6) + 1) + ".jpg\')";
+
+</script>
+  </html>
