@@ -584,7 +584,7 @@ function addRule(targetDivId = "searchConditionsDiv")
   var _button = document.createElement('button');
   _button.setAttribute('type', 'button');
   _button.classList.add('removeRuleButton');
-  _button.innerHTML = 'Remove <i class="fas fa-minus-circle"></i>';
+  _button.innerHTML = '<span class="desktopOnly">Remove</span> <i class="fas fa-minus-circle"></i>';
   
   searchCondition.append(_button);
 

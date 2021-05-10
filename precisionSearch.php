@@ -21,6 +21,9 @@
 
 	
     <style type="text/css">
+
+    
+
     body
     {
         background-color: black;
@@ -256,6 +259,38 @@
         position: relative;
     }
 
+    .desktopOnly
+    {
+      display: block;
+    }
+
+
+    @media only screen and (max-width: 1000px) 
+    {
+
+      #pageTitle
+      {
+        margin-left: 4%;
+        font-size: 200%;
+      }
+
+      .queryRuleElement
+      {
+        width: 25%;
+        font-size: x-large;
+      }
+
+      .desktopOnly
+      {
+        display: none;
+      }
+
+      .conditionalSelector
+      {
+        width: 15%;
+      }
+
+    }
     </style>
 
 	<div class="notification">
@@ -388,11 +423,11 @@
 				class="keywordTextField queryRuleElement">
 
 				<button type="button" class="addRuleButton">
-					Add <i class="fas fa-plus-circle"></i>
+					<span class="desktopOnly">Add</span> <i class="fas fa-plus-circle"></i>
 				</button>
 
 				<button type="submit" name="advancedSearchButton" id="advancedSearchButton">
-					Search <i class="fab fa-sistrix"></i>
+					<span class="desktopOnly">Search</span> <i class="fab fa-sistrix"></i>
 				</button>
 				
 			</div>
@@ -410,7 +445,7 @@
 <!-- HELP DIV FUNCTIONALITY SCRIPT END -->
 		
 
-<script type="text/javascript" src="advancedSearchScript.js"></script>
+<script type="text/javascript" src="precisionSearchScript.js"></script>
 
 
 </body>
