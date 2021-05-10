@@ -280,14 +280,9 @@
           require "./connect.php";
           require_once "./prerequisites.php";
 
-          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 50";
+          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC";
           
           $result = $conn->query($sql);
-
-          $moreThan50 = false;
-
-        if ($result->num_rows > 5)
-          $moreThan50  = true;
 
         if ($result->num_rows > 0)
         {
@@ -327,12 +322,6 @@
                '&nbsp <i class="fas fa-user-plus"></i></h1>';
 
           echo printRecords($sql);
-
-          if ($moreThan50)
-          {
-            echo "Only showing 50 records. " . 
-                 "Please use Search to search for records as there are more than 50 records.";
-          }
         }
         else // No entries for today
         {
