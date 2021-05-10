@@ -14,8 +14,14 @@
 	<link rel="stylesheet" type="text/css" id="rS" href="dark.css">
 
 	<script src="https://kit.fontawesome.com/a104d25a3e.js" crossorigin="anonymous"></script>
-	<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+  <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -261,11 +267,11 @@
 
     .desktopOnly
     {
-      display: block;
+      display: inline-flex;
     }
 
 
-    /*@media only screen and (max-width: 1000px) 
+    @media only screen and (max-width: 1000px) 
     {
 
       #pageTitle
@@ -290,7 +296,7 @@
         width: 15%;
       }
 
-    }*/
+    }
     </style>
 
 	<div class="notification">

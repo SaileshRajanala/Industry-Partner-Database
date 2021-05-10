@@ -435,7 +435,7 @@ add_jobTitle_suggestions('Lead');
 add_jobTitle_suggestions('CFO');
 add_jobTitle_suggestions('CEO');
 add_jobTitle_suggestions('Instructor');
-add_jobTitle_suggestions('Entrepenuer');
+add_jobTitle_suggestions('Entrepreneur');
 add_jobTitle_suggestions('Advisor');
 
 
@@ -800,7 +800,8 @@ suggestions.push(precisionSearchSuggestion(
   " WHERE UPPER( have_MS_degree ) LIKE UPPER( '3' ) " +
   " OR UPPER( have_MS_degree ) LIKE UPPER ( '3,%') " +
   " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3,%') " +
-  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3')"
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3')" +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '' )"
 ));
 
 generalSuggestions.push(precisionSearchSuggestion(
@@ -809,7 +810,8 @@ generalSuggestions.push(precisionSearchSuggestion(
   " WHERE UPPER( have_MS_degree ) LIKE UPPER( '3' ) " +
   " OR UPPER( have_MS_degree ) LIKE UPPER ( '3,%') " +
   " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3,%') " +
-  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3')"
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '%, 3')" +
+  " OR UPPER( have_MS_degree ) LIKE UPPER ( '' )"
 ));
 
 suggestions.push(precisionSearchSuggestion(
@@ -818,7 +820,8 @@ suggestions.push(precisionSearchSuggestion(
   " WHERE UPPER( have_PHD_degree ) LIKE UPPER( '3' ) " +
   " OR UPPER( have_PHD_degree ) LIKE UPPER ( '3,%') " +
   " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3,%') " +
-  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3')"
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3')" +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '' )"
 ));
 
 generalSuggestions.push(precisionSearchSuggestion(
@@ -827,7 +830,8 @@ generalSuggestions.push(precisionSearchSuggestion(
   " WHERE UPPER( have_PHD_degree ) LIKE UPPER( '3' ) " +
   " OR UPPER( have_PHD_degree ) LIKE UPPER ( '3,%') " +
   " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3,%') " +
-  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3')"
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '%, 3')" +
+  " OR UPPER( have_PHD_degree ) LIKE UPPER ( '' )"
 ));
 
 
