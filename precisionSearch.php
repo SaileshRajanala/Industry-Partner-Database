@@ -265,7 +265,7 @@
     }
 
 
-    @media only screen and (max-width: 1000px) 
+    /*@media only screen and (max-width: 1000px) 
     {
 
       #pageTitle
@@ -290,7 +290,7 @@
         width: 15%;
       }
 
-    }
+    }*/
     </style>
 
 	<div class="notification">
