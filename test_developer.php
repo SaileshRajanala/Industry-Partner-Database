@@ -559,7 +559,8 @@
 
                 document.body.style.backgroundImage = "url(\'wsu" + 
                 (Math.floor(Math.random() * 6) + 1) + ".jpg\')";
-
+                
+                document.body.style.backgroundSize = "auto";
               </script>';
       }
       elseif (isset($row['Theme']) && $row['Theme'] == 'dynamic')
