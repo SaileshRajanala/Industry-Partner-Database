@@ -416,6 +416,16 @@
           }
         ?>    
 
+        <div class="widget">
+          <h1 class="widgetTitle">Web Form &nbsp
+            <i class="fas fa-file-signature"></i>
+          </h1>
+
+          <a href="Industry-Partner-Form.html" class="linkB">
+            Industry Partner Form 
+            <i class="fas fa-pen-nib"></i>
+          </a>
+        </div>
         
 
 
