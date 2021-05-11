@@ -132,10 +132,10 @@ function suggest(_element, _id = 'dailySuggestionsDiv')
     document.getElementById(_id).append(_element);
 }
 
-function searchSuggestion(_label, _searchKeyword, _action = 'search_developer.php')
+function searchSuggestion(_label, _searchKeyword, _action = 'search.php')
 {
     /*
-        <form method="POST" action="search_developer.php" target="_blank">
+        <form method="POST" action="search.php" target="_blank">
           <button type="submit" class="searchSuggestion" name="searchBar" value="Veterans">
             <i class='fab fa-sistrix'></i>  &nbspSearch for Veterans
           </button>

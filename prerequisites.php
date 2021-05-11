@@ -960,7 +960,7 @@ function getSearchConditionsFor($keyword)
 
 function exportSearchLink($keyword)
 {
-  return '<form method="post" action="exportSearch_developer.php">
+  return '<form method="post" action="exportSearch.php">
           <button type="submit" name="keyword" value="' . $keyword . '" class="exportSearchLink"> Export Search Results for "' . $keyword
            . '"&nbsp <i class="fas fa-arrow-circle-right"></i>
           </button>

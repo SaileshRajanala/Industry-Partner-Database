@@ -130,7 +130,7 @@
     <!-- Top Bar Arc Structure -->
     <div id="topBar">
 
-        <form method="POST" action="test_developer.php">
+        <form method="POST" action="index.php">
         <button type="submit" class="linkB" id="homeNavButton" style="float: left">
            Industry Partner Database</button>
          </form>
@@ -198,13 +198,9 @@
 
   <script type="text/javascript" src="precisionSearchDiv.js"></script>
 
-
-    <!-- TOP BAR MOBILE START -->
-      <!-- <script type="text/javascript" src="topBarMobileScript.js"></script> -->
-      <!-- TOP BAR MOBILE END -->
       
       <!-- SEARCH BAR -->
-      <form name="searchForm" action="search_developer.php" method="POST">
+      <form name="searchForm" action="search.php" method="POST">
 
           <div id="searchBarDiv" class="search_div">
              
@@ -225,7 +221,7 @@
 
       <h1>Export everything</h1>
 
-      <form action="exportAll_developer.php" method="POST">
+      <form action="export.php" method="POST">
           <label>Download as </label>
           <input type="fileName" id="fileName" name="fileName" placeholder="Industry Data">
 

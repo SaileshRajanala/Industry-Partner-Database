@@ -338,7 +338,7 @@
 /*
           <h2 class="widgetTitle">
 
-          <form method="post" action="exportSearch_developer.php">
+          <form method="post" action="exportSearch.php">
 
           <button type="submit" name="keyword" value="jr" class="filterSearchExportLink" 
             style="width: 104%">
@@ -355,7 +355,7 @@
             {
               echo '<h2 class="widgetTitle">
 
-              <form method="post" action="exportSearch_developer.php">
+              <form method="post" action="exportSearch.php">
 
               <button type="submit" name="keyword" value="'. $searchBarTextValue . '" 
               class="filterSearchExportLink" style="width: 104%"><span style="float: left">
@@ -372,7 +372,7 @@
             {
               echo '<h2 class="widgetTitle">
 
-              <form method="post" action="exportSearch_developer.php">
+              <form method="post" action="exportSearch.php">
 
               <button type="submit" name="keyword" value="'. $searchBarTextValue . '" 
               class="filterSearchExportLink" style="width: 104%"><span style="float: left">
@@ -430,7 +430,7 @@
               {
                 echo '<h2 class="widgetTitle">
 
-                <form method="post" action="exportSearch_developer.php">
+                <form method="post" action="exportSearch.php">
 
                 <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
                 class="filterSearchExportLink" style="width: 104%"><span style="float: left">
@@ -447,7 +447,7 @@
               {
                 echo '<h2 class="widgetTitle">
 
-                <form method="post" action="exportSearch_developer.php">
+                <form method="post" action="exportSearch.php">
 
                 <button type="submit" name="keyword" value="'. $keyWords[$i] . '" 
                 class="filterSearchExportLink" style="width: 104%"><span style="float: left">

@@ -314,7 +314,7 @@
 
       <!-- <img class="icon" src="lotus_dark.png" style="left: 4%;width: 2.5em;"> -->
             
-           <form method="POST" action="test_developer.php">
+           <form method="POST" action="index.php">
           <!-- <button type="submit" class="linkB" id="homeNavButton" style="float: left">
            Industry Partner Database</button> -->
 

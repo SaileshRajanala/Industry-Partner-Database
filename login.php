@@ -5,7 +5,7 @@ include 'functions.php' ;
 //echo $_SESSION['user_id'] ; 
 if(!empty($_SESSION['user_id']))
 {
-  header("Location: test_developer.php");
+  header("Location: index.php");
 }
 
 ?>

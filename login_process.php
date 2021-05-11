@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && (isset( $_POST['email']) || isset($_P
 
 						//echo "this is idddddd " ;
 						//echo $user_data['ID'];
-						header('Location: test_developer.php');
+						header('Location: index.php');
 						//die;
 					}
 				}
