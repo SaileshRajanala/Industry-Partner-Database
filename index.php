@@ -421,10 +421,15 @@
             <i class="fas fa-file-signature"></i>
           </h1>
 
-          <a href="Industry-Partner-Form.html" class="linkB">
-            Industry Partner Form 
+          <form action="Industry-Partner-Form.html" method="POST">
+          <button class="linkB">
+            Industry Partner Form &nbsp
             <i class="fas fa-pen-nib"></i>
-          </a>
+          </button>
+          </form>
+
+          <br>
+          
         </div>
         
 
