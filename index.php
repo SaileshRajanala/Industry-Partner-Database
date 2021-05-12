@@ -497,7 +497,7 @@
 
           ?>
 
-          <p style='margin-left: 2.5%'>Version <b>4.7 RS</b></p>
+          <p style='margin-left: 2.5%'>Version <b>77.44 RS</b></p>
           <p style='margin-left: 2.5%' id="copyrightInfo"></p>
           
           <script type="text/javascript" src="copyrightScript.js"></script>
