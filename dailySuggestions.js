@@ -213,7 +213,41 @@ function linkSuggestion(_label, _action, _target = "_blank", _icon = "<i class='
   return searchForm;
 }
 
+function themeSuggestion(_theme, _isColor = true, _color1, _color2, 
+  _label = "Change theme to " + _theme, _action = "", 
+  _icon = '<i class="fas fa-paint-roller"></i>')
+{
+  if (_isColor)
+  {
+    _icon = '<i class="fas fa-paint-roller" ';
 
+    _icon += 'style="';
+
+    _icon += 'background: linear-gradient(to top,' + _color1 + ',' + _color2 + ');';
+    _icon += '-webkit-background-clip: text;';
+    _icon += '-webkit-text-fill-color: transparent;';
+
+    _icon += '"';
+
+    _icon += '></i>';
+  }
+
+  var themesForm = document.createElement('form');
+  themesForm.setAttribute('method', 'POST');
+  themesForm.setAttribute('action', _action);
+
+  var themeButton = document.createElement('button');
+  themeButton.classList.add('searchSuggestion');
+  themeButton.setAttribute('name', 'theme');
+  themeButton.setAttribute('type', 'submit');
+  themeButton.setAttribute('value', '"' + _theme + '"');
+
+  themeButton.innerHTML = _icon + "  &nbsp" + _label;
+
+  themesForm.append(themeButton);
+
+  return themesForm;
+}
 
 
 
@@ -253,6 +287,23 @@ suggestions.push(linkSuggestion('Email Subash &nbsp(Tech Support)', 'mailto:sxac
 suggestions.push(linkSuggestion('Email Team Lotus (all members)', 
 'mailto:sxrajanala@shockers.wichita.edu,pxlimbu@shockers.wichita.edu,sxkarki6@shockers.wichita.edu,sxacharya5@shockers.wichita.edu',
 'none', '<i class="far fa-envelope"></i>'));
+
+// Theme Suggestions
+suggestions.push(themeSuggestion('citrus', true, 'aqua', 'yellow'));
+suggestions.push(themeSuggestion('bubbles', true, 'blue', 'aqua'));
+suggestions.push(themeSuggestion('summer', true, 'red', 'yellow'));
+suggestions.push(themeSuggestion('abyss', true, 'blue', 'magenta'));
+suggestions.push(themeSuggestion('bright', false));
+suggestions.push(themeSuggestion('dark', false));
+suggestions.push(themeSuggestion('midnight', false));
+suggestions.push(themeSuggestion('wsu', false));
+suggestions.push(themeSuggestion('dynamic', false));
+suggestions.push(themeSuggestion('random', false));
+
+  
+
+
+
 
 
 // Mail Suggestions
