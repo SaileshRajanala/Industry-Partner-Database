@@ -491,13 +491,19 @@
 
           $result = $conn->query($sql);
 
-          echo "<p style='margin-left: 2.5%'>Total number of records = <b>";
-          echo $result->num_rows;
-          echo "</b>";
+          echo "<p style='margin-left: 2.5%'>
+          <i class=\"fas fa-database\"></i> &nbspTotal number of records = ";
+          echo '<b>' . $result->num_rows . '<b>';
 
           ?>
 
-          <p style='margin-left: 2.5%'>Version <b>77.44 RS</b></p>
+          <p style='margin-left: 2.5%'>
+            <i class="fas fa-code-branch"></i> &nbspVersion <b>77.44 RS</b>
+          </p>
+
+          <p style='margin-left: 2.5%'>
+            <i class="far fa-star"></i> &nbspCreated on <b>September 25, 2020</b>
+          </p>
           <p style='margin-left: 2.5%' id="copyrightInfo"></p>
           
           <script type="text/javascript" src="copyrightScript.js"></script>
