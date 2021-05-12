@@ -207,6 +207,8 @@ var generalSuggestions = [];
 // Precision Search Button
 suggestions.push(searchSuggestion('Precision Search', '', 'precisionSearch.php'));
 
+// Team Lotus Link
+suggestions.push(searchSuggestion('Team Lotus', '', 'https://saileshrajanala.github.io/teamLotus.html'));
 
 // Mail Suggestions
 suggestions.push(precisionSearchSuggestion('Search for all "Gmail" users ', 
