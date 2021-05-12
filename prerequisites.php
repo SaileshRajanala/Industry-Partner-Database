@@ -645,7 +645,7 @@ global $htmlFields,
 
           $noPhoneNumber = "Not provided. &nbsp" . $sadEmote;
 
-          if ($row["Phone_Number"] = "")
+          if ($row["Phone_Number"] == "")
           {
             $recordPreviews .= '<i class="fas fa-phone-alt"></i> Phone : ' . 
             $noPhoneNumber . '<br><br>';
