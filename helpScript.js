@@ -257,7 +257,7 @@ if (document.getElementById('helpDiv') != undefined)
     "<h2>More help <i class='far fa-question-circle'></i></h2>" + 
 
     "<br><br>" + 
-    "<a class=\"helpEmailLink\" href=\"mailto:support@lotus.com\">Contact Support</a>" + 
+    "<a class=\"helpEmailLink\" href=\"mailto:sxrajanala@shockers.wichita.edu,pxlimbu@shockers.wichita.edu,sxkarki6@shockers.wichita.edu,sxacharya5@shockers.wichita.edu\">Contact Tech Support (Team Lotus)</a>" +
     "<br><br>" + 
 
   "</div>" +

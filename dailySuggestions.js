@@ -188,7 +188,30 @@ function precisionSearchSuggestion(_label, _searchConditions, _action = "advance
         return searchForm;
 }
 
+function linkSuggestion(_label, _action, _target = "_blank", _icon = "<i class='fab fa-sistrix'></i>")
+{
 
+  /*
+  
+  <button onclick="document.location='https://saileshrajanala.github.io/teamLotus.html'">Team Lotus</button>
+
+  */
+
+
+  var searchForm = document.createElement('form');
+  searchForm.setAttribute('target', _target);
+  searchForm.setAttribute('action', _action);
+
+  var searchButton = document.createElement('button');
+  searchButton.classList.add('searchSuggestion');
+  searchButton.setAttribute('type', 'submit');
+
+  searchButton.innerHTML = _icon + "  &nbsp" + _label;
+
+  searchForm.append(searchButton);
+
+  return searchForm;
+}
 
 
 
@@ -208,7 +231,26 @@ var generalSuggestions = [];
 suggestions.push(searchSuggestion('Precision Search', '', 'precisionSearch.php'));
 
 // Team Lotus Link
-suggestions.push(searchSuggestion('Team Lotus', '', 'https://saileshrajanala.github.io/teamLotus.html'));
+suggestions.push(linkSuggestion('Team Lotus', 'https://saileshrajanala.github.io/teamLotus.html'));
+
+// Programming Manual Link
+suggestions.push(linkSuggestion('Programming Manual', 'https://accessibility.wichita.edu/Industry-Partner-Database/Industry%20Partner%20Database%20-%20Programming%20Manual.pdf'));
+
+// Contact Support
+suggestions.push(linkSuggestion('Contact Support',
+  'mailto:sxrajanala@shockers.wichita.edu,pxlimbu@shockers.wichita.edu,sxkarki6@shockers.wichita.edu,sxacharya5@shockers.wichita.edu',
+  'none', '<i class="far fa-envelope"></i>'));
+  
+// Tech Support Emails
+suggestions.push(linkSuggestion('Email Sailesh &nbsp(Tech Support)', 'mailto:sxrajanala@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
+suggestions.push(linkSuggestion('Email Priyanka &nbsp(Tech Support)', 'mailto:pxlimbu@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
+suggestions.push(linkSuggestion('Email Shiva &nbsp(Tech Support)', 'mailto:sxkarki6@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
+suggestions.push(linkSuggestion('Email Subash &nbsp(Tech Support)', 'mailto:sxacharya5@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
+
+suggestions.push(linkSuggestion('Email Team Lotus (all members)', 
+'mailto:sxrajanala@shockers.wichita.edu,pxlimbu@shockers.wichita.edu,sxkarki6@shockers.wichita.edu,sxacharya5@shockers.wichita.edu',
+'none', '<i class="far fa-envelope"></i>'));
+
 
 // Mail Suggestions
 suggestions.push(precisionSearchSuggestion('Search for all "Gmail" users ', 
