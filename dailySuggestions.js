@@ -231,10 +231,10 @@ var generalSuggestions = [];
 suggestions.push(searchSuggestion('Precision Search', '', 'precisionSearch.php'));
 
 // Team Lotus Link
-suggestions.push(linkSuggestion('Team Lotus', 'https://saileshrajanala.github.io/teamLotus.html'));
+suggestions.push(linkSuggestion('Team Lotus', 'https://saileshrajanala.github.io/teamLotus.html', '_blank', '<i class="fas fa-users"></i>'));
 
 // Programming Manual Link
-suggestions.push(linkSuggestion('Programming Manual', 'https://accessibility.wichita.edu/Industry-Partner-Database/Industry%20Partner%20Database%20-%20Programming%20Manual.pdf'));
+suggestions.push(linkSuggestion('Programming Manual', 'https://accessibility.wichita.edu/Industry-Partner-Database/Industry%20Partner%20Database%20-%20Programming%20Manual.pdf', '_blank', '<i class="fas fa-file-contract"></i>'));
 
 // Industry Partner Form
 suggestions.push(linkSuggestion('Industry Partner Form', 'Industry-Partner-Form.html', '_blank', '<i class="fas fa-pen-nib"></i>'));
