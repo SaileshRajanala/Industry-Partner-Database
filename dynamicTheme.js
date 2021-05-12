@@ -29,3 +29,16 @@ setThemeForHours('summer',   14, 16);
 setThemeForHours('bubbles',  16, 18);
 setThemeForHours('dark',     18, 23);
 setThemeForHours('midnight', 23,  6, true);
+
+// for dark theme in dynamic
+if (d.getHours() >= 18 && d.getHours() < 23)
+{
+    if (d.getDay() == 1 || d.getDay() == 4 || d.getDay() == 6) 
+    { // Mondays, Thursdays, Saturdays
+        document.body.style.backgroundImage = 'url("stars_aurora.png")';
+    }   
+    else
+    {
+        document.body.style.backgroundImage = 'url("stars.png")';
+    }
+}

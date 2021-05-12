@@ -328,7 +328,7 @@ reqAdminNames();
 		"'" . '$2y$10$36TVil8qx/HFC1.6nbQIYOZML9/erZcH0MUL.ufOdHacfC2qcs7Jy' . "'" . "," . 			// default password
 		"'" . $_POST['isAdmin'] . "'" . "," .
 		"'" . $_POST['department'] . "'" . "," .
-		"'" . 'wsu' . "'" .
+		"'" . 'dynamic' . "'" .
 
 		 ");
 
