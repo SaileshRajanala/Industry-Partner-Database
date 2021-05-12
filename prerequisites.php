@@ -624,10 +624,38 @@ global $htmlFields,
         <i style="float:right;font-size: larger" class="far fa-address-card"></i> <br><br>' . 
         '<i class="far fa-envelope"></i>  Email : <a class="emailLink" href="mailto:' . $row["Email"] . '">' . $row["Email"] . '</a><br><br>';
 
+
         if (isset($row["Phone_Number"])) 
         {
-          $recordPreviews .= '<i class="fas fa-phone-alt"></i> Phone : ' . $row["Phone_Number"] . '<br><br>';
+          $randomNumber = rand(0,2);
+
+          if ($randomNumber == 0) // random cry or sad face
+          {
+            $sadEmote = '<i class="fas fa-frown"></i>';
+          }
+          elseif ($randomNumber == 1)
+          {
+            $sadEmote = '<i class="fas fa-sad-tear"></i>';
+          }
+          else
+          {
+            $sadEmote = '<i class="fas fa-frown-open"></i>';
+          }
+
+
+          $noPhoneNumber = "Not provided. &nbsp" . $sadEmote;
+
+          if ($row["Phone_Number"] = "")
+          {
+            $recordPreviews .= '<i class="fas fa-phone-alt"></i> Phone : ' . 
+            $noPhoneNumber . '<br><br>';
+          }
+          else
+          {
+            $recordPreviews .= '<i class="fas fa-phone-alt"></i> Phone : ' . $row["Phone_Number"] . '<br><br>';
+          }
         }
+
 
         $recordPreviews .= '<i class="far fa-clock"></i> Timestamp : ' .
         date('M d, Y  g:i A', strtotime($row["Timestamp"]));

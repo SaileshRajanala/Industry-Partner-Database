@@ -320,6 +320,14 @@ generalSuggestions.push(precisionSearchSuggestion('Search for all users who prov
 " WHERE UPPER( Phone_Number ) <> UPPER('') "
 ));
 
+generalSuggestions.push(precisionSearchSuggestion('Search for all users who did NOT provide "Phone Numbers"', 
+" WHERE UPPER( Phone_Number ) = UPPER('') "
+));
+
+
+phone_number_Suggestions.push(precisionSearchSuggestion('Search for all users who did NOT provide "Phone Numbers"', 
+" WHERE UPPER( Phone_Number ) = UPPER('') "
+));
 
 phone_number_Suggestions.push(precisionSearchSuggestion('Search for all users who provided "Phone Numbers"', 
 " WHERE UPPER( Phone_Number ) <> UPPER('') "
@@ -350,6 +358,10 @@ phone_number_Suggestions.push(precisionSearchSuggestion('Search for those whose 
 ));
 
 // adding them to suggestions as well
+
+suggestions.push(precisionSearchSuggestion('Search for all users who provided Phone Numbers', 
+" WHERE UPPER( Phone_Number ) = UPPER('') "
+));
 
 suggestions.push(precisionSearchSuggestion('Search for all users who provided Phone Numbers', 
 " WHERE UPPER( Phone_Number ) <> UPPER('') "
