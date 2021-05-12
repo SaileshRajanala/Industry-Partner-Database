@@ -214,7 +214,7 @@ function linkSuggestion(_label, _action, _target = "_blank", _icon = "<i class='
 }
 
 function themeSuggestion(_theme, _isColor = true, _color1, _color2, 
-  _label = "Change theme to " + _theme, _action = "", 
+  _label = "Change theme to \"" + _theme + '"', _action = "", 
   _icon = '<i class="fas fa-paint-roller"></i>')
 {
   if (_isColor)
@@ -240,7 +240,7 @@ function themeSuggestion(_theme, _isColor = true, _color1, _color2,
   themeButton.classList.add('searchSuggestion');
   themeButton.setAttribute('name', 'theme');
   themeButton.setAttribute('type', 'submit');
-  themeButton.setAttribute('value', '"' + _theme + '"');
+  themeButton.setAttribute('value', _theme);
 
   themeButton.innerHTML = _icon + "  &nbsp" + _label;
 
