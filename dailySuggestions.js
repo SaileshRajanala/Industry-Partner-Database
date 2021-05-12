@@ -132,7 +132,7 @@ function suggest(_element, _id = 'dailySuggestionsDiv')
     document.getElementById(_id).append(_element);
 }
 
-function searchSuggestion(_label, _searchKeyword, _action = 'search.php')
+function searchSuggestion(_label, _searchKeyword, _action = 'search.php', _icon = "<i class='fab fa-sistrix'></i>")
 {
     /*
         <form method="POST" action="search.php" target="_blank">
@@ -153,7 +153,7 @@ function searchSuggestion(_label, _searchKeyword, _action = 'search.php')
     searchButton.setAttribute('type', 'submit');
     searchButton.setAttribute('value', _searchKeyword);
 
-    searchButton.innerHTML = "<i class='fab fa-sistrix'></i>  &nbsp" + _label;
+    searchButton.innerHTML = _icon + "  &nbsp" + _label;
 
     searchForm.append(searchButton);
 
@@ -296,12 +296,19 @@ suggestions.push(themeSuggestion('abyss', true, 'blue', 'magenta'));
 suggestions.push(themeSuggestion('bright', false));
 suggestions.push(themeSuggestion('dark', false));
 suggestions.push(themeSuggestion('midnight', false));
-suggestions.push(themeSuggestion('wsu', false));
+suggestions.push(themeSuggestion('wsu', true, '#101010', '#ffc217'));
 suggestions.push(themeSuggestion('dynamic', false));
 suggestions.push(themeSuggestion('random', false));
 
-  
 
+// Export Suggestions
+suggestions.push(searchSuggestion(
+  'Export everything', '', 'export.php', 
+  "<i class='fas fa-arrow-circle-down'></i>"));
+
+suggestions.push(searchSuggestion(
+  'Download all data', '', 'export.php',
+  "<i class='fas fa-arrow-circle-down'></i>"));
 
 
 
