@@ -236,6 +236,9 @@ suggestions.push(linkSuggestion('Team Lotus', 'https://saileshrajanala.github.io
 // Programming Manual Link
 suggestions.push(linkSuggestion('Programming Manual', 'https://accessibility.wichita.edu/Industry-Partner-Database/Industry%20Partner%20Database%20-%20Programming%20Manual.pdf'));
 
+// Industry Partner Form
+suggestions.push(linkSuggestion('Industry Partner Form', 'Industry-Partner-Form.html', '_blank', '<i class="fas fa-pen-nib"></i>'));
+
 // Contact Support
 suggestions.push(linkSuggestion('Contact Support',
   'mailto:sxrajanala@shockers.wichita.edu,pxlimbu@shockers.wichita.edu,sxkarki6@shockers.wichita.edu,sxacharya5@shockers.wichita.edu',
