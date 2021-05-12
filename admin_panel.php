@@ -347,17 +347,17 @@ reqAdminNames();
 
 		if ($result->num_rows == 1) 
 		{
-			echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error adding User. User already exists!</div>";
+			echo "<div class='widget' style='text-align:center;color:white;background-color:rgb(25,25,25);margin-left:8%;margin-bottom:0%;margin-right:8%;margin-top:15%;'>Error adding User. User already exists!</div>";
 		}
 		elseif (!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL))
 		{
-			echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error adding User. Invalid Email!</div>";
+			echo "<div class='widget' style='text-align:center;color:white;background-color:rgb(25,25,25);margin-left:8%;margin-bottom:0%;margin-right:8%;margin-top:15%;'>Error adding User. Invalid Email!</div>";
 		}
 		else
 		{
 		   if (mysqli_query($conn, $sql)) 
 			{
-			  echo "<div class='widget' style='text-align:center;color:aqua;margin-left:8%;margin-bottom:0%;margin-right:8%;'>User added successfully!</div>";
+			  echo "<div class='widget' style='text-align:center;color:white;background-color:rgb(25,25,25);margin-left:8%;margin-bottom:0%;margin-right:8%;margin-top:15%;'>User added successfully!</div>";
 			}
 		}
 	}
@@ -374,11 +374,11 @@ reqAdminNames();
 
 		if (mysqli_query($conn, $sql)) 
 		{
-		  echo "<div class='widget' style='text-align:center;color:aqua;margin-left:8%;margin-bottom:0%;margin-right:8%;'>User deleted successfully!</div>";
+		  echo "<div class='widget' style='text-align:center;color:white;background-color:rgb(25,25,25);margin-left:8%;margin-bottom:0%;margin-right:8%;margin-top:15%;'>User deleted successfully!</div>";
 		}	
 		else
 		{
-		   echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error deleting User.</div>";
+		   echo "<div class='widget' style='text-align:center;color:white;background-color:rgb(25,25,25);margin-left:8%;margin-bottom:0%;margin-right:8%;margin-top:15%;'>Error deleting User.</div>";
 		}
 	}
 
@@ -421,13 +421,16 @@ reqAdminNames();
 
 <div class="dashboard">
 
-	<div class="widget" style="padding: 4%; margin: 4%; background-color: transparent;box-shadow: none">
+	<div class="widget" 
+	style="padding: 4%; margin: 4%; background-color: transparent;box-shadow: none">
 		
 
 		<form action="" method="POST">
-			<div class="formSection" style="padding: 4%;">
+			<div class="formSection" 
+			style="padding: 4%;background-color: rgb(25,25,25);color: white;">
 				
-				<h1 class="widgetTitle" style="color:white;margin-left: 4%;margin-right: 4%">
+				<h1 class="widgetTitle" 
+				style="color:white;margin-left: 4%;margin-right: 4%">
 				
 				Add or Remove Users &nbsp<i class="fas fa-cogs"></i>
 				
@@ -454,7 +457,7 @@ reqAdminNames();
 
 				<div class="normalBlock noHover">
 					<label>Is Admin?</label>
-					<select name="isAdmin" required>
+					<select name="isAdmin" required style="color: white">
 						<option value="7">No (Can't Add/Remove Users)</option>
 						<option value="4">Yes (Can Add/Remove Users)</option>
 					</select>

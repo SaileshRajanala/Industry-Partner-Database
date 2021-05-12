@@ -207,11 +207,11 @@ body
 
 		if (mysqli_query($conn, $sql)) 
 		{
-		  echo "<div class='widget' style='text-align:center;color:aqua;margin-left:8%;margin-bottom:0%;margin-right:8%;'><i class='fas fa-wrench'></i>&nbsp Password changed successfully!</div>";
+		  echo "<div class='widget' style='text-align:center;color:white;background-color:rgb(25,25,25);margin-left:8%;margin-bottom:0%;margin-right:8%;margin-top:15%;'><i class='fas fa-wrench'></i>&nbsp Password changed successfully!</div>";
 		}	
 		else
 		{
-		   echo "<div class='widget' style='text-align:center;color:red;margin-left:8%;margin-bottom:0%;margin-right:8%;'>Error changing Password.</div>";
+		   echo "<div class='widget' style='text-align:center;color:white;background-color:rgb(25,25,25);margin-left:8%;margin-bottom:0%;margin-right:8%;margin-top:15%;'>Error changing Password.</div>";
 		}
 	}
 
@@ -254,14 +254,18 @@ body
 
 <div class="dashboard">
 
-	<div class="widget" style="padding: 4%; margin: 4%; background-color: transparent;box-shadow: none;">
+	<div class="widget" 
+  style="padding: 4%; margin: 4%; background-color: transparent;box-shadow: none;">
 		
 
 		<form action="" method="POST">
 
-			<div class="formSection" style="padding: 4%;">
+			<div class="formSection" 
+      style="padding: 4%;color:white;background-color:rgb(25,25,25);">
 
-				<h1 class="widgetTitle" style="color:white;margin-left: 4%;margin-right: 4%">
+				<h1 class="widgetTitle" 
+        style="color:white;background-color:rgb(25,25,25);
+        margin-left: 4%;margin-right: 4%">
 
 				Change Password &nbsp<i class="fas fa-cogs"></i>
 

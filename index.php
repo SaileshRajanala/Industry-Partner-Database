@@ -422,7 +422,7 @@
           </h1>
 
           <form action="Industry-Partner-Form.html" method="POST">
-          <button class="linkB">
+          <button class="linkB" style="margin-left: 2.5%">
             Industry Partner Form &nbsp
             <i class="fas fa-pen-nib"></i>
           </button>
