@@ -317,7 +317,27 @@
           echo '<h1 class="widgetTitle">Today\'s Entries' . 
                '&nbsp <i class="fas fa-user-plus"></i></h1>';
 
+          // display overflow control below
+          $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC ";
+
+          $sql .= " LIMIT 25 ";
+          
+          $result = $conn->query($sql);
+
           echo printRecords($sql);
+
+          if ($result->num_rows >= 25) 
+          {
+            echo "<p style='margin-left:2%;margin-right:2%'> 
+                  <i class=\"fas fa-exclamation-circle\"></i> 
+                  &nbspDisplaying only the latest 25 records for \"Today's Entries\". 
+                  </p>";
+
+            echo '<form method="POST" action="advancedSearch.php" target="_blank"><button class="searchSuggestion" type="submit" name="advancedSearchButton" 
+            value=" WHERE DATE(CONVERT_TZ(`Timestamp`,\'+00:00\',\'-05:00\')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),\'+00:00\',\'-05:00\')) "><i class="fab fa-sistrix" aria-hidden="true"></i>  &nbsp;View all Today\'s Entries </button></form>';
+
+
+          }
         }
         else // No entries for today
         {
@@ -430,7 +450,7 @@
 
             if ($result->num_rows >= 50) 
             {
-              echo "<p style='margin-left:4%;margin-right:4%'> 
+              echo "<p style='margin-left:2%;margin-right:2%'> 
                     <i class=\"fas fa-exclamation-circle\"></i> 
                     &nbspDisplaying only the latest 50 records. 
                     Search or Export all data to access older records. 
@@ -543,13 +563,14 @@
 
       echo printRecordPreviews(
 
-        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC"
+        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 25 "
 
       );
+      // limit 25 added for above query to control a lot of scrolling
 
       echo printRecordPreviews(
 
-        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 50"
+        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 50 "
 
       );
       // limit 50 added for above query to control a lot of scrolling
