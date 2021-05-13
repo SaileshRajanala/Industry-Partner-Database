@@ -740,7 +740,8 @@ function optionDetectionRules($columnName, $option)
 
   2, a
 
-*/
+  */
+  
   $rules = "";
 
   $rules .= 'OR UPPER(' . $columnName . ') = UPPER(' . 
