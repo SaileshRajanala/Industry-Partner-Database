@@ -279,13 +279,13 @@ suggestions.push(linkSuggestion('Contact Support',
   'none', '<i class="far fa-envelope"></i>'));
   
 // Tech Support Emails
-suggestions.push(linkSuggestion('Email Sailesh &nbsp(Tech Support)', 'mailto:sxrajanala@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
-suggestions.push(linkSuggestion('Email Priyanka &nbsp(Tech Support)', 'mailto:pxlimbu@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
-suggestions.push(linkSuggestion('Email Shiva &nbsp(Tech Support)', 'mailto:sxkarki6@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
-suggestions.push(linkSuggestion('Email Subash &nbsp(Tech Support)', 'mailto:sxacharya5@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
+// suggestions.push(linkSuggestion('Email Sailesh &nbsp(Tech Support)', 'mailto:sxrajanala@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
+// suggestions.push(linkSuggestion('Email Priyanka &nbsp(Tech Support)', 'mailto:pxlimbu@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
+// suggestions.push(linkSuggestion('Email Shiva &nbsp(Tech Support)', 'mailto:sxkarki6@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
+// suggestions.push(linkSuggestion('Email Subash &nbsp(Tech Support)', 'mailto:sxacharya5@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
 
 suggestions.push(linkSuggestion('Email Team Lotus (all members)', 
-'mailto:sxrajanala@shockers.wichita.edu,pxlimbu@shockers.wichita.edu,sxkarki6@shockers.wichita.edu,sxacharya5@shockers.wichita.edu',
+'mailto:sxrajanala@shockers.wichita.edu,pxlimbu@shockers.wichita.edu,sxkarki6@shockers.wichita.edu,sxacharya5@shockers.wichita.edu,sailesh777@live.com',
 'none', '<i class="far fa-envelope"></i>'));
 
 // Theme Suggestions

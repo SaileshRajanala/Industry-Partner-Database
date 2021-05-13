@@ -396,6 +396,8 @@
 
           $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC";
 
+          $sql .= " LIMIT 50 "; // important for overflow control
+
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) 
@@ -524,9 +526,9 @@
 
       echo printRecordPreviews(
 
-        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC"
+        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 50"
 
-        );
+      );
 
     ?>
 

@@ -491,7 +491,12 @@ body
 
 .helpArticle h2
 {
-    background-color: black;
+    background-color: white;
+	top: -3%;
+	padding: 2%;
+	border-radius: 1em;
+	position: -webkit-sticky;
+	position: sticky;
 }
 
 .previewTitle {
