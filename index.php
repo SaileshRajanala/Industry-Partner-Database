@@ -376,14 +376,28 @@
 
 
         <!-- DAILY SUGGESTIONS START -->
-        <div class="widget" id="dailySuggestionsDiv"> 
+        <?php
+
+        $sql = "SELECT * FROM Industry_Partner_Database";
+
+        $result = $conn->query($sql);
+
+        if ($result->num_rows >= 4)
+          echo '<div class="widget" style="display:block" id="dailySuggestionsDiv">';
+        else
+          echo '<div class="widget" style="display:none" id="dailySuggestionsDiv">';
+
+        ?>
           
-          <h1 class="widgetTitle"> Daily Suggestions &nbsp<i class="fas fa-lightbulb"></i></h1>
+          <h1 class="widgetTitle"> 
+            Daily Suggestions &nbsp<i class="fas fa-lightbulb"></i>
+          </h1>
 
         </div>
 
         <script type="text/javascript" src="dailySuggestions.js"></script>
         <!-- DAILY SUGGESTIONS END -->
+
 
 
 
@@ -396,7 +410,7 @@
 
           $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC";
 
-          $sql .= " LIMIT 10 "; // important for overflow control
+          $sql .= " LIMIT 50 "; // important for overflow control
 
           $result = $conn->query($sql);
 
@@ -414,11 +428,11 @@
 
             echo printRecords($sql);
 
-            if ($result->num_rows >= 10) 
+            if ($result->num_rows >= 50) 
             {
               echo "<p style='margin-left:4%;margin-right:4%'> 
                     <i class=\"fas fa-exclamation-circle\"></i> 
-                    &nbspDisplaying only the latest 10 records. 
+                    &nbspDisplaying only the latest 50 records. 
                     Search or Export all data to access older records. 
                     </p>";
             }
@@ -535,9 +549,10 @@
 
       echo printRecordPreviews(
 
-        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 5"
+        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 50"
 
       );
+      // limit 50 added for above query to control a lot of scrolling
 
     ?>
 
