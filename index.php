@@ -396,7 +396,7 @@
 
           $sql = "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC";
 
-          $sql .= " LIMIT 50 "; // important for overflow control
+          $sql .= " LIMIT 10 "; // important for overflow control
 
           $result = $conn->query($sql);
 
@@ -413,6 +413,15 @@
             echo "</h1>";
 
             echo printRecords($sql);
+
+            if ($result->num_rows >= 10) 
+            {
+              echo "<p style='margin-left:4%;margin-right:4%'> 
+                    <i class=\"fas fa-exclamation-circle\"></i> 
+                    &nbspDisplaying only the latest 10 records. 
+                    Search or Export all data to access older records. 
+                    </p>";
+            }
 
             echo "</div>";
           }
@@ -526,7 +535,7 @@
 
       echo printRecordPreviews(
 
-        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 50"
+        "SELECT " . $insertSchema . ", Timestamp FROM Industry_Partner_Database WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) != DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC LIMIT 5"
 
       );
 
