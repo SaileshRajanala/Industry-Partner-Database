@@ -284,7 +284,7 @@ suggestions.push(linkSuggestion('Contact Support',
 // suggestions.push(linkSuggestion('Email Shiva &nbsp(Tech Support)', 'mailto:sxkarki6@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
 // suggestions.push(linkSuggestion('Email Subash &nbsp(Tech Support)', 'mailto:sxacharya5@shockers.wichita.edu', 'none', '<i class="far fa-envelope"></i>'));
 
-suggestions.push(linkSuggestion('Email Team Lotus (all members)', 
+suggestions.push(linkSuggestion('Email Team Lotus', 
 'mailto:sxrajanala@shockers.wichita.edu,pxlimbu@shockers.wichita.edu,sxkarki6@shockers.wichita.edu,sxacharya5@shockers.wichita.edu,sailesh777@live.com',
 'none', '<i class="far fa-envelope"></i>'));
 
@@ -313,7 +313,7 @@ suggestions.push(searchSuggestion(
 
 // Today's Entries
 suggestions.push(precisionSearchSuggestion('Search for Today\'s Entries ', 
-" WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC"
+" WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) "
 ));
 
 
