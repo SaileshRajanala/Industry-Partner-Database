@@ -311,6 +311,10 @@ suggestions.push(searchSuggestion(
   "<i class='fas fa-arrow-circle-down'></i>"));
 
 
+// Today's Entries
+suggestions.push(precisionSearchSuggestion('Search for Today\'s Entries ', 
+" WHERE DATE(CONVERT_TZ(`Timestamp`,'+00:00','-05:00')) = DATE(CONVERT_TZ(CURRENT_TIMESTAMP(),'+00:00','-05:00')) ORDER BY Timestamp DESC"
+));
 
 
 // Mail Suggestions
